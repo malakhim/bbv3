@@ -1,0 +1,6 @@
+tree ecf7381231b6162952652bebf4923b72af3a8cf2
+parent 8b4563a83850d40a5c7ade397d0b5d34122bba20
+author Bryan Wu <bryan.wu@bryonics.com> 1394255268 +1100
+committer Bryan Wu <bryan.wu@bryonics.com> 1394255268 +1100
+
+company id and vendor status set on user
