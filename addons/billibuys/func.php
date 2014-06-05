@@ -7,7 +7,7 @@
 
 
 if ( !defined('AREA') ) { die('Access denied'); }
-
+var_dump("test");
 /**
  * Find position of Nth occurance of search string
  * @param string $search The search string
