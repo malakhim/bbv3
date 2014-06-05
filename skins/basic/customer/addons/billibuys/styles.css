@@ -488,8 +488,12 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: 0px;
 }
 
+.logo-container{
+	min-height: 53px;
+}
+
 .logo-container .logo{
-	margin-top:-28px;
+	margin-top:-10px;
 }
 
 .flat_link{
