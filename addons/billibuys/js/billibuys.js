@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+//testing
   $('.top_menu_item').click(function(){
     // FIXME: We're not accounting for middle mouse button clicks due to issues with Chrome
     window.location.href = 'index.php?dispatch='+$(this).attr('href');
