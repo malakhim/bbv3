@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-05 18:12:14
+<?php /* Smarty version 2.6.18, created on 2014-06-06 05:37:20
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl', 11, false),)), $this); ?>
@@ -37,5 +37,5 @@ fn_preload_lang_vars(array('about','testimonials','contact_us','log_in','registe
 "><span class="omega grid_4 flat_link grey login-link">
 	<?php echo fn_get_lang_var('log_in', $this->getLanguage()); ?>
 /<?php echo fn_get_lang_var('register', $this->getLanguage()); ?>
- 
+
 </span></a><?php  ob_end_flush();  ?>

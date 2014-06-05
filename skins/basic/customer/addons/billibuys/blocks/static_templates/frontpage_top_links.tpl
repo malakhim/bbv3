@@ -21,5 +21,5 @@
 </span></a>
 
 <a href="{'auth.login_form'|fn_url}"><span class="omega grid_4 flat_link grey login-link">
-	{$lang.log_in}/{$lang.register}  
+	{$lang.log_in}/{$lang.register}
 </span></a>
