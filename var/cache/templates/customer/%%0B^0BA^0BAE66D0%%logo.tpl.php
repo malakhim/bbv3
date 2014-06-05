@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-06 05:19:00
+<?php /* Smarty version 2.6.18, created on 2014-06-06 05:21:10
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/logo.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/logo.tpl', 9, false),)), $this); ?>
@@ -14,5 +14,4 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C
 /logo_1.png') no-repeat; width:360px; height:112px;" title="<?php echo $this->_tpl_vars['manifest']['Customer_logo']['alt']; ?>
 " class="logo"></a>
 	
-	blargh
 	</div><?php  ob_end_flush();  ?>
