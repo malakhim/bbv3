@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-05 17:58:08
+<?php /* Smarty version 2.6.18, created on 2014-06-07 16:26:42
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/for_the_sellers_frontpage.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('for_the_sellers','jumbotron_seller_heading','jumbotron_seller_subheading','learn_more'));

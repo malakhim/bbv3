@@ -24,10 +24,14 @@
 	margin-top: 10px;
 }
 
+#second-top-nav-elements a:hover{
+	text-decoration: none;
+}
+
 .top_menu_item{
 	font-family: Nunito;
 	font-size: 15pt;
-	padding-left: 30px;
+	margin-right: 30px;
 	color: white;
 	cursor: pointer;
 }
@@ -546,16 +550,6 @@ html.ie9 .how_does_it_work_block div {
 
 .left-side-nav-image-opened{
 	background-image: url("images/left-nav-arrow-up.png");
-}
-
-.mainbox2-title{
-	border: none;
-}
-
-.mainbox2-title span{
-	font-size: 18pt;
-	font-family: Nunito;
-	color: #4357a6;
 }
 
 .bb_table th{

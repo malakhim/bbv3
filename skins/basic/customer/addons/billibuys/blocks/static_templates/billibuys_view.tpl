@@ -17,6 +17,7 @@
 	<a href="{"auth.login_form&return_url=billibuys.place_request"|fn_url}">{$lang.bb_text_log_in_to_place_request}</a>
 {/if}
 *}
+
 <div id="bb_requests">
 	{if $requests.success eq 1}
 	{include file="common_templates/pagination.tpl"}

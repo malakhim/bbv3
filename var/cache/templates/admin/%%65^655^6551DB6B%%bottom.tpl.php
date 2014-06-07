@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-04 13:44:12
+<?php /* Smarty version 2.6.18, created on 2014-06-07 02:46:54
          compiled from bottom.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_link_attach', 'bottom.tpl', 1, false),array('modifier', 'defined', 'bottom.tpl', 15, false),array('modifier', 'fn_check_view_permissions', 'bottom.tpl', 23, false),array('modifier', 'fn_url', 'bottom.tpl', 26, false),array('modifier', 'sizeof', 'bottom.tpl', 42, false),array('modifier', 'default', 'bottom.tpl', 45, false),array('modifier', 'lower', 'bottom.tpl', 49, false),array('modifier', 'unescape', 'bottom.tpl', 58, false),array('modifier', 'truncate', 'bottom.tpl', 117, false),array('modifier', 'fn_check_meta_redirect', 'bottom.tpl', 130, false),array('block', 'hook', 'bottom.tpl', 109, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('open_store','close_store','live_store_description','
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/last_viewed_items.tpl' => 1367063753,
+  'common_templates/last_viewed_items.tpl' => 1401952794,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

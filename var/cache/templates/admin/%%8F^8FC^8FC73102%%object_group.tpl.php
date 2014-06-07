@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-04 13:44:12
+<?php /* Smarty version 2.6.18, created on 2014-06-07 02:46:53
          compiled from common_templates/object_group.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'common_templates/object_group.tpl', 1, false),array('modifier', 'fn_url', 'common_templates/object_group.tpl', 23, false),array('modifier', 'lower', 'common_templates/object_group.tpl', 67, false),array('modifier', 'is_array', 'common_templates/object_group.tpl', 71, false),array('modifier', 'fn_from_json', 'common_templates/object_group.tpl', 72, false),array('modifier', 'trim', 'common_templates/object_group.tpl', 142, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('delete','delete','edit','edit','active','hidden','di
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/select_popup.tpl' => 1367063753,
+  'common_templates/select_popup.tpl' => 1401952794,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -314,4 +314,4 @@ _notify_supplier"><?php if (@PRODUCT_TYPE == 'MULTIVENDOR' || @PRODUCT_TYPE == '
 	</div>
 <!--<?php echo $this->_tpl_vars['row_id']; ?>
 --></div>
-<?php endif; ?>
+<?php endif; ?>

@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:851:"<products>
+a:2:{s:4:"data";s:865:"<products>
 	<item title="bb_billibuys" dispatch="billibuys.view_requests" />
 </products>
 <customers>

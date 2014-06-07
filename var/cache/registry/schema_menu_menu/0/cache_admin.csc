@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:18996:"<orders>
+a:2:{s:4:"data";s:19170:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />

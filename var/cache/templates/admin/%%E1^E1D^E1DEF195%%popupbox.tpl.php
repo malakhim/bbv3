@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-04 13:44:13
+<?php /* Smarty version 2.6.18, created on 2014-06-07 02:46:53
          compiled from common_templates/popupbox.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'common_templates/popupbox.tpl', 15, false),array('modifier', 'fn_check_view_permissions', 'common_templates/popupbox.tpl', 17, false),array('modifier', 'fn_url', 'common_templates/popupbox.tpl', 20, false),array('modifier', 'unescape', 'common_templates/popupbox.tpl', 26, false),array('modifier', 'escape', 'common_templates/popupbox.tpl', 137, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('edit','view','view','remove_this_item','remove_this_
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'buttons/button.tpl' => 1367063752,
+  'buttons/button.tpl' => 1401952794,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
