@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-07 02:47:01
+<?php /* Smarty version 2.6.18, created on 2014-06-09 13:55:31
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_bb_get_categories', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl', 5, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_bb_get_categories', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl', 5, false),array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl', 12, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('categories'));
 ?>
@@ -19,12 +19,13 @@ fn_preload_lang_vars(array('categories'));
 ?>
 	<?php if ($this->_tpl_vars['cat']['status'] == 'A'): ?>
 		<?php if ($this->_tpl_vars['cat']['parent_category_id'] == 0): ?>
-			<div class="root-lvl-cat" cat_id="<?php echo $this->_tpl_vars['cat']['bb_request_category_id']; ?>
+			<a href="<?php echo fn_url("billibuys.view?category_id=".($this->_tpl_vars['cat']['bb_request_category_id'])); ?>
+"><span class="root-lvl-cat" cat_id="<?php echo $this->_tpl_vars['cat']['bb_request_category_id']; ?>
 ">
 				<?php echo $this->_tpl_vars['cat']['category_name']; ?>
 
-				<?php if ($this->_tpl_vars['cat']['children_categories']): ?><div class="left-side-nav-img" width="10px"></div><?php endif; ?>
-			</div>
+				<?php if ($this->_tpl_vars['cat']['children_categories']): ?><span class="left-side-nav-img" width="10px"></span><?php endif; ?>
+			</span></a>
 		<?php else: ?>
 			<div class="second-lvl-cat" cat_id="<?php echo $this->_tpl_vars['cat']['bb_request_category_id']; ?>
 "><?php echo $this->_tpl_vars['cat']['category_name']; ?>

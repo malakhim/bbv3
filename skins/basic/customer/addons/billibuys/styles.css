@@ -338,6 +338,7 @@ html.ie9 .how_does_it_work_block div {
 
 .about_heading{
 	font-size: 26pt;	
+	color: #424244;
 }
 
 .about_heading .billibuys_coloured_1{
@@ -367,6 +368,7 @@ html.ie9 .how_does_it_work_block div {
 #billibuys_about_text{
 	font-size: 14pt;
 	line-height: 35px;
+	color: #424244;
 }
 
 .footer{
@@ -504,25 +506,36 @@ html.ie9 .how_does_it_work_block div {
 	cursor: pointer;
 }
 
-.cat-left-side-nav div{
+.cat-left-side-nav span{
 	padding-left: 10px;
+}
+
+
+.cat-left-side-nav a{
+	text-decoration: none;
+}
+
+.root-lvl-cat:hover{
+	background-color: #4357a6;
 }
 
 #cat-header{
 	background-color: black;
-	color: white;
+	color: wnhite;
 	font-weight: bolder;
 	padding-top:5px;
 	padding-bottom:5px;	
+	padding-left: 10px;
 }
 
 .root-lvl-cat{
-	cursor: pointer;
+	/*cursor: pointer;*/
 	color: white;
 	font-weight: bolder;
 	background-color: #00a99d;
 	padding-top:5px;
 	padding-bottom:5px;
+	display:block;
 }
 
 .second-lvl-cat{

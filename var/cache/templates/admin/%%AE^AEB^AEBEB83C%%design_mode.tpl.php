@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-09 13:42:58
-         compiled from buttons/sign_out.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2014-06-09 13:42:59
+         compiled from views/site_layout/design_mode.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/sign_out.tpl', 38, false),array('modifier', 'fn_check_view_permissions', 'buttons/sign_out.tpl', 39, false),array('modifier', 'fn_url', 'buttons/sign_out.tpl', 45, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/site_layout/design_mode.tpl', 21, false),array('modifier', 'defined', 'views/site_layout/design_mode.tpl', 23, false),array('modifier', 'default', 'views/site_layout/design_mode.tpl', 55, false),array('modifier', 'fn_check_view_permissions', 'views/site_layout/design_mode.tpl', 56, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('remove_this_item','remove_this_item'));
+fn_preload_lang_vars(array('disable_customization_mode','view_storefront_customization_mode','enable_customization_mode','remove_this_item','remove_this_item','design_mode'));
 ?>
-<?php  ob_start();  ?><?php 
+<?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
@@ -19,7 +19,27 @@ fn_preload_lang_vars(array('remove_this_item','remove_this_item'));
 						return;
 					}
 				}
-			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => '&nbsp;', 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_role' => $this->_tpl_vars['but_role'], )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
+			 ?><?php ob_start(); ?>
+
+
+
+<div class="section-border design-mode">
+	<div class="clear">
+		<form action="<?php echo fn_url(""); ?>
+" method="post" name="customization_mode_form">
+		<input type="hidden" name="design_mode" value="customization_mode" />
+		<?php if (defined('CUSTOMIZATION_MODE')): ?>
+			<?php $this->assign('mode_val', fn_get_lang_var('disable_customization_mode', $this->getLanguage()), false); ?>
+			<?php $this->assign('dispatch_val', "dispatch[site_layout.update_design_mode]", false); ?>
+			<a href="<?php echo fn_url("profiles.act_as_user?user_id=".($this->_tpl_vars['auth']['user_id'])."&amp;area=C".($this->_tpl_vars['extra_url'])); ?>
+" target="_blank"><?php echo fn_get_lang_var('view_storefront_customization_mode', $this->getLanguage()); ?>
+</a>
+		<?php else: ?>
+			<?php $this->assign('mode_val', fn_get_lang_var('enable_customization_mode', $this->getLanguage()), false); ?>
+			<?php $this->assign('dispatch_val', "dispatch[site_layout.update_design_mode.customization_mode]", false); ?>
+			<input type="hidden" name="disable_mode" value="<?php if (defined('TRANSLATION_MODE')): ?>translation_mode<?php endif; ?>" />
+		<?php endif; ?>
+		<p><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_name' => $this->_tpl_vars['dispatch_val'], 'but_role' => 'button_main', 'but_text' => $this->_tpl_vars['mode_val'], )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
 	<?php $this->assign('class', "text-link", false); ?>
 <?php elseif ($this->_tpl_vars['but_role'] == 'delete'): ?>
 	<?php $this->assign('class', "text-button-delete", false); ?>
@@ -111,4 +131,12 @@ fn_preload_lang_vars(array('remove_this_item','remove_this_item'));
 "<?php endif; ?> />
 <?php endif; ?>
 
-<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?></p>
+		</form>
+	</div>
+</div>
+<?php $this->_smarty_vars['capture']['mainbox'] = ob_get_contents(); ob_end_clean(); ?>
+<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/mainbox.tpl", 'smarty_include_vars' => array('title' => fn_get_lang_var('design_mode', $this->getLanguage()),'content' => $this->_smarty_vars['capture']['mainbox'])));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>

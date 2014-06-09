@@ -125,6 +125,9 @@
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item_archive</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
+		<item for="uninstall">DELETE FROM ?:images WHERE image_id IN (SELECT detailed_id FROM ?:images_links WEHRE object_type LIKE "request")</item>
+		<item for="uninstall">DELETE FROM ?:images_links WHERE object_type LIKE "request"</item>
 		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_categories</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_category_descriptions</item> -->
 	</queries>
