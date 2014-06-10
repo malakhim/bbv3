@@ -232,12 +232,12 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .breadcrumbs a{
-	/*color: #525252!important;*/
+	color: #525252!important;
 	font-size: 10pt;
 }
 
 .breadcrumbs a:last-child{
-	color: black;
+	color: black!important;
 }
 
 .for_the_buyers_block, .for_the_sellers_block{
