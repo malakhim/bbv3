@@ -507,11 +507,13 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .cat-left-side-nav{
-	border: 1px gray solid;
+	border: thin rgb(228, 228, 228) solid;
+	border-radius: 0.3em;
 }
 
 .cat-left-side-nav span{
 	padding-left: 10px;
+	border-top: thin rgb(228, 228, 228) solid;
 }
 
 
@@ -520,8 +522,8 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .root-lvl-cat:hover{
-	background-color: #4357a6;
-	font-weight: bolder;
+	/*background-color: #4357a6;*/
+	/*font-weight: bolder;*/
 	/*text-decoration: underline;*/
 }
 
@@ -532,6 +534,8 @@ html.ie9 .how_does_it_work_block div {
 	padding-top:5px;
 	padding-bottom:5px;	
 	padding-left: 10px;
+	border-top-left-radius: 0.3em;
+	border-top-right-radius: 0.3em;
 }
 
 .root-lvl-cat{
