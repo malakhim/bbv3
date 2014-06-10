@@ -18,6 +18,9 @@
 {/if}
 *}
 
+{include file="common_templates/breadcrumbs.tpl"}
+
+
 <div id="bb_requests">
 	{if $requests.success eq 1}
 	{include file="common_templates/pagination.tpl"}
@@ -86,8 +89,8 @@
 	{/if}
 </div>
 
-{if $category_title}
+{*if $category_title}
 	{capture name="title"}<span>{$category_title}</span>{/capture}
 {else}
 	{capture name="title"}<span>{$lang.view_requests}</span>{/capture}
-{/if}
+{/if*}

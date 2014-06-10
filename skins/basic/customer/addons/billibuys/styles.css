@@ -227,6 +227,15 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: 50px; /*FIXME: This is just a fix for the second nav bar hiding breadcrumbs */;
 }
 
+.mainbox-title{
+	display:none;
+}
+
+.breadcrumbs a{
+	color: #3A3A3A;
+	font-size: 10pt;
+}
+
 .for_the_buyers_block, .for_the_sellers_block{
 	background-color: rgb(255, 255, 255);
 	opacity:.80;

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-09 13:55:31
+<?php /* Smarty version 2.6.18, created on 2014-06-10 18:25:03
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_bb_get_categories', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl', 5, false),array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl', 12, false),)), $this); ?>
@@ -9,11 +9,11 @@ fn_preload_lang_vars(array('categories'));
 <script src="addons/billibuys/js/left_nav.js" type="text/javascript"></script>
 '; ?>
 
-
-<?php $this->assign('bb_cats', fn_bb_get_categories(""), false); ?>
-<div class="cat-left-side-nav">
 <div id="cat-header"><?php echo fn_get_lang_var('categories', $this->getLanguage()); ?>
 </div>
+<?php $this->assign('bb_cats', fn_bb_get_categories(""), false); ?>
+<div class="cat-left-side-nav">
+
 <?php $_from = $this->_tpl_vars['bb_cats']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['cat']):
 ?>
