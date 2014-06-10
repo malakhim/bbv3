@@ -515,6 +515,8 @@ html.ie9 .how_does_it_work_block div {
 .cat-left-side-nav span{
 	padding-left: 10px;
 	border-top: thin rgb(228, 228, 228) solid;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
 
@@ -525,6 +527,7 @@ html.ie9 .how_does_it_work_block div {
 .root-lvl-cat:hover{
 	background-color: #4357a6;
 	font-weight: bolder;
+	color: white;
 	/*text-decoration: underline;*/
 }
 
@@ -532,8 +535,8 @@ html.ie9 .how_does_it_work_block div {
 	background-color: black;
 	color: white;
 	font-weight: bolder;
-	padding-top:5px;
-	padding-bottom:5px;	
+	padding-top:10px;
+	padding-bottom:10px;	
 	padding-left: 10px;
 	border-top-left-radius: 0.3em;
 	border-top-right-radius: 0.3em;
@@ -541,7 +544,7 @@ html.ie9 .how_does_it_work_block div {
 
 .root-lvl-cat{
 	/*cursor: pointer;*/
-	color: black;
+	color: #4357a6;
 	/*font-weight: bolder;*/
 	/*background-color: #00a99d;*/
 	padding-top:5px;

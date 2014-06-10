@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-04 21:19:51
+<?php /* Smarty version 2.6.18, created on 2014-06-10 18:12:56
          compiled from views/block_manager/update_container.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/block_manager/update_container.tpl', 2, false),array('modifier', 'fn_url', 'views/block_manager/update_container.tpl', 5, false),)), $this); ?>
@@ -58,4 +58,4 @@ unset($_smarty_tpl_vars);
 </div>
 </form>
 <!--container_properties_<?php echo $this->_tpl_vars['id']; ?>
---></div>
+--></div>
