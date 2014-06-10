@@ -534,10 +534,10 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .root-lvl-cat:hover{
-	background-color:#3152D6;
-	font-weight: bolder;
-	color: white;
-	/*text-decoration: underline;*/
+	/*background-color:#3152D6;*/
+	/*font-weight: bolder;*/
+	color: rgb(119, 168, 241);
+	text-decoration: underline;
 }
 
 #cat-header{
