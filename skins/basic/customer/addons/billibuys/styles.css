@@ -232,7 +232,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .breadcrumbs a{
-	color: #525252!important;
+	/*color: #525252!important;*/
 	font-size: 10pt;
 }
 
@@ -557,7 +557,8 @@ html.ie9 .how_does_it_work_block div {
 
 .root-lvl-cat{
 	/*cursor: pointer;*/
-	color: #4357a6;
+	/*color: #4357a6;*/
+	color: #525252;
 	/*font-weight: bolder;*/
 	/*background-color: #00a99d;*/
 	padding-top:5px;
