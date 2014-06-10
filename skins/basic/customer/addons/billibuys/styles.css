@@ -227,7 +227,7 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: 50px; /*FIXME: This is just a fix for the second nav bar hiding breadcrumbs */;
 }
 
-.mainbox-title{
+.billibuys-view-mainbox .mainbox-title{
 	display:none;
 }
 
@@ -521,7 +521,7 @@ html.ie9 .how_does_it_work_block div {
 
 .cat-left-side-nav{
 	border: thin rgb(228, 228, 228) solid;
-	border-radius: 0.3em;
+	border-radius: 0.5em;
 	min-width: 140px;
 }
 
@@ -551,8 +551,8 @@ html.ie9 .how_does_it_work_block div {
 	padding-top:10px;
 	padding-bottom:10px;	
 	padding-left: 10px;
-	border-top-left-radius: 0.3em;
-	border-top-right-radius: 0.3em;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
 }
 
 .root-lvl-cat{
