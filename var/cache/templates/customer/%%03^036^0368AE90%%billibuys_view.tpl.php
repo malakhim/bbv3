@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-09 13:43:04
+<?php /* Smarty version 2.6.18, created on 2014-06-10 14:43:25
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 37, false),array('modifier', 'fn_query_remove', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 55, false),array('modifier', 'escape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 55, false),array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 68, false),array('modifier', 'unescape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 199, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 199, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 202, false),array('function', 'script', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 40, false),array('function', 'cycle', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 108, false),array('function', 'math', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 117, false),)), $this); ?>
@@ -180,14 +180,14 @@ fn_preload_lang_vars(array('prev_page','next','title','time_remaining','lowest_b
 					<td>
 						<table class="bb_subtable">
 						<tr>
-							<td class="view-cta-button view" id="<?php echo $this->_tpl_vars['request']['bb_request_id']; ?>
+							<td class="view-cta-button bid" id="<?php echo $this->_tpl_vars['request']['bb_request_id']; ?>
 "><?php echo fn_get_lang_var('view', $this->getLanguage()); ?>
 </td>
 						</tr>
-						<tr>
+				<!-- 		<tr>
 							<td class="view-cta-button bid"><?php echo fn_get_lang_var('bid', $this->getLanguage()); ?>
 </td>
-						</tr>
+						</tr> -->
 					</table>
 					</td>
 

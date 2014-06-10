@@ -117,8 +117,15 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			)
 		);
 
+
+
 		// Get database results
 		$request = fn_get_request($params);
+
+		// Get image_id
+		$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'request'",$_GET['request_id']);
+
+		$request['image'] = fn_get_image_pairs($_GET['request_id'], 'request', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
 
 		if(empty($request)){
 			return array(CONTROLLER_STATUS_NO_PAGE);

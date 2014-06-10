@@ -506,6 +506,10 @@ html.ie9 .how_does_it_work_block div {
 	cursor: pointer;
 }
 
+.cat-left-side-nav{
+	border: 1px gray solid;
+}
+
 .cat-left-side-nav span{
 	padding-left: 10px;
 }
@@ -517,11 +521,13 @@ html.ie9 .how_does_it_work_block div {
 
 .root-lvl-cat:hover{
 	background-color: #4357a6;
+	font-weight: bolder;
+	/*text-decoration: underline;*/
 }
 
 #cat-header{
 	background-color: black;
-	color: wnhite;
+	color: white;
 	font-weight: bolder;
 	padding-top:5px;
 	padding-bottom:5px;	
@@ -530,9 +536,9 @@ html.ie9 .how_does_it_work_block div {
 
 .root-lvl-cat{
 	/*cursor: pointer;*/
-	color: white;
-	font-weight: bolder;
-	background-color: #00a99d;
+	color: black;
+	/*font-weight: bolder;*/
+	/*background-color: #00a99d;*/
 	padding-top:5px;
 	padding-bottom:5px;
 	display:block;
@@ -637,4 +643,9 @@ html.ie9 .how_does_it_work_block div {
 
 .bb-product-info{
 	font-weight: bolder;
+}
+
+#info-box{
+	float: right;
+	margin-right: 180px;
 }

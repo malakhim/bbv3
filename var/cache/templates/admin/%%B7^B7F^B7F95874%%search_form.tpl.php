@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-04 13:44:32
+<?php /* Smarty version 2.6.18, created on 2014-06-10 14:44:22
          compiled from addons/seo/views/seo_rules/components/search_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/seo/views/seo_rules/components/search_form.tpl', 17, false),array('function', 'math', 'addons/seo/views/seo_rules/components/search_form.tpl', 46, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('seo_name','search','search','dispatch_value','close'
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/section.tpl' => 1367063753,
+  'common_templates/section.tpl' => 1401952794,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

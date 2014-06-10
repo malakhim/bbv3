@@ -57,11 +57,11 @@
 					<td>
 						<table class="bb_subtable">
 						<tr>
-							<td class="view-cta-button view" id="{$request.bb_request_id}">{$lang.view}</td>
+							<td class="view-cta-button bid" id="{$request.bb_request_id}">{$lang.view}</td>
 						</tr>
-						<tr>
+				<!-- 		<tr>
 							<td class="view-cta-button bid">{$lang.bid}</td>
-						</tr>
+						</tr> -->
 					</table>
 					</td>
 

@@ -1,5 +1,6 @@
 {capture name="mainbox_title"}{$request.title}{/capture}
 
+<div id="info-box">
 {foreach from=$request item=r key=k}
 	{if $k NEQ "title" && $k NEQ "bb request id" && $k NEQ "id" && $k NEQ "timestamp" && $k NEQ "user id"}
 		{if $k EQ 'expiry date'}
@@ -11,7 +12,8 @@
 		{/if}
 	{/if}
 {/foreach}
-
+</div>
+{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$request.image show_thumbnail="N" no_ids=true class="request-list-image"}
 <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
 	<tr>
 		<th>{$lang.item}</th>
