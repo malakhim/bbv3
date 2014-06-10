@@ -509,6 +509,7 @@ html.ie9 .how_does_it_work_block div {
 .cat-left-side-nav{
 	border: thin rgb(228, 228, 228) solid;
 	border-radius: 0.3em;
+	min-width: 140px;
 }
 
 .cat-left-side-nav span{
@@ -522,8 +523,8 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .root-lvl-cat:hover{
-	/*background-color: #4357a6;*/
-	/*font-weight: bolder;*/
+	background-color: #4357a6;
+	font-weight: bolder;
 	/*text-decoration: underline;*/
 }
 
