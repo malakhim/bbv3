@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-10 18:41:27
+<?php /* Smarty version 2.6.18, created on 2014-06-10 18:54:49
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'sizeof', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 37, false),array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 45, false),array('modifier', 'unescape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 45, false),array('modifier', 'strip_tags', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 45, false),array('modifier', 'escape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 45, false),array('modifier', 'default', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 60, false),array('modifier', 'fn_query_remove', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 78, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 222, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 225, false),array('function', 'script', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 63, false),array('function', 'cycle', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 131, false),array('function', 'math', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 140, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 37, false),array('modifier', 'fn_query_remove', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 55, false),array('modifier', 'escape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 55, false),array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 68, false),array('modifier', 'unescape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 199, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 199, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 202, false),array('function', 'script', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 40, false),array('function', 'cycle', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 108, false),array('function', 'math', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 117, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('prev_page','next','title','time_remaining','lowest_bid','view_larger_image','two_weeks_plus','invalid_date_format','date_nonpositive','bb_no_bids','view','bid','prev_page','next','no_current_requests_found','please_login','bb_error_occurred'));
 ?>
@@ -22,25 +22,6 @@ fn_preload_lang_vars(array('prev_page','next','title','time_remaining','lowest_b
 			 ?><?php echo '
 <script src="addons/billibuys/js/view_requests.js" type="text/javascript"></script>
 '; ?>
-
-
-<?php $__parent_tpl_vars = $this->_tpl_vars; ?><div id="breadcrumbs_<?php echo $this->_tpl_vars['block']['block_id']; ?>
-">
-
-<?php if ($this->_tpl_vars['breadcrumbs'] && sizeof($this->_tpl_vars['breadcrumbs']) > 1): ?>
-	<div class="breadcrumbs clearfix">
-		<?php echo ''; ?><?php $_from = $this->_tpl_vars['breadcrumbs']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['bcn'] = array('total' => count($_from), 'iteration' => 0);
-if ($this->_foreach['bcn']['total'] > 0):
-    foreach ($_from as $this->_tpl_vars['key'] => $this->_tpl_vars['bc']):
-        $this->_foreach['bcn']['iteration']++;
-?><?php echo ''; ?><?php if ($this->_tpl_vars['key'] != '0'): ?><?php echo '<img src="'; ?><?php echo $this->_tpl_vars['images_dir']; ?><?php echo '/icons/breadcrumbs_arrow.gif" class="bc-arrow" border="0" alt="&gt;" />'; ?><?php endif; ?><?php echo ''; ?><?php if ($this->_tpl_vars['bc']['link']): ?><?php echo '<a href="'; ?><?php echo fn_url($this->_tpl_vars['bc']['link']); ?><?php echo '"'; ?><?php if ($this->_tpl_vars['additional_class']): ?><?php echo ' class="'; ?><?php echo $this->_tpl_vars['additional_class']; ?><?php echo '"'; ?><?php endif; ?><?php echo ''; ?><?php if ($this->_tpl_vars['bc']['nofollow']): ?><?php echo ' rel="nofollow"'; ?><?php endif; ?><?php echo '>'; ?><?php echo smarty_modifier_escape(smarty_modifier_strip_tags(smarty_modifier_unescape($this->_tpl_vars['bc']['title'])), 'html'); ?><?php echo '</a>'; ?><?php else: ?><?php echo '<span>'; ?><?php echo smarty_modifier_escape(smarty_modifier_strip_tags(smarty_modifier_unescape($this->_tpl_vars['bc']['title'])), 'html'); ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endforeach; endif; unset($_from); ?><?php echo ''; ?>
-
-	</div>
-<?php endif; ?>
-
-<!--breadcrumbs_<?php echo $this->_tpl_vars['block']['block_id']; ?>
---></div>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 
 
 <div id="bb_requests">

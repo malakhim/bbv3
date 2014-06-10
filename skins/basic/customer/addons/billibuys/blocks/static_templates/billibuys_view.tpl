@@ -18,9 +18,6 @@
 {/if}
 *}
 
-{include file="common_templates/breadcrumbs.tpl"}
-
-
 <div id="bb_requests">
 	{if $requests.success eq 1}
 	{include file="common_templates/pagination.tpl"}
