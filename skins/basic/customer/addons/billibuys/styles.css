@@ -704,7 +704,7 @@ html.ie9 .how_does_it_work_block div {
 	text-decoration:none;
 }
 
-.bb_requests .pagination-bottom{
+#bb_requests .pagination-bottom{
 	text-align: right;
 	margin-right: 40px;
 }
