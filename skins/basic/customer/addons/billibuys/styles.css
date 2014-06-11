@@ -608,15 +608,27 @@ html.ie9 .how_does_it_work_block div {
 	font-family: arial;
 	font-weight: bolder;
 	font-size: 10pt;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .bb_table td{
 	vertical-align: middle;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .bb_table tr{
-	border-top: 20px solid;
+	/*border-top: 20px solid;*/
 	border-color: transparent;
+}
+
+
+#bb_requests tr:hover{
+	border: 1px solid #AAA;
+	cursor: pointer;
+	border-collapse:collapse;
+	box-shadow: 0 2px 2px rgba(50,50,50,0.1);
 }
 
 .bb_subtable tr{
@@ -707,4 +719,61 @@ html.ie9 .how_does_it_work_block div {
 #bb_requests .pagination-bottom{
 	text-align: right;
 	margin-right: 40px;
+}
+
+.bb-list-title{
+	margin-top: -110px;
+	font-size: 32pt;
+	font-family: arial;
+	text-transform: uppercase;
+}
+
+.bb-list-txt{
+	margin-left: 140px;
+}
+
+.bb-list-desc{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-style: italic;
+}
+
+.bb-list-time-remaining{
+	width: 100px;
+	height: 100px;
+	margin-left: 240px;
+	margin-top: -110px;
+}
+
+.bb-list-view{
+	background-color: #f36e21;
+	float: right;
+	padding: 10px;
+	color: white;
+	font-weight: bolder;
+}
+
+.bb-list-current-bid{
+	margin-left: 170px;
+	text-align: center;
+	margin-top: -10px;
+	font-size: 25pt;
+}
+
+.bb-large-list{
+	border-bottom: 1px #CCC dotted;
+	padding-left: 10px;
+	padding-top: 10px;
+	display:block;
+}
+
+.bb-large-list:hover{
+	border: 1px #AAA solid;
+	border-radius: 0.5em;
+	box-shadow: 0 2px 2px rgba(50,50,50,0.1);
+	cursor: pointer;
+}
+
+.bb-large-list-href:hover{
+	text-decoration: none;
 }

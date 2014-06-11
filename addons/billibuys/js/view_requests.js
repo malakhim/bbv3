@@ -1,9 +1,5 @@
 $(document).ready(function(){
-	$('.view-cta-button').click(function(){
-		window.location.href="index.php?dispatch=billibuys.request&request_id="+$(this).attr('id');
-	});
-
-	$('.bid-cta-button').click(function(){
-		window.location.href="index.php?dispatch=billibuys.request&request_id="+$(this).attr('id');
-	});
+	var austDay = new Date();
+	austDay = new Date(austDay.getFullYear() + 1, 1 - 1, 26);
+	$('.bb-list-time-remaining').countdown({until: austDay});
 });

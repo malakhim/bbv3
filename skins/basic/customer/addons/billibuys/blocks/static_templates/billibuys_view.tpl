@@ -8,6 +8,9 @@
 </div>
 *}
 {literal}
+<link rel="stylesheet" type="text/css" href="addons/billibuys/js/jquery.countdown/jquery.countdown.css">
+<script src="addons/billibuys/js/jquery.countdown/jquery.plugin.min.js" type="text/javascript"></script>
+<script src="addons/billibuys/js/jquery.countdown/jquery.countdown.min.js" type="text/javascript"></script>
 <script src="addons/billibuys/js/view_requests.js" type="text/javascript"></script>
 {/literal}
 {* DEPRECATED: User will use top nav bar to do all their requesting needs
@@ -18,6 +21,7 @@
 {/if}
 *}
 
+{*
 <div id="bb_requests">
 	{if $requests.success eq 1}
 	{include file="common_templates/pagination.tpl"}
@@ -31,7 +35,7 @@
 		{foreach from=$requests item=request}
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
-					<td>{*include file="buttons/button.tpl" but_text=$request.title but_href="billibuys.request&request_id=`$request.bb_request_id`"|fn_url but_role="text"*}{include file="common_templates/image.tpl" image_width="40" image_height="40" images=$request.image show_thumbnail="Y" no_ids=true class="request-list-image"}{$request.title}</td>
+					<td>{*include file="buttons/button.tpl" but_text=$request.title but_href="billibuys.request&request_id=`$request.bb_request_id`"|fn_url but_role="text"*}{*{include file="common_templates/image.tpl" image_width="40" image_height="40" images=$request.image show_thumbnail="Y" no_ids=true class="request-list-image"}{$request.title}</td>
 					<td>
 						{if $request.timestamp.error == 0}
 							{if $request.timestamp.msg != 'over_two_weeks'}
@@ -65,7 +69,7 @@
 					</table>
 					</td>
 
-					{*<td>{if $request.current_bid ne ''}${$request.current_bid}{else}{$lang.bb_no_bids}!{/if}</td>*}
+					{*<td>{if $request.current_bid ne ''}${$request.current_bid}{else}{$lang.bb_no_bids}!{/if}</td>*}{*
 					<td>
 				</tr>
 			{/if}
@@ -85,9 +89,37 @@
 		
 	{/if}
 </div>
-
+*}
 {*if $category_title}
 	{capture name="title"}<span>{$category_title}</span>{/capture}
 {else}
 	{capture name="title"}<span>{$lang.view_requests}</span>{/capture}
 {/if*}
+
+{include file="common_templates/pagination.tpl"}
+
+{foreach from=$requests item=request}
+	{if is_array($request)}
+		<a class="bb-large-list-href" href="{"billibuys.request&request_id=`$request.bb_request_id`"|fn_url}"><span class="bb-large-list">
+			<div class="bb-list-img">
+			{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$request.image show_thumbnail="Y" no_ids=true class="request-list-image"}
+			</div>
+			<div class="bb-list-txt">
+				<div class="bb-list-field bb-list-title">{$request.title}</div>
+				<div class="bb-list-rating bb-list-field">{*Placeholder for rating stars*}</div>
+				<div class="bb-list-desc bb-list-field">{$request.description}</div>
+				<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.bb_max_price}:</span> &nbsp;{include file="common_templates/price.tpl" value=$request.max_price"}</div>
+				<div class="bb-list-field bb-list-time-remaining"><img src="/images/date_test.png" /></div>
+				<div class="bb-list-field bb-list-current-bid">
+					<div class="bb-list-txt-title">
+						{$lang.lowest_bid}:<br/>
+						{if $request.current_bid ne ''}${$request.current_bid}{else} --- {/if}
+					</div>
+				</div>
+				<!-- <div class="bb-list-view">{$lang.view}</div> -->
+			</div>
+		</span></a>
+	{/if}
+{/foreach}
+
+{include file="common_templates/pagination.tpl"}
