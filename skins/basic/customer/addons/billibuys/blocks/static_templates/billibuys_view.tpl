@@ -113,7 +113,7 @@
 				<div class="bb-list-field bb-list-current-bid">
 					<div class="bb-list-txt-title">
 						{$lang.lowest_bid}<br/>
-						{if $request.current_bid ne ''}${$request.current_bid}{else} --- {/if}
+						{if $request.lowest_bid ne ''}${$request.lowest_bid}{else} --- {/if}
 					</div>
 				</div>
 				<!-- <div class="bb-list-view">{$lang.view}</div> -->

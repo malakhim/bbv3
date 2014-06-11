@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-11 20:44:56
+<?php /* Smarty version 2.6.18, created on 2014-06-11 21:06:24
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 441, false),array('modifier', 'fn_query_remove', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 459, false),array('modifier', 'escape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 459, false),array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 472, false),array('modifier', 'unescape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 598, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 598, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 601, false),array('modifier', 'format_price', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 722, false),array('function', 'script', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 444, false),array('function', 'math', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 516, false),)), $this); ?>
@@ -156,7 +156,7 @@ fn_preload_lang_vars(array('prev_page','next','view_larger_image','bb_max_price'
 					<div class="bb-list-txt-title">
 						<?php echo fn_get_lang_var('lowest_bid', $this->getLanguage()); ?>
 <br/>
-						<?php if ($this->_tpl_vars['request']['current_bid'] != ''): ?>$<?php echo $this->_tpl_vars['request']['current_bid']; ?>
+						<?php if ($this->_tpl_vars['request']['lowest_bid'] != ''): ?>$<?php echo $this->_tpl_vars['request']['lowest_bid']; ?>
 <?php else: ?> --- <?php endif; ?>
 					</div>
 				</div>

@@ -104,6 +104,9 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 	}
 	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
 	
+	if(fn_get_cookie($sess_name)){
+		fn_set_cookie($sess_name,'');
+	}
 	$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
 
 	if(AREA == 'C'){
@@ -654,7 +657,7 @@ function fn_get_requests($params = Array()){
 			$requests = array_merge(db_get_array($query,$where),$requests);
 			if(sizeof($requests) > 1 && $requests != null){
 				foreach($requests as &$request){
-					$request['lowest_bid'] = db_get_field('SELECT price FROM ?:bb_bids WHERE request_id = ?i ORDER BY price ASC',$request['bb_request_item_id']);
+					$request['lowest_bid'] = db_get_field('SELECT price * quantity FROM ?:bb_bids WHERE request_id = ?i ORDER BY price ASC',$request['bb_request_item_id']);
 				}
 				$requests['success'] = true;
 			}
