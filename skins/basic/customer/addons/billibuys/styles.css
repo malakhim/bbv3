@@ -740,10 +740,11 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .bb-list-time-remaining{
-	width: 100px;
-	height: 100px;
+	width: 220px;
+	height: 40px;
 	margin-left: 240px;
-	margin-top: -90px;
+	margin-top: -97px;
+	margin-bottom: 23px;
 }
 
 .bb-list-view{
