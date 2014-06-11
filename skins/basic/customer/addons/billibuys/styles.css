@@ -723,7 +723,7 @@ html.ie9 .how_does_it_work_block div {
 
 .bb-list-title{
 	margin-top: -110px;
-	font-size: 32pt;
+	font-size: 23pt;
 	font-family: arial;
 	text-transform: uppercase;
 }
@@ -742,7 +742,7 @@ html.ie9 .how_does_it_work_block div {
 	width: 100px;
 	height: 100px;
 	margin-left: 240px;
-	margin-top: -110px;
+	margin-top: -90px;
 }
 
 .bb-list-view{
@@ -761,10 +761,12 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .bb-large-list{
-	border-bottom: 1px #CCC dotted;
+	border: 1px #CCC solid;
+	border-radius: 0.5em;
 	padding-left: 10px;
-	padding-top: 10px;
+	padding-top: 30px;
 	display:block;
+	padding-bottom: 20px;
 }
 
 .bb-large-list:hover{
