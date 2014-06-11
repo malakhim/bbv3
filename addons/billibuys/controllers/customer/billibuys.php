@@ -10,8 +10,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
 
-
-		fn_add_breadcrumb(fn_get_lang_var('view_requests'), "billibuys.view");
+		if(!isset($_REQUEST['category_id']))
+			fn_add_breadcrumb(fn_get_lang_var('bb_browse'));
 		// Stub for viewing own auctions
 		$search_params = Array(
 			'user'         => $auth['user_id'],

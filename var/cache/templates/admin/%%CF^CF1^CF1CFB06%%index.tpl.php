@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-04 21:17:11
+<?php /* Smarty version 2.6.18, created on 2014-06-10 20:51:03
          compiled from views/index/index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/index/index.tpl', 1, false),array('modifier', 'fn_check_permissions', 'views/index/index.tpl', 16, false),array('modifier', 'fn_url', 'views/index/index.tpl', 27, false),array('modifier', 'format_price', 'views/index/index.tpl', 29, false),array('modifier', 'unescape', 'views/index/index.tpl', 29, false),array('modifier', 'fn_get_statuses', 'views/index/index.tpl', 80, false),array('modifier', 'date_format', 'views/index/index.tpl', 90, false),array('modifier', 'truncate', 'views/index/index.tpl', 109, false),array('modifier', 'defined', 'views/index/index.tpl', 276, false),array('block', 'hook', 'views/index/index.tpl', 20, false),array('function', 'cycle', 'views/index/index.tpl', 133, false),array('function', 'html_options', 'views/index/index.tpl', 143, false),array('function', 'html_checkboxes', 'views/index/index.tpl', 146, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('today','prev','week','prev','month','prev','latest_o
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/subheader_statistic.tpl' => 1367063753,
+  'common_templates/subheader_statistic.tpl' => 1401952794,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

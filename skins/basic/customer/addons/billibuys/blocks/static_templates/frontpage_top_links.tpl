@@ -6,7 +6,7 @@
 <script src="addons/billibuys/js/home.js" type="text/javascript"></script>
 {/literal}
 
-<div id="background_img"><img src="images/billibuys_header.jpg"></div>
+<div id="background_img"><img src="images/morning_new.jpg"></div>
 
 <a href="{'pages.view&page_id=2'|fn_url}"><span class="alpha grid_2 text_link">
 	{$lang.about}

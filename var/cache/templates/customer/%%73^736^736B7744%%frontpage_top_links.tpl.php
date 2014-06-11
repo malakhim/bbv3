@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-09 13:54:14
+<?php /* Smarty version 2.6.18, created on 2014-06-11 12:47:02
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl', 11, false),)), $this); ?>
@@ -14,7 +14,7 @@ fn_preload_lang_vars(array('about','testimonials','contact_us','log_in','registe
 '; ?>
 
 
-<div id="background_img"><img src="images/billibuys_header.jpg"></div>
+<div id="background_img"><img src="images/morning_new.jpg"></div>
 
 <a href="<?php echo fn_url('pages.view&page_id=2'); ?>
 "><span class="alpha grid_2 text_link">
