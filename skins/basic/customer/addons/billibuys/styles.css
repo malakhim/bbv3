@@ -31,9 +31,16 @@
 .top_menu_item{
 	font-family: Nunito;
 	font-size: 15pt;
-	margin-right: 30px;
+	padding-right: 15px;
 	color: white;
 	cursor: pointer;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 8px;
+}
+
+.top_menu_item:hover{
+	background-color: #4357a6;
 }
 
 .top-logo .logo-container{
