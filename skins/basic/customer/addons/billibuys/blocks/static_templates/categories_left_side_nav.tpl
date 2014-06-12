@@ -4,7 +4,6 @@
 <div id="cat-header">{$lang.categories}</div>
 {assign var="bb_cats" value=""|fn_bb_get_categories}
 {*$bb_cats|var_dump*}
-<div class="cat-left-side-nav">
 
 {foreach from=$bb_cats item="cat"}
 	{if $cat.status == 'A'}
@@ -18,4 +17,3 @@
 		{/if}
 	{/if}
 {/foreach}
-</div>

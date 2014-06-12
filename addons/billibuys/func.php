@@ -104,16 +104,17 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 	}
 	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
 	
-	if(!empty($_COOKIE)){
-		foreach($_COOKIE as $ckey=>$cval){
-			fn_set_cookie($ckey,'',0);
-		}
+	// Delete all existing cookies
+	if (isset($_SERVER['HTTP_COOKIE'])) {
+	    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+	    foreach($cookies as $cookie) {
+	        $parts = explode('=', $cookie);
+	        $name = trim($parts[0]);
+	        setcookie($name, '', time()-1000);
+	        setcookie($name, '', time()-1000, '/');
+	    }
 	}
 
-	// if(fn_get_cookie($sess_name)){
-	// 	fn_set_cookie($sess_name,'',0);
-	// 	var_dump($_COOKIE);
-	// }
 	$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
 
 	if(AREA == 'C'){
