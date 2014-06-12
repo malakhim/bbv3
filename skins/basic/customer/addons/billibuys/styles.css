@@ -744,9 +744,10 @@ html.ie9 .how_does_it_work_block div {
 .bb-list-time-remaining{
 	width: 220px;
 	height: 40px;
-	margin-left: 240px;
 	margin-top: -97px;
 	margin-bottom: 23px;
+	float: right;
+	margin-right: 10px;
 }
 
 .bb-list-view{
@@ -758,10 +759,11 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .bb-list-current-bid{
-	margin-left: 170px;
 	text-align: center;
-	margin-top: -10px;
+	margin-top: -45px;
 	font-size: 19pt;
+	float: right;
+	margin-right: 50px;
 }
 
 .bb-large-list{
