@@ -459,6 +459,8 @@ function fn_submit_bids($bb_data,$auth){
 		}
 		db_query('INSERT INTO ?:bb_bids ?e',$new_bid);
 
+		// Send an email to the request person
+
 		//Log event
 		//Not working atm
 		// fn_log_event('billibuys', 'create', array('bid' => $new_bid));

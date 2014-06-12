@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-11 21:34:30
+<?php /* Smarty version 2.6.18, created on 2014-06-12 12:47:43
          compiled from views/checkout/components/cart_content.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/checkout/components/cart_content.tpl', 1, false),array('modifier', 'fn_url', 'views/checkout/components/cart_content.tpl', 5, false),)), $this); ?>
@@ -37,10 +37,6 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 		<?php endif; ?></div>
-		<div class="float-right"><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/update_cart.tpl", 'smarty_include_vars' => array('but_id' => 'button_cart','but_name' => "dispatch[checkout.update]")));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?></div>
 	</div>
 </div>
 
@@ -73,11 +69,7 @@ unset($_smarty_tpl_vars);
  ?>
 		<?php endif; ?>
 		</div>
-		<div class="float-right"><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/update_cart.tpl", 'smarty_include_vars' => array('but_onclick' => "$('#button_cart').click()",'but_name' => "dispatch[checkout.update]")));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?></div>
-	</div>
+			</div>
 </div>
 <?php if ($this->_tpl_vars['checkout_add_buttons']): ?>
 <div class="payment-methods-wrap">

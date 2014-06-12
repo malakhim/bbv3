@@ -3,7 +3,6 @@
 {/literal}
 <div id="cat-header">{$lang.categories}</div>
 {assign var="bb_cats" value=""|fn_bb_get_categories}
-{*$bb_cats|var_dump*}
 
 {foreach from=$bb_cats item="cat"}
 	{if $cat.status == 'A'}

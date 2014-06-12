@@ -29,7 +29,7 @@
 			<tr>
 				<th>{$lang.title}</th>
 				<th>{$lang.time_remaining}</th>
-				<th>{$lang.lowest_bid}</th>
+				<th>{$lang.lowest_offer}</th>
 				<th class="nobackground"></th>
 			</tr>
 		{foreach from=$requests item=request}

@@ -8,13 +8,13 @@
 	<priority>100500</priority>
 	<status>active</status>
 	<queries>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_requests</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_request_archive</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_request_item</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_request_item_archive</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_bids</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item>
+		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_requests</item> -->
+		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_request_archive</item> -->
+		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_request_item</item> -->
+		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_request_item_archive</item> -->
+		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_bids</item> -->
+		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item> -->
+		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item> -->
 		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_request_categories</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_request_category_descriptions</item> -->
 		<item for="install">
@@ -118,16 +118,16 @@
 				PRIMARY KEY (`bb_bid_archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_requests</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_archive</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_notify_id</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item_archive</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
-		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
-		<item for="uninstall">DELETE FROM ?:images WHERE image_id IN (SELECT detailed_id FROM ?:images_links WEHRE object_type LIKE "request")</item>
-		<item for="uninstall">DELETE FROM ?:images_links WHERE object_type LIKE "request"</item>
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_requests</item> -->
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_archive</item> -->
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_notify_id</item> -->
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item</item> -->
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item_archive</item> -->
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids</item> -->
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item> -->
+		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item> -->
+		<!-- <item for="uninstall">DELETE FROM ?:images WHERE image_id IN (SELECT detailed_id FROM ?:images_links WEHRE object_type LIKE "request")</item> -->
+		<!-- <item for="uninstall">DELETE FROM ?:images_links WHERE object_type LIKE "request"</item> -->
 		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_categories</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_category_descriptions</item> -->
 	</queries>
@@ -189,7 +189,7 @@
 		<item lang="EN" id="no_max_price">No max price</item>
 		<item lang="EN" id="successful_logout">You have been successfully logged out.</item>
 		<item lang="EN" id="no_current_requests_found">There are no current requests</item>
-		<item lang="EN" id="lowest_bid">Lowest Bid</item>
+		<item lang="EN" id="lowest_offer">Best Offer</item>
 		<item lang="EN" id="bid">Bid</item>
 
 		<!-- Home page variables -->

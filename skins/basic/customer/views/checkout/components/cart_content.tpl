@@ -19,7 +19,7 @@
 			{assign var="link_href" value="checkout.checkout"}
 			{include file="buttons/proceed_to_checkout.tpl" but_href=$link_href}
 		{/if}</div>
-		<div class="float-right">{include file="buttons/update_cart.tpl" but_id="button_cart" but_name="dispatch[checkout.update]"}</div>
+{*		<div class="float-right">{include file="buttons/update_cart.tpl" but_id="button_cart" but_name="dispatch[checkout.update]"}</div>*}
 	</div>
 </div>
 
@@ -40,7 +40,7 @@
 			{include file="buttons/proceed_to_checkout.tpl" but_href=$link_href}
 		{/if}
 		</div>
-		<div class="float-right">{include file="buttons/update_cart.tpl" but_onclick="$('#button_cart').click()" but_name="dispatch[checkout.update]"}</div>
+		{*<div class="float-right">{include file="buttons/update_cart.tpl" but_onclick="$('#button_cart').click()" but_name="dispatch[checkout.update]"}</div>*}
 	</div>
 </div>
 {if $checkout_add_buttons}
