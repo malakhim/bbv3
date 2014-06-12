@@ -245,6 +245,7 @@ html.ie9 .how_does_it_work_block div {
 
 .breadcrumbs:last-child{
 	color: black!important;
+	font-size: 10pt;
 }
 
 .breadcrumbs a:last-child{
