@@ -664,6 +664,7 @@ html.ie9 .how_does_it_work_block div {
 
 .pagination-bottom{
 	border: none;
+	float: right;
 }
 
 .product-title{
