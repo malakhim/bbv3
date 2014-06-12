@@ -732,8 +732,8 @@ html.ie9 .how_does_it_work_block div {
 
 .bb-list-title{
 	margin-top: -108px;
-	font-size: 23pt;
-	font-family: arial;
+	font-size: 21pt;
+	font-family: Tahoma;
 	text-transform: uppercase;
 	width: 230px;
 }
@@ -750,7 +750,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .bb-list-time-remaining{
-	width: 220px;
+	width: 140px;
 	height: 40px;
 	margin-top: -97px;
 	margin-bottom: 23px;
@@ -769,9 +769,9 @@ html.ie9 .how_does_it_work_block div {
 .bb-list-current-bid{
 	text-align: center;
 	margin-top: -45px;
-	font-size: 17pt;
+	font-size: 15pt;
 	float: right;
-	margin-right: 67px;
+	margin-right: 35px;
 }
 
 .bb-large-list{

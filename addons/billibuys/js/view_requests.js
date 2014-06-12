@@ -6,6 +6,6 @@ $(document).ready(function(){
 	$('.bb-list-time-remaining').each(function(){
 		var date = new Date($(this).attr('expiry') * 1000);
 		var expiry_date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-		$(this).countdown({until: expiry_date});
+		$(this).countdown({until: expiry_date, compact: true, description: ''});
 	});
 });
