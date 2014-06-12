@@ -102,7 +102,7 @@
 	{if is_array($request)}
 		<a class="bb-large-list-href" href="{"billibuys.request&request_id=`$request.bb_request_id`"|fn_url}"><span class="bb-large-list">
 			<div class="bb-list-img">
-			{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$request.image show_thumbnail="Y" no_ids=true class="request-list-image"}
+			{include file="common_templates/image.tpl" image_width="80" image_height="80" images=$request.image show_thumbnail="Y" no_ids=true class="request-list-image"}
 			</div>
 			<div class="bb-list-txt">
 				<div class="bb-list-field bb-list-title">{$request.title}</div>
