@@ -10,8 +10,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
 
-		if(!isset($_REQUEST['category_id']))
-			fn_add_breadcrumb(fn_get_lang_var('bb_browse'));
+		// if(!isset($_REQUEST['category_id']))
+		fn_add_breadcrumb(fn_get_lang_var('bb_browse'));
 		// Stub for viewing own auctions
 		$search_params = Array(
 			'user'         => $auth['user_id'],
@@ -40,7 +40,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 					$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'request'",$request['bb_request_id']);
 
 					$request['image'] = fn_get_image_pairs($request['bb_request_id'], 'request', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
-
 
 						// $image_id, 'request');
 					//Get duration since auction was placed
@@ -102,6 +101,20 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}
 
 		$view->assign('requests',$requests);
+		$view->assign('hide_layouts',true);
+		$view->assign('sorting', fn_get_requests_sorting());
+		$search = !$_REQUEST['sort_by'] ? Array('sort_by' => 'timestamp','sort_order' => 'desc') : $_REQUEST;
+		$view->assign('search',$search);
+		$view->assign('avail_sorting',Array(
+			'timestamp-desc' => 'Y',
+			'title-asc'    => 'Y',
+			'title-desc'   => 'Y',
+			'max_price-asc'   => 'Y',
+			'max_price-desc'  => 'Y',
+			'popularity-desc' => 'Y'
+			)
+		);
+
 	}elseif($mode == 'request'){
 
 		$params = Array(
@@ -116,8 +129,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 				'user_id',
 			)
 		);
-
-
 
 		// Get database results
 		$request = fn_get_request($params);
@@ -152,6 +163,9 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 		foreach($bids as &$bid){
 			$bid['tot_price'] = $bid['price'] * $bid['quantity'];
+			$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'product'",$bid['product_id']);
+
+			$bid['image'] = fn_get_image_pairs($bid['product_id'], 'request', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
 		}
 		
 		// These bids are links to the product pages

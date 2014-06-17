@@ -2,12 +2,14 @@
 <!-- <link rel="stylesheet" href="{$config.skin_path}/css/bootstrap.min.css" /> -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
-
+<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+<script type="text/javascript" src="{$config.http_location}/lib/js/jquery/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> -->
 
-<link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'> -->
+<!-- <link href='' rel='stylesheet' type='text/css'> -->
+
 <link href="{$config.skin_path}/addons/billibuys/styles.css" rel="stylesheet" type="text/css" />
 {literal}
 <script src="addons/billibuys/js/billibuys.js" type="text/javascript"></script>

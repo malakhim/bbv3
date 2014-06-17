@@ -641,30 +641,71 @@ function fn_get_requests($params = Array()){
 		$where .= 'expiry_date > '.microtime(true);
 	}
 
+
+	// Set default sort
+	$sorting = 'timestamp DESC';
+
+	$sortings = array(
+		'date' => 'timestamp',
+		'title' => 'title',
+		'price' => 'max_price',
+	);
+	if(isset($params['sort_by'])){
+		$sorting = $params['sort_by'];
+		if(isset($params['sort_order']))
+			$sort_order = $params['sort_order'];
+		else
+			$sort_order = 'DESC';
+	}else{
+		$sorting = 'timestamp';
+		$sort_order = 'DESC';
+	}
+
+	$sorting .= ' '.$sort_order;
+
+	// if(isset($sorting)){
+	// 	$sorting = (is_array($sortings[$params['sort_by']]) ? implode(' ' . $directions[$params['sort_order']]. ', ', $sortings[$params['sort_by']]) : $sortings[$params['sort_by']]) . " " . $directions[$params['sort_order']];
+	// }else{
+
+	// }
+
 	$requests['success'] = false;
 
 	if($params['own_auctions'] == false){
 
+			// For pagination			
 			$query = 'SELECT COUNT(*) 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
 					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id';
+
 			if(isset($where)){
 				$query .= ' WHERE ?p';
 			}
 			$requests_count = db_get_field($query,$where);
 
-			$limit = fn_paginate($params['page'], $requests_count, Registry::get('settings.Appearance.admin_elements_per_page')); // FIXME: page
+			$limit = fn_paginate($params['page'], $requests_count, Registry::get('settings.Appearance.products_per_page')); // FIXME: page
 
+			// For actual querying
 			$query = 'SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
 					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id';
+
+			// Conditions
 			if(isset($where)){
 				$query .= ' WHERE ?p';
 			}
+
+			// Sorting
+			if(isset($sorting) && !empty($sorting)){
+				$query .= ' ORDER BY ?p';
+			}
+
+			// Pagination
 			$query .= " $limit";
-			$requests = array_merge(db_get_array($query,$where),$requests);
+
+			$requests = array_merge(db_get_array($query,$where,$sorting),$requests);
 			if(sizeof($requests) > 1 && $requests != null){
 				foreach($requests as &$request){
 					$request['lowest_bid'] = db_get_field('SELECT price * quantity FROM ?:bb_bids WHERE request_id = ?i ORDER BY price ASC',$request['bb_request_item_id']);
@@ -839,6 +880,30 @@ function fn_bb_delete_category($category_id){
 	 
 	// Should this be an outright deletion for speed purposes or should it be archiving?
 }
+
+function fn_get_requests_sorting()
+{
+	$sorting = array(
+		'timestamp' => array('description' => fn_get_lang_var('date'), 'default_order' => 'desc'),
+		'title' => array('description' => fn_get_lang_var('name'), 'default_order' => 'asc'),
+		'max_price' => array('description' => fn_get_lang_var('max_price'), 'default_order' => 'asc'),
+		'popularity' => array('description' => fn_get_lang_var('popularity'), 'default_order' => 'desc')
+	);
+
+	/**
+	 * Change billibuys sortings
+	 *
+	 * @param array $sorting Sortings
+	 * @param boolean $simple_mode Flag that defines if products sortings should be returned as simple titles list
+	 */
+
+	// foreach ($sorting as &$sort_item) {
+	// 	$sort_item = $sort_item['description'];
+	// }
+
+	return $sorting;
+}
+
 
 
 ?>

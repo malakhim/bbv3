@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-12 12:10:24
+<?php /* Smarty version 2.6.18, created on 2014-06-16 15:37:14
          compiled from C:/wamp5/www/public_html/skins/basic/customer/blocks/static_templates/logo.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/blocks/static_templates/logo.tpl', 3, false),)), $this); ?>

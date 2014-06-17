@@ -272,6 +272,9 @@
 		<item lang="EN" id="view_requests">Current Requests</item>
 		<item lang="EN" id="item_and_description">Item and Description</item>
 		<item lang="EN" id="time_remaining">Time remaining</item>
-
+		<item lang="EN" id="sort_by_max_price_asc">Sort by Maximum Price: Low to High</item>
+		<item lang="EN" id="sort_by_max_price_desc">Sort by Maximum Price: High to Low</item>
+		<item lang="EN" id="sort_by_title_asc">Sort by Alphabetical: A to Z</item>
+		<item lang="EN" id="sort_by_title_desc">Sort by Alphabetical: Z to A</item>
 	</language_variables>
 </addon>

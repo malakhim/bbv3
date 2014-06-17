@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-12 12:10:24
+<?php /* Smarty version 2.6.18, created on 2014-06-16 15:37:14
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 22, false),array('modifier', 'unescape', 'index.tpl', 25, false),array('modifier', 'strip_tags', 'index.tpl', 25, false),array('modifier', 'count', 'index.tpl', 27, false),array('modifier', 'html_entity_decode', 'index.tpl', 51, false),array('modifier', 'default', 'index.tpl', 51, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 53, false),array('modifier', 'sizeof', 'index.tpl', 57, false),array('modifier', 'fn_link_attach', 'index.tpl', 59, false),array('modifier', 'fn_url', 'index.tpl', 59, false),array('modifier', 'defined', 'index.tpl', 86, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 222, false),array('modifier', 'fn_query_remove', 'index.tpl', 265, false),array('modifier', 'strpos', 'index.tpl', 266, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 120, false),array('function', 'script', 'index.tpl', 139, false),array('function', 'render_location', 'index.tpl', 307, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 22, false),array('modifier', 'unescape', 'index.tpl', 25, false),array('modifier', 'strip_tags', 'index.tpl', 25, false),array('modifier', 'count', 'index.tpl', 27, false),array('modifier', 'html_entity_decode', 'index.tpl', 51, false),array('modifier', 'default', 'index.tpl', 51, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 53, false),array('modifier', 'sizeof', 'index.tpl', 57, false),array('modifier', 'fn_link_attach', 'index.tpl', 59, false),array('modifier', 'fn_url', 'index.tpl', 59, false),array('modifier', 'defined', 'index.tpl', 86, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 224, false),array('modifier', 'fn_query_remove', 'index.tpl', 267, false),array('modifier', 'strpos', 'index.tpl', 268, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 122, false),array('function', 'script', 'index.tpl', 141, false),array('function', 'render_location', 'index.tpl', 309, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','in_stock','items','text_required_group_product','notice','warning','loading','none','text_are_you_sure_to_proceed','text_invalid_url','text_cart_changed','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','view_cart','checkout','product_added_to_cart','products_added_to_cart','product_added_to_wl','product_added_to_cl','close','error','error_ajax','text_changes_not_saved','text_data_changed','bundled_products_fill_the_mandatory_fields','loading','customization_mode','translate_mode','switch_to_translation_mode','switch_to_customization_mode'));
 ?>
@@ -79,7 +79,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/styles.post.tpl' => 1402073209,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1402892727,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -138,12 +138,15 @@ if ($this->_foreach['bkt']['total'] > 0):
 /css/bootstrap.min.css" /> -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
-
+<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+<script type="text/javascript" src="<?php echo $this->_tpl_vars['config']['http_location']; ?>
+/lib/js/jquery/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> -->
 
-<link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'> -->
+<!-- <link href='' rel='stylesheet' type='text/css'> -->
+
 <link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
 /addons/billibuys/styles.css" rel="stylesheet" type="text/css" />
 <?php echo '

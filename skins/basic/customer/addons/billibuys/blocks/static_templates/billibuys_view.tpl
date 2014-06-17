@@ -95,6 +95,17 @@
 {else}
 	{capture name="title"}<span>{$lang.view_requests}</span>{/capture}
 {/if*}
+<!-- 
+{$lang.sort}:
+<div id="sort">
+	<select id="sort_select">
+		<option value="title" data-order="ASC">{$lang.title} (A-Z)</option>
+		<option value="title" data-order="DESC">{$lang.title} (Z-A)</option>
+	</select>
+</div> -->
+
+
+{include file="addons/billibuys/components/sorting.tpl"}
 
 {include file="common_templates/pagination.tpl"}
 

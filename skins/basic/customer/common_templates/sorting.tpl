@@ -35,9 +35,9 @@ $(function(){
 
 <div class="dropdown-container">
 {if $search.sort_order == 'asc'}
-{assign var="sort_label" value="sort_by_`$search.sort_by`_desc"}
-{else}
 {assign var="sort_label" value="sort_by_`$search.sort_by`_asc"}
+{else}
+{assign var="sort_label" value="sort_by_`$search.sort_by`_desc"}
 {/if}
 	<span class="cm-dropdown-title sort-dropdown dropdown-wrap-left"><a class="dropdown-wrap-right">{$lang.$sort_label}</a></span>
 	<ul class="cm-dropdown-content">
@@ -52,7 +52,8 @@ $(function(){
 				{/if}
 			{/if}
 			{foreach from=$sorting_orders item="sort_order"}
-				{if $search.sort_by != $option || $search.sort_order == $sort_order}
+			{*Bryan's notes: The second condition was ==, have changed to !=*}
+				{if $search.sort_by != $option || $search.sort_order != $sort_order}
 					{assign var="sort_label" value="sort_by_`$label_pref``$option`_`$sort_order`"}
 					{assign var="sort_class" value="sort-by-`$class_pref``$option`-`$sort_order`"}
 					{assign var="sort_key" value="`$option`-`$sort_order`"}

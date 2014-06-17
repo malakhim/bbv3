@@ -13,7 +13,6 @@ $(document).ready(function(){
     // $('html, body').animate({scrollTop: $('.how_does_it_work_block').offset().top},1000); 
     window.location.href = 'index.php?dispatch=billibuys.view';
   });
-
 });
 
 function show_slider(group){
@@ -43,7 +42,7 @@ function show_slider(group){
       current: 0,
       bgincrement: 0,
       page: 0
-    });        
+    });
     $('.sellerslider').show();
     $('.billibuys_home_slider').show('slow');
      $('html, body').animate({scrollTop: $('.billibuys_home_slider').offset().top},1000); 

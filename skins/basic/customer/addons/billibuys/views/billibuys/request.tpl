@@ -1,5 +1,7 @@
 {capture name="mainbox_title"}{$request.title}{/capture}
 
+
+{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$request.image show_thumbnail="N" no_ids=true class="request-list-image"}
 <div id="info-box">
 {foreach from=$request item=r key=k}
 	{if $k NEQ "title" && $k NEQ "bb request id" && $k NEQ "id" && $k NEQ "timestamp" && $k NEQ "user id"}
@@ -13,7 +15,7 @@
 	{/if}
 {/foreach}
 </div>
-{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$request.image show_thumbnail="N" no_ids=true class="request-list-image"}
+{*
 <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
 	<tr>
 		<th>{$lang.item}</th>
@@ -21,7 +23,7 @@
 		<th>{$lang.name}</th>
 		<th>{$lang.quantity}</th>
 		<th>{$lang.total_price}</th>
-		{*<th>{$lang.user}</th>*}
+		{*<th>{$lang.user}</th>*}{*
 	</tr>
 	{if $bids != null & isset($bids)}
 		{foreach from=$bids item=bid}
@@ -42,6 +44,29 @@
 	{/if}
 </table>
 <br />
+*}
+
+<div id="bids-list">
+	{if $bids != null & isset($bids)}
+		{foreach from=$bids item=bid}
+			{if is_array($bid)}
+				<a class="bb-large-list-href" href="{"products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}"><span class="bb-large-list">
+					<div class="bb-list-img">
+					{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$bid.image show_thumbnail="Y" no_ids=true class="request-list-image"}
+					</div>
+					<div class="bb-list-txt">
+						<div class="bb-list-field bb-list-title">{$bid.product}</div>
+						<div class="bb-list-rating bb-list-field">{*Placeholder for rating stars*}</div>
+						<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>
+						<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;{include file="common_templates/price.tpl" value=$bid.price"}</div>
+						<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>
+						<!-- <div class="bb-list-view">{$lang.view}</div> -->
+					</div>
+				</span></a>
+			{/if}
+		{/foreach}
+	{/if}
+</div>
 
 {if $expired == 0}
 	{if $request_user_id != $smarty.session.auth.user_id}
