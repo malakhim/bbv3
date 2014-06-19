@@ -105,15 +105,26 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
 	
 	// Delete all existing cookies
-	if (isset($_SERVER['HTTP_COOKIE'])) {
-	    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
-	    foreach($cookies as $cookie) {
-	        $parts = explode('=', $cookie);
-	        $name = trim($parts[0]);
-	        setcookie($name, '', time()-1000);
-	        setcookie($name, '', time()-1000, '/');
-	    }
+	// if (isset($_SERVER['HTTP_COOKIE'])) {
+	//     $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+	//     foreach($cookies as $cookie) {
+	//         $parts = explode('=', $cookie);
+	//         $name = trim($parts[0]);
+	//         setcookie($name, '', time()-1000);
+	//         setcookie($name, '', time()-1000, '/');
+	//     }
+	// }
+
+	foreach ($_COOKIE as $c_id => $c_value)
+	{
+	    setcookie($c_id, NULL, 1, "/", ".brystore.com");
+	    setcookie($c_id, NULL, 1, "/", "brystore.com");
+	    setcookie($c_id, NULL, 1, "/", "bw.brystore.com");
+	    setcookie($c_id, NULL, 1, "/", ".bw.brystore.com");
+	    setcookie($c_id, NULL, 1, "/", ".billibuys.com");
+	    setcookie($c_id, NULL, 1, "/", "billibuys.com");
 	}
+
 
 	$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
 
