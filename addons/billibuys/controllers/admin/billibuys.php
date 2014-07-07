@@ -339,7 +339,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 	}elseif($mode == 'm_place_bid'){
 		// Todo: Error condition for this (invalid POSTs)
 		if(fn_submit_bids($_POST,$auth)){
-			header('Location: index.php?dispatch=billibuys.view',true);
+			header('Location: index.php?dispatch=billibuys.request&success=1&request_id='.$_POST['request_id'],true);
 			die;
 		}
 		// Else condition is handled in the function, by returning false and thus not redirecting

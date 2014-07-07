@@ -36,12 +36,12 @@
 	</div>	
 
 	<div class="form-field">
-		<label>{$lang.images}:</label>
-		{include file="../admin/common_templates/attach_images.tpl" image_name="request_main" image_object_type="request" hide_server=true icon_text=$lang.text_request_thumbnail detailed_text=$lang.text_request_detailed_image no_thumbnail=true}
+		<label>{$lang.image}</label>
+		{include file="../admin/common_templates/attach_images.tpl" image_name="request_main" image_object_type="request" hide_server=true no_thumbnail=true hide_images=true hide_alt=true hide_titles=true}
 	</div>
 
 	<div class="buttons-container">
-		{include file="buttons/button.tpl" but_text=$lang.submit but_name="dispatch[billibuys.view]" but_id="but_submit_request"}
+		{include file="buttons/button.tpl" but_text=$lang.submit but_name="dispatch[billibuys.view]" but_id="but_submit_request" }
 	</div>
 </form>
 

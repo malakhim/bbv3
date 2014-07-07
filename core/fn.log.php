@@ -19,11 +19,10 @@ fn_define('LOG_MAX_DATA_LENGTH', 10000);
 
 function fn_log_event($type, $action, $data = array())
 {
+	
 	$update = false;
 	$content = array();
-
 	$actions = Registry::get('settings.Logging.log_type_' . $type);
-
 	$cut_log = Registry::if_get('log_cut', false);
 	Registry::del('log_cut');
 
@@ -183,12 +182,14 @@ function fn_log_event($type, $action, $data = array())
 		}
 	}
 
+
 	fn_set_hook('save_log', $type, $action, $data, $user_id, $content, $event_type);
 
 	$content = serialize($content);
 	if ($update) {
 		db_query('UPDATE ?:logs SET content = ?s WHERE log_id = ?i', $content, $update);
 	} else {
+
 		$row = array (
 			'user_id' => $user_id,
 			'timestamp' => TIME,

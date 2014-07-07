@@ -24,6 +24,21 @@ function strpos_offset_recursive($needle,$haystack,$occurence){
 	return $o;
 }
 
+function fn_billibuys_save_log($type, $action, &$data, $user_id, &$content, &$event_type)
+{
+	if ($type == 'bb_bid') {
+		$bid = db_get_field("SELECT product FROM ?:product_descriptions WHERE product_id = ?i AND lang_code = ?s", $data['product_id'], Registry::get('settings.Appearance.admin_default_language'));
+		$content = array (
+			'product' => $bid . ' (#' . $data['bid']['product_id'] . ')',
+		);
+	}elseif($type == 'bb_request'){
+		$request = db_get_field("SELECT title FROM ?:bb_request_item WHERE bb_request_item_id = ?i", $data['request']['request_item_id']);
+		$content = array (
+			'request' => $request . ' (#' . $data['request']['request_item_id'] . ')',
+		);
+		}
+}
+
 /**
  * Logs user into vendor side
  * @param  int $sess_id   cookie ID
@@ -103,30 +118,24 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 		$sess_replace_string = 'customer';
 	}
 	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
-	
-	// Delete all existing cookies
-	if (isset($_SERVER['HTTP_COOKIE'])) {
-	    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
-	    foreach($cookies as $cookie) {
-	        $parts = explode('=', $cookie);
-	        $name = trim($parts[0]);
-	        setcookie($name, '', time()-1000);
-	        setcookie($name, '', time()-1000, '/');
-	    }
+
+	if(AREA != 'A'){
+		// Delete all existing cookies
+		if (isset($_SERVER['HTTP_COOKIE'])) {
+		    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+		    foreach($cookies as $cookie) {
+		        $parts = explode('=', $cookie);
+		        $name = trim($parts[0]);
+		        setcookie($name, '', time()-1000);
+		        // setcookie($name, '', time()-1000, '/');
+		        // Odd fixes for how CS-Cart adds . to front of domain in cookies
+		        // setcookie($name,'',time()-1000,'/',substr($_SERVER['HTTP_HOST'],strpos($_SERVER['HTTP_HOST'],'.')));
+		        // setcookie($name,'',time()-1000,'/','.'.$_SERVER['HTTP_HOST']);
+		    }
+		}
+		$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
+		setcookie($sess_name,$sess_id,Session::$lifetime,'/','.'.$_SERVER['HTTP_HOST']);
 	}
-
-	// foreach ($_COOKIE as $c_id => $c_value)
-	// {
-	//     setcookie($c_id, NULL, 1, "/", ".brystore.com");
-	//     setcookie($c_id, NULL, 1, "/", "brystore.com");
-	//     setcookie($c_id, NULL, 1, "/", "bw.brystore.com");
-	//     setcookie($c_id, NULL, 1, "/", ".bw.brystore.com");
-	//     setcookie($c_id, NULL, 1, "/", ".billibuys.com");
-	//     setcookie($c_id, NULL, 1, "/", "billibuys.com");
-	// }
-
-
-	$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
 
 	if(AREA == 'C'){
 		$new_area = 'A';
@@ -363,6 +372,7 @@ function fn_bb_submit_notification($bb_data){
 		}
 	}
 }
+
 /**
  * Submit a bid (aka offer)
  * @param  array $bb_data The bid data
@@ -469,15 +479,12 @@ function fn_submit_bids($bb_data,$auth){
 			}
 		}
 		db_query('INSERT INTO ?:bb_bids ?e',$new_bid);
-
 		// Send an email to the request person
-
+			fn_send_mail($email_addr,'admin@billibuys.com','A user has placed a request for the item you have!','This is the body');
 		//Log event
-		//Not working atm
-		// fn_log_event('billibuys', 'create', array('bid' => $new_bid));
-		// 
+		fn_log_event('bb_bid', 'create', array('bid' => $new_bid));
 		return true;
-		}
+	}
 }
 
 /**
@@ -535,6 +542,8 @@ function fn_submit_request($user, $post = ''){
 		db_query('INSERT INTO ?:bb_requests ?e',$data);
 
 		fn_attach_image_pairs('request_main','request',$id);
+
+		fn_log_event('bb_request', 'create', array('request' => $data));
 
 		//Check if this item is one of those requested for notifications
 		//TODO: Body

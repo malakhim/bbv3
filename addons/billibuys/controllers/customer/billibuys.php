@@ -9,7 +9,6 @@
 if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
-
 		// if(!isset($_REQUEST['category_id']))
 		fn_add_breadcrumb(fn_get_lang_var('bb_browse'));
 		// Stub for viewing own auctions
@@ -41,7 +40,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 					$request['image'] = fn_get_image_pairs($request['bb_request_id'], 'request', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
 
-						// $image_id, 'request');
 					//Get duration since auction was placed
 					//Find number of hours since placed, and divide by $HOURS_PER_DAY to indicate number of days since placed if over $HOURS_PER_DAY (24)
 					// $timediff = microtime(true) - $request['timestamp'];
@@ -79,12 +77,10 @@ if ( !defined('AREA') ) { die('Access denied'); }
 						}else{
 							// Catch any error conditions (invalid date or negative)
 							$duration = array_merge($duration, Array('error' => 1, 'msg' => 'invalid_date'));
-							//TODO: Send mail
 						}
 					}else{
 						$duration = array_merge($duration, Array('error' => 1, 'msg' => 'nonpositive_value'));
 						unset($requests[$key]); // FIXME: This should be done in database function as a conditional rather than in php
-						//TODO: Send mail
 					}
 					$request['timestamp'] = $duration;
 				}
@@ -117,6 +113,12 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 	}elseif($mode == 'request'){
 
+		//FIXME: Need a way to stop this appearing if succcess=1 appears unnecessarily in URL, incomplete solution in code
+		if($_REQUEST['success'] && !$_SESSION['displayed']){
+			if(!fn_notification_exists('E',array('displayed'=>1)))
+				fn_set_notification('N', fn_get_lang_var('notice'), fn_get_lang_var('bid_successfully_placed'));
+			// $_SESSION['displayed'] = 1; Need a way to clear this if user bids again
+		}
 		$params = Array(
 			'request_id'=>$_GET['request_id'],
 			'fields' => Array(
@@ -141,20 +143,22 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		if(empty($request)){
 			return array(CONTROLLER_STATUS_NO_PAGE);
 		}
+
+		fn_add_breadcrumb(fn_get_lang_var('view_request'),false);
 		// Remove underscores from any column names in database results and format timestamp
-		foreach($request as $k=>&$r){
-			if($k == 'timestamp'){
-				$r = date('F j Y, g:i a',$r);
-			}
-			if($k == 'bb_request_id'){
-				$request['id'] = $r;
-			}
-			if(strpos($k,'_') !== FALSE){
-				$new_key = str_replace('_', ' ', $k);
-				$request[$new_key] = $r;
-				unset($request[$k]);
-			}
-		}
+		// foreach($request as $k=>&$r){
+		// 	if($k == 'timestamp'){
+		// 		$r = date('F j Y, g:i a',$r);
+		// 	}
+		// 	if($k == 'bb_request_id'){
+		// 		$request['id'] = $r;
+		// 	}
+		// 	if(strpos($k,'_') !== FALSE){
+		// 		$new_key = str_replace('_', ' ', $k);
+		// 		$request[$new_key] = $r;
+		// 		unset($request[$k]);
+		// 	}
+		// }
 
 		// Reset params in case need to modify what is searched by later
 		$params = Array('request_id' => $params['request_id']);
@@ -175,8 +179,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$view->assign('bids',$bids);
 		$view->assign('request_user_id',$request['user id']);
 		$view->assign('request',$request);
-		$view->assign('expired',$request['expiry date'] <= microtime(true));
-		$view->assign('expiry',date('d-m-Y',$request['expiry date']));
+		$view->assign('expired',$request['expiry_date'] <= microtime(true));
+		$view->assign('expiry',date('d-m-Y',$request['expiry_date']));
 
 	}elseif($mode == 'place_request'){
 		if(!$auth['user_id']){

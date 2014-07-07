@@ -9,7 +9,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		'clear_cart',
 		'delete_cart_product',
 		'update_profile',
-		'save_session'
+		'save_session',
+		'save_log'
 	);
 
 ?>

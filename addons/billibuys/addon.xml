@@ -118,6 +118,30 @@
 				PRIMARY KEY (`bb_bid_archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
+
+		<item for="install">
+			INSERT INTO `?:settings_objects` (`name`, `section_id`, `section_tab_id`, `type`, `value`) VALUES ('log_type_bb_request', 12, 0, 'N', '#M#create=Y&delete=Y&update=Y');
+			SET @object_id = LAST_INSERT_ID();
+			INSERT INTO `?:settings_variants` (`object_id`, `name`) VALUES (@object_id,'create');
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (LAST_INSERT_ID(),`V`,`EN`,`Create`);
+			INSERT INTO `?:settings_variants` (`object_id`, `name`) VALUES (@object_id,'delete');
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (LAST_INSERT_ID(),`V`,`EN`,`Delete`);
+			INSERT INTO `?:settings_variants` (`object_id`, `name`) VALUES (@object_id,'update');
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (LAST_INSERT_ID(),`V`,`EN`,`Update`);
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (@object_code,`O`,`EN`,`Billibuys Request`);
+		</item>
+
+		<item for="install">
+			INSERT INTO `?:settings_objects` (`name`, `section_id`, `section_tab_id`, `type`, `value`) VALUES ('log_type_bb_bid', 12, 0, 'N', '#M#create=Y&delete=Y&update=Y');
+			SET @object_id = LAST_INSERT_ID();
+			INSERT INTO `?:settings_variants` (`object_id`, `name`) VALUES (@object_id,'create');
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (LAST_INSERT_ID(),`V`,`EN`,`Create`);
+			INSERT INTO `?:settings_variants` (`object_id`, `name`) VALUES (@object_id,'delete');
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (LAST_INSERT_ID(),`V`,`EN`,`Delete`);
+			INSERT INTO `?:settings_variants` (`object_id`, `name`) VALUES (@object_id,'update');
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (LAST_INSERT_ID(),`V`,`EN`,`Update`);
+			INSERT INTO `?:settings_descriptions` (`object_id`,`object_type`,`lang_code`,`value`) VALUES (@object_code,`O`,`EN`,`Billibuys Bid`)
+		</item>
 		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_requests</item> -->
 		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_archive</item> -->
 		<!-- <item for="uninstall">DROP TABLE IF EXISTS ?:bb_notify_id</item> -->
@@ -137,8 +161,8 @@
 		<item lang="EN" id="create_notification">Would you like to be notified when someone places a request for an item?</item>
 		<item lang="EN" id="item">Item</item>
 		<item lang="EN" id="posted">Posted</item>
-		<item lang="EN" id="current_bid">Current Bid</item>
-		<item lang="EN" id="place_bid">Place Bid</item>
+		<item lang="EN" id="current_bid">Current Offer</item>
+		<item lang="EN" id="place_bid">Place Offer</item>
 		<item lang="EN" id="create_product_package">Create new Product/Package</item>
 		<item lang="EN" id="bb_manage_billibuys_categories">Manage Billibuys Categories</item>
 
@@ -276,5 +300,8 @@
 		<item lang="EN" id="sort_by_max_price_desc">Sort by Maximum Price: High to Low</item>
 		<item lang="EN" id="sort_by_title_asc">Sort by Alphabetical: A to Z</item>
 		<item lang="EN" id="sort_by_title_desc">Sort by Alphabetical: Z to A</item>
+
+		<!-- Frontend billibuys.request variables-->
+		<item lang="EN" id="view_request">View Request</item>
 	</language_variables>
 </addon>

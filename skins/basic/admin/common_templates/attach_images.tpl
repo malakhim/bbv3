@@ -43,11 +43,12 @@ image_type - optional
 <input type="hidden" name="{$name}_image_data{$suffix}[{$key}][pair_id]" value="{$pair.pair_id}" class="cm-image-field" />
 <input type="hidden" name="{$name}_image_data{$suffix}[{$key}][type]" value="{$type|default:"M"}" class="cm-image-field" />
 <input type="hidden" name="{$name}_image_data{$suffix}[{$key}][object_id]" value="{$object_id}" class="cm-image-field" />
-
 <div id="box_attach_images_{$name}_{$key}">
-	{if $no_thumbnail && !$pair.icon}
+	{*Bryan's code: This is confusing*}
+	{*if $no_thumbnail && !$pair.icon}
+	{$pair.icon|var_dump}
 		{$lang.text_thumbnail_manual_loading}&nbsp;<a id="sw_load_thumbnail_{$name}{$suffix}{$key}" class="cm-combination dashed">{$lang.thumbnail_manual_loading_link}</a>
-	{/if}
+	{/if*}
 	{hook name="attach_images:thumbnail"}
 	<div class="clear {if $no_thumbnail && !$pair.icon}hidden{/if}" id="load_thumbnail_{$name}{$suffix}{$key}">
 	{if $delete_pair && $pair.pair_id}
