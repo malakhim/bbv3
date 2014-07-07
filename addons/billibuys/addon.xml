@@ -301,6 +301,11 @@
 		<item lang="EN" id="sort_by_title_asc">Sort by Alphabetical: A to Z</item>
 		<item lang="EN" id="sort_by_title_desc">Sort by Alphabetical: Z to A</item>
 
+		<!-- Mail variables -->
+		<item lang="EN" id="text_offer_made_on_following_auction">Someone has made the following offer on your request for </item>
+		<item lang="EN" id="text_click_to_view_request">Click here to view the request</item>
+		<item lang="EN" id="regards">Regards</item>
+
 		<!-- Frontend billibuys.request variables-->
 		<item lang="EN" id="view_request">View Request</item>
 	</language_variables>

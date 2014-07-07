@@ -14,7 +14,7 @@
 		<div id="request-infobox-right">
 			<div class="bb-time-remaining" expiry="{$request.expiry_date}"></div>
 			{if $expired == 0}
-				{if $request_user_id != $smarty.session.auth.user_id}
+				{if $request.user_id != $smarty.session.auth.user_id}
 					{include file="buttons/button.tpl" but_text="`$lang.place_bid`" but_role="action" but_meta="place_offer" but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url  but_id="place_offer"}
 				{/if}
 			{else if $expired > 0}
@@ -97,10 +97,10 @@
 	{/if}
 </div>
 
-{if $expired == 0}
+{*if $expired == 0}
 	{if $request_user_id != $smarty.session.auth.user_id}
 		{include file="buttons/button.tpl" but_text=$lang.place_bid but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.id`"|@fn_url but_role="link"}
 	{/if}
 {else if $expired > 0}
 	{$lang.auction_finished}. <a href="{"billibuys.view"|fn_url}">{$lang.click_here_to_return_to_main_page}</a>
-{/if}
+{/if*}

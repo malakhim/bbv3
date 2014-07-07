@@ -468,6 +468,7 @@ function fn_submit_bids($bb_data,$auth){
 		foreach($bb_data['product_ids'] as $product){
 			foreach($bb_data['products_data'] as $pid=>$pdata){
 				if($pid == $product){
+					$product_data = $bb_data['products_data'][$pid];
 					$new_bid = Array(
 						'request_id' => $request_id,
 						'price' => $pdata['price'],
@@ -475,12 +476,22 @@ function fn_submit_bids($bb_data,$auth){
 						'quantity' => $pdata['amount'],
 						'product_id' => $product,
 					);
+					break;
 				}
 			}
 		}
 		db_query('INSERT INTO ?:bb_bids ?e',$new_bid);
+
 		// Send an email to the request person
-			fn_send_mail($email_addr,'admin@billibuys.com','A user has placed a request for the item you have!','This is the body');
+		$user = db_get_row("SELECT ?:users.* FROM ?:users INNER JOIN ?:bb_requests ON ?:bb_requests.user_id = ?:users.user_id WHERE bb_request_id = ?i",$new_bid['request_id']);
+		$email_addr = $user['email'];
+		$view_mail->assign('subject',fn_get_lang_var('user_placed_bid'));
+		$view_mail->assign('user',$user);
+		$view_mail->assign('request_item',$request_item);
+		$view_mail->assign('bid',$new_bid);
+		$view_mail->assign('product',$product_data);
+		$view_mail->assign('url',fn_url('index.php?dispatch=billibuys.request&request_id='.$request_id));
+		fn_send_mail($email_addr,Registry::get('settings.Company.company_users_department'),'addons/billibuys/bid_sub.tpl','addons/billibuys/bid_body.tpl','', Registry::get('settings.Appearance.admin_default_language'));
 		//Log event
 		fn_log_event('bb_bid', 'create', array('bid' => $new_bid));
 		return true;
@@ -545,7 +556,6 @@ function fn_submit_request($user, $post = ''){
 
 		fn_log_event('bb_request', 'create', array('request' => $data));
 
-		//Check if this item is one of those requested for notifications
 		//TODO: Body
 		$data = db_get_array("SELECT user_id, notify_string FROM ?:bb_notifications WHERE notify_string LIKE ?s", $post['item_name']);
 		if($data){
