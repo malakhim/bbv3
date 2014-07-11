@@ -97,7 +97,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}
 
 		$view->assign('requests',$requests);
-		$view->assign('hide_layouts',true);
 		$view->assign('sorting', fn_get_requests_sorting());
 		$search = !$_REQUEST['sort_by'] ? Array('sort_by' => 'timestamp','sort_order' => 'desc') : $_REQUEST;
 		$view->assign('search',$search);
@@ -112,7 +111,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		);
 
 	}elseif($mode == 'request'){
-
 		//FIXME: Need a way to stop this appearing if succcess=1 appears unnecessarily in URL, incomplete solution in code
 		if($_REQUEST['success'] && !$_SESSION['displayed']){
 			if(!fn_notification_exists('E',array('displayed'=>1)))
@@ -169,7 +167,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			$bid['tot_price'] = $bid['price'] * $bid['quantity'];
 			$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'product'",$bid['product_id']);
 
-			$bid['image'] = fn_get_image_pairs($bid['product_id'], 'request', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
+			$bid['image'] = fn_get_image_pairs($bid['product_id'], 'product', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
 		}
 		
 		// These bids are links to the product pages

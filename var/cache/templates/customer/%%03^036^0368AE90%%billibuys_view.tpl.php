@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-07 16:01:44
+<?php /* Smarty version 2.6.18, created on 2014-07-09 10:15:06
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 452, false),array('modifier', 'fn_query_remove', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 470, false),array('modifier', 'escape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 470, false),array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 483, false),array('modifier', 'unescape', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 609, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 609, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 612, false),array('modifier', 'format_price', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 733, false),array('function', 'script', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 455, false),array('function', 'math', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 527, false),)), $this); ?>
@@ -40,7 +40,7 @@ fn_preload_lang_vars(array('sort','title','title','prev_page','next','view_large
 </div> -->
 
 
-<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/components/sorting.tpl", 'smarty_include_vars' => array()));
+<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/components/sorting.tpl", 'smarty_include_vars' => array('hide_layouts' => true)));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>

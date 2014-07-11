@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-07 16:16:15
+<?php /* Smarty version 2.6.18, created on 2014-07-09 10:38:42
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 30, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 218, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 222, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 223, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 235, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 52, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 71, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','price','purchased_qty','subtotal_sum','quantity','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','no_data','btn_place_bid_txt','select_fields_to_edit','create_product_package','or','tools','add','products'));
+fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','no_data','btn_place_bid_txt','select_fields_to_edit','create_product_package','or','tools','add','products'));
 ?>
 <?php 
 
@@ -66,26 +66,7 @@ unset($_smarty_tpl_vars);
 ><?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
  (<?php echo $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']]['symbol']; ?>
 )</a></th>
-	<th width="5%"></th>
-	<?php if ($this->_tpl_vars['search']['order_ids']): ?>
-	<th width="5%"><a class="cm-ajax<?php if ($this->_tpl_vars['search']['sort_by'] == 'p_qty'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
-<?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=p_qty&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
-" rev=<?php echo $this->_tpl_vars['rev']; ?>
-><?php echo fn_get_lang_var('purchased_qty', $this->getLanguage()); ?>
-</a></th>
-	<th width="5%"><a class="cm-ajax<?php if ($this->_tpl_vars['search']['sort_by'] == 'p_subtotal'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
-<?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=p_subtotal&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
-" rev=<?php echo $this->_tpl_vars['rev']; ?>
-><?php echo fn_get_lang_var('subtotal_sum', $this->getLanguage()); ?>
- (<?php echo $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']]['symbol']; ?>
-)</a></th>
-	<?php endif; ?>
-	<th width="5%"><a class="cm-ajax<?php if ($this->_tpl_vars['search']['sort_by'] == 'amount'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
-<?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=amount&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
-" rev=<?php echo $this->_tpl_vars['rev']; ?>
-><?php echo fn_get_lang_var('quantity', $this->getLanguage()); ?>
-</a></th>
-</tr>
+			</tr>
 <?php $_from = $this->_tpl_vars['products']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['product']):
 ?>
@@ -155,20 +136,13 @@ unset($_smarty_tpl_vars);
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 		</div>
 	</td>
-	<td>
-		</td>
-	<?php if ($this->_tpl_vars['search']['order_ids']): ?>
+		<?php if ($this->_tpl_vars['search']['order_ids']): ?>
 	<td><?php echo $this->_tpl_vars['product']['purchased_qty']; ?>
 </td>
 	<td><?php echo $this->_tpl_vars['product']['purchased_subtotal']; ?>
 </td>
 	<?php endif; ?>
-	<td>
-				<input type="text" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
-][amount]" size="6" value="<?php echo $this->_tpl_vars['product']['amount']; ?>
-" class="input-text-short" />
-			</td>
-
+	
 </tr>
 <?php endforeach; else: ?>
 <tr class="no-items">

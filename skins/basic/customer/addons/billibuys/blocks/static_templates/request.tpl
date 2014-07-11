@@ -44,7 +44,7 @@
 {/foreach}*}
 </div>
 
-
+{*
 <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table sortable">
 	<tr>
 		<th><span>{$lang.item}</span></th>
@@ -74,7 +74,7 @@
 </table>
 <br />
 
-
+*}
 <div id="bids-list">
 	{if $bids != null & isset($bids)}
 		{foreach from=$bids item=bid}
@@ -88,7 +88,7 @@
 						<div class="bb-list-rating bb-list-field">{*Placeholder for rating stars*}</div>
 						<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>
 						<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;{include file="common_templates/price.tpl" value=$bid.price"}</div>
-						<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>
+						{*<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>*}
 						<!-- <div class="bb-list-view">{$lang.view}</div> -->
 					</div>
 				</span></a>

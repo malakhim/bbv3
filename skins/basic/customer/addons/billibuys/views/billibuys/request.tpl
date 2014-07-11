@@ -7,8 +7,9 @@
 <script src="addons/billibuys/js/view_request.js" type="text/javascript"></script>
 {/literal}
 
-{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
+
 <div id="info-box">
+	{include file="common_templates/image.tpl" image_width="80" image_height="80" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
 	{*<div class="infobox-label">{$lang.i_want_a}:</div> <br/> {$request.title} <br/>
 	<hr id="separator"/>*}
 		<div id="request-infobox-right">
@@ -44,7 +45,7 @@
 {/foreach}*}
 </div>
 
-
+{*
 <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table sortable">
 	<tr>
 		<th><span>{$lang.item}</span></th>
@@ -52,7 +53,7 @@
 		<th>{$lang.name}</th>
 		<th>{$lang.quantity}</th>
 		<th>{$lang.total_price}</th>
-		{*<th>{$lang.user}</th>*}
+		{*<th>{$lang.user}</th>*}{*
 	</tr>
 	{if $bids != null & isset($bids)}
 		{foreach from=$bids item=bid}
@@ -74,29 +75,31 @@
 </table>
 <br />
 
-
-<div id="bids-list">
-	{if $bids != null & isset($bids)}
-		{foreach from=$bids item=bid}
-			{if is_array($bid)}
-				<a class="bb-large-list-href" href="{"products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}"><span class="bb-large-list">
-					<div class="bb-list-img">
-					{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$bid.image show_thumbnail="Y" no_ids=true class="request-list-image"}
-					</div>
-					<div class="bb-list-txt">
-						<div class="bb-list-field bb-list-title">{$bid.product}</div>
-						<div class="bb-list-rating bb-list-field">{*Placeholder for rating stars*}</div>
-						<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>
-						<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;{include file="common_templates/price.tpl" value=$bid.price"}</div>
-						<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>
-						<!-- <div class="bb-list-view">{$lang.view}</div> -->
-					</div>
-				</span></a>
-			{/if}
-		{/foreach}
-	{/if}
-</div>
-
+*}
+{if $bids != null & isset($bids)}
+	<div id="bids-list">
+		{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true}
+		{include file="common_templates/pagination.tpl"}
+			{foreach from=$bids item=bid}
+				{if is_array($bid)}
+					<a class="bb-large-list-href" href="{"products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}"><span class="bb-large-list">
+						<div class="bb-list-img">
+						{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$bid.image show_thumbnail="Y" no_ids=true class="request-list-image"}
+						</div>
+						<div class="bb-list-txt">
+							<div class="bb-list-field bb-list-title">{$bid.product}</div>
+							<div class="bb-list-rating bb-list-field">{*Placeholder for rating stars*}</div>
+							{*<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>*}
+							<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}{include file="common_templates/price.tpl" value=$bid.price"}</div>
+							{*<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>*}
+							<!-- <div class="bb-list-view">{$lang.view}</div> -->
+						</div>
+					</span></a>
+				{/if}
+			{/foreach}
+		{include file="common_templates/pagination.tpl"}
+	</div>
+{/if}
 {*if $expired == 0}
 	{if $request_user_id != $smarty.session.auth.user_id}
 		{include file="buttons/button.tpl" but_text=$lang.place_bid but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.id`"|@fn_url but_role="link"}

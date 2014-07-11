@@ -115,7 +115,8 @@ body{
 }
 
 #background_img img{
-	width:100%;
+	/*width:100%;*/
+	width: 1349px;
 }
 
 html.ie7 .how_does_it_work_block div,
@@ -678,7 +679,7 @@ html.ie9 .how_does_it_work_block div {
 .request-item-image{
 	border: 1px #4357a6 solid;
 	margin-right: 10px;
-	margin-top: -70px;
+	/*margin-top: -70px;*/
 }
 
 .pagination-bottom{
@@ -708,8 +709,8 @@ html.ie9 .how_does_it_work_block div {
 
 #info-box{
 	display: inline-block;
-	width: 80%;
-	margin-top: 70px;
+	width: 100%;
+	/*margin-top: 70px;*/
 }
 
 .infobox-label{
@@ -751,7 +752,7 @@ html.ie9 .how_does_it_work_block div {
 
 .bb-list-title{
 	margin-top: -108px;
-	font-size: 23pt;
+	font-size: 2em;
 	font-family: arial;
 	text-transform: uppercase;
 	width: 230px;
@@ -815,7 +816,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #bids-list .bb-large-list{
-	padding-top: 10px;
+	/*padding-top: 10px;*/
 	padding-bottom: 30px;
 	margin-bottom: 10px;
 }
@@ -859,14 +860,41 @@ html.ie9 .how_does_it_work_block div {
 
 #max-price{
 	margin-top: 90px;
+	margin-left: 100px;
 }
 
 #description-text{
-	margin-top: -70px;
+	margin-top: -85px;
 	font-style: italic;
+	margin-left: 100px;
 }
 
 .request-infobox .mainbox-title{
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+#bids-list .bb-list-title{
+	width: auto;
+	font-size: 4em;
+	height: 110px;
+}
+
+#bids-list .bb-list-price{
+	float: right;
+	margin-top: -70px;
+	font-size: 4em;
+}
+
+#bids-list{
+	border-top: 1px dotted #ccc;
+	margin-top: 30px;
+}
+
+#bids-list .sort-container{
+	margin-top: -20px;
+}
+
+#info-box .bb-time-remaining{
+	margin-top: 0px;
 }

@@ -26,12 +26,12 @@
 	<th width="5%"><span>{$lang.image}</span></th>
 	<th width="60%"><a class="{$ajax_class}{if $search.sort_by == "product"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=product&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.name}</a>{** / <a class="{$ajax_class}{if $search.sort_by == "code"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=code&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.product_code}</a>**}</th>
 	<th width="15%"><a class="cm-ajax{if $search.sort_by == "price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.price} ({$currencies.$primary_currency.symbol})</a></th>
-	<th width="5%">{**<a class="cm-ajax{if $search.sort_by == "list_price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=list_price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.list_price} ({$currencies.$primary_currency.symbol})</a>**}</th>
-	{if $search.order_ids}
+	{**<th width="5%"><a class="cm-ajax{if $search.sort_by == "list_price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=list_price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.list_price} ({$currencies.$primary_currency.symbol})</a></th>**}
+	{*if $search.order_ids}
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_qty"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_qty&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.purchased_qty}</a></th>
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_subtotal"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_subtotal&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.subtotal_sum} ({$currencies.$primary_currency.symbol})</a></th>
-	{/if}
-	<th width="5%"><a class="cm-ajax{if $search.sort_by == "amount"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=amount&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.quantity}</a></th>
+	{/if*}
+	{*<th width="5%"><a class="cm-ajax{if $search.sort_by == "amount"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=amount&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.quantity}</a></th>*}
 </tr>
 {foreach from=$products item=product}
 
@@ -59,19 +59,19 @@
 			{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='price' name="update_all_vendors[price]"}
 		</div>
 	</td>
-	<td>
-		{**<input type="text" name="products_data[{$product.product_id}][list_price]" size="6" value="{$product.list_price}" class="input-text" />**}</td>
+	{**<td>
+		<input type="text" name="products_data[{$product.product_id}][list_price]" size="6" value="{$product.list_price}" class="input-text" /></td>**}
 	{if $search.order_ids}
 	<td>{$product.purchased_qty}</td>
 	<td>{$product.purchased_subtotal}</td>
 	{/if}
-	<td>
+	{*<td>
 		{**{if $product.tracking == "O"}
 		{include file="buttons/button.tpl" but_text=$lang.edit but_href="product_options.inventory?product_id=`$product.product_id`" but_role="edit"}
-		{else}**}
+		{else}**}{*
 		<input type="text" name="products_data[{$product.product_id}][amount]" size="6" value="{$product.amount}" class="input-text-short" />
-		{**{/if}**}
-	</td>
+		{**{/if}**}{*
+	</td>*}
 
 </tr>
 {foreachelse}

@@ -105,7 +105,7 @@
 </div> -->
 
 
-{include file="addons/billibuys/components/sorting.tpl"}
+{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true}
 
 {include file="common_templates/pagination.tpl"}
 

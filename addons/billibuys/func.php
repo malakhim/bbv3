@@ -345,11 +345,14 @@ function fn_get_bids($params){
 			?:product_descriptions ON
 				?:product_descriptions.product_id = ?:bb_bids.product_id
 		INNER JOIN
+			?:products ON
+				?:bb_bids.product_id = ?:products.product_id
+		INNER JOIN
 			?:user_profiles ON
 				?:bb_bids.user_id = ?:user_profiles.user_id
 		WHERE 
-		 ?:bb_bids.request_id = ?i
-		GROUP BY request_id",
+		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A'
+		GROUP BY bb_bid_id",
 			$params['request_id']
 		);
 
@@ -403,7 +406,8 @@ function fn_submit_bids($bb_data,$auth){
 		$currency_symbol = $currencies[CART_PRIMARY_CURRENCY]['symbol'];
 
 		foreach($bb_data['product_ids'] as $pid){
-			$price = $bb_data['products_data'][$pid]['price'] * $bb_data['products_data'][$pid]['amount'];
+			// $price = $bb_data['products_data'][$pid]['price'] * $bb_data['products_data'][$pid]['amount'];
+			$price = $bb_data['products_data'][$pid]['price'];
 			$product_name = $bb_data['products_data'][$pid]['product'] ;
 		}
 
@@ -439,9 +443,9 @@ function fn_submit_bids($bb_data,$auth){
 		}elseif($bb_data['products_data'][$pid]['price'] <= 0){
 			// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
 			$error_msg = fn_get_lang_var('bid_price_cannot_be_zero');
-		}elseif($bb_data['products_data'][$pid]['amount'] <= 0){
-			// TODO: Same as above
-			$error_msg = fn_get_lang_var('qty_cannot_be_zero');
+		// }elseif($bb_data['products_data'][$pid]['amount'] <= 0){
+		// 	// TODO: Same as above
+		// 	$error_msg = fn_get_lang_var('qty_cannot_be_zero');
 		}
 
 		if($error_msg != null && isset($error_msg)){
@@ -485,6 +489,7 @@ function fn_submit_bids($bb_data,$auth){
 		// Send an email to the request person
 		$user = db_get_row("SELECT ?:users.* FROM ?:users INNER JOIN ?:bb_requests ON ?:bb_requests.user_id = ?:users.user_id WHERE bb_request_id = ?i",$new_bid['request_id']);
 		$email_addr = $user['email'];
+		$view_mail = Registry::get('view_mail');
 		$view_mail->assign('subject',fn_get_lang_var('user_placed_bid'));
 		$view_mail->assign('user',$user);
 		$view_mail->assign('request_item',$request_item);
@@ -738,7 +743,7 @@ function fn_get_requests($params = Array()){
 			$requests = array_merge(db_get_array($query,$where,$sorting),$requests);
 			if(sizeof($requests) > 1 && $requests != null){
 				foreach($requests as &$request){
-					$request['lowest_bid'] = db_get_field('SELECT price * quantity FROM ?:bb_bids WHERE request_id = ?i ORDER BY price ASC',$request['bb_request_item_id']);
+					$request['lowest_bid'] = db_get_field('SELECT price FROM ?:bb_bids WHERE request_id = ?i ORDER BY price ASC',$request['bb_request_item_id']);
 				}
 				$requests['success'] = true;
 			}
