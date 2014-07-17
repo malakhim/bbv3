@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-11 10:41:42
+<?php /* Smarty version 2.6.18, created on 2014-07-11 18:57:28
          compiled from letter_header.tpl */ ?>
 <html>
 <head>
@@ -21,6 +21,10 @@
 
 .table-head {
 	background-color: #bbbbbb;
+}
+
+.table{
+	border: 1px white solid;
 }
 '; ?>
 

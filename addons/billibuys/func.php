@@ -495,8 +495,8 @@ function fn_submit_bids($bb_data,$auth){
 		$view_mail->assign('request_item',$request_item);
 		$view_mail->assign('bid',$new_bid);
 		$view_mail->assign('product',$product_data);
-		$view_mail->assign('url',fn_url('index.php?dispatch=billibuys.request&request_id='.$request_id));
-		fn_send_mail($email_addr,Registry::get('settings.Company.company_users_department'),'addons/billibuys/bid_sub.tpl','addons/billibuys/bid_body.tpl','', Registry::get('settings.Appearance.admin_default_language'));
+		$view_mail->assign('url',$_SERVER['HTTP_HOST'].fn_url('index.php?dispatch=billibuys.request&request_id='.$request_id));
+		fn_send_mail($email_addr,Registry::get('settings.Company.company_users_department'),'addons/billibuys/bid_subj.tpl','addons/billibuys/bid_body.tpl','', Registry::get('settings.Appearance.admin_default_language'));
 		//Log event
 		fn_log_event('bb_bid', 'create', array('bid' => $new_bid));
 		return true;

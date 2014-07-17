@@ -1,1 +1,1 @@
-{$subject}
+{$subject|unescape}

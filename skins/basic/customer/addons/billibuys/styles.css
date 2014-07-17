@@ -755,7 +755,7 @@ html.ie9 .how_does_it_work_block div {
 	font-size: 2em;
 	font-family: arial;
 	text-transform: uppercase;
-	width: 230px;
+	width: 700px;
 }
 
 .bb-list-txt{
@@ -875,7 +875,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #bids-list .bb-list-title{
-	width: auto;
+	/*width: auto;*/
 	font-size: 4em;
 	height: 110px;
 }

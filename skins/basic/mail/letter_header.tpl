@@ -20,6 +20,10 @@
 .table-head {
 	background-color: #bbbbbb;
 }
+
+.table{
+	border: 1px white solid;
+}
 {/literal}
 </style>
 </head>
