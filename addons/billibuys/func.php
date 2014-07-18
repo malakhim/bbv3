@@ -120,17 +120,17 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
 
 	if(AREA != 'A'){
-		// Delete all existing cookies
-		if (isset($_SERVER['HTTP_COOKIE'])) {
+		// Delete all existing cookies unless already logged in
+		if (isset($_SERVER['HTTP_COOKIE']) && $_SESSION['auth']['user_id'] == 0) {
 		    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
 		    foreach($cookies as $cookie) {
 		        $parts = explode('=', $cookie);
 		        $name = trim($parts[0]);
 		        setcookie($name, '', time()-1000);
-		        // setcookie($name, '', time()-1000, '/');
+		        setcookie($name, '', time()-1000, '/');
 		        // Odd fixes for how CS-Cart adds . to front of domain in cookies
-		        // setcookie($name,'',time()-1000,'/',substr($_SERVER['HTTP_HOST'],strpos($_SERVER['HTTP_HOST'],'.')));
-		        // setcookie($name,'',time()-1000,'/','.'.$_SERVER['HTTP_HOST']);
+		        setcookie($name,'',time()-1000,'/',substr($_SERVER['HTTP_HOST'],strpos($_SERVER['HTTP_HOST'],'.')));
+		        setcookie($name,'',time()-1000,'/','.'.$_SERVER['HTTP_HOST']);
 		    }
 		}
 		$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);

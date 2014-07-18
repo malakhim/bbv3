@@ -240,7 +240,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$redirect_url = "upgrade_center.ie7notify";
 			}
 
-			return array(CONTROLLER_STATUS_OK, "billibuys.view");
+			if(!$redirect_url){
+				return array(CONTROLLER_STATUS_OK, "billibuys.view");
+			}
+			else{
+				return array(CONTROLLER_STATUS_REDIRECT, $redirect_url, true);
+			}
 		}
 	}
 }
