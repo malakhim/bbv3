@@ -111,6 +111,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		);
 
 	}elseif($mode == 'request'){
+		
 		//FIXME: Need a way to stop this appearing if succcess=1 appears unnecessarily in URL, incomplete solution in code
 		if($_REQUEST['success'] && !$_SESSION['displayed']){
 			if(!fn_notification_exists('E',array('displayed'=>1)))
@@ -132,6 +133,10 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 		// Get database results
 		$request = fn_get_request($params);
+
+		if($_REQUEST['place_bid_redirect'] && $auth['user_id'] !== 0 && $request['user_id'] !== $auth['user_id']){
+			fn_redirect('/vendor.php?dispatch=billibuys.place_bid&request_id='.$_REQUEST['request_id']);
+		}
 
 		// Get image_id
 		$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'request'",$_GET['request_id']);

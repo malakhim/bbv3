@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-09 10:38:42
+<?php /* Smarty version 2.6.18, created on 2014-08-13 12:04:53
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 30, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 218, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 222, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 223, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 235, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 52, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 71, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 30, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 222, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 226, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 227, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 239, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 52, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 71, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','no_data','btn_place_bid_txt','select_fields_to_edit','create_product_package','or','tools','add','products'));
+fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','price','quantity','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','no_data','btn_place_bid_txt','select_fields_to_edit','create_product_package','or','tools','add','products'));
 ?>
 <?php 
 
@@ -66,7 +66,12 @@ unset($_smarty_tpl_vars);
 ><?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
  (<?php echo $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']]['symbol']; ?>
 )</a></th>
-			</tr>
+			<th width="5%"><a class="cm-ajax<?php if ($this->_tpl_vars['search']['sort_by'] == 'amount'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
+<?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=amount&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
+" rev=<?php echo $this->_tpl_vars['rev']; ?>
+><?php echo fn_get_lang_var('quantity', $this->getLanguage()); ?>
+</a></th>
+</tr>
 <?php $_from = $this->_tpl_vars['products']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['product']):
 ?>
@@ -142,7 +147,42 @@ unset($_smarty_tpl_vars);
 	<td><?php echo $this->_tpl_vars['product']['purchased_subtotal']; ?>
 </td>
 	<?php endif; ?>
-	
+	<td>
+				<select name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
+][amount]" class="amount">
+			<?php unset($this->_sections['amount']);
+$this->_sections['amount']['name'] = 'amount';
+$this->_sections['amount']['max'] = (int)$this->_tpl_vars['product']['amount'];
+$this->_sections['amount']['loop'] = is_array($_loop=$this->_tpl_vars['product']['amount']+1) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['amount']['step'] = ((int)-1) == 0 ? 1 : (int)-1;
+$this->_sections['amount']['show'] = true;
+if ($this->_sections['amount']['max'] < 0)
+    $this->_sections['amount']['max'] = $this->_sections['amount']['loop'];
+$this->_sections['amount']['start'] = $this->_sections['amount']['step'] > 0 ? 0 : $this->_sections['amount']['loop']-1;
+if ($this->_sections['amount']['show']) {
+    $this->_sections['amount']['total'] = min(ceil(($this->_sections['amount']['step'] > 0 ? $this->_sections['amount']['loop'] - $this->_sections['amount']['start'] : $this->_sections['amount']['start']+1)/abs($this->_sections['amount']['step'])), $this->_sections['amount']['max']);
+    if ($this->_sections['amount']['total'] == 0)
+        $this->_sections['amount']['show'] = false;
+} else
+    $this->_sections['amount']['total'] = 0;
+if ($this->_sections['amount']['show']):
+
+            for ($this->_sections['amount']['index'] = $this->_sections['amount']['start'], $this->_sections['amount']['iteration'] = 1;
+                 $this->_sections['amount']['iteration'] <= $this->_sections['amount']['total'];
+                 $this->_sections['amount']['index'] += $this->_sections['amount']['step'], $this->_sections['amount']['iteration']++):
+$this->_sections['amount']['rownum'] = $this->_sections['amount']['iteration'];
+$this->_sections['amount']['index_prev'] = $this->_sections['amount']['index'] - $this->_sections['amount']['step'];
+$this->_sections['amount']['index_next'] = $this->_sections['amount']['index'] + $this->_sections['amount']['step'];
+$this->_sections['amount']['first']      = ($this->_sections['amount']['iteration'] == 1);
+$this->_sections['amount']['last']       = ($this->_sections['amount']['iteration'] == $this->_sections['amount']['total']);
+?>
+				<option value="<?php echo $this->_sections['amount']['index']; ?>
+"><?php echo $this->_sections['amount']['index']; ?>
+</option>
+			<?php endfor; endif; ?>
+		</select>
+			</td>
+
 </tr>
 <?php endforeach; else: ?>
 <tr class="no-items">

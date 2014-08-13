@@ -115,7 +115,7 @@
 	<label for="product_list_price">{$lang.list_price} ({$currencies.$primary_currency.symbol}) :</label>
 	<input type="text" name="product_data[list_price]" id="product_data_list_price" size="10" value="{$product_data.list_price|default:"0.00"}" class="input-text-medium" />
 </div>
-
+*}
 <div class="form-field">
 	<label for="product_amount">{$lang.in_stock}:</label>
 	{if $product_data.tracking == "O"}
@@ -124,7 +124,7 @@
 		<input type="text" name="product_data[amount]" id="product_amount" size="10" value="{$product_data.amount|default:"1"}" class="input-text-short" />
 	{/if}
 </div>
-
+{*
 <div class="form-field">
 	<label for="zero_price_action">{$lang.zero_price_action}:</label>
 	<select name="product_data[zero_price_action]" id="zero_price_action">

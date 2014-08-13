@@ -31,7 +31,7 @@
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_qty"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_qty&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.purchased_qty}</a></th>
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_subtotal"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_subtotal&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.subtotal_sum} ({$currencies.$primary_currency.symbol})</a></th>
 	{/if*}
-	{*<th width="5%"><a class="cm-ajax{if $search.sort_by == "amount"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=amount&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.quantity}</a></th>*}
+	<th width="5%"><a class="cm-ajax{if $search.sort_by == "amount"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=amount&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.quantity}</a></th>
 </tr>
 {foreach from=$products item=product}
 
@@ -65,13 +65,17 @@
 	<td>{$product.purchased_qty}</td>
 	<td>{$product.purchased_subtotal}</td>
 	{/if}
-	{*<td>
+	<td>
 		{**{if $product.tracking == "O"}
 		{include file="buttons/button.tpl" but_text=$lang.edit but_href="product_options.inventory?product_id=`$product.product_id`" but_role="edit"}
-		{else}**}{*
-		<input type="text" name="products_data[{$product.product_id}][amount]" size="6" value="{$product.amount}" class="input-text-short" />
-		{**{/if}**}{*
-	</td>*}
+		{else}**}
+		<select name="products_data[{$product.product_id}][amount]" class="amount">
+			{section name=amount max=$product.amount loop=$product.amount+1 step=-1}
+				<option value="{$smarty.section.amount.index}">{$smarty.section.amount.index}</option>
+			{/section}
+		</select>
+		{**{/if}**}
+	</td>
 
 </tr>
 {foreachelse}

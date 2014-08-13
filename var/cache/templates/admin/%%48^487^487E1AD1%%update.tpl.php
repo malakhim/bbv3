@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-07 16:18:43
+<?php /* Smarty version 2.6.18, created on 2014-08-13 11:11:37
          compiled from views/products/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'fn_url', 'views/products/update.tpl', 28, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 28, false),array('modifier', 'defined', 'views/products/update.tpl', 28, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 97, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 766, false),array('modifier', 'in_array', 'views/products/update.tpl', 772, false),array('modifier', 'escape', 'views/products/update.tpl', 813, false),array('block', 'hook', 'views/products/update.tpl', 708, false),array('function', 'script', 'views/products/update.tpl', 760, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'fn_url', 'views/products/update.tpl', 28, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 28, false),array('modifier', 'defined', 'views/products/update.tpl', 28, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 97, false),array('modifier', 'fn_check_view_permissions', 'views/products/update.tpl', 217, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 766, false),array('modifier', 'in_array', 'views/products/update.tpl', 772, false),array('modifier', 'escape', 'views/products/update.tpl', 813, false),array('block', 'hook', 'views/products/update.tpl', 708, false),array('function', 'script', 'views/products/update.tpl', 760, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','preview','preview_as_admin','editing_product'));
+fn_preload_lang_vars(array('information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','in_stock','edit','remove_this_item','remove_this_item','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','preview','preview_as_admin','editing_product'));
 ?>
 <?php 
 
@@ -173,6 +173,108 @@ unset($_smarty_tpl_vars);
 </div>
 </fieldset>
 
+<div class="form-field">
+	<label for="product_amount"><?php echo fn_get_lang_var('in_stock', $this->getLanguage()); ?>
+:</label>
+	<?php if ($this->_tpl_vars['product_data']['tracking'] == 'O'): ?>
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('edit', $this->getLanguage()), 'but_href' => "product_options.inventory?product_id=".($this->_tpl_vars['id']), 'but_role' => 'edit', )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
+	<?php $this->assign('class', "text-link", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'delete'): ?>
+	<?php $this->assign('class', "text-button-delete", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'add'): ?>
+	<?php $this->assign('class', "text-button text-button-add", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'reload'): ?>
+	<?php $this->assign('class', "text-button text-button-reload", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'delete_item'): ?>
+	<?php $this->assign('class', "text-button-delete-item", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'edit'): ?>
+	<?php $this->assign('class', "text-button-edit", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'tool'): ?>
+	<?php $this->assign('class', "tool-link", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'link'): ?>
+	<?php $this->assign('class', "text-button-link", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'simple'): ?>
+	<?php $this->assign('class', "text-button-simple", false); ?>
+<?php else: ?>
+	<?php $this->assign('class', "", false); ?>
+<?php endif; ?>
+
+<?php if ($this->_tpl_vars['but_name']): ?><?php $this->assign('r', $this->_tpl_vars['but_name'], false); ?><?php else: ?><?php $this->assign('r', $this->_tpl_vars['but_href'], false); ?><?php endif; ?>
+<?php $this->assign('method', smarty_modifier_default(@$this->_tpl_vars['method'], 'POST'), false); ?>
+<?php if (fn_check_view_permissions($this->_tpl_vars['r'], $this->_tpl_vars['method'])): ?>
+
+<?php if ($this->_tpl_vars['but_name'] || $this->_tpl_vars['but_role'] == 'submit' || $this->_tpl_vars['but_role'] == 'button_main' || $this->_tpl_vars['but_type'] || $this->_tpl_vars['but_role'] == 'big'): ?> 
+	<span <?php if ($this->_tpl_vars['but_css']): ?>style="<?php echo $this->_tpl_vars['but_css']; ?>
+"<?php endif; ?> class="submit-button<?php if ($this->_tpl_vars['but_role'] == 'big'): ?>-big<?php endif; ?><?php if ($this->_tpl_vars['but_role'] == 'button_main'): ?> cm-button-main<?php endif; ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+"><input <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_meta']): ?>class="<?php echo $this->_tpl_vars['but_meta']; ?>
+"<?php endif; ?> type="<?php echo smarty_modifier_default(@$this->_tpl_vars['but_type'], 'submit'); ?>
+"<?php if ($this->_tpl_vars['but_name']): ?> name="<?php echo $this->_tpl_vars['but_name']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_onclick']): ?> onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> value="<?php echo $this->_tpl_vars['but_text']; ?>
+" <?php if ($this->_tpl_vars['tabindex']): ?>tabindex="<?php echo $this->_tpl_vars['tabindex']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_disabled']): ?>disabled="disabled"<?php endif; ?> /></span>
+
+<?php elseif ($this->_tpl_vars['but_role'] && $this->_tpl_vars['but_role'] != 'submit' && $this->_tpl_vars['but_role'] != 'action' && $this->_tpl_vars['but_role'] != "advanced-search" && $this->_tpl_vars['but_role'] != 'button'): ?> 
+	<a <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_href']): ?> href="<?php echo fn_url($this->_tpl_vars['but_href']); ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_onclick']): ?> onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?><?php if ($this->_tpl_vars['but_target']): ?> target="<?php echo $this->_tpl_vars['but_target']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> class="<?php echo $this->_tpl_vars['class']; ?>
+<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>"><?php if ($this->_tpl_vars['but_role'] == 'delete_item'): ?><img src="<?php echo $this->_tpl_vars['images_dir']; ?>
+/icons/icon_delete.gif" width="12" height="18" border="0" alt="<?php echo fn_get_lang_var('remove_this_item', $this->getLanguage()); ?>
+" title="<?php echo fn_get_lang_var('remove_this_item', $this->getLanguage()); ?>
+" class="valign" /><?php else: ?><?php echo $this->_tpl_vars['but_text']; ?>
+<?php endif; ?></a>
+
+<?php elseif ($this->_tpl_vars['but_role'] == 'action' || $this->_tpl_vars['but_role'] == "advanced-search"): ?> 
+	<a <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_href']): ?> href="<?php echo fn_url($this->_tpl_vars['but_href']); ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_onclick']): ?>onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> <?php if ($this->_tpl_vars['but_target']): ?>target="<?php echo $this->_tpl_vars['but_target']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> class="button<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>"><?php echo $this->_tpl_vars['but_text']; ?>
+<?php if ($this->_tpl_vars['but_role'] == 'action'): ?>&nbsp;<img src="<?php echo $this->_tpl_vars['images_dir']; ?>
+/icons/but_arrow.gif" width="8" height="7" border="0" alt=""/><?php endif; ?></a>
+	
+<?php elseif ($this->_tpl_vars['but_role'] == 'button'): ?>
+	<input <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_meta']): ?>class="<?php echo $this->_tpl_vars['but_meta']; ?>
+"<?php endif; ?> type="button" <?php if ($this->_tpl_vars['but_onclick']): ?>onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> value="<?php echo $this->_tpl_vars['but_text']; ?>
+" <?php if ($this->_tpl_vars['tabindex']): ?>tabindex="<?php echo $this->_tpl_vars['tabindex']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> />
+
+<?php elseif ($this->_tpl_vars['but_role'] == 'icon'): ?> 
+	<a <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_href']): ?> href="<?php echo fn_url($this->_tpl_vars['but_href']); ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_onclick']): ?>onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> <?php if ($this->_tpl_vars['but_target']): ?>target="<?php echo $this->_tpl_vars['but_target']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> class="<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>"><?php echo $this->_tpl_vars['but_text']; ?>
+</a>
+
+<?php elseif (! $this->_tpl_vars['but_role']): ?> 
+	<input <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?> class="default-button<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>" type="submit" onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>" value="<?php echo $this->_tpl_vars['but_text']; ?>
+" <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> />
+<?php endif; ?>
+
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+	<?php else: ?>
+		<input type="text" name="product_data[amount]" id="product_amount" size="10" value="<?php echo smarty_modifier_default(@$this->_tpl_vars['product_data']['amount'], '1'); ?>
+" class="input-text-short" />
+	<?php endif; ?>
+</div>
 
 
 <!--content_detailed--></div> 
