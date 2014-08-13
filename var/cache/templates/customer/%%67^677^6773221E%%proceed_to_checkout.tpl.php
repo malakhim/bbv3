@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-09 16:11:18
+<?php /* Smarty version 2.6.18, created on 2014-08-14 01:35:41
          compiled from buttons/proceed_to_checkout.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/proceed_to_checkout.tpl', 40, false),array('modifier', 'fn_url', 'buttons/proceed_to_checkout.tpl', 40, false),)), $this); ?>

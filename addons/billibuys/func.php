@@ -309,8 +309,8 @@ function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$pric
 		FROM ?:bb_bids 
 		INNER JOIN ?:bb_requests ON
 			?:bb_requests.bb_request_id = ?:bb_bids.request_id
-		WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i
-	",$product_id,$auth['user_id']);
+		WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i AND ?:bb_bids.bb_bid_id = ?i
+	",$product_id,$auth['user_id'],$bid_id);
 }
 
 function fn_get_bid_by_product($product_id,$request_id){

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-09 16:11:24
+<?php /* Smarty version 2.6.18, created on 2014-08-14 01:35:46
          compiled from views/checkout/components/steps/step_two.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_compare_shipping_billing', 'views/checkout/components/steps/step_two.tpl', 1, false),array('modifier', 'replace', 'views/checkout/components/steps/step_two.tpl', 53, false),array('modifier', 'fn_url', 'views/checkout/components/steps/step_two.tpl', 53, false),array('block', 'hook', 'views/checkout/components/steps/step_two.tpl', 26, false),)), $this); ?>
