@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-09 10:17:40
+<?php /* Smarty version 2.6.18, created on 2014-08-14 01:32:23
          compiled from addons/bundled_products/hooks/products/prices_block.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_price', 'addons/bundled_products/hooks/products/prices_block.override.tpl', 21, false),)), $this); ?>

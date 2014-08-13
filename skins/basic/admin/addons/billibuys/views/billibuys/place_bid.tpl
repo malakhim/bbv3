@@ -1,8 +1,7 @@
 {capture name="mainbox"}
 
-{literal}
 <script src="addons/billibuys/js/place_bid.js" type="text/javascript"></script>
-{/literal}
+
 {$lang.place_bid_instr}
 {**
 {include file="views/products/components/products_search_form.tpl" dispatch="products.manage"}
@@ -55,7 +54,7 @@
 	</td>
 	<td{if $no_hide_input_if_shared_product} class="{$no_hide_input_if_shared_product}"{/if}>
 		<div class="product-price">
-			<input type="text" name="products_data[{$product.product_id}][price]" size="6" value="{$product.price|fn_format_price:$primary_currency:null:false}" class="input-text" />
+			<input type="number" min="0" name="products_data[{$product.product_id}][price]" size="6" value="{$product.price|fn_format_price:$primary_currency:null:false}" class="input-text" />
 			{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='price' name="update_all_vendors[price]"}
 		</div>
 	</td>

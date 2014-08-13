@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-11 12:17:07
+<?php /* Smarty version 2.6.18, created on 2014-08-14 01:31:59
          compiled from addons/billibuys/bb_letter_footer.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strtolower', 'addons/billibuys/bb_letter_footer.tpl', 2, false),array('modifier', 'capitalize', 'addons/billibuys/bb_letter_footer.tpl', 2, false),)), $this); ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-11 19:19:04
+<?php /* Smarty version 2.6.18, created on 2014-08-14 01:31:59
          compiled from addons/billibuys/bid_body.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strtolower', 'addons/billibuys/bid_body.tpl', 3, false),array('modifier', 'capitalize', 'addons/billibuys/bid_body.tpl', 3, false),array('modifier', 'replace', 'addons/billibuys/bid_body.tpl', 18, false),)), $this); ?>
@@ -7,8 +7,9 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 
-<?php echo fn_get_lang_var('hello', $this->getLanguage()); ?>
-<?php if (! empty ( $this->_tpl_vars['firstname'] )): ?>&nbsp;<?php echo smarty_modifier_capitalize(strtolower($this->_tpl_vars['firstname'])); ?>
+<?php if (! empty ( $this->_tpl_vars['firstname'] )): ?><?php echo fn_get_lang_var('dear', $this->getLanguage()); ?>
+&nbsp;<?php echo smarty_modifier_capitalize(strtolower($this->_tpl_vars['firstname'])); ?>
+<?php else: ?><?php echo fn_get_lang_var('hello', $this->getLanguage()); ?>
 <?php endif; ?>,<br /><br />
 
 <?php echo fn_get_lang_var('text_offer_made_on_following_auction', $this->getLanguage()); ?>
@@ -31,7 +32,7 @@ unset($_smarty_tpl_vars);
  ?></td>
 	</tr>
 </table>
-
+<br/>
 <a href="<?php echo smarty_modifier_replace($this->_tpl_vars['url'], '$amp;', '&'); ?>
 "><?php echo fn_get_lang_var('text_click_to_view_request', $this->getLanguage()); ?>
 </a>

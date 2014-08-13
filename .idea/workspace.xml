@@ -2,78 +2,206 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a980da9-a924-4a47-8306-69985d26b250" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/public_html.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\addons\0\cache_customeradmin.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\addons\0\cache_vendorvendor.csc" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_GET_auth_login_form_EN_AUD.csc" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_GET_auth_logout_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_GET_billibuys_place_bid_EN_AUD.csc" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_GET_helpdesk_connector_auth_EN_AUD.csc" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_GET_index_index_EN_AUD.csc" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_GET_settings_manage_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_GET_tools_store_mode_EN_AUD.csc" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\A_POST_auth_login_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_GET_auth_login_form_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_GET_auth_logout_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_GET_billibuys_place_request_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_GET_billibuys_request_EN_AUD.csc" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_GET_billibuys_view_EN_AUD.csc" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_GET_index_index_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_POST_auth_login_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\0\C_POST_billibuys_view_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\1\A_GET_auth_logout_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\1\A_GET_products_add_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\1\A_POST_billibuys_m_place_bid_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\lang_cache\1\A_POST_products_update_EN_AUD.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\runtime.skin_names..admin\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\runtime.skin_names..customer\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\runtime.skin_names..customer\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_block_manager_blocks\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_block_manager_dynamic_objects\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_block_manager_dynamic_objects\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_block_manager_templates\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_last_edited_items_schema\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_last_view_view_conditions\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_literal_convertor_schema\1\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_menu_menu\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_menu_menu_mve\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_permissions_admin\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_permissions_admin\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_permissions_trusted_controllers\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_permissions_vendor\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\schema_static_data_schema\0\cache_customer.csc" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\scheme_block_breadcrumbs\0\cache_customer.csc" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%04^041^0417182A%%subheader.tpl.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%0D^0DC^0DC41BB3%%save.tpl.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%44^44B^44B90ECA%%manage.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\scheme_block_main\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\scheme_block_my_account\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\scheme_block_template\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\settings\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\settings\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\template_overrides_A_admin\0\cache_vendor.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\registry\template_overrides_C_customer\0\cache_customer.csc" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%1B^1B8^1B8505FF%%update_block.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%35^35E^35EAC877%%logs_search_form.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%40^402^402D34E5%%block_selection.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%5B^5BF^5BF5B15E%%period_selector.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%89^898^898B4EDD%%advanced_search.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%8F^8FC^8FC73102%%object_group.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%C3^C31^C313275D%%login_form.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%C8^C8E^C8E9E094%%manage.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%CF^CF1^CF1CFB06%%index.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%DB^DB3^DB39B973%%sign_in.tpl.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\admin\%%E3^E36^E367BE0B%%settings_fields.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%01^010^010934EC%%items_list.override.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%03^036^0368AE90%%billibuys_view.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%03^03E^03E59653%%payment_simple.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%04^04F^04F31598%%product_info.override.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%08^08C^08C09FD8%%sorting.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%09^090^090146E8%%block.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%09^099^0996F45D%%container.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%09^09C^09C66E4E%%login.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%0B^0BA^0BAE66D0%%logo.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%0E^0E5^0E5574BF%%request.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%10^102^1029DE90%%notification_product.override.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%11^11B^11B16AA1%%checkout.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%14^145^1457D5B3%%about_billibuys_block.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%1E^1E9^1E94FF9E%%grid.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%23^236^23631704%%clear_cart.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%26^26F^26F203FF%%frontpage_top_social_media.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%28^28E^28ECE0FE%%request.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%29^294^294E560D%%step_four.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%2D^2D9^2D933EEC%%add_to_cart.override.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%2F^2F8^2F8B5F86%%404.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%32^32D^32DD5AB0%%place_request.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%36^364^364C66F0%%step_one.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%36^368^36843537%%files.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%37^370^3709FD45%%checkout_totals.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%37^376^3765FCCA%%order_info.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%38^389^389EB893%%frontpage_cta_buttons.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%3A^3A1^3A153DDF%%product_features.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%3D^3D2^3D2EC73A%%my_account.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%3D^3D3^3D3FC93E%%options_info.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%3D^3DF^3DFCE536%%step_two.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%3E^3ED^3ED2D40E%%mainbox_general.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%44^442^4420DAE1%%modifier.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%45^45E^45E480CD%%index.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%48^48B^48BBEEE4%%checkout_totals_info.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%4D^4D6^4D693A86%%billibuys_footer.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%4F^4F1^4F17E032%%products_in_cart.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%52^521^521F2ED4%%payment_methods.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%54^54C^54C3D4AA%%billibuys_second_top_nav.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%56^56A^56A54A75%%location.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%56^56F^56FA0B2F%%cc_outside.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%58^58A^58AE2650%%checkout_steps.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%59^599^5990D596%%terms_and_conditions.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%5B^5BD^5BD6895F%%checkout.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%5C^5C9^5C948FD6%%onclick_dropdown.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%5F^5F0^5F0C2C23%%prices_block.override.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%5F^5F4^5F4D6227%%product_images.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%63^63F^63FC7D3F%%continue_shopping.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%64^641^641EB0D6%%product_options.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%67^677^6773221E%%proceed_to_checkout.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%6B^6BE^6BEB0F7E%%logo.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%73^736^736B7744%%frontpage_top_links.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%76^763^7630C5EE%%features.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%7A^7A8^7A867399%%auth_info.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%82^820^82035750%%about_top.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%8A^8AC^8AC1106C%%product_info.post.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%93^933^933B9DDF%%view.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%97^977^977D226B%%add_to_cart.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%9B^9BB^9BBC1722%%summary.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%9C^9C0^9C0E43C5%%promotion_coupon.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%9F^9F5^9F590ECF%%default_template.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%A1^A10^A10F8AE6%%exception.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%A1^A1D^A1DA88D7%%product_popup_tabs.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%A2^A2F^A2F80F9D%%my_account_menu.override.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%A3^A30^A30DFC8B%%categories_left_side_nav.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%A7^A78^A7862B7E%%attach_images.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%B1^B1E^B1E29ACB%%product_data.post.tpl.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%B4^B41^B41E9612%%breadcrumbs.tpl.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%09^090^090146E8%%block.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%09^090^090146E8%%block.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%09^099^0996F45D%%container.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%09^099^0996F45D%%container.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%09^09C^09C66E4E%%login.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%09^09C^09C66E4E%%login.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%1E^1E9^1E94FF9E%%grid.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%1E^1E9^1E94FF9E%%grid.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%2F^2F8^2F8B5F86%%404.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%2F^2F8^2F8B5F86%%404.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%3D^3D2^3D2EC73A%%my_account.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%3D^3D2^3D2EC73A%%my_account.tpl.php" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%B5^B55^B5582679%%billibuys_footer_logo.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%C0^C0D^C0D66DDE%%product_data.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%C3^C31^C313275D%%login_form.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%C4^C47^C473B455%%billibuys_social_media_icons.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%C4^C4C^C4CB390A%%product_tabs.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%CB^CBF^CBFB9999%%cart_items.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%CC^CCA^CCA79253%%product_notification.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%CD^CD8^CD84B239%%buttons_block.override.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%CE^CE0^CE04D3CB%%notification.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%D1^D1F^D1F4EC49%%step_three.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%E1^E16^E160E254%%view_main_info.override.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%E6^E6C^E6C4A1D8%%product_icon.override.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%E6^E6D^E6D9DF31%%sidebox_general.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%EC^EC6^EC606452%%description.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%ED^ED4^ED4328B5%%cart_content.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%ED^EDD^EDD07BF2%%place_order_new.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%F1^F1D^F1D816CB%%cart.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%F6^F65^F653408C%%shipping_rates.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\customer\%%FB^FB7^FB7EFA68%%continue.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\mail\%%2C^2CE^2CEB1FB3%%bid_body.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\mail\%%37^377^377B6BD8%%letter_header.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\mail\%%88^888^88806235%%price.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\mail\%%88^88A^88AA20B7%%bb_letter_footer.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp5\www\public_html\var\cache\templates\mail\%%AE^AE4^AE4DE3C9%%bid_subj.tpl.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%04^041^0417182A%%subheader.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%04^041^0417182A%%subheader.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%0B^0B2^0B2215BE%%products_update_qty_discounts.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%0B^0B2^0B2215BE%%products_update_qty_discounts.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%0D^0DC^0DC41BB3%%save.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%0D^0DC^0DC41BB3%%save.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%12^12B^12BBBBE8%%multiple_buttons.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%12^12B^12BBBBE8%%multiple_buttons.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%12^12E^12EFA85E%%products_update_features.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%12^12E^12EFA85E%%products_update_features.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%14^14F^14FBEC6F%%detailed_content.post.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%14^14F^14FBEC6F%%detailed_content.post.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%15^153^153AD7A0%%table_tools_list.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%15^153^153AD7A0%%table_tools_list.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%2D^2DF^2DFD0CF1%%company_field.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%2D^2DF^2DFD0CF1%%company_field.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%34^347^347074CF%%container.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%34^347^347074CF%%container.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%3A^3AC^3ACA2B8C%%products_picker.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%3A^3AC^3ACA2B8C%%products_picker.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%44^44B^44B90ECA%%manage.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%44^44B^44B90ECA%%manage.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%45^454^4547D28E%%update.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%45^454^4547D28E%%update.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%45^45E^45E480CD%%index.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%45^45E^45E480CD%%index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%45^45E^45E480CD%%index.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%45^45E^45E480CD%%index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%4D^4D6^4D693A86%%billibuys_footer.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%4D^4D6^4D693A86%%billibuys_footer.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%48^487^487E1AD1%%update.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%48^487^487E1AD1%%update.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%4B^4BC^4BC77633%%products_shipping_settings.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%4B^4BC^4BC77633%%products_shipping_settings.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%4E^4E2^4E23C12F%%top_quick_links.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%4E^4E2^4E23C12F%%top_quick_links.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%54^54C^54C3D4AA%%billibuys_second_top_nav.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%54^54C^54C3D4AA%%billibuys_second_top_nav.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%56^56A^56A54A75%%location.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%56^56A^56A54A75%%location.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%5C^5C9^5C948FD6%%onclick_dropdown.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%5C^5C9^5C948FD6%%onclick_dropdown.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%4F^4FC^4FCD4BFF%%block.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%4F^4FC^4FCD4BFF%%block.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%52^528^5282E8BB%%detailed_content.post.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%52^528^5282E8BB%%detailed_content.post.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%62^627^627DD18E%%sign_out.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%62^627^627DD18E%%sign_out.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%65^655^6551DB6B%%bottom.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%65^655^6551DB6B%%bottom.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%67^670^6708ED72%%quick_menu.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%67^670^6708ED72%%quick_menu.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%6B^6BE^6BEB0F7E%%logo.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%6B^6BE^6BEB0F7E%%logo.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%68^68B^68B00F10%%location.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%68^68B^68B00F10%%location.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%68^68E^68E9EF41%%product_subscribers.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%68^68E^68E9EF41%%product_subscribers.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%6B^6B9^6B97C380%%attach_images.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%6B^6B9^6B97C380%%attach_images.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%72^72D^72DAF6E8%%main.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%72^72D^72DAF6E8%%main.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%A1^A10^A10F8AE6%%exception.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%A1^A10^A10F8AE6%%exception.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%A2^A2F^A2F80F9D%%my_account_menu.override.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%A2^A2F^A2F80F9D%%my_account_menu.override.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%B5^B55^B5582679%%billibuys_footer_logo.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%B5^B55^B5582679%%billibuys_footer_logo.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%C3^C31^C313275D%%login_form.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%C3^C31^C313275D%%login_form.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/customer/%%C4^C47^C473B455%%billibuys_social_media_icons.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/customer/%%C4^C47^C473B455%%billibuys_social_media_icons.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%76^761^761F26DD%%update.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%76^761^761F26DD%%update.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%8B^8B6^8B6DE470%%table_column_options.post.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%8B^8B6^8B6DE470%%table_column_options.post.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%98^98E^98E90381%%place_bid.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%98^98E^98E90381%%place_bid.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%99^994^994E5640%%products_update_files.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%99^994^994E5640%%products_update_files.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%9C^9C3^9C33AFEE%%products_update_options.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%9C^9C3^9C33AFEE%%products_update_options.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%A4^A42^A42660FE%%products_update_file_details.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%A4^A42^A42660FE%%products_update_file_details.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%B7^B71^B711DD65%%users_picker.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%B7^B71^B711DD65%%users_picker.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%B8^B8B^B8B84085%%block.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%B8^B8B^B8B84085%%block.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%BB^BB2^BB279131%%grid.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%BB^BB2^BB279131%%grid.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%C9^C9B^C9B55D3F%%search.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%C9^C9B^C9B55D3F%%search.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%CA^CA1^CA10F6DC%%js_product.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%CA^CA1^CA10F6DC%%js_product.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%CE^CED^CED4B6E9%%save_cancel.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%CE^CED^CED4B6E9%%save_cancel.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%D9^D95^D950469D%%tabs_extra.post.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%D9^D95^D950469D%%tabs_extra.post.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%DE^DE0^DE07295D%%manage.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%DE^DE0^DE07295D%%manage.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%E1^E1D^E1DEF195%%popupbox.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%E1^E1D^E1DEF195%%popupbox.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%E3^E36^E367BE0B%%settings_fields.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%E3^E36^E367BE0B%%settings_fields.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%E4^E42^E4252AD1%%mainbox.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%E4^E42^E4252AD1%%mainbox.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%E7^E7A^E7A8AA38%%search_product_subscribers.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%E7^E7A^E7A8AA38%%search_product_subscribers.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%EF^EF2^EF2E12BC%%product_assign_features.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%EF^EF2^EF2E12BC%%product_assign_features.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%FC^FC7^FC7B2115%%manage.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%FC^FC7^FC7B2115%%manage.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%FD^FD1^FD153A02%%top.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%FD^FD1^FD153A02%%top.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/registry/lang_cache/0/C_GET__no_page_EN_AUD.csc" afterPath="$PROJECT_DIR$/var/cache/registry/lang_cache/0/C_GET__no_page_EN_AUD.csc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons/billibuys/addon.xml" afterPath="$PROJECT_DIR$/addons/billibuys/addon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons/billibuys/js/billibuys.js" afterPath="$PROJECT_DIR$/addons/billibuys/js/billibuys.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons/billibuys/controllers/customer/billibuys.php" afterPath="$PROJECT_DIR$/addons/billibuys/controllers/customer/billibuys.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl" afterPath="$PROJECT_DIR$/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/registry/scheme_block_template/0/cache_customer.csc" afterPath="$PROJECT_DIR$/var/cache/registry/scheme_block_template/0/cache_customer.csc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/templates/admin/%%FD^FDC^FDC5AE94%%pagination.tpl.php" afterPath="$PROJECT_DIR$/var/cache/templates/admin/%%FD^FDC^FDC5AE94%%pagination.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/registry/lang_cache/0/A_GET_block_manager_manage_EN_AUD.csc" afterPath="$PROJECT_DIR$/var/cache/registry/lang_cache/0/A_GET_block_manager_manage_EN_AUD.csc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/registry/lang_cache/1/A_GET_products_update_EN_AUD.csc" afterPath="$PROJECT_DIR$/var/cache/registry/lang_cache/1/A_GET_products_update_EN_AUD.csc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/registry/lang_cache/0/A_GET_settings_manage_EN_AUD.csc" afterPath="$PROJECT_DIR$/var/cache/registry/lang_cache/0/A_GET_settings_manage_EN_AUD.csc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/registry/cache_update_handlers_0.csc" afterPath="$PROJECT_DIR$/var/cache/registry/cache_update_handlers_0.csc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons/billibuys/func.php" afterPath="$PROJECT_DIR$/addons/billibuys/func.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons/billibuys/js/jquery.countdown/jquery.countdown.css" afterPath="$PROJECT_DIR$/addons/billibuys/js/jquery.countdown/jquery.countdown.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skins/basic/customer/addons/billibuys/views/billibuys/request.tpl" afterPath="$PROJECT_DIR$/skins/basic/customer/addons/billibuys/views/billibuys/request.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skins/basic/customer/addons/billibuys/styles.css" afterPath="$PROJECT_DIR$/skins/basic/customer/addons/billibuys/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons/billibuys/js/view_requests.js" afterPath="$PROJECT_DIR$/addons/billibuys/js/view_requests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/registry/cache_update_handlers_1.csc" afterPath="$PROJECT_DIR$/var/cache/registry/cache_update_handlers_1.csc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons/billibuys/js/place_bid.js" afterPath="$PROJECT_DIR$/addons/billibuys/js/place_bid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skins/basic/admin/addons/billibuys/views/billibuys/place_bid.tpl" afterPath="$PROJECT_DIR$/skins/basic/admin/addons/billibuys/views/billibuys/place_bid.tpl" />
     </list>
     <ignored path="public_html.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,7 +227,7 @@
       <file leaf-file-name="request.tpl" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/skins/basic/admin/addons/billibuys/views/billibuys/request.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="40" selection-start="253" selection-end="253" vertical-scroll-proportion="0.23817864" vertical-offset="0" max-vertical-offset="571">
+            <state line="8" column="78" selection-start="291" selection-end="291" vertical-scroll-proportion="0.23817864" vertical-offset="0" max-vertical-offset="571">
               <folding />
             </state>
           </provider>
@@ -207,19 +335,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24304539" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -248,7 +376,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/skins/basic/admin/addons/billibuys/views/billibuys/request.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="40" selection-start="253" selection-end="253" vertical-scroll-proportion="0.23817864" vertical-offset="0" max-vertical-offset="571">
+        <state line="8" column="40" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skins/basic/admin/addons/billibuys/views/billibuys/request.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="78" selection-start="291" selection-end="291" vertical-scroll-proportion="0.23817864" vertical-offset="0" max-vertical-offset="571">
           <folding />
         </state>
       </provider>
