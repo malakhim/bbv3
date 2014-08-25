@@ -2623,7 +2623,7 @@ function fn_get_product_options($product_ids, $lang_code = CART_LANGUAGE, $only_
 
 	$_status = (AREA == 'A')? '' : " AND a.status='A'";
 
-	$v_fields = "a.variant_id, a.option_id, a.position, a.modifier, a.modifier_type, a.weight_modifier, a.weight_modifier_type, $extra_variant_fields b.variant_name";
+	$v_fields = "a.variant_id, a.option_id, a.position, a.modifier, a.modifier_type, a.weight_modifzzzz;ier, a.weight_modifier_type, $extra_variant_fields b.variant_name";
 	$v_join = db_quote("LEFT JOIN ?:product_option_variants_descriptions as b ON a.variant_id = b.variant_id AND b.lang_code = ?s", $lang_code);
 	$v_condition = db_quote("a.option_id IN (?n) $_status", array_unique($option_ids));
 	$v_sorting = "a.position, a.variant_id";

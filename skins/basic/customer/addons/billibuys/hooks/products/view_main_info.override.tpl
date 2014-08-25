@@ -39,6 +39,8 @@
 		{if isset($smarty.request.bid_id) && isset($smarty.request.request_id)}
 			<div style="padding: 0 !important;" class="qty {if $quick_view} form-field{if !$capture_options_vs_qty} product-list-field{/if}{/if}{if $settings.Appearance.quantity_changer == "Y"} changer{/if}" id="qty_{$obj_prefix}{$product.product_id}">
 				<input type="hidden" name="product_data[{$product.product_id}][amount]" value="{$quantity}"/>
+				<input type="hidden" name="product_data[{$product.product_id}][bid_id]" value="{$smarty.request.bid_id}">
+				<input type="hidden" name="product_data[{$product.product_id}][request_id]" value="{$smarty.request.request_id}">
 				<span class="bb-product-label">{$lang.qty}</span>
 				<span class="bb-product-info">{$quantity}</span>
 			
@@ -54,15 +56,15 @@
 
 				{if isset($smarty.request.bid_id) && isset($smarty.request.request_id)}
 					{if $auth.user_id == $owned_user}
-						{if $item_added_to_cart == 0}
+						{*if $item_added_to_cart == 0*}
 							{*if $bid.user_id != $owned_user*}
 								{include file="buttons/add_to_cart.tpl" but_id="button_cart_`$obj_prefix``$obj_id`" but_name="dispatch[checkout.add..`$obj_id`]" but_role=$but_role block_width=$block_width obj_id=$obj_id product=$product}
 							{*else}
 								{$lang.cannot_bid_own_auction}
 							{/if*}
-						{else}
+						{*else}
 							{$lang.bid_already_accepted_for_this_auction}
-						{/if}
+						{/if*}
 					{else}
 						{$lang.are_you_owner}
 					{/if}

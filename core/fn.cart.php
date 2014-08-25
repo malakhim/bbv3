@@ -3660,9 +3660,9 @@ function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false)
 			if (empty($data['amount'])) {
 				continue;
 			}
-
+			
 			$data['stored_price'] = (!empty($data['stored_price']) && AREA != 'C') ? $data['stored_price'] : 'N';
-
+			
 			if (empty($data['extra'])) {
 				$data['extra'] = array();
 			}
@@ -3737,6 +3737,7 @@ function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false)
 					}
 
 				} else {
+
 					$price = empty($data['price']) ? 0 : $data['price'];
 				}
 			} else {

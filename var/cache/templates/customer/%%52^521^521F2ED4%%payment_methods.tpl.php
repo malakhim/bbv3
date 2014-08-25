@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-07-13 11:55:45
+<?php /* Smarty version 2.6.18, created on 2014-08-14 01:57:40
          compiled from views/checkout/components/payments/payment_methods.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'script', 'views/checkout/components/payments/payment_methods.tpl', 1, false),array('modifier', 'count', 'views/checkout/components/payments/payment_methods.tpl', 7, false),array('modifier', 'fn_url', 'views/checkout/components/payments/payment_methods.tpl', 13, false),array('modifier', 'reset', 'views/checkout/components/payments/payment_methods.tpl', 33, false),array('modifier', 'fn_get_payment_method_data', 'views/checkout/components/payments/payment_methods.tpl', 36, false),array('modifier', 'trim', 'views/checkout/components/payments/payment_methods.tpl', 44, false),array('block', 'hook', 'views/checkout/components/payments/payment_methods.tpl', 96, false),)), $this); ?>

@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-08-14 01:32:22
+<?php /* Smarty version 2.6.18, created on 2014-08-21 01:28:45
          compiled from addons/billibuys/hooks/products/view_main_info.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 24, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 40, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 47, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 97, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 97, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 24, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 40, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 47, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 99, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 99, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('price','bb_item_enter_through_bids','qty','view_details','delete','bid_already_accepted_for_this_auction','are_you_owner','description'));
+fn_preload_lang_vars(array('price','bb_item_enter_through_bids','qty','view_details','delete','are_you_owner','description'));
 ?>
 <?php 
 
@@ -82,6 +82,12 @@ _update--></div>
 				<input type="hidden" name="product_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
 ][amount]" value="<?php echo $this->_tpl_vars['quantity']; ?>
 "/>
+				<input type="hidden" name="product_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
+][bid_id]" value="<?php echo $this->_tpl_vars['_REQUEST']['bid_id']; ?>
+">
+				<input type="hidden" name="product_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
+][request_id]" value="<?php echo $this->_tpl_vars['_REQUEST']['request_id']; ?>
+">
 				<span class="bb-product-label"><?php echo fn_get_lang_var('qty', $this->getLanguage()); ?>
 </span>
 				<span class="bb-product-info"><?php echo $this->_tpl_vars['quantity']; ?>
@@ -185,16 +191,11 @@ _update--></div>
 
 				<?php if (isset ( $this->_tpl_vars['_REQUEST']['bid_id'] ) && isset ( $this->_tpl_vars['_REQUEST']['request_id'] )): ?>
 					<?php if ($this->_tpl_vars['auth']['user_id'] == $this->_tpl_vars['owned_user']): ?>
-						<?php if ($this->_tpl_vars['item_added_to_cart'] == 0): ?>
-															<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/add_to_cart.tpl", 'smarty_include_vars' => array('but_id' => "button_cart_".($this->_tpl_vars['obj_prefix']).($this->_tpl_vars['obj_id']),'but_name' => "dispatch[checkout.add..".($this->_tpl_vars['obj_id'])."]",'but_role' => $this->_tpl_vars['but_role'],'block_width' => $this->_tpl_vars['block_width'],'obj_id' => $this->_tpl_vars['obj_id'],'product' => $this->_tpl_vars['product'])));
+																					<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/add_to_cart.tpl", 'smarty_include_vars' => array('but_id' => "button_cart_".($this->_tpl_vars['obj_prefix']).($this->_tpl_vars['obj_id']),'but_name' => "dispatch[checkout.add..".($this->_tpl_vars['obj_id'])."]",'but_role' => $this->_tpl_vars['but_role'],'block_width' => $this->_tpl_vars['block_width'],'obj_id' => $this->_tpl_vars['obj_id'],'product' => $this->_tpl_vars['product'])));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
-													<?php else: ?>
-							<?php echo fn_get_lang_var('bid_already_accepted_for_this_auction', $this->getLanguage()); ?>
-
-						<?php endif; ?>
-					<?php else: ?>
+																		<?php else: ?>
 						<?php echo fn_get_lang_var('are_you_owner', $this->getLanguage()); ?>
 
 					<?php endif; ?>

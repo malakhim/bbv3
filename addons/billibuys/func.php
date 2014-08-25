@@ -194,14 +194,41 @@ function fn_archive_request($request_id){
  * @param  boolean $full_erase No idea.
  * @return boolean              Just good practice.
  */
+
 function fn_billibuys_delete_cart_product($cart, $cart_id, $full_erase = true){
-	$update_data = Array("item_added_to_cart" => 00);
-	db_query('UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id SET ?u 
-		WHERE
-			?:bb_requests.user_id = ?i 
-			AND 
-				?:bb_bids.product_id = ?i',$update_data,$_SESSION['auth']['user_id'],$cart['products'][$cart_id]['product_id']);
+	// $update_data = Array("item_added_to_cart" => 0);
+	// db_query('UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id SET ?u 
+	// 	WHERE
+	// 		?:bb_requests.user_id = ?i 
+	// 		AND 
+	// 			?:bb_bids.product_id = ?i',$update_data,$_SESSION['auth']['user_id'],$cart['products'][$cart_id]['product_id']);
 	return true;
+}
+
+function fn_billibuys_get_cart_product_data($product_id, $_pdata, $product, $auth, $cart){
+	
+	$price = db_get_field('SELECT a.price FROM ?:bb_bids as a WHERE a.bb_bid_id = ?i AND a.request_id = ?i',$product['bid_id'],$product['request_id']);
+	if($price){
+		$_pdata['price'] = $price;
+	}else{
+		// Empty pricing, remove from cart for safety reasons
+		$_pdata = null;
+	}
+}
+
+function fn_billibuys_pre_add_to_cart($product_data, $cart, $auth, $update){
+	foreach($product_data as $k => &$pdata){
+		// Check if the product data came from a bid
+		if(isset($pdata['bid_id'])){
+			$pdata['stored_price'] = 'Y';
+			$pdata['price'] = db_get_field('SELECT b.price FROM ?:bb_bids AS b WHERE b.bb_bid_id = ?i AND b.request_id = ?i',$pdata['bid_id'],$pdata['request_id']);
+			if(!$pdata['price']){
+				// In case something goes wrong or empty price, prevent product from 
+				// being added to cart at all
+				unset($product_data[$k]);
+			}
+		}
+	}
 }
 
 /**
@@ -215,10 +242,22 @@ function fn_billibuys_delete_cart_product($cart, $cart_id, $full_erase = true){
 function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
 	// Check product_data is in cart
 	$product_in_cart = false;
-	foreach($cart['products'] as $prod){
+	foreach($cart['products'] as &$prod){
 		foreach($product_data as $pdata){
 			if($pdata['product_id'] == $prod['product_id']){
-				$product_in_cart = true;
+				if(isset($pdata['bid_id'])){
+					$prod['amount'] = $pdata['amount'];
+					$prod['bid_id'] = $pdata['bid_id'];
+					$prod['request_id'] = $pdata['request_id'];
+					$product_in_cart = true;
+					$prod['price'] = db_get_field('SELECT b.price FROM ?:bb_bids AS b WHERE b.bb_bid_id = ?i AND b.request_id = ?i',$pdata['bid_id'],$pdata['request_id']);
+					if(!$pdata['price']){
+						// In case something goes wrong or empty price, prevent product from being added to cart at all
+						unset($product_data[$k]);
+					}
+
+				}
+
 			}
 		}
 	}
@@ -232,28 +271,35 @@ function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
 		WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i
 		",$pdata['product_id'],$auth['user_id']);
 	}
-	// If both above are true then add product to cart
+	// If both above are true then update product in cart
 	$valid_purchase = false;
 	if($product_in_cart && ($product_in_auction && $product_in_auction != NULL && !empty($product_in_auction))){
 		$valid_purchase = true;
 	}
 
+	// if($valid_purchase){
+	// 	$update_data = Array(
+	// 		"item_added_to_cart" => "1",
+	// 	);
+	// }else{
+	// 	$update_data = Array(
+	// 		"item_added_to_cart" => "0",
+	// 	);
+	// }
+
 	if($valid_purchase){
-		$update_data = Array(
-			"item_added_to_cart" => "1",
-		);
-	}else{
-		$update_data = Array(
-			"item_added_to_cart" => "0",
-		);
-	}
-	foreach($product_data as $prod){
-		db_query('UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id SET ?u 
-			WHERE 
-				?:bb_requests.user_id = ?i 
-				AND 
-					?:bb_bids.product_id = ?i',$update_data,$auth['user_id'],$prod['product_id']
-		);
+		foreach($product_data as &$prod){
+			// db_query('UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id SET ?u 
+			// 	WHERE 
+			// 		?:bb_requests.bb_request_id = ?i',$update_data,$prod['request_id']
+			// );
+			foreach($cart['products'] as &$cprod){
+				if($cprod['product_id'] === $prod['product_id']){
+					$cprod['request_id'] = $prod['request_id'];
+					$cprod['bid_id'] = $prod['bid_id'];
+				}
+			}
+		}
 	}
 
 	return true;
@@ -267,32 +313,34 @@ function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
  * @return boolean             Returning true just for good practice
  */
 function fn_billibuys_clear_cart($cart, $complete = false, $clear_all = false){
-	if($cart && is_array($cart) && $cart != null){
-		// Iterate through cart's products
-		foreach($cart['products'] as $product){
-			$user_id = $_SESSION['auth']['user_id'];
-			if($user_id){ // Good typing practices? What's that?
-				// Set item_added_to_cart to 0 for the request
-				$update_data = Array('item_added_to_cart' => 0);
-				db_query(
-					"UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_requests.bb_request_id = ?:bb_bids.request_id SET ?u WHERE
-						?:bb_bids.product_id = ?i AND
-						?:bb_bids.price = ?i AND
-						?:bb_requests.user_id = ?i",
-					$update_data,
-					$product['product_id'],
-					$product['price'],
-					$user_id
-				);
-			}
-			// If user isn't logged in (ie someone accidentally enabled "can have cart without logging in" in admin backend) then this will simply ignore everything
-		}
-	}
-	return true;	
+	// if($cart && is_array($cart) && $cart != null){
+	// 	// Iterate through cart's products
+	// 	foreach($cart['products'] as $product){
+	// 		$user_id = $_SESSION['auth']['user_id'];
+	// 		if($user_id){ // Good typing practices? What's that?
+	// 			// Set item_added_to_cart to 0 for the request
+	// 			$update_data = Array('item_added_to_cart' => 0);
+	// 			db_query(
+	// 				"UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_requests.bb_request_id = ?:bb_bids.request_id SET ?u WHERE
+	// 					?:bb_bids.product_id = ?i AND
+	// 					?:bb_bids.price = ?i AND
+	// 					?:bb_requests.user_id = ?i",
+	// 				$update_data,
+	// 				$product['product_id'],
+	// 				$product['price'],
+	// 				$user_id
+	// 			);
+	// 		}
+	// 		// If user isn't logged in (ie someone accidentally enabled "can have cart without logging in" in admin backend) then this will simply ignore everything
+	// 	}
+	// }
+	// return true;	
 }
 
 function fn_billibuys_order_placement_routines($order_id, $force_notification, $order_info, $_error){
+
 	if(!$_error){
+
 		// Don't archive if order is open?
 		foreach($order_info['items'] as $item){
 			$request = fn_get_request_by_order($order_info['user_id'],$item['product_id']);
@@ -304,13 +352,13 @@ function fn_billibuys_order_placement_routines($order_id, $force_notification, $
 }
 
 function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$price){
-	$bid_id = $_SESSION['bid_id'];
-	$price = db_get_field("SELECT price 
-		FROM ?:bb_bids 
-		INNER JOIN ?:bb_requests ON
-			?:bb_requests.bb_request_id = ?:bb_bids.request_id
-		WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i AND ?:bb_bids.bb_bid_id = ?i
-	",$product_id,$auth['user_id'],$bid_id);
+	// $bid_id = $_SESSION['bid_id'];
+	// if($bid_id)	$price = db_get_field("SELECT price 
+	// 	FROM ?:bb_bids 
+	// 	INNER JOIN ?:bb_requests ON
+	// 		?:bb_requests.bb_request_id = ?:bb_bids.request_id
+	// 	WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i AND ?:bb_bids.bb_bid_id = ?i
+	// ",$product_id,$auth['user_id'],$bid_id);
 }
 
 function fn_get_bid_by_product($product_id,$request_id){
