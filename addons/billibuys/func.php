@@ -204,7 +204,14 @@ function fn_billibuys_delete_cart_product($cart, $cart_id, $full_erase = true){
 	// 			?:bb_bids.product_id = ?i',$update_data,$_SESSION['auth']['user_id'],$cart['products'][$cart_id]['product_id']);
 	return true;
 }
-
+/**
+ * Get bid pricing for cart products when logging back in, rather than actual product pricing
+ * @param  int $product_id The product identifier
+ * @param  Array $_pdata     Product data to be inserted into cart
+ * @param  Array $product    Product data pulled from database
+ * @param  Array $auth       auth array
+ * @param  Array $cart       what's actually in the cart
+ */
 function fn_billibuys_get_cart_product_data($product_id, $_pdata, $product, $auth, $cart){
 	
 	$price = db_get_field('SELECT a.price FROM ?:bb_bids as a WHERE a.bb_bid_id = ?i AND a.request_id = ?i',$product['bid_id'],$product['request_id']);
@@ -215,7 +222,13 @@ function fn_billibuys_get_cart_product_data($product_id, $_pdata, $product, $aut
 		$_pdata = null;
 	}
 }
-
+/**
+ * Modifying product to have correct price when adding to cart
+ * @param  Array $product_data All the products to be added to cart
+ * @param  Array $cart         What's in the cart atm
+ * @param  Array $auth         Auth array
+ * @param  Boolean $update       Not sure...
+ */
 function fn_billibuys_pre_add_to_cart($product_data, $cart, $auth, $update){
 	foreach($product_data as $k => &$pdata){
 		// Check if the product data came from a bid
@@ -345,20 +358,13 @@ function fn_billibuys_order_placement_routines($order_id, $force_notification, $
 		foreach($order_info['items'] as $item){
 			$request = fn_get_request_by_order($order_info['user_id'],$item['product_id']);
 			if(!empty($request)){
-				fn_archive_request($request['bb_request_id']);
+				// Archive bid
+				fn_archive_bid($request['bb_bid_id']);
+				// Let's allow more bids, so we'll comment this line out for now
+				// fn_archive_request($request['bb_request_id']);
 			}
 		}
 	}
-}
-
-function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$price){
-	// $bid_id = $_SESSION['bid_id'];
-	// if($bid_id)	$price = db_get_field("SELECT price 
-	// 	FROM ?:bb_bids 
-	// 	INNER JOIN ?:bb_requests ON
-	// 		?:bb_requests.bb_request_id = ?:bb_bids.request_id
-	// 	WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i AND ?:bb_bids.bb_bid_id = ?i
-	// ",$product_id,$auth['user_id'],$bid_id);
 }
 
 function fn_get_bid_by_product($product_id,$request_id){
@@ -371,6 +377,16 @@ function fn_get_bid_by_product($product_id,$request_id){
 		");
 
 	return $bid;
+}
+
+function fn_archive_bid($bid_id){
+	$bid = db_get_row("SELECT * FROM ?:bb_bids WHERE bb_bid_id = ?i",$bid_id);
+	db_query("DELETE FROM ?:bb_bids WHERE bb_bid_id = ?i",$bid_id);
+	$existing_archive = db_get_row("SELECT * FROM ?:bb_bids_archive WHERE bb_bid_id = ?i",$bid_id);
+	if(!$existing_archive)
+		db_query("INSERT INTO ?:bb_bids_archive ?e",$bid);
+	else
+		db_query("UPDATE ?:bb_bids_archive SET ?u WHERE bb_bids_archive_id = ?i",$bid,$bid_id);
 }
 
 /**
