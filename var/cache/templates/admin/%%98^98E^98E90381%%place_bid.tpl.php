@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-08-14 01:30:43
+<?php /* Smarty version 2.6.18, created on 2014-09-02 03:30:03
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 29, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 76, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 76, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 76, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 110, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 221, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 225, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 226, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 238, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 51, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 70, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 29, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 214, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 276, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 277, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 289, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 51, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 71, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','price','quantity','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','no_data','btn_place_bid_txt','select_fields_to_edit','create_product_package','or','tools','add','products'));
+fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','price','quantity','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','zero_quantity','remove_this_item','remove_this_item','no_data','btn_place_bid_txt','select_fields_to_edit','create_product_package','or','tools','add','products'));
 ?>
 <?php 
 
@@ -79,7 +79,8 @@ unset($_smarty_tpl_vars);
 ">
 	<td class="center">
    		<input type="radio" name="product_ids[]" value="<?php echo $this->_tpl_vars['product']['product_id']; ?>
-" class="checkbox cm-item" /></td>
+" class="checkbox cm-item" <?php if ($this->_tpl_vars['saved_selected_product_id'] == $this->_tpl_vars['product']['product_id']): ?>checked<?php endif; ?>/>
+   	</td>
 	<?php if ($this->_tpl_vars['search']['cid'] && $this->_tpl_vars['search']['subcats'] != 'Y'): ?>
 	<td>
 		<input type="text" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
@@ -107,8 +108,9 @@ unset($_smarty_tpl_vars);
 "<?php endif; ?>>
 		<div class="product-price">
 			<input type="number" min="0" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
-][price]" size="6" value="<?php echo fn_format_price($this->_tpl_vars['product']['price'], $this->_tpl_vars['primary_currency'], null, false); ?>
-" class="input-text" />
+][price]" size="6" value="<?php if ($this->_tpl_vars['saved_selected_product_id'] == $this->_tpl_vars['product']['product_id']): ?><?php echo $this->_tpl_vars['saved_selected_product']['price']; ?>
+<?php else: ?><?php echo fn_format_price($this->_tpl_vars['product']['price'], $this->_tpl_vars['primary_currency'], null, false); ?>
+<?php endif; ?>" class="input-text" />
 			<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('display' => $this->_tpl_vars['show_update_for_all'], 'object_id' => 'price', 'name' => "update_all_vendors[price]", )); ?><?php if ($this->_tpl_vars['display']): ?>
 	<?php if ($this->_tpl_vars['hide_element']): ?>
 		<?php $this->assign('title_act', fn_get_lang_var('update_for_all_hid_act', $this->getLanguage()), false); ?>
@@ -146,9 +148,106 @@ unset($_smarty_tpl_vars);
 </td>
 	<?php endif; ?>
 	<td>
-				<select name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
+				<?php if ($this->_tpl_vars['product']['amount'] < 1): ?>
+			<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('zero_quantity', $this->getLanguage()), 'but_href' => "products.update?product_id=".($this->_tpl_vars['product']['product_id'])."#product_amount", 'but_role' => 'edit', )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
+	<?php $this->assign('class', "text-link", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'delete'): ?>
+	<?php $this->assign('class', "text-button-delete", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'add'): ?>
+	<?php $this->assign('class', "text-button text-button-add", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'reload'): ?>
+	<?php $this->assign('class', "text-button text-button-reload", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'delete_item'): ?>
+	<?php $this->assign('class', "text-button-delete-item", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'edit'): ?>
+	<?php $this->assign('class', "text-button-edit", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'tool'): ?>
+	<?php $this->assign('class', "tool-link", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'link'): ?>
+	<?php $this->assign('class', "text-button-link", false); ?>
+<?php elseif ($this->_tpl_vars['but_role'] == 'simple'): ?>
+	<?php $this->assign('class', "text-button-simple", false); ?>
+<?php else: ?>
+	<?php $this->assign('class', "", false); ?>
+<?php endif; ?>
+
+<?php if ($this->_tpl_vars['but_name']): ?><?php $this->assign('r', $this->_tpl_vars['but_name'], false); ?><?php else: ?><?php $this->assign('r', $this->_tpl_vars['but_href'], false); ?><?php endif; ?>
+<?php $this->assign('method', smarty_modifier_default(@$this->_tpl_vars['method'], 'POST'), false); ?>
+<?php if (fn_check_view_permissions($this->_tpl_vars['r'], $this->_tpl_vars['method'])): ?>
+
+<?php if ($this->_tpl_vars['but_name'] || $this->_tpl_vars['but_role'] == 'submit' || $this->_tpl_vars['but_role'] == 'button_main' || $this->_tpl_vars['but_type'] || $this->_tpl_vars['but_role'] == 'big'): ?> 
+	<span <?php if ($this->_tpl_vars['but_css']): ?>style="<?php echo $this->_tpl_vars['but_css']; ?>
+"<?php endif; ?> class="submit-button<?php if ($this->_tpl_vars['but_role'] == 'big'): ?>-big<?php endif; ?><?php if ($this->_tpl_vars['but_role'] == 'button_main'): ?> cm-button-main<?php endif; ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+"><input <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_meta']): ?>class="<?php echo $this->_tpl_vars['but_meta']; ?>
+"<?php endif; ?> type="<?php echo smarty_modifier_default(@$this->_tpl_vars['but_type'], 'submit'); ?>
+"<?php if ($this->_tpl_vars['but_name']): ?> name="<?php echo $this->_tpl_vars['but_name']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_onclick']): ?> onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> value="<?php echo $this->_tpl_vars['but_text']; ?>
+" <?php if ($this->_tpl_vars['tabindex']): ?>tabindex="<?php echo $this->_tpl_vars['tabindex']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_disabled']): ?>disabled="disabled"<?php endif; ?> /></span>
+
+<?php elseif ($this->_tpl_vars['but_role'] && $this->_tpl_vars['but_role'] != 'submit' && $this->_tpl_vars['but_role'] != 'action' && $this->_tpl_vars['but_role'] != "advanced-search" && $this->_tpl_vars['but_role'] != 'button'): ?> 
+	<a <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_href']): ?> href="<?php echo fn_url($this->_tpl_vars['but_href']); ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_onclick']): ?> onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?><?php if ($this->_tpl_vars['but_target']): ?> target="<?php echo $this->_tpl_vars['but_target']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> class="<?php echo $this->_tpl_vars['class']; ?>
+<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>"><?php if ($this->_tpl_vars['but_role'] == 'delete_item'): ?><img src="<?php echo $this->_tpl_vars['images_dir']; ?>
+/icons/icon_delete.gif" width="12" height="18" border="0" alt="<?php echo fn_get_lang_var('remove_this_item', $this->getLanguage()); ?>
+" title="<?php echo fn_get_lang_var('remove_this_item', $this->getLanguage()); ?>
+" class="valign" /><?php else: ?><?php echo $this->_tpl_vars['but_text']; ?>
+<?php endif; ?></a>
+
+<?php elseif ($this->_tpl_vars['but_role'] == 'action' || $this->_tpl_vars['but_role'] == "advanced-search"): ?> 
+	<a <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_href']): ?> href="<?php echo fn_url($this->_tpl_vars['but_href']); ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_onclick']): ?>onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> <?php if ($this->_tpl_vars['but_target']): ?>target="<?php echo $this->_tpl_vars['but_target']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> class="button<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>"><?php echo $this->_tpl_vars['but_text']; ?>
+<?php if ($this->_tpl_vars['but_role'] == 'action'): ?>&nbsp;<img src="<?php echo $this->_tpl_vars['images_dir']; ?>
+/icons/but_arrow.gif" width="8" height="7" border="0" alt=""/><?php endif; ?></a>
+	
+<?php elseif ($this->_tpl_vars['but_role'] == 'button'): ?>
+	<input <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_meta']): ?>class="<?php echo $this->_tpl_vars['but_meta']; ?>
+"<?php endif; ?> type="button" <?php if ($this->_tpl_vars['but_onclick']): ?>onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> value="<?php echo $this->_tpl_vars['but_text']; ?>
+" <?php if ($this->_tpl_vars['tabindex']): ?>tabindex="<?php echo $this->_tpl_vars['tabindex']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> />
+
+<?php elseif ($this->_tpl_vars['but_role'] == 'icon'): ?> 
+	<a <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['but_href']): ?> href="<?php echo fn_url($this->_tpl_vars['but_href']); ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_onclick']): ?>onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>"<?php endif; ?> <?php if ($this->_tpl_vars['but_target']): ?>target="<?php echo $this->_tpl_vars['but_target']; ?>
+"<?php endif; ?> <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> class="<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>"><?php echo $this->_tpl_vars['but_text']; ?>
+</a>
+
+<?php elseif (! $this->_tpl_vars['but_role']): ?> 
+	<input <?php if ($this->_tpl_vars['but_id']): ?>id="<?php echo $this->_tpl_vars['but_id']; ?>
+"<?php endif; ?> class="default-button<?php if ($this->_tpl_vars['but_meta']): ?> <?php echo $this->_tpl_vars['but_meta']; ?>
+<?php endif; ?>" type="submit" onclick="<?php echo $this->_tpl_vars['but_onclick']; ?>
+;<?php if (! $this->_tpl_vars['allow_href']): ?> return false;<?php endif; ?>" value="<?php echo $this->_tpl_vars['but_text']; ?>
+" <?php if ($this->_tpl_vars['but_rev']): ?> rev="<?php echo $this->_tpl_vars['but_rev']; ?>
+"<?php endif; ?> />
+<?php endif; ?>
+
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+			<input type="hidden" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
+][amount]" value="0">
+		<?php else: ?>
+			<select name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
 ][amount]" class="amount">
-			<?php unset($this->_sections['amount']);
+				<?php unset($this->_sections['amount']);
 $this->_sections['amount']['name'] = 'amount';
 $this->_sections['amount']['max'] = (int)$this->_tpl_vars['product']['amount'];
 $this->_sections['amount']['loop'] = is_array($_loop=$this->_tpl_vars['product']['amount']+1) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -174,11 +273,12 @@ $this->_sections['amount']['index_next'] = $this->_sections['amount']['index'] +
 $this->_sections['amount']['first']      = ($this->_sections['amount']['iteration'] == 1);
 $this->_sections['amount']['last']       = ($this->_sections['amount']['iteration'] == $this->_sections['amount']['total']);
 ?>
-				<option value="<?php echo $this->_sections['amount']['index']; ?>
-"><?php echo $this->_sections['amount']['index']; ?>
+					<option value="<?php echo $this->_sections['amount']['index']; ?>
+" <?php if ($this->_tpl_vars['saved_selected_product_id'] == $this->_tpl_vars['product']['product_id'] && $this->_tpl_vars['saved_selected_product']['amount'] == $this->_sections['amount']['index']): ?>selected="selected"<?php endif; ?>><?php echo $this->_sections['amount']['index']; ?>
 </option>
-			<?php endfor; endif; ?>
-		</select>
+				<?php endfor; endif; ?>
+			</select>
+		<?php endif; ?>
 			</td>
 
 </tr>

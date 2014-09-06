@@ -360,6 +360,29 @@ function fn_billibuys_order_placement_routines($order_id, $force_notification, $
 			if(!empty($request)){
 				// Archive bid
 				fn_archive_bid($request['bb_bid_id']);
+				// Reduce quantity by bidded amount
+				$amount = db_get_field("SELECT amount FROM ?:products WHERE product_id = ?i",$request['product_id']);
+				$amount -= $request['quantity'];
+				db_query("UPDATE ?:products SET ?u WHERE product_id = ?i",Array('amount'=>$amount),$request['product_id']);
+				if($amount == 0){
+
+					$same_bids = db_get_array("SELECT * FROM ?:bids WHERE product_id = ?i",$request['product_id']);
+					foreach($same_bids as $s){
+						db_query("UPDATE ?:bids SET ?u WHERE bb_bid_id = ?i",Array('active'=>'0'),$s['bb_bid_id']);
+					}
+
+					// Notify supplier of empty stock and that their auctions with this item have been disabled
+					$user = db_get_row("SELECT ?:users.* FROM ?:users INNER JOIN ?:bb_bids_archive ON ?:bb_bids_archive.user_id = ?:users.user_id WHERE bb_bid_id = ?i",$request['bb_bid_id']);
+					$email_addr = $user['email'];
+					$view_mail = Registry::get('view_mail');
+					$product = db_get_row("SELECT product FROM ?:product_descriptions WHERE product_id = ?i AND lang_code = ?s",$request['product_id'],'EN');
+					$view_mail->assign('subject',fn_get_lang_var('zero_amount'));
+					$view_mail->assign('user',$user);
+					$view_mail->assign('product',$product);
+					$url = $_SERVER['HTTP_HOST'].fn_url('vendor.php?dispatch=products.update&product_id='.$product['product_id']);
+					$view_mail->assign('product_line',str_replace('[url]',$url,fn_get_lang_var('reenable_bids')));
+					fn_send_mail($email_addr,Registry::get('settings.Company.company_users_department'),'addons/billibuys/bid_subj.tpl','addons/billibuys/empty_quantity_body.tpl','', Registry::get('settings.Appearance.admin_default_language'));
+				}
 				// Let's allow more bids, so we'll comment this line out for now
 				// fn_archive_request($request['bb_request_id']);
 			}
@@ -372,7 +395,7 @@ function fn_get_bid_by_product($product_id,$request_id){
 			FROM
 				?:bb_bids
 			WHERE
-				?:bb_bids.product_id = $product_id AND ?:bb_bids.request_id = $request_id
+				?:bb_bids.product_id = $product_id AND ?:bb_bids.request_id = $request_id AND ?:bb_bids.active = '1'
 			GROUP BY bb_bid_id
 		");
 
@@ -415,7 +438,7 @@ function fn_get_bids($params){
 			?:user_profiles ON
 				?:bb_bids.user_id = ?:user_profiles.user_id
 		WHERE 
-		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A'
+		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A' AND ?:bb_bids.active = '1'
 		GROUP BY bb_bid_id",
 			$params['request_id']
 		);
@@ -448,7 +471,6 @@ function fn_bb_submit_notification($bb_data){
  */
 function fn_submit_bids($bb_data,$auth){
 
-	fn_delete_notification('');
 	//TODO: Check is in vendor/admin and in vendor/admin area
 	//FIXME: Need a cancel button
 	if(empty($bb_data) || !is_array($bb_data)){
@@ -462,8 +484,6 @@ function fn_submit_bids($bb_data,$auth){
 		//Used to get the request_id
 		parse_str($bb_data['redirect_url']);
 
-		//FIXME: $bb_data['request_id'] doesn't exist, need to get the right variable from it
-		
 		$request_item = db_get_row("SELECT title, max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 
 		$currencies = Registry::get('currencies');
@@ -480,19 +500,26 @@ function fn_submit_bids($bb_data,$auth){
 		// Flag to be set to true if request price > allowed max price
 		$over_max = false;
 
+		fn_save_post_data();
+
 		if($price > 0){
 			if($price !== NULL && $request_item['max_price'] != 0){
 				if($price > 0 && is_numeric($price) && $price != NULL){
-					$mp_plus_extra = $mp + 0.1*$mp;
-					if($request_item['allow_over_max_price'] && ($price > ($mp_plus_extra))){
-						// Check if bid price is over requested max by 10%, indicated by "allow_over_max_price" flag
-						$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra).'. '.fn_get_lang_var('your_bid_amount').$currency_symbol.fn_format_price($price).'.';
-					}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
-						// Check bid price is under or equal to request max
-						$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp).'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp);
-					}elseif(stripos($request_item['title'],$product_name) === FALSE && stripos($product_name, $request_item['title']) === FALSE){
-						// Throw name-not-matching error
-						$error_msg = fn_get_lang_var('bid_name_matching_error');
+					if($bb_data['products_data'][$pid]['amount'] > 0 && is_numeric($bb_data['products_data'][$pid]['amount']) && $bb_data['products_data'][$pid]['amount'] != NULL){
+						$mp_plus_extra = $mp + 0.1*$mp;
+						if($request_item['allow_over_max_price'] && ($price > ($mp_plus_extra))){
+							// Check if bid price is over requested max by 10%, indicated by "allow_over_max_price" flag
+							$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra).'. '.fn_get_lang_var('your_bid_amount').$currency_symbol.fn_format_price($price).'.';
+						}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
+							// Check bid price is under or equal to request max
+							$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp).'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp);
+						}elseif(stripos($request_item['title'],$product_name) === FALSE && stripos($product_name, $request_item['title']) === FALSE){
+							// Throw name-not-matching error
+							$error_msg = fn_get_lang_var('bid_name_matching_error');
+						}
+					}else{
+						// Throw zero/negative price flag
+						$error_msg = fn_get_lang_var('qty_cannot_be_zero');
 					}
 				}
 			}elseif(!intval($request_item['max_price'])){
@@ -507,9 +534,6 @@ function fn_submit_bids($bb_data,$auth){
 		}elseif($bb_data['products_data'][$pid]['price'] <= 0){
 			// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
 			$error_msg = fn_get_lang_var('bid_price_cannot_be_zero');
-		// }elseif($bb_data['products_data'][$pid]['amount'] <= 0){
-		// 	// TODO: Same as above
-		// 	$error_msg = fn_get_lang_var('qty_cannot_be_zero');
 		}
 
 		if($error_msg != null && isset($error_msg)){
@@ -807,7 +831,7 @@ function fn_get_requests($params = Array()){
 			$requests = array_merge(db_get_array($query,$where,$sorting),$requests);
 			if(sizeof($requests) > 1 && $requests != null){
 				foreach($requests as &$request){
-					$request['lowest_bid'] = db_get_field('SELECT price FROM ?:bb_bids WHERE request_id = ?i ORDER BY price ASC',$request['bb_request_item_id']);
+					$request['lowest_bid'] = db_get_field('SELECT price * quantity FROM ?:bb_bids WHERE request_id = ?i AND active = "1" ORDER BY price ASC',$request['bb_request_item_id']);
 				}
 				$requests['success'] = true;
 			}

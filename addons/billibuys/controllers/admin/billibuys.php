@@ -330,11 +330,17 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 		$view->assign('product_count', $product_count);
 		fn_paginate((isset($_REQUEST['page']) ? $_REQUEST['page'] : 1), $product_count, Registry::get('settings.Appearance.admin_products_per_page'));
-			// Let users place a bid
-
+		if (!empty($_SESSION['saved_post_data']) && !empty($_SESSION['saved_post_data']['products_data'])) {
+			$saved_selected_product_id = reset($_SESSION['saved_post_data']['product_ids']);
+			$view->assign('saved_selected_product',$_SESSION['saved_post_data']['products_data'][$saved_selected_product_id]);
+			$view->assign('saved_selected_product_id',$saved_selected_product_id);
+			$view->assign('form_values', $_SESSION['saved_post_data']['form_values']);
+			unset($_SESSION['saved_post_data']);
+		}
 		$view->assign('create_product_href','products.add&request_id='.$_REQUEST['request_id']);
 		$view->assign('products', $products);
 		$view->assign('search', $search);
+
 
 	}elseif($mode == 'm_place_bid'){
 		// Todo: Error condition for this (invalid POSTs)

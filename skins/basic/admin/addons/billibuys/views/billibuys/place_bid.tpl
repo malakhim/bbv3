@@ -36,7 +36,8 @@
 
 <tr class="{cycle values="table-row,"} {$hide_inputs_if_shared_product}">
 	<td class="center">
-   		<input type="radio" name="product_ids[]" value="{$product.product_id}" class="checkbox cm-item" /></td>
+   		<input type="radio" name="product_ids[]" value="{$product.product_id}" class="checkbox cm-item" {if $saved_selected_product_id == $product.product_id}checked{/if}/>
+   	</td>
 	{if $search.cid && $search.subcats != "Y"}
 	<td>
 		<input type="text" name="products_data[{$product.product_id}][position]" size="3" value="{$product.position}" class="input-text-short" /></td>
@@ -54,7 +55,7 @@
 	</td>
 	<td{if $no_hide_input_if_shared_product} class="{$no_hide_input_if_shared_product}"{/if}>
 		<div class="product-price">
-			<input type="number" min="0" name="products_data[{$product.product_id}][price]" size="6" value="{$product.price|fn_format_price:$primary_currency:null:false}" class="input-text" />
+			<input type="number" min="0" name="products_data[{$product.product_id}][price]" size="6" value="{if $saved_selected_product_id == $product.product_id}{$saved_selected_product.price}{else}{$product.price|fn_format_price:$primary_currency:null:false}{/if}" class="input-text" />
 			{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='price' name="update_all_vendors[price]"}
 		</div>
 	</td>
@@ -68,11 +69,16 @@
 		{**{if $product.tracking == "O"}
 		{include file="buttons/button.tpl" but_text=$lang.edit but_href="product_options.inventory?product_id=`$product.product_id`" but_role="edit"}
 		{else}**}
-		<select name="products_data[{$product.product_id}][amount]" class="amount">
-			{section name=amount max=$product.amount loop=$product.amount+1 step=-1}
-				<option value="{$smarty.section.amount.index}">{$smarty.section.amount.index}</option>
-			{/section}
-		</select>
+		{if $product.amount < 1}
+			{include file="buttons/button.tpl" but_text=$lang.zero_quantity but_href="products.update?product_id=`$product.product_id`#product_amount" but_role="edit"}
+			<input type="hidden" name="products_data[{$product.product_id}][amount]" value="0">
+		{else}
+			<select name="products_data[{$product.product_id}][amount]" class="amount">
+				{section name=amount max=$product.amount loop=$product.amount+1 step=-1}
+					<option value="{$smarty.section.amount.index}" {if $saved_selected_product_id == $product.product_id && $saved_selected_product.amount == $smarty.section.amount.index}selected="selected"{/if}>{$smarty.section.amount.index}</option>
+				{/section}
+			</select>
+		{/if}
 		{**{/if}**}
 	</td>
 
