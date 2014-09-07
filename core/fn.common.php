@@ -964,6 +964,9 @@ function fn_send_mail($to, $from, $subj, $body, $attachments = array(), $lang_co
 	if (empty($__from['name'])) {
 		$__from['name'] = Registry::get('settings.Company.company_name');
 	}
+
+	// fn_set_notification('E','debug',print_r($__from));
+
 	$mailer->SetFrom($__from['email'], $__from['name']);
 
 	$mailer->IsHTML($is_html);

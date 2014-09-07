@@ -273,7 +273,7 @@ if ($mode == 'invoice') {
 	fn_add_breadcrumb(fn_get_lang_var('order_info'));
 
 	$order_info = fn_get_order_info($_REQUEST['order_id']);
-	
+
 	if (empty($order_info)) {
 		return array(CONTROLLER_STATUS_NO_PAGE);
 	}

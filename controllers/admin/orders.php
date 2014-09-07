@@ -356,6 +356,7 @@ if ($mode == 'delete') {
 		return array(CONTROLLER_STATUS_REDIRECT, 'orders.manage?order_id=' . implode(',', $children_order_ids));
 	}
 
+
 	if (isset($order_info['need_shipping']) && $order_info['need_shipping']) {
 		$company_id = !empty($order_info['company_id']) ? $order_info['company_id'] : null;
 		

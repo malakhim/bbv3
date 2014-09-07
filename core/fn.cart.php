@@ -4903,6 +4903,7 @@ function fn_generate_cached_rate_id()
  */
 function fn_order_notification(&$order_info, $edp_data = array(), $force_notification = array())
 {
+
 	static $notified = array();
 
 	$send_order_notification = true;
@@ -4933,6 +4934,7 @@ function fn_order_notification(&$order_info, $edp_data = array(), $force_notific
 		$company_id = $order_info['company_id'];
 	}
 	$company = fn_get_company_placement_info($company_id, $order_info['lang_code']);
+
 	Registry::get('view_mail')->assign('company_placement_info', $company);
 	Registry::get('view_mail')->assign('manifest', fn_get_manifest('customer', $order_info['lang_code'], $company_id));
 
@@ -4962,6 +4964,7 @@ function fn_order_notification(&$order_info, $edp_data = array(), $force_notific
 				fn_send_mail($order_info['email'], array('email' => $company['company_orders_department'], 'name' => $company['company_name']), 'orders/edp_access_subj.tpl', 'orders/edp_access.tpl', '', $order_info['lang_code'], '', true, $order_info['company_id']);
 			}
 		}
+
 
 		// Notify supplier or vendor
 		if ($notify_supplier == true) {

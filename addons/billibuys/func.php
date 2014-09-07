@@ -217,6 +217,7 @@ function fn_billibuys_get_cart_product_data($product_id, $_pdata, $product, $aut
 	$price = db_get_field('SELECT a.price FROM ?:bb_bids as a WHERE a.bb_bid_id = ?i AND a.request_id = ?i',$product['bid_id'],$product['request_id']);
 	if($price){
 		$_pdata['price'] = $price;
+		$_pdata['base_price'] = $price;
 	}else{
 		// Empty pricing, remove from cart for safety reasons
 		$_pdata = null;
@@ -264,11 +265,10 @@ function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
 					$prod['request_id'] = $pdata['request_id'];
 					$product_in_cart = true;
 					$prod['price'] = db_get_field('SELECT b.price FROM ?:bb_bids AS b WHERE b.bb_bid_id = ?i AND b.request_id = ?i',$pdata['bid_id'],$pdata['request_id']);
-					if(!$pdata['price']){
+					if(!$prod['price']){
 						// In case something goes wrong or empty price, prevent product from being added to cart at all
 						unset($product_data[$k]);
 					}
-
 				}
 
 			}
@@ -320,6 +320,7 @@ function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
 
 /**
  * Sets "item_added_to_cart" to 0 as part of the cart clearing process
+ * 
  * @param  Array  $cart      The cart
  * @param  boolean $complete  No idea
  * @param  boolean $clear_all Double no idea
@@ -366,9 +367,9 @@ function fn_billibuys_order_placement_routines($order_id, $force_notification, $
 				db_query("UPDATE ?:products SET ?u WHERE product_id = ?i",Array('amount'=>$amount),$request['product_id']);
 				if($amount == 0){
 
-					$same_bids = db_get_array("SELECT * FROM ?:bids WHERE product_id = ?i",$request['product_id']);
+					$same_bids = db_get_array("SELECT * FROM ?:bb_bids WHERE product_id = ?i",$request['product_id']);
 					foreach($same_bids as $s){
-						db_query("UPDATE ?:bids SET ?u WHERE bb_bid_id = ?i",Array('active'=>'0'),$s['bb_bid_id']);
+						db_query("UPDATE ?:bb_bids SET ?u WHERE bb_bid_id = ?i",Array('active'=>'0'),$s['bb_bid_id']);
 					}
 
 					// Notify supplier of empty stock and that their auctions with this item have been disabled
@@ -900,6 +901,16 @@ function fn_bb_get_categories($params = Array()){
 
 	return $categories;
 }
+
+// function fn_billibuys_get_product_data($product_id,$field_list,$join,$auth,$lang_code,$condition){
+	// $join .= ' LEFT JOIN '
+// }
+// 
+// function fn_billibuys_get_cart_product_data_post_options($product['product_id'],$_pdata,$product){
+// 	var_dump($pdata);
+// 	var_dump($product);
+// 	die;
+// }
 
 /**
  * Gets product count by category
