@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:19170:"<orders>
+a:2:{s:4:"data";s:19092:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -297,8 +297,6 @@ a:2:{s:4:"data";s:19170:"<orders>
 		<item group="sitemap.manage" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 	</side>
 </design><website>
-	<item title="seo_rules" dispatch="seo_rules.manage" />
-</website><website>
 	<side>
 		<item group="pages.update" title="add_form" href="%INDEX_SCRIPT?dispatch=pages.add&amp;page_type=F&amp;parent_id=%PAGE_ID" />
 	</side>

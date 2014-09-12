@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-08-14 01:32:04
+<?php /* Smarty version 2.6.18, created on 2014-09-13 02:30:19
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 22, false),array('modifier', 'unescape', 'index.tpl', 25, false),array('modifier', 'strip_tags', 'index.tpl', 25, false),array('modifier', 'count', 'index.tpl', 27, false),array('modifier', 'html_entity_decode', 'index.tpl', 51, false),array('modifier', 'default', 'index.tpl', 51, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 53, false),array('modifier', 'sizeof', 'index.tpl', 57, false),array('modifier', 'fn_link_attach', 'index.tpl', 59, false),array('modifier', 'fn_url', 'index.tpl', 59, false),array('modifier', 'defined', 'index.tpl', 86, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 224, false),array('modifier', 'fn_query_remove', 'index.tpl', 267, false),array('modifier', 'strpos', 'index.tpl', 268, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 122, false),array('function', 'script', 'index.tpl', 141, false),array('function', 'render_location', 'index.tpl', 309, false),)), $this); ?>
@@ -57,7 +57,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 " />
 <meta name="keywords" content="<?php echo smarty_modifier_default(@$this->_tpl_vars['meta_keywords'], @$this->_tpl_vars['location_data']['meta_keywords']); ?>
 " />
-<?php if ($this->_tpl_vars['addons']['seo']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php if (! fn_seo_is_indexed_page($this->_tpl_vars['_REQUEST'])): ?>
+<?php if ($this->_tpl_vars['addons']['seo']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php if (! smarty_modifier_fn_seo_is_indexed_page($this->_tpl_vars['_REQUEST'])): ?>
 <meta name="robots" content="noindex<?php if (@HTTPS === true): ?>,nofollow<?php endif; ?>" />
 <?php endif; ?>
 
@@ -79,7 +79,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/styles.post.tpl' => 1402892727,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1410539402,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -155,8 +155,8 @@ if ($this->_foreach['bkt']['total'] > 0):
 
 
 <?php if (count($this->_tpl_vars['_REQUEST']) == 1): ?>
-	<link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
-/css/960/960_old.css" rel="stylesheet" type="text/css" />
+	<!-- <link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+/css/960/960_old.css" rel="stylesheet" type="text/css" /> -->
 <?php endif; ?>
 
 <link rel="stylesheet" href="css/font-awesome.min.css"><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
