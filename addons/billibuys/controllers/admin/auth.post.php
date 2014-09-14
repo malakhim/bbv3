@@ -12,8 +12,8 @@ if($mode == 'logout'){
 		// }else{
 			// $return_url = $_REQUEST['return_url'];
 		// }
-
 		fn_redirect('/index.php?dispatch=auth.login_form&return_url='.urlencode($return_url));
+		
 	}
 }
 

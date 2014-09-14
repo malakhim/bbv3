@@ -40,7 +40,7 @@ function fn_billibuys_save_log($type, $action, &$data, $user_id, &$content, &$ev
 }
 
 /**
- * Logs user into vendor side
+ * Logs user into vendor side when log into customer side (works for logout too)
  * @param  int $sess_id   cookie ID
  * @param  string $sess_data serialised string of data
  * @param  array $_row      row data to be REPLACEd into db
@@ -122,16 +122,17 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 	if(AREA != 'A'){
 		// Delete all existing cookies unless already logged in
 		if (isset($_SERVER['HTTP_COOKIE']) && $_SESSION['auth']['user_id'] == 0) {
-		    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
-		    foreach($cookies as $cookie) {
-		        $parts = explode('=', $cookie);
-		        $name = trim($parts[0]);
-		        setcookie($name, '', time()-1000);
-		        setcookie($name, '', time()-1000, '/');
-		        // Odd fixes for how CS-Cart adds . to front of domain in cookies
-		        setcookie($name,'',time()-1000,'/',substr($_SERVER['HTTP_HOST'],strpos($_SERVER['HTTP_HOST'],'.')));
-		        setcookie($name,'',time()-1000,'/','.'.$_SERVER['HTTP_HOST']);
-		    }
+		    // $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+		    // foreach($cookies as $cookie) {
+		    //     $parts = explode('=', $cookie);
+		    //     $name = trim($parts[0]);
+		    //     setcookie($name, '', time()-1000);
+		    //     setcookie($name, '', time()-1000, '/');
+		    //     // Odd fixes for how CS-Cart adds . to front of domain in cookies
+		    //     setcookie($name,'',time()-1000,'/',substr($_SERVER['HTTP_HOST'],strpos($_SERVER['HTTP_HOST'],'.')));
+		    //     setcookie($name,'',time()-1000,'/','.'.$_SERVER['HTTP_HOST']);
+		    // }
+		    Session::regenerate_id();
 		}
 		$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
 		setcookie($sess_name,$sess_id,Session::$lifetime,'/','.'.$_SERVER['HTTP_HOST']);
