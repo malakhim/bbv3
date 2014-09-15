@@ -388,12 +388,14 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		return array(CONTROLLER_STATUS_OK,'billibuys.categories_manage');
 	}elseif($mode == 'view_requests'){
 		fn_redirect("index.php?dispatch=billibuys.view");
+	}elseif($mode == 'update_bids'){
+		$bids = db_get_array("SELECT * FROM ?:bb_bids INNER JOIN ?:users ON ?:users.user_id = ?:bb_bids.user_id INNER JOIN ?:products ON ?:products.product_id = ?:bb_bids.product_id INNER JOIN ?:product_descriptions ON ?:product_descriptions.product_id = ?:products.product_id WHERE ?:bb_bids.product_id = ?i AND ?:bb_bids.active = 0 AND ?:users.user_id = ?i GROUP BY ?:bb_bids.bb_bid_id",$_REQUEST['product_id'],$auth['user_id']);
+		foreach($bids as $bid){
+			$highest_price < $bid['price'] ? $highest_price = $bid[] : false;
+		}
+		$currencies = Registry::get('currencies');
+		$view->assign('currency',$currencies[CART_PRIMARY_CURRENCY]['symbol']);
+		$view->assign('highest_price',$highest_price);
+		$view->assign('bids',$bids);
 	}
-
-
-	
-
-
-
-
 ?>

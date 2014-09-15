@@ -119,6 +119,7 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 	}
 	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
 
+	// Place_order used to avoid sending double headers to paypal
 	if(AREA != 'A' && $_REQUEST['dispatch'] != 'checkout.place_order'){
 		// Delete all existing cookies unless already logged in
 		if (isset($_SERVER['HTTP_COOKIE']) && $_SESSION['auth']['user_id'] == 0) {

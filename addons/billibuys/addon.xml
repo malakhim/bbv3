@@ -270,6 +270,10 @@
 		<item lang="EN" id="btn_place_bid_txt">Place bid with selected item</item>
 		<item lang="EN" id="place_bid_instr">Please select a product to bid on this request with, or add a new product using the button on the right.</item>
 		<item lang="EN" id="zero_quantity">You don't have any quantity remaining! Click here to add more.</item>
+		<item lang="EN" id="update_bids_auto_update_option_text">Automatically enable and adjust all disabled offers for [product] to [quantity] items each at [currency][price]</item>
+		<item lang="EN" id="update_bids_manual_update_option_text">Manually re-enable and adjust disabled offers</item>
+		<item lang="EN" id="update_bids_no_update_option_text">Leave all disabled offers as disabled (You can enable and adjust these later in your "Offers" page)</item>
+		<item lang="EN" id="update_bids">Update Offers</item>
 
 		<!-- General -->
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	
@@ -293,6 +297,8 @@
 		<item lang="EN" id="qty_cannot_be_zero">You have zero/invalid stock on the product selected. Try adding some stock to the product first by editing the product.</item>
 		<item lang="EN" id="no_request_item_selected">Please choose an item to bid with.</item>
 		<item lang="EN" id="cannot_bid_own_auction">You cannot bid on your own auction. How did you even get here?</item>
+		<item lang="EN" id="no_disabled_bids">You have no disabled offers. Click [here] to view your offers</item>
+		<item lang="EN" id="here">here</item>
 
 		<!-- Frontend billibuys.view variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>
