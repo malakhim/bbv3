@@ -9,6 +9,7 @@
 if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
+		// var_dump($_SERVER['HTTP_COOKIE']);
 		// if(!isset($_REQUEST['category_id']))
 		fn_add_breadcrumb(fn_get_lang_var('bb_browse'));
 		// Stub for viewing own auctions

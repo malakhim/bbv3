@@ -121,18 +121,23 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 
 	// Place_order used to avoid sending double headers to paypal
 	if(AREA != 'A' && $_REQUEST['dispatch'] != 'checkout.place_order'){
-		// Delete all existing cookies unless already logged in
+		// Delete all duplicate cookies unless already logged in
 		if (isset($_SERVER['HTTP_COOKIE']) && $_SESSION['auth']['user_id'] == 0) {
-		    // $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
-		    // foreach($cookies as $cookie) {
-		    //     $parts = explode('=', $cookie);
-		    //     $name = trim($parts[0]);
-		    //     setcookie($name, '', time()-1000);
-		    //     setcookie($name, '', time()-1000, '/');
-		    //     // Odd fixes for how CS-Cart adds . to front of domain in cookies
-		    //     setcookie($name,'',time()-1000,'/',substr($_SERVER['HTTP_HOST'],strpos($_SERVER['HTTP_HOST'],'.')));
-		    //     setcookie($name,'',time()-1000,'/','.'.$_SERVER['HTTP_HOST']);
-		    // }
+		    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+		    $unique_cookies = Array();
+		    foreach($cookies as $cookie) {
+		        $parts = explode('=', $cookie);
+		        $name = trim($parts[0]);
+		        if(!in_array($name,$unique_cookies)){
+		        	array_push($unique_cookies,$name);
+			    }else{
+			        setcookie($name, '', time()-1000);
+			        setcookie($name, '', time()-1000, '/');
+			        // Odd fixes for how CS-Cart adds . to front of domain in cookies
+			        setcookie($name,'',time()-1000,'/',substr($_SERVER['HTTP_HOST'],strpos($_SERVER['HTTP_HOST'],'.')));
+			        setcookie($name,'',time()-1000,'/','.'.$_SERVER['HTTP_HOST']);
+			    }
+		    }
 		    Session::regenerate_id();
 		}
 		$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
