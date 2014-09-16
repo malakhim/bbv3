@@ -270,7 +270,7 @@
 		<item lang="EN" id="btn_place_bid_txt">Place bid with selected item</item>
 		<item lang="EN" id="place_bid_instr">Please select a product to bid on this request with, or add a new product using the button on the right.</item>
 		<item lang="EN" id="zero_quantity">You don't have any quantity remaining! Click here to add more.</item>
-		<item lang="EN" id="update_bids_auto_update_option_text">Automatically enable and adjust all disabled offers for [product] to [quantity] items each at [currency][price]</item>
+		<item lang="EN" id="update_bids_auto_update_option_text">Automatically enable and adjust all disabled offers for <strong>[product]</strong> to [quantity] items each at [currency][price]</item>
 		<item lang="EN" id="update_bids_manual_update_option_text">Manually re-enable and adjust disabled offers</item>
 		<item lang="EN" id="update_bids_no_update_option_text">Leave all disabled offers as disabled (You can enable and adjust these later in your "Offers" page)</item>
 		<item lang="EN" id="update_bids">Update Offers</item>
