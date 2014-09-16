@@ -1044,7 +1044,157 @@ function fn_get_requests_sorting()
 
 	return $sorting;
 }
+/**
+ * Install objects required to log billibuys functions
+ */
+function fn_install_log_objects(){
 
+	// Insert request log type
 
+	$insert_data = Array(
+		'name' => 'log_type_bb_request',
+		'section_id' => 12,
+		'section_tab_id' => 0,
+		'type' => 'N',
+		'value' => '#M#create=Y&delete=Y&update=Y',
+		);
+	$object_id = db_query("INSERT INTO ?:settings_objects ?e",$insert_data);
+
+	// Create
+
+	$insert_data = Array(
+		'object_id' => $object_id,
+		'name' => 'create',
+	);
+	$settings_variants_id = db_query("INSERT INTO ?:settings_variants ?e",$insert_data);
+
+	$insert_data = Array(
+		'object_id' => $settings_variants_id,
+		'object_type' => 'V',
+		'value' => 'Create',
+	);
+	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);
+
+	// Delete
+
+	$insert_data = Array(
+		'object_id' => $object_id,
+		'name' => 'delete',
+	);
+	$settings_variants_id = db_query("INSERT INTO ?:settings_variants ?e",$insert_data);
+
+	$insert_data = Array(
+		'object_id' => $settings_variants_id,
+		'object_type' => 'V',
+		'value' => 'Delete',
+	);
+	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);
+
+	// Update
+	
+	$insert_data = Array(
+		'object_id' => $object_id,
+		'name' => 'update',
+	);
+	$settings_variants_id = db_query("INSERT INTO ?:settings_variants ?e",$insert_data);
+
+	$insert_data = Array(
+		'object_id' => $settings_variants_id,
+		'object_type' => 'V',
+		'value' => 'Update',
+	);
+	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);
+
+	// Description for log settings page
+	$insert_data = Array(
+		'object_id' => $object_id,
+		'object_type' => 'O',
+		'value' => 'Billibuys Request',
+	);
+	db_query('INSERT INTO ?:settings_descriptions ?e',$insert_data);
+
+	// Insert bid offer type
+	
+	$insert_data = Array(
+		'name' => 'log_type_bb_bid',
+		'section_id' => 12,
+		'section_tab_id' => 0,
+		'type' => 'N',
+		'value' => '#M#create=Y&delete=Y&update=Y',
+		);
+	$object_id = db_query("INSERT INTO ?:settings_objects ?e",$insert_data);
+
+	// Create
+
+	$insert_data = Array(
+		'object_id' => $object_id,
+		'name' => 'create',
+	);
+	$settings_variants_id = db_query("INSERT INTO ?:settings_variants ?e",$insert_data);
+
+	$insert_data = Array(
+		'object_id' => $settings_variants_id,
+		'object_type' => 'V',
+		'value' => 'Create',
+	);
+	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);
+
+	// Delete
+
+	$insert_data = Array(
+		'object_id' => $object_id,
+		'name' => 'delete',
+	);
+	$settings_variants_id = db_query("INSERT INTO ?:settings_variants ?e",$insert_data);
+
+	$insert_data = Array(
+		'object_id' => $settings_variants_id,
+		'object_type' => 'V',
+		'value' => 'Delete',
+	);
+	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);
+
+	// Update
+	
+	$insert_data = Array(
+		'object_id' => $object_id,
+		'name' => 'update',
+	);
+	$settings_variants_id = db_query("INSERT INTO ?:settings_variants ?e",$insert_data);
+
+	$insert_data = Array(
+		'object_id' => $settings_variants_id,
+		'object_type' => 'V',
+		'value' => 'Update',
+	);
+	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);	
+}
+
+/**
+ * Clear the billibuys log objects upon uninstall
+ */
+function fn_uninstall_log_objects(){
+	// Delete the request objects
+	$request_type = db_get_array("SELECT * FROM ?:settings_objects WHERE name LIKE ?s",'log_type_bb_request');
+	foreach($request_type as $rtype){
+		$settings = db_get_array("SELECT * FROM ?:settings_variants WHERE object_id = ?i",$rtype['object_id']);
+		foreach($settings as $setting){
+			db_query("DELETE FROM ?:settings_descriptions WHERE object_id = ?i",$setting['variant_id']);
+			db_query("DELETE FROM ?:settings_variants WHERE variant_id = ?i",$setting['variant_id']);
+		}
+		db_query("DELETE FROM ?:settings_descriptions WHERE object_id = ?i",$rtype['object_id']);
+	}
+
+	// Delete the bid objects
+	$request_type = db_get_array("SELECT * FROM ?:settings_objects WHERE name LIKE ?s",'log_type_bb_bid');
+	foreach($request_type as $rtype){
+		$settings = db_get_array("SELECT * FROM ?:settings_variants WHERE object_id = ?i",$rtype['object_id']);
+		foreach($settings as $setting){
+			db_query("DELETE FROM ?:settings_descriptions WHERE object_id = ?i",$setting['variant_id']);
+			db_query("DELETE FROM ?:settings_variants WHERE variant_id = ?i",$setting['variant_id']);
+		}
+		db_query("DELETE FROM ?:settings_descriptions WHERE object_id = ?i",$rtype['object_id']);
+	}
+}
 
 ?>
