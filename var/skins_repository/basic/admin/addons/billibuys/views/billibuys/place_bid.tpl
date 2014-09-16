@@ -1,8 +1,7 @@
 {capture name="mainbox"}
 
-{literal}
 <script src="addons/billibuys/js/place_bid.js" type="text/javascript"></script>
-{/literal}
+
 {$lang.place_bid_instr}
 {**
 {include file="views/products/components/products_search_form.tpl" dispatch="products.manage"}
@@ -26,18 +25,19 @@
 	<th width="5%"><span>{$lang.image}</span></th>
 	<th width="60%"><a class="{$ajax_class}{if $search.sort_by == "product"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=product&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.name}</a>{** / <a class="{$ajax_class}{if $search.sort_by == "code"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=code&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.product_code}</a>**}</th>
 	<th width="15%"><a class="cm-ajax{if $search.sort_by == "price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.price} ({$currencies.$primary_currency.symbol})</a></th>
-	<th width="5%">{**<a class="cm-ajax{if $search.sort_by == "list_price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=list_price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.list_price} ({$currencies.$primary_currency.symbol})</a>**}</th>
-	{if $search.order_ids}
+	{**<th width="5%"><a class="cm-ajax{if $search.sort_by == "list_price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=list_price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.list_price} ({$currencies.$primary_currency.symbol})</a></th>**}
+	{*if $search.order_ids}
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_qty"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_qty&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.purchased_qty}</a></th>
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_subtotal"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_subtotal&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.subtotal_sum} ({$currencies.$primary_currency.symbol})</a></th>
-	{/if}
+	{/if*}
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "amount"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=amount&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.quantity}</a></th>
 </tr>
 {foreach from=$products item=product}
 
 <tr class="{cycle values="table-row,"} {$hide_inputs_if_shared_product}">
 	<td class="center">
-   		<input type="radio" name="product_ids[]" value="{$product.product_id}" class="checkbox cm-item" /></td>
+   		<input type="radio" name="product_ids[]" value="{$product.product_id}" class="checkbox cm-item" {if $saved_selected_product_id == $product.product_id}checked{/if}/>
+   	</td>
 	{if $search.cid && $search.subcats != "Y"}
 	<td>
 		<input type="text" name="products_data[{$product.product_id}][position]" size="3" value="{$product.position}" class="input-text-short" /></td>
@@ -55,12 +55,12 @@
 	</td>
 	<td{if $no_hide_input_if_shared_product} class="{$no_hide_input_if_shared_product}"{/if}>
 		<div class="product-price">
-			<input type="text" name="products_data[{$product.product_id}][price]" size="6" value="{$product.price|fn_format_price:$primary_currency:null:false}" class="input-text" />
+			<input type="number" min="0" name="products_data[{$product.product_id}][price]" size="6" value="{if $saved_selected_product_id == $product.product_id}{$saved_selected_product.price}{else}{$product.price|fn_format_price:$primary_currency:null:false}{/if}" class="input-text" />
 			{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='price' name="update_all_vendors[price]"}
 		</div>
 	</td>
-	<td>
-		{**<input type="text" name="products_data[{$product.product_id}][list_price]" size="6" value="{$product.list_price}" class="input-text" />**}</td>
+	{**<td>
+		<input type="text" name="products_data[{$product.product_id}][list_price]" size="6" value="{$product.list_price}" class="input-text" /></td>**}
 	{if $search.order_ids}
 	<td>{$product.purchased_qty}</td>
 	<td>{$product.purchased_subtotal}</td>
@@ -69,7 +69,16 @@
 		{**{if $product.tracking == "O"}
 		{include file="buttons/button.tpl" but_text=$lang.edit but_href="product_options.inventory?product_id=`$product.product_id`" but_role="edit"}
 		{else}**}
-		<input type="text" name="products_data[{$product.product_id}][amount]" size="6" value="{$product.amount}" class="input-text-short" />
+		{if $product.amount < 1}
+			{include file="buttons/button.tpl" but_text=$lang.zero_quantity but_href="products.update?product_id=`$product.product_id`#product_amount" but_role="edit"}
+			<input type="hidden" name="products_data[{$product.product_id}][amount]" value="0">
+		{else}
+			<select name="products_data[{$product.product_id}][amount]" class="amount">
+				{section name=amount max=$product.amount loop=$product.amount+1 step=-1}
+					<option value="{$smarty.section.amount.index}" {if $saved_selected_product_id == $product.product_id && $saved_selected_product.amount == $smarty.section.amount.index}selected="selected"{/if}>{$smarty.section.amount.index}</option>
+				{/section}
+			</select>
+		{/if}
 		{**{/if}**}
 	</td>
 
