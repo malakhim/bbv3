@@ -1,10 +1,13 @@
 {capture name="mainbox"}
+	<script src="addons/billibuys/js/update_bids.js" type="text/javascript"></script>
+	<div class="right"><a href="{"admin.php?dispatch=billibuys.notify"|fn_url}">{$lang.create_notification}</a></div>
+	
 	{if $bids}
-		<a href="{"admin.php?dispatch=billibuys.notify"|fn_url}">{$lang.create_notification}</a>
+		{$lang.choose_action}:
 		<form action="{""|fn_url}" method="post" name="category_tree_form" class="{if ""|fn_check_form_permissions}cm-hide-inputs{/if}">
 
 			{capture name=amount_dropdown assign=amount}
-				<select name="quantity">
+				<select name="quantity" id="slct_a_update">
 					{section name=quantity start=$bids[0].amount loop=$bids[0].amount+1 step=-1}
 						<option value="{$smarty.section.quantity.index}">{$smarty.section.quantity.index}</option>
 					{/section}
@@ -12,7 +15,7 @@
 			{/capture}
 
 			{capture name=price_inputbox assign=price}
-				<input type="text" value="{$highest_price}" class="input-text" size="{$highest_price|count_characters}"/>
+				<input type="text" value="{$highest_price}" class="input-text" size="{$highest_price|count_characters}" id="txt_a_update"/>
 			{/capture}
 
 			<input type="radio" name="update_bid_option" value="auto_update" id="a_update" /><label for="a_update">{$lang.update_bids_auto_update_option_text|replace:"[product]":$bids[0].product|replace:"[quantity]":$amount|replace:"[currency]":$currency|replace:"[price]":$price|escape:false}</label> <br/>

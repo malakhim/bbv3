@@ -1,20 +1,24 @@
-<?php /* Smarty version 2.6.18, created on 2014-09-17 06:01:14
+<?php /* Smarty version 2.6.18, created on 2014-09-17 06:15:58
          compiled from addons/billibuys/views/billibuys/update_bids.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/update_bids.tpl', 3, false),array('modifier', 'fn_check_form_permissions', 'addons/billibuys/views/billibuys/update_bids.tpl', 4, false),array('modifier', 'count_characters', 'addons/billibuys/views/billibuys/update_bids.tpl', 15, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/update_bids.tpl', 18, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/update_bids.tpl', 18, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/update_bids.tpl', 3, false),array('modifier', 'fn_check_form_permissions', 'addons/billibuys/views/billibuys/update_bids.tpl', 7, false),array('modifier', 'count_characters', 'addons/billibuys/views/billibuys/update_bids.tpl', 18, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/update_bids.tpl', 21, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/update_bids.tpl', 21, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('create_notification','update_bids_auto_update_option_text','update_bids_manual_update_option_text','update_bids_no_update_option_text','no_disabled_bids','here','update_bids'));
+fn_preload_lang_vars(array('create_notification','choose_action','update_bids_auto_update_option_text','update_bids_manual_update_option_text','update_bids_no_update_option_text','no_disabled_bids','here','update_bids'));
 ?>
 <?php ob_start(); ?>
-	<?php if ($this->_tpl_vars['bids']): ?>
-		<a href="<?php echo fn_url("admin.php?dispatch=billibuys.notify"); ?>
+	<script src="addons/billibuys/js/update_bids.js" type="text/javascript"></script>
+	<div class="right"><a href="<?php echo fn_url("admin.php?dispatch=billibuys.notify"); ?>
 "><?php echo fn_get_lang_var('create_notification', $this->getLanguage()); ?>
-</a>
+</a></div>
+	
+	<?php if ($this->_tpl_vars['bids']): ?>
+		<?php echo fn_get_lang_var('choose_action', $this->getLanguage()); ?>
+:
 		<form action="<?php echo fn_url(""); ?>
 " method="post" name="category_tree_form" class="<?php if (fn_check_form_permissions("")): ?>cm-hide-inputs<?php endif; ?>">
 
 			<?php ob_start(); ?>
-				<select name="quantity">
+				<select name="quantity" id="slct_a_update">
 					<?php unset($this->_sections['quantity']);
 $this->_sections['quantity']['name'] = 'quantity';
 $this->_sections['quantity']['start'] = (int)$this->_tpl_vars['bids'][0]['amount'];
@@ -53,7 +57,7 @@ $this->_sections['quantity']['last']       = ($this->_sections['quantity']['iter
 			<?php ob_start(); ?>
 				<input type="text" value="<?php echo $this->_tpl_vars['highest_price']; ?>
 " class="input-text" size="<?php echo smarty_modifier_count_characters($this->_tpl_vars['highest_price']); ?>
-"/>
+" id="txt_a_update"/>
 			<?php $this->_smarty_vars['capture']['price_inputbox'] = ob_get_contents();  $this->assign('price', ob_get_contents());ob_end_clean(); ?>
 
 			<input type="radio" name="update_bid_option" value="auto_update" id="a_update" /><label for="a_update"><?php echo smarty_modifier_escape(smarty_modifier_replace(smarty_modifier_replace(smarty_modifier_replace(smarty_modifier_replace(fn_get_lang_var('update_bids_auto_update_option_text', $this->getLanguage()), "[product]", $this->_tpl_vars['bids'][0]['product']), "[quantity]", $this->_tpl_vars['amount']), "[currency]", $this->_tpl_vars['currency']), "[price]", $this->_tpl_vars['price']), false); ?>
