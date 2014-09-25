@@ -20,7 +20,7 @@
 {include file="common_templates/scripts.tpl"}
 </head>
 
-<body>
+<body id="{$controller}" class="{$mode}">
 {if "SKINS_PANEL"|defined}
 {include file="demo_skin_selector.tpl"}
 {/if}

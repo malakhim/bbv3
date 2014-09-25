@@ -1,11 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto";
 }
 
 @font-face {
- 	font-family: 'Nunito';
- 	src: url('../../fonts/Nunito-Regular.ttf');
+ 	font-family: 'Roboto';
+ 	/*src: url('../../fonts/Roboto-Regular.ttf');*/
    }
 
 .top-my-account .cm-popup-title:hover a{
@@ -17,7 +18,7 @@
 }
 
 #second-top-nav{
-	background-color: #f36e21;
+	/* background-color: #f36e21; */
 	width: 100%;
 	min-height: 40px;
 	margin-top:5px;
@@ -26,7 +27,12 @@
 
 #second-top-nav-elements{
 	position:absolute;
-	margin-top: 10px;
+	/*margin-top: 4px;*/
+	margin-left: 20px;
+}
+
+#second-top-nav-elements .top_menu_item:hover{
+	color: #3FB2D1;
 }
 
 #second-top-nav-elements a:hover{
@@ -34,7 +40,7 @@
 }
 
 .top_menu_item{
-	font-family: Nunito;
+	font-family: "Roboto";
 	font-size: 15pt;
 	padding-right: 15px;
 	color: white;
@@ -45,7 +51,7 @@
 }
 
 .top_menu_item:hover{
-	background-color: #4357a6;
+	/*background-color: #4357a6;*/
 }
 
 .top-logo .logo-container{
@@ -65,17 +71,23 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 /*background: linear-gradient(to bottom,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* W3C */
 /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#edeeec',GradientType=0 ); /* IE6-8 */
 	/*background: none;*/
-	/*height:100px;*/
-	background: #4357a6;
+	
+
+	height: 67px;
+	
+
+	/*background: #006885;*/
+	background:-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#006885));
+	/*background:-webkit-gradient(linear, 80% 20%, 39% 12%, from(#3FB2D1), to(#006885));*/
 }
 
 /*@font-face{
-	font-family: "Nunito";
+	font-family: "Roboto";
 	src: url('../../../../../fonts/ARLRDBD.EOT') format('embedded-opentype');
 }
 
 @font-face{
-	font-family: "Nunito";
+	font-family: "Roboto";
 	src: url('../../../../../fonts/ARLRDBD.TTF');
 }*/
 
@@ -96,13 +108,13 @@ body{
 }
 
 .how_does_it_work_block{
-	margin-top:373px;
-	line-height: 46px;
+	/*margin-top:373px;*/
+	/*line-height: 46px;*/
 	/*width: 399px;*/
 }
 
 /*.how_does_it_work_block div{
-	font-family: "Nunito";
+	font-family: "Roboto";
 	font-size: 33pt;
 	color: rgb(1,146,146);
 }*/
@@ -187,7 +199,7 @@ html.ie9 .how_does_it_work_block div {
 
 .frontpage_top_links{
 	text-align:center;
-	font-family: "Nunito";
+	font-family: "Roboto";
 	font-size: 14pt;
 	margin-top: -50px;
 }
@@ -240,6 +252,10 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: 50px; /*FIXME: This is just a fix for the second nav bar hiding breadcrumbs */;
 }
 
+#index .main{
+	margin-top: 0px; /*Fixing the above for front page*/
+}
+
 .billibuys-view-mainbox .mainbox-title{
 	display:none;
 }
@@ -279,7 +295,7 @@ html.ie9 .how_does_it_work_block div {
 	font-size: 22pt;
 	padding: 10px 0 10px 0;
 	text-transform: uppercase;
-	font-family: "Nunito";
+	font-family: "Roboto";
 }
 
 .for_the_buyers_block .infobox_heading{
@@ -348,7 +364,7 @@ html.ie9 .how_does_it_work_block div {
 	color: white;
 	padding: 20px;
 	text-transform: uppercase;
-	font-family: "Nunito";
+	font-family: "Roboto";
 	cursor:pointer;
 	width: 255px;
 	font-size: 11pt;
@@ -362,7 +378,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .about_billibuys_block{
-	font-family: "Nunito";
+	font-family: "Roboto";
 	margin-top: 92px;
 	/*background-color: rgba(255, 255, 255, 0.9);*/
 }
@@ -404,7 +420,7 @@ html.ie9 .how_does_it_work_block div {
 
 .footer{
 	background-color: #f36e21;
-	font-family: "Nunito";
+	font-family: "Roboto";
 	font-size: 10pt;
 	margin-top: 18px;
 	min-height: 0px;
@@ -456,15 +472,20 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .top-social-media .fa {
-	padding:10px 10px 0px 15px;
-	min-height: 30px;
+	/* padding:10px 10px 0px 15px; */
+	min-height: 20px;
+	padding-top: 7px;
 	min-width: 0px;
-	font-size: 18pt;
+	font-size: 13pt;
+	padding-bottom: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+	margin-top: 3px;
 }
 
 .top-social-media .fa-facebook{
-	padding-left: 19px;
-	padding-right: 19px;	
+	padding-left: 11px;
+	padding-right: 11px;	
 }
 
 #billibuys_footer_logo{
@@ -481,7 +502,7 @@ html.ie9 .how_does_it_work_block div {
 /*Style 2 for homepage*/
 
 .how_does_it_work_blk2{
-	font-family: "Nunito";
+	font-family: "Roboto";
 	font-size: 33pt;
 }
 
@@ -491,12 +512,12 @@ html.ie9 .how_does_it_work_block div {
 	color: white;
 	padding: 20px;
 	text-transform: uppercase;
-	font-family: "Nunito";
+	font-family: "Roboto";
 	cursor:pointer;
 	font-size: 11pt;
 	height: 20px;		
 	margin-top: 30px;
-	margin-right: -404px;
+	margin-right: -250px;
 	padding-left: 20px;
 	padding-right: 20px;
 	/*padding-bottom: 45px;*/
@@ -515,7 +536,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .da-slide h2{
-	font-family: Nunito;
+	font-family: "Roboto";
 }
 
 .about_line_5.bottom{
@@ -548,7 +569,25 @@ html.ie9 .how_does_it_work_block div {
 	border-top: thin rgb(228, 228, 228) solid;
 	padding-bottom: 7px;
 	padding-top: 7px;
+	font-family: "Roboto";
 }
+
+/*.cat-left-side-nav span a{
+    text-decoration: none;
+    position: relative;
+}
+
+.cat-left-side-nav span a:after{
+    content: '';
+
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+
+    border-width: 0 0 1px;
+    border-style: solid;
+}*/
 
 
 .cat-left-side-nav a{
@@ -558,12 +597,13 @@ html.ie9 .how_does_it_work_block div {
 .root-lvl-cat:hover{
 	/*background-color:#3152D6;*/
 	/*font-weight: bolder;*/
-	color: rgb(119, 168, 241);
-	text-decoration: underline;
+	/*color: rgb(119, 168, 241);*/
+	color: #F57E0F;
+	/*text-decoration: underline;*/
 }
 
 #cat-header{
-	background-color: #4357a6;
+	background-color: #08c;
 	color: white;
 	font-weight: bolder;
 	padding-top:10px;
@@ -614,7 +654,7 @@ html.ie9 .how_does_it_work_block div {
 .bb_table th{
 	background-color: #4357a6;
 	color: white;
-	/*font-family: Nunito;*/
+	/*font-family: "Roboto";*/
 	border-right: white solid 1px;
 	padding-left: 10px;
 	height: 20px;
@@ -725,7 +765,7 @@ html.ie9 .how_does_it_work_block div {
 	color: white;
 	padding: 14px;
 	font-weight: bolder;
-	margin-left: 100px;
+	/*margin-left: 100px;*/
 }
 
 .try-us{
@@ -753,7 +793,7 @@ html.ie9 .how_does_it_work_block div {
 .bb-list-title{
 	margin-top: -108px;
 	font-size: 2em;
-	font-family: arial;
+	font-family: "Roboto";
 	text-transform: uppercase;
 	width: 700px;
 }
@@ -897,4 +937,29 @@ html.ie9 .how_does_it_work_block div {
 
 #info-box .bb-time-remaining{
 	margin-top: 0px;
+}
+
+#index{
+	background-image: url('/images/morning_new.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment:fixed;
+}
+
+#index .header{
+	background-color: rgba(0, 104, 133, 0.38);
+	background-image: none;
+}
+
+.fp_panel{
+	/*margin-top: 350px;*/
+	/*background-color: white;*/
+}
+
+.top-links-right{
+	margin-top:-2px;
+}
+
+.top-my-account{
+	margin-top:3px;
 }

@@ -397,5 +397,33 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$view->assign('currency',$currencies[CART_PRIMARY_CURRENCY]['symbol']);
 		$view->assign('highest_price',$highest_price);
 		$view->assign('bids',$bids);
+	}elseif($mode == 'update_bids_2'){
+		$update_bid_selected = $_REQUEST['update_bid_option'];
+		if($update_bid_selected == 'auto_update'){
+			$update_data = Array(
+				'quantity' => $_REQUEST['quantity'],
+				'price'		=> $_REQUEST['price'],
+				'active'	=> 1,
+			);
+			$disabled = db_get_row("SELECT * FROM ?:bb_bids WHERE product_id = ?i AND active = 0 AND user_id = ?i",$_REQUEST['product_id'],$auth['user_id']);
+			if($disabled){
+				db_query("UPDATE ?:bb_bids SET ?u WHERE product_id = ?i AND active = 0",$_REQUEST['product_id']);
+				fn_set_notification('N',fn_get_lang_var('qiwi_result_status_0'),fn_get_lang_var('updated_successful_msg'));
+				fn_redirect('index.php?dispatch=billibuys.view');
+			}else{
+				fn_set_notification('E',fn_get_lang_var('error'),fn_get_lang_var('no_disabled_bids'));
+				fn_redirect('vendor.php?dispatch=update_bids&product_id='.$_REQUEST['product_id']);
+			}
+		}elseif($update_bid_selected == 'manual_update'){
+			// var_dump($view->_tpl_vars);die;
+			$disabled = db_get_row("SELECT * FROM ?:bb_bids INNER JOIN ?:bb_requests ON ?:bb_requests.bb_request_id = ?:bb_bids.request_id INNER JOIN ?:bb_request_item ON ?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id WHERE product_id = ?i AND active = 0 AND ?:bb_bids.user_id = ?i",$_REQUEST['product_id'],$auth['user_id']);
+			$view->assign('bids',$disabled);
+			$view->assign('show_update_for_all',true);
+		}elseif($update_bid_selected == 'no_update'){
+			fn_redirect('index.php?dispatch=billibuys.view');
+		}else{
+			// Error, invalid $_POST array
+			
+		}
 	}
 ?>

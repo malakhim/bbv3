@@ -274,6 +274,7 @@
 		<item lang="EN" id="update_bids_manual_update_option_text">Manually re-enable and adjust disabled offers</item>
 		<item lang="EN" id="update_bids_no_update_option_text">Leave all disabled offers as disabled (You can enable and adjust these later in your "Offers" page)</item>
 		<item lang="EN" id="update_bids">Update Offers</item>
+		<item lang="EN" id="updated_successful_msg">Bids have been updated successfully</item>
 
 		<!-- General -->
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	

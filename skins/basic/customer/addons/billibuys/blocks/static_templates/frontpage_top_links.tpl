@@ -6,8 +6,8 @@
 <script src="addons/billibuys/js/home.js" type="text/javascript"></script>
 {/literal}
 
-<div id="background_img"><img src="images/morning_new.jpg"></div>
 
+{*
 <a href="{'pages.view&page_id=2'|fn_url}"><span class="alpha grid_2 text_link">
 	{$lang.about}
 </span></a>
@@ -22,4 +22,4 @@
 
 <a href="{'auth.login_form'|fn_url}"><span class="omega grid_4 flat_link grey login-link">
 	{$lang.log_in}/{$lang.register} 
-</span></a>
+</span></a>*}
