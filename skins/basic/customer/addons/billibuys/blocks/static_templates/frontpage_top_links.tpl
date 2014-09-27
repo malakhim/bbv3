@@ -2,8 +2,10 @@
 
 <!--<link href="{$config.skin_path}/css/960/960_old.css" rel="stylesheet" type="text/css" />-->
 
+<link href="/js/jquery.bxslider.css" rel="stylesheet" type="text/css" />
 {literal}
 <script src="addons/billibuys/js/home.js" type="text/javascript"></script>
+<script src="/js/jquery.bxslider.js" type="text/javascript"></script>
 {/literal}
 
 

@@ -6,6 +6,6 @@
 	Learn more
 </span></a>*}
 
-<a href="{'billibuys.view'|fn_url}"><span class="flat_link red learn-more">
+<span class="flat_link red learn-more">
 	{$lang.find_out_how}
-</span></a>
+</span>
