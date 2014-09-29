@@ -1048,7 +1048,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .for_the_buyers_block .step_1 .slider-img{
-	background: url('images/B_step1.png') no-repeat;
+	background: url('/images/B_step1.png') no-repeat;
 }
 
 .bxslider{
