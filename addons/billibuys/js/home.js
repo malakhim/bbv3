@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('.fp_panel').css('margin-left','-'+$('.fp_panel').offset().left + 'px');
-  $('.fp_panel').height($(window).height());
+  // $('.fp_panel').height($(window).height());
+  $('.fp_panel').height($('.buyerslider').offset().top+50);
   // console.log($('.fp_panel'));
 
   $('.abt_panel .learn-more').click(function(){
@@ -82,7 +83,8 @@ $(function() {
     // our function that decides weather the navigation bar should have "fixed" css position or not.
     var sticky_navigation = function(){
         var scroll_top = $(window).scrollTop(); // our current vertical position from the top
-         
+        
+        if($)
 
         // if we've scrolled more than the navigation, change its position to fixed to stick to top,
         // otherwise change it back to relative
