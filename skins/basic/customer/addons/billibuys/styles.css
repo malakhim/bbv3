@@ -76,8 +76,10 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 	height: 67px;
 	
 
-	/*background: #006885;*/
-	background:-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594));
+	background: #006885;
+	
+
+	/* background:-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594)); */
 	/*background:-webkit-gradient(linear, 80% 20%, 39% 12%, from(#3FB2D1), to(#006885));*/
 }
 
@@ -995,7 +997,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #index .header{
-	/*background-color: rgba(0, 104, 133, 0.38);*/
+	background-color: rgba(0, 104, 133, 0.38);
 	background: -webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594))
 	background-image: none;
 	z-index:10000;

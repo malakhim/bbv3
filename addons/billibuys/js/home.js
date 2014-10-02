@@ -1,21 +1,4 @@
 $(document).ready(function(){
-  // $('.for_the_buyers_block .learn_more_box').click(function(){
-    // show_slider('buyer');
-  // });
-  // $('.buyerslider').cslider({
-  //     autoplay:true,
-  //     current: 0,
-  //     bgincrement: 0,
-  //     page: 0
-  //   });
-  // $('.for_the_sellers_block .learn_more_box').click(function(){
-  //   show_slider('seller');
-  // });
-
-  // $('#background_img').css('margin-left','-' + $('#background_img').offset().left + 'px');
-  // var docWidth = document.documentElement.clientWidth || document.body.clientWidth;
-  // var htmlpadding = scrollCompensate();
-  // $('.fp_panel').width($(document).width());
   $('.fp_panel').css('margin-left','-'+$('.fp_panel').offset().left + 'px');
   $('.fp_panel').height($(window).height());
   // console.log($('.fp_panel'));
@@ -24,6 +7,9 @@ $(document).ready(function(){
     $('html, body').animate({scrollTop: $('.buyerslider').offset().top},1000); 
   //   window.location.href = 'index.php?dispatch=billibuys.view';
   });
+
+  var buyertop = $('.buyerslider').offset().top;
+
   //Firefox
   // var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
   // $('body').bind(mousewheelevt, function(e){
@@ -91,11 +77,13 @@ $(function() {
  
     // grab the initial top offset of the navigation 
     var sticky_navigation_offset_top = $('#ci_top_wrapper').offset().top;
+    var buyertop = $('.buyerslider').offset().top;
      
     // our function that decides weather the navigation bar should have "fixed" css position or not.
     var sticky_navigation = function(){
         var scroll_top = $(window).scrollTop(); // our current vertical position from the top
          
+
         // if we've scrolled more than the navigation, change its position to fixed to stick to top,
         // otherwise change it back to relative
         if (scroll_top > sticky_navigation_offset_top) { 
