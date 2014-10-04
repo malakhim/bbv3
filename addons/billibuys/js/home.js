@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('.fp_panel').css('margin-left','-'+$('.fp_panel').offset().left + 'px');
   // $('.fp_panel').height($(window).height());
-  $('.fp_panel').height($('.buyerslider').offset().top+50);
+  // $('.fp_panel').height($('.buyerslider').offset().top+50);
   // console.log($('.fp_panel'));
 
   $('.abt_panel .learn-more').click(function(){
