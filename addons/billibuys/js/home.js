@@ -1,15 +1,13 @@
-$(document).ready(function(){
+$(window).ready(function(){
   $('.fp_panel').css('margin-left','-'+$('.fp_panel').offset().left + 'px');
-  // $('.fp_panel').height($(window).height());
-  // $('.fp_panel').height($('.buyerslider').offset().top+50);
+  $('.fp_panel').height($(window).height());
+  $('.fp_panel').height($('.buyerslider').offset().top+50);
   // console.log($('.fp_panel'));
-
+  var buyertop = $('.buyer-panel').offset().top;  
   $('.abt_panel .learn-more').click(function(){
-    $('html, body').animate({scrollTop: $('.buyerslider').offset().top},1000); 
-  //   window.location.href = 'index.php?dispatch=billibuys.view';
-  });
 
-  var buyertop = $('.buyerslider').offset().top;
+    $('html, body').animate({scrollTop: buyertop - $('#ci_top_wrapper').height()},1000,function(){return false});
+  });
 
   //Firefox
   // var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
@@ -77,27 +75,17 @@ $(document).ready(function(){
 $(function() {
  
     // grab the initial top offset of the navigation 
-    var sticky_navigation_offset_top = $('#ci_top_wrapper').offset().top;
-    var buyertop = $('.buyerslider').offset().top;
-     
+    // var sticky_navigation_offset_top = $('#ci_top_wrapper').offset().top;
+
     // our function that decides weather the navigation bar should have "fixed" css position or not.
     var sticky_navigation = function(){
+      
         var scroll_top = $(window).scrollTop(); // our current vertical position from the top
-        
-        if($)
 
-        // if we've scrolled more than the navigation, change its position to fixed to stick to top,
-        // otherwise change it back to relative
-        if (scroll_top > sticky_navigation_offset_top) { 
-            $('#ci_top_wrapper').css({ 'position': 'fixed', 'top':0, 'width':'100%'});
-        } else {
-            $('#ci_top_wrapper').css({ 'position': 'relative' }); 
-        }
-
-        if (sticky_navigation_offset_top > $('.buyerslider').offset().top){
-          $('#ci_top_wrapper').css({'opacity' : '0.8'});
+        if (scroll_top > $('.buyer-panel').offset().top - $('#ci_top_wrapper').height()){
+          $('#ci_top_wrapper').css({'background' : '-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594))'});
         }else{
-          $('#ci_top_wrapper').css({'opacity' : '1'});
+          $('#ci_top_wrapper').css({'background' : 'rgba(0, 104, 133, 0.38)'});
         }
     };
      

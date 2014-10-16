@@ -76,10 +76,11 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 	height: 67px;
 	
 
-	background: #006885;
+	/*background: #006885;*/
+
 	
 
-	/* background:-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594)); */
+	 background:-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#1E90BD)); 
 	/*background:-webkit-gradient(linear, 80% 20%, 39% 12%, from(#3FB2D1), to(#006885));*/
 }
 
@@ -531,6 +532,7 @@ html.ie9 .how_does_it_work_block div {
 	padding-left: 7px;
 	padding-right: 7px;
 	margin-top: 3px;
+	border-radius: 50%;
 }
 
 .top-social-media .fa-facebook{
@@ -1004,7 +1006,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .fp_panel{
-	height:100vh;
+	height:100%;
 	/*margin-top: 350px;*/
 	/*background-color: white;*/
 }
@@ -1027,6 +1029,12 @@ html.ie9 .how_does_it_work_block div {
 	width: 100%;
 	margin-left: 0;
 	margin-right: 0;
+}
+
+#index #ci_top_wrapper{
+	position:fixed;
+	width: 100%;
+	top: 0;
 }
 
 #index #ci_central_wrapper .fp_panel{

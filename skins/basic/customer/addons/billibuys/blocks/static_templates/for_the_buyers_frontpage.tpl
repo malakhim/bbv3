@@ -28,7 +28,7 @@
 		$step_number = {$step_number}
 	{/literal}
 {/capture} *}
-<div id="da-slider" class="da-slider buyerslider">
+<div id="da-slider" class="da-slider buyerslider buyer-panel">
 {* <div class="infobox_heading">Buyers</div>
 <ul class="bxslider bx-buyer">
 	<li><div class="infobox_subheading">Step 1 of 3</div>

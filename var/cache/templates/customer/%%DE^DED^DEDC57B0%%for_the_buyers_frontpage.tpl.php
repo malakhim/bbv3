@@ -1,8 +1,8 @@
-<?php /* Smarty version 2.6.18, created on 2014-09-27 22:15:19
+<?php /* Smarty version 2.6.18, created on 2014-10-06 09:20:57
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/for_the_buyers_frontpage.tpl */ ?>
 <?php  ob_start();  ?><link rel="stylesheet" type="text/css" href="css/style.css" />
 
-<div id="da-slider" class="da-slider buyerslider">
+<div id="da-slider" class="da-slider buyerslider buyer-panel">
 
 	<div class="infobox_heading">Are You A Buyer...</div>
 	<span class="step_1">
