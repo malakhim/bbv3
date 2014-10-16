@@ -430,7 +430,8 @@ html.ie9 .how_does_it_work_block div {
 
 .about_billibuys_block{
 	font-family: "Roboto";
-	margin-top: 92px;
+	/*margin-top: 92px;*/
+	margin-top: 20%;
 	/*background-color: rgba(255, 255, 255, 0.9);*/
 }
 
