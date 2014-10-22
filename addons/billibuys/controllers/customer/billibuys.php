@@ -9,7 +9,6 @@
 if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
-		// var_dump($_SERVER['HTTP_COOKIE']);
 		// if(!isset($_REQUEST['category_id']))
 		fn_add_breadcrumb(fn_get_lang_var('bb_browse'));
 		// Stub for viewing own auctions
@@ -28,8 +27,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			// When values have been POSTed from billibuys.place_request
 			fn_submit_request($user, $_POST);
 		}
-		if($_SERVER['REQUEST_METHOD'] == 'GET' && array_key_exists('q', $_GET)){
-			$requests = fn_get_requests_by_product($_GET['q']);
+		if($_SERVER['REQUEST_METHOD'] == 'GET' && array_key_exists('search', $_GET)){
+			$requests = fn_get_requests_by_product_name($_GET['search']);
 		}else{
 			$requests = fn_get_requests($search_params);	
 		}
@@ -85,6 +84,12 @@ if ( !defined('AREA') ) { die('Access denied'); }
 					}
 					$request['timestamp'] = $duration;
 				}
+			}
+		}else{
+			if($requests['message'])
+				$view->assign("error_msg",fn_get_lang_var($requests['message']));
+			else{
+				print_r('An error has occurred, please try again');
 			}
 		}
 		

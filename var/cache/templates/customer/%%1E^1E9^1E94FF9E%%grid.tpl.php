@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-06 08:36:54
+<?php /* Smarty version 2.6.18, created on 2014-10-18 20:52:26
          compiled from C:/wamp5/www/public_html/skins/basic/customer/views/block_manager/render/grid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'C:/wamp5/www/public_html/skins/basic/customer/views/block_manager/render/grid.tpl', 3, false),)), $this); ?>

@@ -300,6 +300,7 @@
 		<item lang="EN" id="cannot_bid_own_auction">You cannot bid on your own auction. How did you even get here?</item>
 		<item lang="EN" id="no_disabled_bids">You have no disabled offers. Click [here] to view your offers</item>
 		<item lang="EN" id="here">here</item>
+		<item lang="EN" id="bb_no_results_match_search">No results match the search terms</item>
 
 		<!-- Frontend billibuys.view variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>

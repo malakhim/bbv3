@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-22 12:01:08
-         compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2014-10-21 01:50:43
+         compiled from buttons/search.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl', 16, false),array('modifier', 'replace', 'C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl', 53, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/search.tpl', 40, false),array('modifier', 'fn_url', 'buttons/search.tpl', 40, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_browse','buy','sell','search','delete'));
+fn_preload_lang_vars(array('search','delete'));
 ?>
-<?php 
+<?php  ob_start();  ?><?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
@@ -19,31 +19,7 @@ fn_preload_lang_vars(array('bb_browse','buy','sell','search','delete'));
 						return;
 					}
 				}
-			 ?><div id="second-top-nav-elements" class="row">
-	<a href="<?php echo fn_url('billibuys.view'); ?>
-"><span class="top_menu_item" ><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
-</span></a>
-	<a href="<?php echo fn_url('billibuys.place_request'); ?>
-"><span class="top_menu_item" ><?php echo fn_get_lang_var('buy', $this->getLanguage()); ?>
-</span></a>
-	<a href="<?php echo fn_url('/vendor.php?dispatch=products.add'); ?>
-"><span class="top_menu_item"><?php echo fn_get_lang_var('sell', $this->getLanguage()); ?>
-</span></a>
-	<form method='get' action="<?php echo fn_url(""); ?>
-" id="top-search-form" name="top_search_bar">
-		<!-- <div class="input-group"> -->
-    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="<?php if ($this->_tpl_vars['_REQUEST']['search']): ?><?php echo $this->_tpl_vars['_REQUEST']['search']; ?>
-<?php else: ?>Enter an item you want to sell<?php endif; ?>">
-	      <span class="input-group-btn">
-	      	<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/search.tpl", 'smarty_include_vars' => array('but_name' => "dispatch[billibuys.view]",'but_role' => 'submit')));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
-	        <!-- <button class="btn btn-default" type="button">Go!</button> -->
-	      </span>
-	    <!-- </div>/input-group -->
-		<!-- <input type="text" class="input-text" name="search" id="input-search" value="Find an item to buy here" /> -->
-		<!-- <?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('search', $this->getLanguage()), 'but_name' => "dispatch[".($this->_tpl_vars['controller']).".".($this->_tpl_vars['mode'])."]", 'but_role' => 'submit', )); ?>
+			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('search', $this->getLanguage()), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_role' => $this->_tpl_vars['but_role'], )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -129,6 +105,4 @@ unset($_smarty_tpl_vars);
 </a></span></span>
 
 <?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?> -->
-	</form>
-	</div>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>

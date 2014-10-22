@@ -2,9 +2,9 @@
 <!-- <link rel="stylesheet" href="{$config.skin_path}/css/bootstrap.min.css" /> -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+<script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="{$config.http_location}/lib/js/jquery/jquery.min.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Titillium+Web:600' rel='stylesheet' type='text/css' />
+<!-- <link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Titillium+Web:600' rel='stylesheet' type='text/css' /> -->
 <!-- Latest compiled and minified JavaScript -->
 <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> -->
 

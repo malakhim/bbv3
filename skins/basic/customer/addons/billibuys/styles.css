@@ -26,7 +26,7 @@
 }
 
 #second-top-nav-elements{
-	position:absolute;
+	/*position:absolute;*/
 	/*margin-top: 4px;*/
 	margin-left: 20px;
 }
@@ -1103,4 +1103,19 @@ html.ie9 .how_does_it_work_block div {
 .fp-2{
 	background-color: white;
 	padding-left: 50%;
+}
+
+.input-group.form-control.input-search{
+	/*margin-left: 110%;*/
+	/*margin-top: -11%;*/
+	display: inline !important;
+}
+
+#top-search-form{
+	display:inline;
+}
+
+#index .grid_16.header-top-bar{
+	margin-left: 1%;
+	margin-right: 1%;
 }

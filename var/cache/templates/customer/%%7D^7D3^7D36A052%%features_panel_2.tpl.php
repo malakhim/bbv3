@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-06 08:36:54
+<?php /* Smarty version 2.6.18, created on 2014-10-18 20:52:28
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/features_panel_2.tpl */ ?>
 <?php  ob_start();  ?><div class="fpanel-title">Get custom-tailored prices and products just for you</div>
 

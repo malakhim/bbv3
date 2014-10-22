@@ -677,8 +677,19 @@ function fn_submit_request($user, $post = ''){
  * @return  Array     ['Success'] true or false, error message if false and all matching results if true
  */
 function fn_get_requests_by_product_name($product){
-	$product = '%'.$product.'%'; // This also covers empty string case
+
+	// TODO: What if $product is empty?
+
+	if($product)
+		$product = '%'.$product.'%';
+	else
+		return Array(
+			'success' => false,
+			'message' => 'no_search_term'
+		);
 	
+// TODO: Check against current date
+
 	$requests = db_get_array(
 		'SELECT * 
 		FROM ?:bb_requests 
@@ -695,7 +706,7 @@ function fn_get_requests_by_product_name($product){
 	else
 		$requests = Array(
 			'success' => false,
-			'message' => 'no_results'
+			'message' => 'bb_no_results_match_search'
 		);
 	return $requests;
 }
@@ -914,8 +925,6 @@ function fn_bb_get_categories($params = Array()){
 // }
 // 
 // function fn_billibuys_get_cart_product_data_post_options($product['product_id'],$_pdata,$product){
-// 	var_dump($pdata);
-// 	var_dump($product);
 // 	die;
 // }
 

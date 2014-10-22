@@ -1,3 +1,4 @@
+{*DEPRECATED: Changed to a block now*}
 {*<div id="bb_submit_form">
 	<br/><br/>
 	<form id="create" name="create" method="POST" action="/dutchme2/index.php?dispatch=billibuys.view">
@@ -47,13 +48,12 @@
 	{else}
 	<!-- Need to add in search results-->
 		{if $requests.message eq 'no_results'}
-			{$lang.text_no_matching_results_found}
+			<p class="no-items">{$error_msg}</p>
 		{elseif $requests.message eq 'user_not_logged_in'}
 			{$lang.please_login}
 		{else}
 			{$lang.bb_error_occurred}: <a href="mailto:{$settings.Company.company_support_department}">{$settings.Company.company_support_department}</a>
 		{/if}
-		
 	{/if}
 </div>
 

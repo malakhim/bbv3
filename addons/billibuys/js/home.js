@@ -83,9 +83,10 @@ $(function() {
         var scroll_top = $(window).scrollTop(); // our current vertical position from the top
 
         if (scroll_top > $('.buyer-panel').offset().top - $('#ci_top_wrapper').height()){
-          $('#ci_top_wrapper').css({'background' : '-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594))'});
+          // $('#ci_top_wrapper').css({'background' : '-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594))'});
+         $('#ci_top_wrapper').css({'background' : '-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#1E90BD))'});
         }else{
-          $('#ci_top_wrapper').css({'background' : 'rgba(0, 104, 133, 0.7)'});
+          $('#ci_top_wrapper').css({'background' : 'rgba(63, 178, 209, 0.7)'});
         }
     };
      
