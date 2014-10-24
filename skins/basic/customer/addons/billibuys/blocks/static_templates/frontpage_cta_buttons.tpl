@@ -7,5 +7,5 @@
 </span></a>*}
 
 <span class="flat_link red learn-more">
-	{$lang.find_out_how}
+	{$lang.find_out_how}<i class="fa fa-chevron-down"></i>&nbsp;&nbsp;
 </span>

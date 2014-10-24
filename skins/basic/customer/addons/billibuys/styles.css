@@ -1019,7 +1019,24 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .top-links-right{
-	margin-top:-2px;
+	font-size: 2em;
+}
+
+.top-links-right a{
+	color: white;
+	padding: 10px;
+}
+
+.top-links-right a:hover{
+	text-decoration: none;
+}
+
+.top-links-right span.flat-btn{
+	cursor: pointer;
+}
+
+.top-links-right span.flat-btn:hover{
+	background-color: #1B7B9E;
 }
 
 .top-my-account{
@@ -1118,4 +1135,19 @@ html.ie9 .how_does_it_work_block div {
 #index .grid_16.header-top-bar{
 	margin-left: 1%;
 	margin-right: 1%;
+}
+
+.cm-popup-title-on, .cm-popup-title-on:hover{
+	background: rgba(63, 178, 209, 0.701961);
+}
+
+.cm-popup-title:hover{
+	background: rgba(63, 178, 209, 0.701961);
+}
+
+.flat-btn{
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #e0e0e0;
 }
