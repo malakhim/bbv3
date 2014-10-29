@@ -19,7 +19,7 @@ $(document).ready(function(){
 			}
 		});
 
-
+		
 		// TODO: Add a function to put text back into place if focus is lost and text in field == ''
 	}
 });

@@ -1094,10 +1094,16 @@ html.ie9 .how_does_it_work_block div {
 	margin-right: 0;
 }
 
-.for_the_buyers_block span,.for_the_sellers_block span{
+.for_the_buyers_block span{
 	float: left;
-	padding-left: 4%;
+	padding-left: 7%;
 	padding-right: 2%;
+}
+
+.for_the_sellers_block span{
+	float: left;
+	padding-left: 11%;
+	padding-right: 2%;	
 }
 
 .fpanel-title{
