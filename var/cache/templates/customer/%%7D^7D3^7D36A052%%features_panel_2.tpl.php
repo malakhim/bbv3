@@ -1,10 +1,10 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-29 18:10:55
+<?php /* Smarty version 2.6.18, created on 2014-10-30 02:34:43
          compiled from C:/wamp5/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/features_panel_2.tpl */ ?>
 <?php  ob_start();  ?><div class="fpanel-title">Get more value</div>
-
+<br/>
 <div class="fpanel-text">
 	<ul>
-		<li>See products which makes what you want better</li>
+		<li>See products which makes what you want better</li><br/>
 		<li>Offers may include additional items which go hand in hand with the
 item you want</li>
 	</ul>

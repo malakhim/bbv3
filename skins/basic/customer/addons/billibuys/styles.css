@@ -1117,7 +1117,8 @@ html.ie9 .how_does_it_work_block div {
 
 .features-panel{
 	background-color: rgb(249,255,255);
-	padding-bottom: 3%;
+	padding-bottom: 5%;
+	padding-top: 3%;
 }
 
 .features-panel ul{
