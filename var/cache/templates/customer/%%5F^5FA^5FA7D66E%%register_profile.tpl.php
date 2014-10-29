@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-29 17:03:00
-         compiled from buttons/search.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2014-10-29 17:23:30
+         compiled from buttons/register_profile.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/search.tpl', 40, false),array('modifier', 'fn_url', 'buttons/search.tpl', 40, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/register_profile.tpl', 40, false),array('modifier', 'fn_url', 'buttons/register_profile.tpl', 40, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('search','delete'));
+fn_preload_lang_vars(array('register','delete'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -19,7 +19,7 @@ fn_preload_lang_vars(array('search','delete'));
 						return;
 					}
 				}
-			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('search', $this->getLanguage()), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_role' => $this->_tpl_vars['but_role'], )); ?>
+			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('register', $this->getLanguage()), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_target' => $this->_tpl_vars['but_target'], 'but_role' => $this->_tpl_vars['but_role'], )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
