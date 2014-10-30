@@ -15,6 +15,10 @@ $(window).ready(function(){
     $(this).parent().submit();
   });
 
+  if(navigator.userAgent.match(/android 2.3/i)){
+    $("meta[name=viewport]").attr('content','user-scalable=yes','minimum-value=1.0','maximum-value=1.0');
+  }
+
   //Firefox
   // var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
   // $('body').bind(mousewheelevt, function(e){

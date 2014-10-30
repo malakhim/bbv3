@@ -1,6 +1,8 @@
 <!-- Latest compiled and minified CSS -->
 <!-- <link rel="stylesheet" href="{$config.skin_path}/css/bootstrap.min.css" /> -->
 
+<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="{$config.http_location}/lib/js/jquery/jquery.min.js"></script>

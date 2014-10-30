@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-30 19:37:39
+<?php /* Smarty version 2.6.18, created on 2014-10-31 01:42:20
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 22, false),array('modifier', 'unescape', 'index.tpl', 25, false),array('modifier', 'strip_tags', 'index.tpl', 25, false),array('modifier', 'count', 'index.tpl', 27, false),array('modifier', 'html_entity_decode', 'index.tpl', 51, false),array('modifier', 'default', 'index.tpl', 51, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 53, false),array('modifier', 'sizeof', 'index.tpl', 57, false),array('modifier', 'fn_link_attach', 'index.tpl', 59, false),array('modifier', 'fn_url', 'index.tpl', 59, false),array('modifier', 'defined', 'index.tpl', 86, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 225, false),array('modifier', 'fn_query_remove', 'index.tpl', 268, false),array('modifier', 'strpos', 'index.tpl', 269, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 123, false),array('function', 'script', 'index.tpl', 142, false),array('function', 'render_location', 'index.tpl', 310, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 22, false),array('modifier', 'unescape', 'index.tpl', 25, false),array('modifier', 'strip_tags', 'index.tpl', 25, false),array('modifier', 'count', 'index.tpl', 27, false),array('modifier', 'html_entity_decode', 'index.tpl', 51, false),array('modifier', 'default', 'index.tpl', 51, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 53, false),array('modifier', 'sizeof', 'index.tpl', 57, false),array('modifier', 'fn_link_attach', 'index.tpl', 59, false),array('modifier', 'fn_url', 'index.tpl', 59, false),array('modifier', 'defined', 'index.tpl', 86, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 225, false),array('modifier', 'strpos', 'index.tpl', 238, false),array('modifier', 'fn_query_remove', 'index.tpl', 239, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 123, false),array('function', 'script', 'index.tpl', 142, false),array('function', 'render_location', 'index.tpl', 407, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','in_stock','items','text_required_group_product','notice','warning','loading','none','text_are_you_sure_to_proceed','text_invalid_url','text_cart_changed','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','view_cart','checkout','product_added_to_cart','products_added_to_cart','product_added_to_wl','product_added_to_cl','close','error','error_ajax','text_changes_not_saved','text_data_changed','bundled_products_fill_the_mandatory_fields','loading','customization_mode','translate_mode','switch_to_translation_mode','switch_to_customization_mode'));
+fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','in_stock','items','text_required_group_product','notice','warning','loading','none','text_are_you_sure_to_proceed','text_invalid_url','text_cart_changed','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','view_cart','checkout','product_added_to_cart','products_added_to_cart','product_added_to_wl','product_added_to_cl','close','error','error_ajax','text_changes_not_saved','text_data_changed','twg_visit_our_mobile_store','twg_app_for_android','twg_app_for_iphone','twg_app_for_ipad','bundled_products_fill_the_mandatory_fields','loading','customization_mode','translate_mode','switch_to_translation_mode','switch_to_customization_mode'));
 ?>
 <?php 
 
@@ -79,7 +79,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/styles.post.tpl' => 1414650315,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1414680121,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -116,7 +116,8 @@ if ($this->_foreach['bkt']['total'] > 0):
 /styles_ie.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 
-<?php $this->_tag_stack[] = array('hook', array('name' => "index:styles")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+<?php $this->_tag_stack[] = array('hook', array('name' => "index:styles")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['twigmo']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+/addons/twigmo/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
 /addons/bundled_products/styles.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 7]>
 <link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
@@ -347,7 +348,121 @@ $(function()<?php echo $this->_tpl_vars['ldelim']; ?>
 //]]>
 </script>
 <?php $this->_tag_stack[] = array('hook', array('name' => "index:scripts")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
-<?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php echo smarty_function_script(array('src' => "addons/bundled_products/js/func.js"), $this);?>
+<?php if ($this->_tpl_vars['addons']['twigmo']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php $this->assign('but_role', 'general', false); ?>
+
+<?php ob_start(); ?>
+	<?php if (strpos($this->_tpl_vars['config']['current_url'], "?")): ?>
+		<?php $this->assign('but_href', fn_url(fn_query_remove(($this->_tpl_vars['config']['current_url'])."&auto", 'desktop')), false); ?>
+	<?php else: ?>
+		<?php $this->assign('but_href', fn_url(fn_query_remove(($this->_tpl_vars['config']['current_url'])."?auto", 'desktop')), false); ?>
+	<?php endif; ?>
+	<a href="<?php echo $this->_tpl_vars['but_href']; ?>
+"><?php echo fn_get_lang_var('twg_visit_our_mobile_store', $this->getLanguage()); ?>
+</a>
+<?php $this->_smarty_vars['capture']['mobile_store_link'] = ob_get_contents(); ob_end_clean(); ?>
+
+<?php ob_start(); ?>
+	<?php $this->assign('but_href', smarty_modifier_default(@$this->_tpl_vars['tw_settings']['url_on_googleplay'], "https://play.google.com/store"), false); ?>
+	<a href="<?php echo $this->_tpl_vars['but_href']; ?>
+"><?php echo fn_get_lang_var('twg_app_for_android', $this->getLanguage()); ?>
+</a>
+<?php $this->_smarty_vars['capture']['android'] = ob_get_contents(); ob_end_clean(); ?>
+
+<?php ob_start(); ?>
+	<?php $this->assign('but_href', smarty_modifier_default(@$this->_tpl_vars['tw_settings']['url_on_appstore'], "https://itunes.apple.com/en/genre/ios/id36?mt=8"), false); ?>
+	<?php if ($_SESSION['device'] == 'iphone'): ?>
+		<?php $this->assign('but_text', fn_get_lang_var('twg_app_for_iphone', $this->getLanguage()), false); ?>
+	<?php elseif ($_SESSION['device'] == 'ipad'): ?>
+	    <?php $this->assign('but_text', fn_get_lang_var('twg_app_for_ipad', $this->getLanguage()), false); ?>
+	<?php endif; ?>
+	<a href="<?php echo $this->_tpl_vars['but_href']; ?>
+"><?php echo $this->_tpl_vars['but_text']; ?>
+</a>
+<?php $this->_smarty_vars['capture']['ios'] = ob_get_contents(); ob_end_clean(); ?>
+
+<?php ob_start(); ?>
+<div class="mobile-avail-notice<?php if ($_SESSION['twigmo_mobile_avail_notice_off']): ?> hidden<?php endif; ?>">
+	<div class="buttons-container">
+		<?php echo $this->_smarty_vars['capture']['mobile_store_link']; ?>
+
+		<?php if ($_SESSION['device'] == 'android' && $this->_tpl_vars['tw_settings']['url_on_googleplay']): ?>
+			<?php echo $this->_smarty_vars['capture']['android']; ?>
+
+		<?php elseif (( $_SESSION['device'] == 'iphone' || $_SESSION['device'] == 'ipad' ) && $this->_tpl_vars['tw_settings']['url_on_appstore']): ?>
+			<?php echo $this->_smarty_vars['capture']['ios']; ?>
+
+		<?php endif; ?>
+		<img id="close_notification_mobile_avail_notice" class="cm-notification-close hand" src="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+/addons/twigmo/images/icons/icon_close.png" border="0" alt="Close" title="Close" />
+	</div>
+</div>
+<?php $this->_smarty_vars['capture']['notice_block'] = ob_get_contents(); ob_end_clean(); ?>
+
+<?php if (( $_SESSION['twg_user_agent'] && $_SESSION['twg_user_agent'] == 'tablet' && $this->_tpl_vars['tw_settings']['use_mobile_frontend'] == 'tablet' ) || ( $_SESSION['twg_user_agent'] && $_SESSION['twg_user_agent'] == 'phone' && $this->_tpl_vars['tw_settings']['use_mobile_frontend'] == 'phone' ) || ( $_SESSION['twg_user_agent'] && ( $_SESSION['twg_user_agent'] == 'tablet' || $_SESSION['twg_user_agent'] == 'phone' ) && $this->_tpl_vars['tw_settings']['use_mobile_frontend'] == 'both_tablet_and_phone' )): ?>
+	<?php $this->assign('show_avail_notice', 'Y', false); ?>
+<?php else: ?>
+	<?php $this->assign('show_avail_notice', 'N', false); ?>
+<?php endif; ?>
+
+<?php if ($this->_tpl_vars['tw_settings']['use_mobile_frontend'] != 'never' && $this->_tpl_vars['show_avail_notice'] == 'Y'): ?>
+	<?php if ($_SESSION['device'] == 'iphone' || $_SESSION['device'] == 'ipad' || $_SESSION['device'] == 'android' || $_SESSION['device'] == 'winphone'): ?>
+		<?php echo $this->_smarty_vars['capture']['notice_block']; ?>
+
+	<?php endif; ?>
+
+	<script>
+	//<![CDATA[
+	<?php echo '
+	$(function () {
+		$(\'.mobile-avail-notice\').insertBefore(\'a[name="top"]\');
+		$(\'#close_notification_mobile_avail_notice\').live(\'click\', function () {
+			$(this).parents(\'div.mobile-avail-notice\').hide();
+			$.ajax({
+				url: \''; ?>
+<?php echo fn_url("twigmo.post&close_notice=1", 'C', 'rel', "&"); ?>
+<?php echo '\',
+				dataType: \'json\'
+			});
+		});
+		if(window.devicePixelRatio){
+			if(window.devicePixelRatio > 1){
+				changeSizes();
+			}
+		}
+		function changeSizes(){
+			var scale = 1,
+					buttonsHeight = '; ?>
+<?php if ($_SESSION['device'] == 'ipad'): ?>54<?php else: ?>80<?php endif; ?><?php echo ',
+					noticeHeight = '; ?>
+<?php if ($_SESSION['device'] == 'ipad'): ?>80<?php else: ?>120<?php endif; ?><?php echo ',
+					fontSize = '; ?>
+<?php if ($_SESSION['device'] == 'ipad'): ?>30<?php else: ?>34<?php endif; ?><?php echo ',
+					fontTop = '; ?>
+<?php if ($_SESSION['device'] == 'ipad'): ?>15<?php else: ?>18<?php endif; ?><?php echo ',
+					buttonsTop = (noticeHeight - buttonsHeight) / 2 || 13,
+					crossTopMargin = (noticeHeight - $(\'#close_notification_mobile_avail_notice\').height()) / 2 - buttonsTop - 2,
+					crossWidth = 30,
+					textPadding = '; ?>
+<?php if ($_SESSION['device'] == 'ipad'): ?>'0 1% 0 1%'<?php else: ?>'0 2% 0 2%'<?php endif; ?><?php echo ';
+
+			if (typeof orientation !== \'undefined\' && Math.abs(orientation) === 90) {
+					scale = 0.7;
+					textPadding = \'0 1% 0 1%\';
+			}
+			$(\'.mobile-avail-notice a\').css({\'height\': buttonsHeight * scale + \'px\', \'line-height\': buttonsHeight * scale + \'px\', \'font-size\': fontSize * scale + \'px\', \'padding\': textPadding});
+			$(\'.mobile-avail-notice img\').css({\'width\': crossWidth * scale + \'px !important\', \'height\': crossWidth * scale + \'px !important\', \'margin-top\': -1 * (crossWidth * scale/2) + \'px\'});
+
+		}
+		window.onorientationchange = function () {
+				changeSizes();
+		};
+		changeSizes();
+	});
+	'; ?>
+
+	//]]>
+	</script>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php echo smarty_function_script(array('src' => "addons/bundled_products/js/func.js"), $this);?>
 
 
 <script type="text/javascript">
