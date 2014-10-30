@@ -697,7 +697,7 @@ function fn_get_requests_by_product_name($product){
 			?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id 
 		LEFT OUTER JOIN ?:bb_bids ON
 			?:bb_requests.bb_request_id = ?:bb_bids.request_id
-		WHERE ?:bb_request_item.description LIKE ?l
+		WHERE ?:bb_request_item.title LIKE ?l
 		ORDER BY price DESC', $product
 	);
 
@@ -812,7 +812,6 @@ function fn_get_requests($params = Array()){
 	// }
 
 	$requests['success'] = false;
-
 	if($params['own_auctions'] == false){
 
 			// For pagination			
