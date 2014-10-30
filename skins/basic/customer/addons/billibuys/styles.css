@@ -27,7 +27,7 @@
 
 #second-top-nav-elements{
 	/*position:absolute;*/
-	/*margin-top: 4px;*/
+	margin-top: -7px;
 	margin-left: 20px;
 }
 
@@ -1170,6 +1170,10 @@ html.ie9 .how_does_it_work_block div {
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 	margin-top: -5px;
+	height: 37px;
+	margin-left: 21px;
+	width: 220px;
+	font-size: 1.1em;
 }
 
 #top-search-form{
@@ -1199,10 +1203,24 @@ html.ie9 .how_does_it_work_block div {
 #search-submit{
 	color: white;
 	cursor: pointer;
-	font-size: 1.3em;
+	font-size: 1.9em;
 	padding: 7px;
+	margin-left: -7px;
 }
 
 #search-submit:hover{
 	color:#3FB2D1;
+}
+
+@media screen and (max-width: 300px){
+
+}
+
+.top-nav-login{
+	margin-top: -5px;
+}
+
+.top-nav-login .top_menu_item{
+	padding: 0;
+	margin-right: -6px;
 }
