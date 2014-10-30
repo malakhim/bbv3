@@ -1,6 +1,6 @@
 $(window).ready(function(){
   // $('.fp_panel').css('margin-left','-'+$('.fp_panel').offset().left + 'px');
-  // $('.fp_panel').height($(window).height());
+  $('.abt_panel').height($(window).height());
   // $('.footer').css('margin-top',$('.fp_panel').height());
   // $('.footer').css('margin-top', $('.footer').offset().top + $('.fp-4').height() + $(window).height());
   // $('.fp_panel').height($('.buyerslider').offset().top+50);

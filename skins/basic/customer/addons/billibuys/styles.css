@@ -497,7 +497,6 @@ html.ie9 .how_does_it_work_block div {
 	background-color: #f36e21;
 	font-family: "Roboto";
 	font-size: 10pt;
-	margin-top: 1333px;
 	min-height: 0px;
 }
 
@@ -1039,7 +1038,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .fp_panel{
-	height:650px;
+	/*height:650px;*/
 	/*margin-top: 350px;*/
 	/*background-color: white;*/
 }
