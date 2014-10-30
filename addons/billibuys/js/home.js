@@ -17,6 +17,8 @@ $(window).ready(function(){
 
   if(navigator.userAgent.match(/android 2.3/i)){
     $("meta[name=viewport]").attr('content','user-scalable=yes','minimum-value=1.0','maximum-value=1.0');
+  }else if(navigator.userAgent.match(/android 4/i)){
+      $("meta[name=viewport]").attr('content','width=620','user-scalable=no');
   }
 
   //Firefox
