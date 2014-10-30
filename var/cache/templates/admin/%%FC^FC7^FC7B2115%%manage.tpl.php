@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-30 02:34:36
+<?php /* Smarty version 2.6.18, created on 2014-10-30 23:58:50
          compiled from views/block_manager/manage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'script', 'views/block_manager/manage.tpl', 15, false),array('function', 'render_location', 'views/block_manager/manage.tpl', 110, false),array('modifier', 'default', 'views/block_manager/manage.tpl', 18, false),array('modifier', 'htmlspecialchars_decode', 'views/block_manager/manage.tpl', 64, false),array('modifier', 'unescape', 'views/block_manager/manage.tpl', 64, false),array('modifier', 'empty_tabs', 'views/block_manager/manage.tpl', 190, false),array('modifier', 'in_array', 'views/block_manager/manage.tpl', 196, false),array('modifier', 'fn_url', 'views/block_manager/manage.tpl', 197, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('add_grid_block','insert_grid','insert_block','grid_o
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/tabsbox.tpl' => 1401952794,
+  'common_templates/tabsbox.tpl' => 1406444267,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

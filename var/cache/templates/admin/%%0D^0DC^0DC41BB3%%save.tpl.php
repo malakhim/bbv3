@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-30 19:37:35
-         compiled from buttons/sign_out.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2014-10-30 19:37:36
+         compiled from buttons/save.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/sign_out.tpl', 38, false),array('modifier', 'fn_check_view_permissions', 'buttons/sign_out.tpl', 39, false),array('modifier', 'fn_url', 'buttons/sign_out.tpl', 45, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/save.tpl', 38, false),array('modifier', 'fn_check_view_permissions', 'buttons/save.tpl', 39, false),array('modifier', 'fn_url', 'buttons/save.tpl', 45, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('remove_this_item','remove_this_item'));
+fn_preload_lang_vars(array('save','remove_this_item','remove_this_item'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -19,7 +19,7 @@ fn_preload_lang_vars(array('remove_this_item','remove_this_item'));
 						return;
 					}
 				}
-			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => '&nbsp;', 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_role' => $this->_tpl_vars['but_role'], )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
+			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('save', $this->getLanguage()), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_role' => $this->_tpl_vars['but_role'], )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
 	<?php $this->assign('class', "text-link", false); ?>
 <?php elseif ($this->_tpl_vars['but_role'] == 'delete'): ?>
 	<?php $this->assign('class', "text-button-delete", false); ?>

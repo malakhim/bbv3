@@ -11,6 +11,10 @@ $(window).ready(function(){
     $('html, body').animate({scrollTop: buyertop - $('#ci_top_wrapper').height()},1000,function(){return false});
   });
 
+  $('#search-submit').click(function(){
+    $(this).parent().submit();
+  });
+
   //Firefox
   // var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
   // $('body').bind(mousewheelevt, function(e){

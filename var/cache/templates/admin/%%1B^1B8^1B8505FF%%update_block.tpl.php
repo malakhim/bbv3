@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-30 03:11:46
+<?php /* Smarty version 2.6.18, created on 2014-10-30 23:58:58
          compiled from views/block_manager/update_block.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/block_manager/update_block.tpl', 15, false),array('modifier', 'fn_url', 'views/block_manager/update_block.tpl', 42, false),array('modifier', 'is_array', 'views/block_manager/update_block.tpl', 91, false),array('modifier', 'str_replace', 'views/block_manager/update_block.tpl', 146, false),array('modifier', 'escape', 'views/block_manager/update_block.tpl', 172, false),array('function', 'script', 'views/block_manager/update_block.tpl', 30, false),array('block', 'hook', 'views/block_manager/update_block.tpl', 132, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('general','content','block_settings','status','name',
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/tooltip.tpl' => 1401952794,
+  'common_templates/tooltip.tpl' => 1406444267,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

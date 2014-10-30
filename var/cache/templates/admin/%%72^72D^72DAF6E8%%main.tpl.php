@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-30 02:34:36
+<?php /* Smarty version 2.6.18, created on 2014-10-30 19:37:35
          compiled from main.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'main.tpl', 15, false),array('modifier', 'fn_get_notifications', 'main.tpl', 24, false),array('modifier', 'lower', 'main.tpl', 26, false),array('modifier', 'is_array', 'main.tpl', 58, false),array('modifier', 'reset', 'main.tpl', 59, false),array('modifier', 'fn_revisions_is_active', 'main.tpl', 63, false),array('modifier', 'fn_url', 'main.tpl', 72, false),array('modifier', 'unescape', 'main.tpl', 93, false),array('modifier', 'strip_tags', 'main.tpl', 93, false),array('block', 'notes', 'main.tpl', 52, false),array('block', 'hook', 'main.tpl', 71, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('close','close','note','you_are_editing_revision','ac
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/notification.tpl' => 1401952794,
+  'common_templates/notification.tpl' => 1406444267,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
