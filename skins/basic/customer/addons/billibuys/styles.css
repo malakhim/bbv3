@@ -1212,8 +1212,10 @@ html.ie9 .how_does_it_work_block div {
 	color:#3FB2D1;
 }
 
-@media screen and (max-width: 300px){
-
+@media screen and (max-width: 1050px){
+	.top_menu_item{
+		padding-left: 0;
+	}
 }
 
 .top-nav-login{
