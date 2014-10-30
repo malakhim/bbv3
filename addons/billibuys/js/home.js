@@ -86,7 +86,7 @@ $(function() {
 
         if (scroll_top > $('.buyer-panel').offset().top - $('#ci_top_wrapper').height()){
           // $('#ci_top_wrapper').css({'background' : '-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594))'});
-         $('#ci_top_wrapper').css({'background' : '-webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#1E90BD))'});
+         $('#ci_top_wrapper').addClass('header-solid');
         }else{
           $('#ci_top_wrapper').css({'background' : 'rgba(63, 178, 209, 0.7)'});
         }
