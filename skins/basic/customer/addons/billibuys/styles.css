@@ -32,7 +32,7 @@
 }
 
 .top_menu_item:hover{
-	color: #3FB2D1;
+	color: #175A6C;
 }
 
 #second-top-nav-elements a:hover{
@@ -1209,7 +1209,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #search-submit:hover{
-	color:#3FB2D1;
+	color:#175A6C;
 }
 
 @media screen and (max-width: 1050px){
@@ -1225,4 +1225,8 @@ html.ie9 .how_does_it_work_block div {
 .top-nav-login .top_menu_item{
 	padding: 0;
 	margin-right: -6px;
+}
+
+.form-field label.label-inline{
+	display: inline;
 }

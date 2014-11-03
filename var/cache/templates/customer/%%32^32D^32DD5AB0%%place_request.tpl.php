@@ -1,16 +1,16 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-14 15:04:03
+<?php /* Smarty version 2.6.18, created on 2014-11-03 14:38:12
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 17, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 83, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 17, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 84, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 106, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','image','submit','delete','place_request'));
+fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','image','submit','delete','bb_error_validator_price_format','place_request'));
 ?>
 <?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'buttons/button.tpl' => 1401952797,
+  'buttons/button.tpl' => 1406444269,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -40,7 +40,7 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 	</div>
 
 	<div class="form-field">
-		<label for="bb_max_price" class="cm-trim cm-integer"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
+		<label for="bb_max_price" class="cm-trim cm-regexp"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
 </label>
 		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php echo $this->_tpl_vars['request']['max_price']; ?>
 " class="input-text" />
@@ -48,8 +48,9 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 
 	<div class="form-field">
 		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
-" class="checkbox cm-check-items"><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
-
+" class="checkbox cm-check-items">
+		<label for="bb_over_max_price" class="label-inline"><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
+</label>
 	</div>	
 
 	<div class="form-field">
@@ -171,6 +172,20 @@ unset($_smarty_tpl_vars);
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 	</div>
 </form>
+
+<script type="text/javascript">
+//<![CDATA[
+<?php echo '
+regexp[\'bb_max_price\'] = {
+	regexp: "(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\\.[0-9]{1,2})?$"'; ?>
+, message: "<?php echo smarty_modifier_escape(fn_get_lang_var('bb_error_validator_price_format', $this->getLanguage()), 'javascript'); ?>
+"
+<?php echo '
+};
+'; ?>
+
+//]]>
+</script>
 
 <?php ob_start(); ?><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
 <?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?>

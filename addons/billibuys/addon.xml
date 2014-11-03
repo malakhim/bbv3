@@ -301,6 +301,7 @@
 		<item lang="EN" id="no_disabled_bids">You have no disabled offers. Click [here] to view your offers</item>
 		<item lang="EN" id="here">here</item>
 		<item lang="EN" id="bb_no_results_match_search">No results match the search terms</item>
+		<item lang="EN" id="bb_error_validator_price_format">Price must be in decimal format, without any currency signs.</item>
 
 		<!-- Frontend billibuys.view variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>

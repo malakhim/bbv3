@@ -10,8 +10,6 @@
 
 <div id="info-box">
 	{include file="common_templates/image.tpl" image_width="80" image_height="80" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
-	{*<div class="infobox-label">{$lang.i_want_a}:</div> <br/> {$request.title} <br/>
-	<hr id="separator"/>*}
 		<div id="request-infobox-right">
 			<div class="bb-time-remaining" expiry="{$request.expiry_date}"></div>
 			{if $expired == 0}
@@ -22,11 +20,11 @@
 				{$lang.auction_finished}. <a href="{"billibuys.view"|fn_url}">{$lang.click_here_to_return_to_main_page}</a>
 			{/if}
 		</div>
-	{*<div class="infobox-label description">{$lang.description}:</div> <br/> *}<div id="description-text">{$request.description}</div>
+	<div id="description-text">{$request.description}</div>
 	<div id="max-price">
 		<div class="infobox-label">{$lang.max_price}:</div></br>
 		{if $request.max_price != 0}
-			{include file="common_templates/price.tpl" value=$request.max_price}
+			{include file="common_templates/price.tpl" value=$request.max_price is_integer=false}
 		{else}
 			{$lang.no_max_price}
 		{/if}
