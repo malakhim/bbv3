@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-10-31 01:42:20
+<?php /* Smarty version 2.6.18, created on 2014-11-05 22:09:26
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/features_panel_3.tpl */ ?>
 <?php  ob_start();  ?><div class="fpanel-title">See the market</div>
 <br/>

@@ -17,6 +17,25 @@
 		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item> -->
 		<!-- <item for="install">DROP TABLE IF EXISTS ?:bb_request_categories</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_request_category_descriptions</item> -->
+
+		<item for="install">
+			CREATE TABLE IF NOT EXISTS `?:bb_ratings` (
+				`bb_rating_id` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+				`user_id` MEDIUMINT UNSIGNED NOT NULL,
+				`rating_text` VARCHAR(100) NOT NULL,
+				`rating_score` DECIMAL(1,1) NOT NULL,
+				`status` VARCHAR(1) NOT NULL,
+				`rating_type` VARCHAR(1) NOT NULL,
+				`rating_type_id` INT NOT NULL,
+				`timestamp` MEDIUMINT(11) NOT NULL,
+				`ip_address` VARCHAR(50) NOT NULL,
+				PRIMARY KEY (`bb_rating_id`)
+			)
+			COMMENT='Ratings database'
+			COLLATE='latin1_swedish_ci'
+			ENGINE=InnoDB;
+		</item>
+
 		<item for="install">
 			CREATE TABLE IF NOT EXISTS `?:bb_notifications` (
 				`bb_notify_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -302,6 +321,7 @@
 		<item lang="EN" id="here">here</item>
 		<item lang="EN" id="bb_no_results_match_search">No results match the search terms</item>
 		<item lang="EN" id="bb_error_validator_price_format">Price must be in decimal format, without any currency signs.</item>
+		<item lang="EN" id="bb_error_invalid_input_params">Invalid input parameters</item>
 
 		<!-- Frontend billibuys.view variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>
@@ -311,6 +331,11 @@
 		<item lang="EN" id="sort_by_max_price_desc">Sort by Maximum Price: High to Low</item>
 		<item lang="EN" id="sort_by_title_asc">Sort by Alphabetical: A to Z</item>
 		<item lang="EN" id="sort_by_title_desc">Sort by Alphabetical: Z to A</item>
+
+		<!-- Frontend ratings variables-->
+		<item lang="EN" id="add_rating">Add rating</item>		
+		<item lang="EN" id="add_comment">Add comment</item>	
+		<item lang="EN"	 id="ratings">Ratings</item>
 
 		<!-- Mail variables -->
 		<item lang="EN" id="text_offer_made_on_following_auction">Someone has made the following offer on your request for </item>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-09-15 05:08:26
+<?php /* Smarty version 2.6.18, created on 2014-11-13 00:12:07
          compiled from addons/billibuys/bid_body.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strtolower', 'addons/billibuys/bid_body.tpl', 3, false),array('modifier', 'capitalize', 'addons/billibuys/bid_body.tpl', 3, false),array('modifier', 'replace', 'addons/billibuys/bid_body.tpl', 18, false),)), $this); ?>

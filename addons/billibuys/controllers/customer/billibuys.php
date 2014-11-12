@@ -176,6 +176,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 		foreach($bids as &$bid){
 			$bid['tot_price'] = $bid['price'] * $bid['quantity'];
+			$bid['rating_score'] = round($bid['rating_score']);
 			$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'product'",$bid['product_id']);
 
 			$bid['image'] = fn_get_image_pairs($bid['product_id'], 'product', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
@@ -205,6 +206,62 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			fn_redirect($_REQUEST['redirect']);
 		}else{
 			fn_redirect('billibuys.view');
+		}
+	}elseif($mode == 'rating'){
+		// Disable for now
+		// die; (re-enabled)
+		// If post array
+		if(isset($_POST) && $_POST != NULL){
+			// TODO: input validation
+			// length of post should not be longer than 100 (js should handle but let's do it here too)
+			// reassign variables into correct format
+			foreach($_POST as $key=>$post){
+				if(isset($post['stars']) && isset($post['comment'])){
+					$params = Array(
+						'user_id' => $_SESSION['auth']['user_id'],
+						'rating_text' => $post['comment'],
+						'rating_score' => $post['stars'],
+						'status' => 'A',
+						'rating_type' => strtoupper(substr($key,0,1)),
+						'rating_type_id' => substr($key,strrpos($key,'_')+1),
+						'timestamp' => microtime(true),
+						'ip_address' => $_SERVER['REMOTE_ADDR'],
+						'type' => 'A',
+					);
+					// call fn_set_rating
+					fn_set_rating($params);
+				}
+			}
+		}else{
+			// elseif not post array
+			// Find what user has purchased/sold and which ones they have not placed reviews for
+			$unrated = fn_get_unrated_items($auth['user_id']);
+
+			//Filter out duplicates
+			$sorted_unrated = Array('products'=>Array(),'user_ids'=>Array());
+			foreach($unrated as $u){
+
+				if(!in_array($u['product_id'],$sorted_unrated['products']))
+					array_push($sorted_unrated['products'],$u['product_id']);
+
+				if(!in_array($u['user_id'],$sorted_unrated['user_ids']))
+					array_push($sorted_unrated['user_ids'],$u['user_id']);
+			}
+
+			// Get product and user details for display
+			foreach($sorted_unrated['products'] as $k=>$p){
+				$new_array = fn_get_product_data($p,$auth,CART_LANGUAGE, '', true, true, false, false, true, false, true);
+				unset($sorted_unrated['products'][$k]);
+				$sorted_unrated['products'][$p] = $new_array;
+			}
+
+			// foreach($sorted_unrated['user'] as $k=>&$u){
+			// 	$new_array = $sorted_unrated['products'][$u];
+
+			// }
+
+			// Send array to view
+			$view->assign('unrated',$sorted_unrated);
 		}
 	}
 ?>

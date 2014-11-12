@@ -230,6 +230,16 @@ function fn_billibuys_get_cart_product_data($product_id, $_pdata, $product, $aut
 		$_pdata = null;
 	}
 }
+
+/**
+ * Get price based on order_id
+ * DEPRECATED: Not used atm
+ */
+// function fn_get_order_price($order_id, $product_id){
+// 	$price = db_get_field('SELECT price FROM ?:order_details WHERE order_id = ?i AND product_id = ?i',$order_id,$product_id);
+// 	return $price;
+// }
+
 /**
  * Modifying product to have correct price when adding to cart
  * @param  Array $product_data All the products to be added to cart
@@ -433,6 +443,7 @@ function fn_get_bids($params){
 	}else
 		$fields = '*';
 
+
 	$bids = db_get_array("SELECT $fields
 		FROM 
 			?:bb_bids
@@ -445,8 +456,11 @@ function fn_get_bids($params){
 		INNER JOIN
 			?:user_profiles ON
 				?:bb_bids.user_id = ?:user_profiles.user_id
+		LEFT JOIN
+			?:bb_ratings ON
+				?:bb_ratings.rating_type_id = ?:products.product_id	
 		WHERE 
-		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A' AND ?:bb_bids.active = '1'
+		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A' AND ?:bb_bids.active = '1' AND (?:bb_ratings.rating_type = 'P' OR ?:bb_ratings.rating_type IS NULL)
 		GROUP BY bb_bid_id",
 			$params['request_id']
 		);
@@ -1175,7 +1189,7 @@ function fn_install_log_objects(){
 		'object_type' => 'V',
 		'value' => 'Update',
 	);
-	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);	
+	db_query("INSERT INTO ?:settings_descriptions ?e",$insert_data);
 }
 
 /**
@@ -1205,4 +1219,52 @@ function fn_uninstall_log_objects(){
 	}
 }
 
+/**
+ * Add/edit stars and ratings to users and products
+ * @preconditions All data has been cleaned and verified by controller
+ * @param  [Array] $params [Data to be set/type of setting (add/edit)]
+ * @return [Array]         [True if successful, false and message if not]
+ */
+function fn_set_rating($params){
+	
+	$success = true;
+
+	// Check if $params is an array and isn't empty
+	if(is_array($params) && !empty($params)){
+		if($params['type'] == 'U' || $params['type'] == 'A'){
+			if($params['type'] == 'U'){
+				db_query('UPDATE ?:bb_ratings SET ?u WHERE bb_rating_id = ?i',$params,$params['bb_rating_id']);
+			}else{
+				db_query('INSERT INTO ?:bb_ratings ?e',$params);
+			}
+		}else{
+			$success = Array('success' => false,'message' => fn_get_lang_var('bb_error_invalid_input_params'));
+		}
+	}else{
+		// Return false and error message
+		$success = Array('success' => false, 'message' => fn_get_lang_var('bb_error_invalid_input_params'));
+	}
+	return $success;
+}
+
+function fn_get_unrated_items($user_id){
+
+	// Set out the rating keys used in the database (note that this is manual, too lazy to do automatically)
+	$rating_type_key = Array(
+		'product'=>'p',
+		'user'=>'u'
+	);
+
+	// String for filtering out products user has already rated
+	$product_rating_query = db_quote('SELECT rating_type_id FROM ?:bb_ratings WHERE user_id = ?i AND rating_type = ?s',$user_id,$rating_type_key['product']);
+
+	// String for filtering out users that user has already rated
+	$user_rating_query = db_quote('SELECT rating_type_id FROM ?:bb_ratings WHERE user_id = ?i AND rating_type = ?s',$user_id,$rating_type_key['user']);
+
+	// Get unrated products/users from orders
+	// Company_id has a identity relationship with user_id and is equivalent so result has been renamed user_id
+	$unrated_items = db_get_array("SELECT DISTINCT ?:orders.company_id AS user_id,?:order_details.product_id FROM ?:orders INNER JOIN ?:order_details ON ?:orders.order_id = ?:order_details.order_id WHERE ?:orders.user_id = ?i AND ?:order_details.product_id NOT IN (?a) AND ?:orders.company_id NOT IN (?a)",$user_id,$product_rating_query,$user_rating_query);
+
+	return $unrated_items;
+}
 ?>

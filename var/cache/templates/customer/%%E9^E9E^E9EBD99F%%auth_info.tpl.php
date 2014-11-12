@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-03 14:22:05
+<?php /* Smarty version 2.6.18, created on 2014-11-05 22:09:46
          compiled from C:/wamp3/www/public_html/skins/basic/customer/blocks/static_templates/auth_info.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/static_templates/auth_info.tpl', 4, false),)), $this); ?>

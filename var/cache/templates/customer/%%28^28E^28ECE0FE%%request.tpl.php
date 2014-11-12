@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-03 14:57:00
+<?php /* Smarty version 2.6.18, created on 2014-11-13 00:50:23
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 83, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 116, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 116, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 116, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 119, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/request.tpl', 262, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 288, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 402, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 34, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 387, false),)), $this); ?>
@@ -272,7 +272,39 @@ unset($_smarty_tpl_vars);
 						<div class="bb-list-txt">
 							<div class="bb-list-field bb-list-title"><?php echo $this->_tpl_vars['bid']['product']; ?>
 </div>
-							<div class="bb-list-rating bb-list-field"></div>
+							<div class="bb-list-rating bb-list-field ratings-star-container">	
+						<?php unset($this->_sections['num']);
+$this->_sections['num']['name'] = 'num';
+$this->_sections['num']['start'] = (int)1;
+$this->_sections['num']['loop'] = is_array($_loop=6) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['num']['step'] = ((int)1) == 0 ? 1 : (int)1;
+$this->_sections['num']['show'] = true;
+$this->_sections['num']['max'] = $this->_sections['num']['loop'];
+if ($this->_sections['num']['start'] < 0)
+    $this->_sections['num']['start'] = max($this->_sections['num']['step'] > 0 ? 0 : -1, $this->_sections['num']['loop'] + $this->_sections['num']['start']);
+else
+    $this->_sections['num']['start'] = min($this->_sections['num']['start'], $this->_sections['num']['step'] > 0 ? $this->_sections['num']['loop'] : $this->_sections['num']['loop']-1);
+if ($this->_sections['num']['show']) {
+    $this->_sections['num']['total'] = min(ceil(($this->_sections['num']['step'] > 0 ? $this->_sections['num']['loop'] - $this->_sections['num']['start'] : $this->_sections['num']['start']+1)/abs($this->_sections['num']['step'])), $this->_sections['num']['max']);
+    if ($this->_sections['num']['total'] == 0)
+        $this->_sections['num']['show'] = false;
+} else
+    $this->_sections['num']['total'] = 0;
+if ($this->_sections['num']['show']):
+
+            for ($this->_sections['num']['index'] = $this->_sections['num']['start'], $this->_sections['num']['iteration'] = 1;
+                 $this->_sections['num']['iteration'] <= $this->_sections['num']['total'];
+                 $this->_sections['num']['index'] += $this->_sections['num']['step'], $this->_sections['num']['iteration']++):
+$this->_sections['num']['rownum'] = $this->_sections['num']['iteration'];
+$this->_sections['num']['index_prev'] = $this->_sections['num']['index'] - $this->_sections['num']['step'];
+$this->_sections['num']['index_next'] = $this->_sections['num']['index'] + $this->_sections['num']['step'];
+$this->_sections['num']['first']      = ($this->_sections['num']['iteration'] == 1);
+$this->_sections['num']['last']       = ($this->_sections['num']['iteration'] == $this->_sections['num']['total']);
+?>
+							<i class="fa ratings-star fa-star-o <?php if ($this->_sections['num']['index'] == $this->_tpl_vars['bid']['rating_score']): ?>star-selected<?php endif; ?> no-hover" data-num="<?php echo $this->_sections['num']['index']; ?>
+"></i>
+						<?php endfor; endif; ?>
+						</div>
 														<div class="bb-list-field bb-list-price"><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['bid']['price'], )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?></div>
 														<!-- <div class="bb-list-view"><?php echo fn_get_lang_var('view', $this->getLanguage()); ?>

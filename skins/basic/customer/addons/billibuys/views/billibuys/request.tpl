@@ -86,7 +86,11 @@
 						</div>
 						<div class="bb-list-txt">
 							<div class="bb-list-field bb-list-title">{$bid.product}</div>
-							<div class="bb-list-rating bb-list-field">{*Placeholder for rating stars*}</div>
+							<div class="bb-list-rating bb-list-field ratings-star-container">{*Placeholder for rating stars*}	
+						{section name=num start=1 loop=6 step=1}
+							<i class="fa ratings-star fa-star-o {if $smarty.section.num.index == $bid.rating_score}star-selected{/if} no-hover" data-num="{$smarty.section.num.index}"></i>
+						{/section}
+						</div>
 							{*<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>*}
 							<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}{include file="common_templates/price.tpl" value=$bid.price"}</div>
 							{*<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>*}

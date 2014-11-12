@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-09-17 06:17:43
+<?php /* Smarty version 2.6.18, created on 2014-11-05 23:10:13
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 29, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 214, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 276, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 277, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 289, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 51, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 71, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','pr
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/tools.tpl' => 1401952794,
+  'common_templates/tools.tpl' => 1406444267,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

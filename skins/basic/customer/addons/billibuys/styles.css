@@ -500,6 +500,10 @@ html.ie9 .how_does_it_work_block div {
 	min-height: 0px;
 }
 
+.request .footer{
+	margin-top: 40px;
+}
+
 .footer:after{
 	content: normal;
 }
@@ -1229,4 +1233,29 @@ html.ie9 .how_does_it_work_block div {
 
 .form-field label.label-inline{
 	display: inline;
+}
+
+.ratings-star-container{
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	display: inline;
+}
+
+.ratings-star-container .ratings-star:hover{
+	cursor:pointer;
+}
+
+.ratings-star-container > .ratings-star:hover:before, .ratings-star-container > .ratings-star:hover ~ .ratings-star:before {
+   content: "\f005";
+   color: #e3cf7a;
+}
+
+.star-selected, .ratings-star-container > .star-selected:before, .ratings-star-container > .star-selected ~ .ratings-star:before{
+	content: "\f005";
+	color: #e3cf7a;
+}
+
+.ratings-star-container > .no-hover.ratings-star:hover:before, .ratings-star-container > .no-hover.ratings-star:hover ~ .no-hover.ratings-star:before {
+	content: normal;
+    color: black;
 }
