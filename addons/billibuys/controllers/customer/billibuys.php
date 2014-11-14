@@ -209,7 +209,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}
 	}elseif($mode == 'rating'){
 		// Disable for now
-		// die; (re-enabled)
+		die;
 		// If post array
 		if(isset($_POST) && $_POST != NULL){
 			// TODO: input validation
