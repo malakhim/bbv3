@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-15 20:27:19
+<?php /* Smarty version 2.6.18, created on 2014-11-15 22:13:27
          compiled from C:/wamp3/www/public_html/skins/basic/customer/blocks/wrappers/mainbox_general.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/wrappers/mainbox_general.tpl', 1, false),array('modifier', 'unescape', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/wrappers/mainbox_general.tpl', 17, false),array('block', 'hook', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/wrappers/mainbox_general.tpl', 8, false),)), $this); ?>

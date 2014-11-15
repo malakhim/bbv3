@@ -1,9 +1,8 @@
 $(document).ready(function(){
 
-$('.bb_request_form').find('.form-field').each(function(){
-
+$('#bb_request_form').find('.input-text, .input-textarea').each(function(){
 	if($(this).length > 0){
-		var search_default_text = $('input').val();
+		var search_default_text = $(this).val();
 
 		$(this).click(function(){
 			if($(this).val() == search_default_text){
@@ -16,8 +15,7 @@ $('.bb_request_form').find('.form-field').each(function(){
 				$(this).val(search_default_text);
 			}
 		});
-
-		
+	
 		// TODO: Add a function to put text back into place if focus is lost and text in field == ''
 	}
 });

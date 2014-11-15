@@ -19,7 +19,7 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 
 	enctype: This is standard for any forms that require file uploading.
 *}
-<form name="bb_request_form" action="{"billibuys.view"|fn_url}" method="post" enctype="multipart/form-data">
+<form name="bb_request_form" action="{"billibuys.view"|fn_url}" method="post" enctype="multipart/form-data" id="bb_request_form">
 
 	{*All forms in CS-Cart should be wrapped with "form-field", for clean CSS.*}
 	<div class="form-field">
@@ -41,7 +41,7 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 
 	<div class="form-field">
 		<label for="bb_request_desc" class="cm-required cm-trim">{$lang.description}</label>
-		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}" class="input-textarea-long">{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}</textarea>
+		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}" class="input-textarea">{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}</textarea>
 	</div>
 
 	<div class="form-field">

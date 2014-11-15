@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<?php /* Smarty version 2.6.18, created on 2014-11-15 20:33:14
-=======
-<?php /* Smarty version 2.6.18, created on 2014-11-15 21:37:43
->>>>>>> 2e46f8cb3db9ed3ab35314fb736d5a141c9f1006
-=======
-<?php /* Smarty version 2.6.18, created on 2014-11-15 22:03:40
->>>>>>> d2c7c581843110dbe4e318a6fc2045b4335ffcb7
+<?php /* Smarty version 2.6.18, created on 2014-11-15 23:57:43
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 36, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 123, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 146, false),)), $this); ?>
@@ -18,7 +10,7 @@ fn_preload_lang_vars(array('bb_request_title','title_description','description',
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'buttons/button.tpl' => 1415961311,
+  'buttons/button.tpl' => 1406444269,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -32,7 +24,7 @@ fn_preload_lang_vars(array('bb_request_title','title_description','description',
 <script type="text/javascript" src="js/datepicker.js"></script>
 <script type="text/javascript" src="addons/billibuys/js/place_request.js"></script>
 <form name="bb_request_form" action="<?php echo fn_url("billibuys.view"); ?>
-" method="post" enctype="multipart/form-data">
+" method="post" enctype="multipart/form-data" id="bb_request_form">
 
 		<div class="form-field">
 				<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('bb_request_title', $this->getLanguage()); ?>
@@ -48,7 +40,7 @@ fn_preload_lang_vars(array('bb_request_title','title_description','description',
 </label>
 		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
 <?php else: ?><?php echo fn_get_lang_var('desc_description', $this->getLanguage()); ?>
-<?php endif; ?>" class="input-textarea-long"><?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
+<?php endif; ?>" class="input-textarea"><?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
 <?php else: ?><?php echo fn_get_lang_var('desc_description', $this->getLanguage()); ?>
 <?php endif; ?></textarea>
 	</div>
