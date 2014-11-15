@@ -311,7 +311,7 @@
 	  <!-- Field descriptions -->
 	  <item lang="EN" id="title_description">e.g. Sony Bravia Television</item>
 	  <item lang="EN" id="desc_description">e.g. 55 Inch LED TV. (The more descriptive you are, the better the offers become)</item>
-	  <item lang="EN" id="maxprice_description">e.g. 15.95</item>
+	  <item lang="EN" id="max_price_description">e.g. 15.95</item>
 
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
