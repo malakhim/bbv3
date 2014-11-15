@@ -195,7 +195,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 	}elseif($mode == 'place_request'){
 		if(!$auth['user_id']){
 			// Redirect user to login if they ended up on this page accidentally (or otherwise)
-			return array(CONTROLLER_STATUS_REDIRECT, "auth.login_form");
+			return array(CONTROLLER_STATUS_REDIRECT, fn_url("auth.login_form&return_url=billibuys.place_request"));
 		}else{
 			$categories = fn_bb_get_categories();
 			$view->assign('categories',$categories);
