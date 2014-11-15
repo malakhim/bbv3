@@ -96,7 +96,7 @@ if(strpos($_SERVER['SERVER_NAME'],'localhost') !== FALSE){
 	$config['http_host'] = 'bw.brystore.com';
 	$config['http_path'] = '';
 }elseif(strpos($_SERVER['SERVER_NAME'],'gftest.billibuys.com') !== FALSE){
-	$config['http_host'] = 'gftest.billibuys.com';
+	$config['http_host'] = 'gftest.billibuys.com:80';
 	$config['http_path'] = '';	
 }else{
 	$config['http_host'] = 'brystore.com';
@@ -112,7 +112,7 @@ if(strpos($_SERVER['SERVER_NAME'],'localhost') !== FALSE){
 	$config['http_host'] = 'bw.brystore.com';
 	$config['http_path'] = '';
 }elseif(strpos($_SERVER['SERVER_NAME'],'gftest.billibuys.com') !== FALSE){
-	$config['http_host'] = 'gftest.billibuys.com';
+	$config['http_host'] = 'gftest.billibuys.com:80';
 	$config['http_path'] = '';	
 }else{
 	$config['http_host'] = 'brystore.com';
