@@ -1,16 +1,16 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-15 18:56:44
+<?php /* Smarty version 2.6.18, created on 2014-11-15 21:37:43
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 36, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 123, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 146, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','image','submit','delete','bb_error_validator_price_format','place_request'));
+fn_preload_lang_vars(array('bb_request_title','title_description','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','image','submit','delete','bb_error_validator_price_format','place_request'));
 ?>
 <?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'buttons/button.tpl' => 1406444269,
+  'buttons/button.tpl' => 1415961311,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -22,16 +22,17 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 			 ?>
 
 <script type="text/javascript" src="js/datepicker.js"></script>
-
+<script type="text/javascript" src="addons/billibuys/js/place_request.js"></script>
 <form name="bb_request_form" action="<?php echo fn_url("billibuys.view"); ?>
 " method="post" enctype="multipart/form-data">
 
 		<div class="form-field">
-				<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
+				<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('bb_request_title', $this->getLanguage()); ?>
 </label>
 
-				<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php echo $this->_tpl_vars['_REQUEST']['request']['title']; ?>
-" class="input-text" />
+				<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['title']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['title']; ?>
+<?php else: ?><?php echo fn_get_lang_var('title_description', $this->getLanguage()); ?>
+<?php endif; ?>" class="input-text" />
 	</div>
 
 	<div class="form-field">

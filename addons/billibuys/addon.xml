@@ -303,7 +303,14 @@
 		<item lang="EN" id="requests">Requests</item>
 		<item lang="EN" id="terms_and_conditions">Terms and Conditions</item>
 		<item lang="EN" id="disclaimer">Disclaimer</item>
-
+	  
+	  <!-- BB Request Page -->
+	  <!-- Field names -->
+	  <item lang="EN" id="bb_request_title">Item Name</item>
+	  
+	  <!-- Field descriptions -->
+	  <item lang="EN" id="title_description">e.g. Sony Bravia Television</item>
+	  
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
 		<item lang="EN" id="bid_is_over_request_max">Your bid is over the customer's limit. Please keep your total bid under </item>
