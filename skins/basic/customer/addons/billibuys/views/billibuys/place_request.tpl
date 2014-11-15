@@ -50,7 +50,7 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 	</div>
 
 	<div class="form-field">
-		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items" {if ($smarty.request.request.allow_over_max_price == 1) checked="checked"{/if}>
+		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items" {if ($smarty.request.request.allow_over_max_price == 1)} checked="checked"{/if}>
 		<label for="bb_over_max_price" class="label-inline">{$lang.bb_allow_over_max_price}</label>
 	</div>	
 
@@ -64,8 +64,10 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 		<label for="bb_category" class="cm-trim cm-required">{$lang.category}</label>
 
 		{*This basically loops through the $categories array, passed from the controller (http://www.smarty.net/docsv2/en/language.function.foreach). Let me know if you have any questions.*}
+
 		<select name="category" id="bb_category">
 			{foreach from=$categories item='cat'}
+
 				<option value="{$cat.bb_request_category_id}">{$cat.category_name}</option>
 			{/foreach}
 		</select>
@@ -76,10 +78,10 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 		{include file="../admin/common_templates/attach_images.tpl" image_name="request_main" image_object_type="request" hide_server=true no_thumbnail=true hide_images=true hide_alt=true hide_titles=true}
 	</div>
 
+
 	<div class="buttons-container">
-	{*As mentioned before, this overrides the "action" of this form and makes that obselete. I've kept it there as fallback in case this fails, but the submit button's but_name parameter is key to this form working.*}
+		{*As mentioned before, this overrides the "action" of this form and makes that obselete. I've kept it there as fallback in case this fails, but the submit button's but_name parameter is key to this form working.*}
 		{include file="buttons/button.tpl" but_text=$lang.submit but_name="dispatch[billibuys.view]" but_id="but_submit_request" }
-	}
 	</div>
 </form>
 

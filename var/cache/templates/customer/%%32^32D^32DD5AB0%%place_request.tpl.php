@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-15 17:09:41
+<?php /* Smarty version 2.6.18, created on 2014-11-15 18:56:44
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 17, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 84, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 106, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 36, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 123, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 146, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','image','submit','delete','bb_error_validator_price_format','place_request'));
 ?>
@@ -19,22 +19,25 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 						return;
 					}
 				}
-			 ?><script type="text/javascript" src="js/datepicker.js"></script>
+			 ?>
+
+<script type="text/javascript" src="js/datepicker.js"></script>
 
 <form name="bb_request_form" action="<?php echo fn_url("billibuys.view"); ?>
 " method="post" enctype="multipart/form-data">
 
-	<div class="form-field">
-		<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
+		<div class="form-field">
+				<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
 </label>
-		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php echo $this->_tpl_vars['_REQUEST']['request_title']; ?>
+
+				<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php echo $this->_tpl_vars['_REQUEST']['request']['title']; ?>
 " class="input-text" />
 	</div>
 
 	<div class="form-field">
 		<label for="bb_request_desc" class="cm-required cm-trim"><?php echo fn_get_lang_var('description', $this->getLanguage()); ?>
 </label>
-		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php echo $this->_tpl_vars['request']['desc']; ?>
+		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
 " class="input-textarea-long"><?php echo $this->_tpl_vars['request']['desc']; ?>
 </textarea>
 	</div>
@@ -42,19 +45,19 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 	<div class="form-field">
 		<label for="bb_max_price" class="cm-trim cm-regexp"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
 </label>
-		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php echo $this->_tpl_vars['request']['max_price']; ?>
+		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php echo $this->_tpl_vars['_REQUEST']['request']['max_price']; ?>
 " class="input-text" />
 	</div>
 
 	<div class="form-field">
 		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
-" class="checkbox cm-check-items">
+" class="checkbox cm-check-items" <?php if (( $this->_tpl_vars['_REQUEST']['request']['allow_over_max_price'] == 1 )): ?> checked="checked"<?php endif; ?>>
 		<label for="bb_over_max_price" class="label-inline"><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
 </label>
 	</div>	
 
 	<div class="form-field">
-		<label for="bb_expiry_date" class="cm-trim cm-required"><?php echo fn_get_lang_var('bb_select_expiry_date', $this->getLanguage()); ?>
+			<label for="bb_expiry_date" class="cm-trim cm-required"><?php echo fn_get_lang_var('bb_select_expiry_date', $this->getLanguage()); ?>
 </label>
 		<input type="text" name="expiry_date" id="bb_expiry_date"/>
 	</div>
@@ -62,11 +65,14 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 	<div class="form-field">
 		<label for="bb_category" class="cm-trim cm-required"><?php echo fn_get_lang_var('category', $this->getLanguage()); ?>
 </label>
+
+		
 		<select name="category" id="bb_category">
 			<?php $_from = $this->_tpl_vars['categories']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['cat']):
 ?>
-			<option value="<?php echo $this->_tpl_vars['cat']['bb_request_category_id']; ?>
+
+				<option value="<?php echo $this->_tpl_vars['cat']['bb_request_category_id']; ?>
 "><?php echo $this->_tpl_vars['cat']['category_name']; ?>
 </option>
 			<?php endforeach; endif; unset($_from); ?>
@@ -82,8 +88,9 @@ unset($_smarty_tpl_vars);
  ?>
 	</div>
 
+
 	<div class="buttons-container">
-		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('submit', $this->getLanguage()), 'but_name' => "dispatch[billibuys.view]", 'but_id' => 'but_submit_request', )); ?>
+				<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('submit', $this->getLanguage()), 'but_name' => "dispatch[billibuys.view]", 'but_id' => 'but_submit_request', )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
