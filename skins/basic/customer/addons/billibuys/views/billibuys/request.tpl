@@ -29,51 +29,8 @@
 			{$lang.no_max_price}
 		{/if}
 	</div>
-{*
-{foreach from=$request item=r key=k}
-	{if $k NEQ "title" && $k NEQ "bb request id" && $k NEQ "id" && $k NEQ "timestamp" && $k NEQ "user id"}
-		{if $k EQ 'expiry date'}
-			<strong>{$k|@ucwords}</strong>: {$expiry}<br />
-		{elseif $k EQ 'max price' && $r EQ '0.00'}
-			<strong>{$k|@ucwords}</strong>: {$lang.no_max_price}<br />
-		{else}
-			<strong>{$k|@ucwords}</strong>: {$r}<br />
-		{/if}
-	{/if}
-{/foreach}*}
 </div>
 
-{*
-<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table sortable">
-	<tr>
-		<th><span>{$lang.item}</span></th>
-		<th>{$lang.price}</th>
-		<th>{$lang.name}</th>
-		<th>{$lang.quantity}</th>
-		<th>{$lang.total_price}</th>
-		{*<th>{$lang.user}</th>*}{*
-	</tr>
-	{if $bids != null & isset($bids)}
-		{foreach from=$bids item=bid}
-			{if is_array($bid)}
-				<tr {cycle values="class=\"table-row\","}>
-					<td>{include file="buttons/button.tpl" but_text=$bid.product but_href="products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url but_role="text"}</td>
-					<td>{$bid.price}</td>
-					<td>{$bid.profile_name}</td>
-					<td>{$bid.quantity}</td>
-					<td>{$bid.tot_price}</td>
-				</tr>
-			{/if}
-		{/foreach}
-	{else}
-		<tr class="no-items">
-			<td colspan="7"><p>{$lang.no_data}</p></td>
-		</tr>
-	{/if}
-</table>
-<br />
-
-*}
 {if $bids != null & isset($bids)}
 	<div id="bids-list">
 		{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true}
@@ -86,11 +43,11 @@
 						</div>
 						<div class="bb-list-txt">
 							<div class="bb-list-field bb-list-title">{$bid.product}</div>
-							<div class="bb-list-rating bb-list-field ratings-star-container">{*Placeholder for rating stars*}	
+							{*<div class="bb-list-rating bb-list-field ratings-star-container">{*Placeholder for rating stars*}	
 						{section name=num start=1 loop=6 step=1}
 							<i class="fa ratings-star fa-star-o {if $smarty.section.num.index == $bid.rating_score}star-selected{/if} no-hover" data-num="{$smarty.section.num.index}"></i>
 						{/section}
-						</div>
+						</div>*}
 							{*<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>*}
 							<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}{include file="common_templates/price.tpl" value=$bid.price"}</div>
 							{*<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>*}
