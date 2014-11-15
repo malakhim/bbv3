@@ -6,7 +6,7 @@ Any url in CS-Cart uses the format dispatch=[controller].[mode], with the [mode]
 
 {*Datepicker external js, for the "Expiry Date" field - Loaded at beginning as common practice.*}
 <script type="text/javascript" src="js/datepicker.js"></script>
-
+<script type="text/javascript" src="addons/billibuys/js/place_request.js"></script>
 {*
 Form wrapper for the entire thing, so that all data is sent back to server in one group. Parameters:
 
@@ -29,14 +29,14 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 
 		The cm-required tag means it's required, trim deletes trailing whitespace. More info as well as what's available can be found here: http://docs.cs-cart.com/4.1.x/core/front-end/microformats.html
 		*}
-		<label for="bb_request_title" class="cm-required cm-trim">{$lang.title}</label>
+		<label for="bb_request_title" class="cm-required cm-trim">{$lang.bb_request_title}</label>
 
 		{*Few parameters to note here:
 			name: Form data should be sent as an array, so this sends the data back as an array with name "request" and key "title". 
 
 			value: All forms should re-input data if user submits and something goes wrong and they have to click back. This smarty value basically says to input the "title" value of the "request" array from the REQUEST array (http://php.net/manual/en/reserved.variables.request.php) into here so user won't have to type it again. It'll be blank if there is no REQUEST value matching it.
 		*}
-		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="{$smarty.request.request.title}" class="input-text" />
+		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="{if $smarty.request.request.title}{$smarty.request.request.title}{else}{$lang.title_description}{/if}" class="input-text" />
 	</div>
 
 	<div class="form-field">
