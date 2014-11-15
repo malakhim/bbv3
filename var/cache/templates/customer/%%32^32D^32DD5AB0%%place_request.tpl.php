@@ -1,13 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php /* Smarty version 2.6.18, created on 2014-11-15 20:33:14
 =======
 <?php /* Smarty version 2.6.18, created on 2014-11-15 21:37:43
 >>>>>>> 2e46f8cb3db9ed3ab35314fb736d5a141c9f1006
+=======
+<?php /* Smarty version 2.6.18, created on 2014-11-15 22:03:40
+>>>>>>> d2c7c581843110dbe4e318a6fc2045b4335ffcb7
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 36, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 123, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 146, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_request_title','title_description','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','image','submit','delete','bb_error_validator_price_format','place_request'));
+fn_preload_lang_vars(array('bb_request_title','title_description','description','desc_description','desc_description','max_price','maxprice_description','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','image','submit','delete','bb_error_validator_price_format','place_request'));
 ?>
 <?php 
 
@@ -42,16 +46,19 @@ fn_preload_lang_vars(array('bb_request_title','title_description','description',
 	<div class="form-field">
 		<label for="bb_request_desc" class="cm-required cm-trim"><?php echo fn_get_lang_var('description', $this->getLanguage()); ?>
 </label>
-		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
-" class="input-textarea-long"><?php echo $this->_tpl_vars['request']['desc']; ?>
-</textarea>
+		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
+<?php else: ?><?php echo fn_get_lang_var('desc_description', $this->getLanguage()); ?>
+<?php endif; ?>" class="input-textarea-long"><?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
+<?php else: ?><?php echo fn_get_lang_var('desc_description', $this->getLanguage()); ?>
+<?php endif; ?></textarea>
 	</div>
 
 	<div class="form-field">
 		<label for="bb_max_price" class="cm-trim cm-regexp"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
 </label>
-		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php echo $this->_tpl_vars['_REQUEST']['request']['max_price']; ?>
-" class="input-text" />
+		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['max_price']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['max_price']; ?>
+<?php else: ?><?php echo fn_get_lang_var('maxprice_description', $this->getLanguage()); ?>
+<?php endif; ?>" class="input-text" />
 	</div>
 
 	<div class="form-field">
