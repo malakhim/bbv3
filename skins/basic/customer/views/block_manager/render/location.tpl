@@ -1,4 +1,4 @@
-<div id="ci_top_wrapper" class="header clearfix">
+<div id="ci_top_wrapper" class="header clearfix header-solid">
 	{$containers.top|htmlspecialchars_decode|unescape}
 <!--ci_top_wrapper--></div>
 <div id="ci_central_wrapper" class="main clearfix">
