@@ -222,7 +222,7 @@ if ($mode == 'manage') {
 
 // View report
 } elseif ($mode == 'view') {
-
+die; //Temporary removing this - Bryan
 	$report_id = empty($_REQUEST['report_id']) ? db_get_field("SELECT report_id FROM ?:sales_reports WHERE status = 'A' ORDER BY position ASC LIMIT 1") : $_REQUEST['report_id'];
 	$table_id = empty($_REQUEST['table_id']) ? db_get_field("SELECT table_id FROM ?:sales_reports_tables WHERE report_id = ?i ORDER BY position ASC LIMIT 1", $report_id) : intval($_REQUEST['table_id']);
 

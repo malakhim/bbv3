@@ -4,7 +4,7 @@
 <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
+<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
 <script type="text/javascript" src="{$config.http_location}/lib/js/jquery/jquery.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Titillium+Web:600' rel='stylesheet' type='text/css' />
 <!-- Latest compiled and minified JavaScript -->

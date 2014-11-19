@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-17 22:32:16
+<?php /* Smarty version 2.6.18, created on 2014-11-19 13:58:57
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 22, false),array('modifier', 'unescape', 'index.tpl', 25, false),array('modifier', 'strip_tags', 'index.tpl', 25, false),array('modifier', 'count', 'index.tpl', 27, false),array('modifier', 'html_entity_decode', 'index.tpl', 51, false),array('modifier', 'default', 'index.tpl', 51, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 53, false),array('modifier', 'sizeof', 'index.tpl', 57, false),array('modifier', 'fn_link_attach', 'index.tpl', 59, false),array('modifier', 'fn_url', 'index.tpl', 59, false),array('modifier', 'defined', 'index.tpl', 86, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 227, false),array('modifier', 'strpos', 'index.tpl', 240, false),array('modifier', 'fn_query_remove', 'index.tpl', 241, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 125, false),array('function', 'script', 'index.tpl', 144, false),array('function', 'render_location', 'index.tpl', 409, false),)), $this); ?>
@@ -79,7 +79,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/styles.post.tpl' => 1414680214,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1416365932,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -141,7 +141,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
+<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
 <script type="text/javascript" src="<?php echo $this->_tpl_vars['config']['http_location']; ?>
 /lib/js/jquery/jquery.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Titillium+Web:600' rel='stylesheet' type='text/css' />

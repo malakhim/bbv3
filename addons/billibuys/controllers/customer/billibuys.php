@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author Bryan Wu
  * @copyright BilliBuys 2013

@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-17 22:35:05
+<?php /* Smarty version 2.6.18, created on 2014-11-19 14:10:05
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 52, false),array('modifier', 'escape', 'index.tpl', 90, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 169, false),array('modifier', 'lower', 'index.tpl', 181, false),array('modifier', 'fn_query_remove', 'index.tpl', 218, false),array('modifier', 'fn_url', 'index.tpl', 218, false),array('modifier', 'strpos', 'index.tpl', 219, false),array('modifier', 'fn_link_attach', 'index.tpl', 227, false),array('modifier', 'fn_get_notifications', 'index.tpl', 251, false),array('modifier', 'default', 'index.tpl', 285, false),array('modifier', 'unescape', 'index.tpl', 285, false),array('block', 'hook', 'index.tpl', 59, false),array('function', 'join_css', 'index.tpl', 62, false),array('function', 'script', 'index.tpl', 77, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 52, false),array('modifier', 'escape', 'index.tpl', 96, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 175, false),array('modifier', 'lower', 'index.tpl', 187, false),array('modifier', 'fn_query_remove', 'index.tpl', 224, false),array('modifier', 'fn_url', 'index.tpl', 224, false),array('modifier', 'strpos', 'index.tpl', 225, false),array('modifier', 'fn_link_attach', 'index.tpl', 233, false),array('modifier', 'fn_get_notifications', 'index.tpl', 257, false),array('modifier', 'default', 'index.tpl', 291, false),array('modifier', 'unescape', 'index.tpl', 291, false),array('block', 'hook', 'index.tpl', 59, false),array('function', 'join_css', 'index.tpl', 68, false),array('function', 'script', 'index.tpl', 83, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','items','text_required_group_product','save','close','loading','notice','warning','error','text_are_you_sure_to_proceed','text_invalid_url','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','error_ajax','text_changes_not_saved','text_data_changed','text_block_trial_notice','text_expired_license','file_browser','editing_block','editing_grid','editing_container','adding_grid','adding_block_to_grid','manage_blocks','editing_block','add_block','loading','close','close','processing'));
 ?>
@@ -37,7 +37,7 @@ fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','er
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/twigmo/hooks/index/styles.post.tpl' => 1414679488,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1416365911,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -63,7 +63,16 @@ fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','er
 <![endif]-->
 
 <?php $this->_tag_stack[] = array('hook', array('name' => "index:styles")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['twigmo']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
-/addons/twigmo/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+/addons/twigmo/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><script type="text/javascript" src="<?php echo $this->_tpl_vars['config']['http_location']; ?>
+/lib/js/jquery/jquery.min.js"></script>
+
+<link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+/addons/billibuys/styles.css" rel="stylesheet" type="text/css" />
+
+<?php echo '
+<script src="addons/billibuys/js/billibuys.js" type="text/javascript"></script>
+'; ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 
 <?php $this->_smarty_vars['capture']['styles'] = ob_get_contents(); ob_end_clean(); ?>
 <?php echo smarty_function_join_css(array('content' => $this->_smarty_vars['capture']['styles']), $this);?>
