@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-19 15:13:39
+<?php /* Smarty version 2.6.18, created on 2014-11-19 15:28:09
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/features_panel_1.tpl */ ?>
 <?php  ob_start();  ?><div class="fpanel-title">Take control of the item you want</div>
 <br/>

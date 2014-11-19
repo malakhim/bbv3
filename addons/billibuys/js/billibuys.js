@@ -32,8 +32,8 @@ $(document).ready(function(){
 		$(this).find('a').css('color','#175A6C');
 		$(this).find('ul').css('visibility','visible');
 	},function(){
-		// $(this).find('a').css('color','white');
-		// $(this).find('ul').css('visibility','hidden');
+		$(this).find('a').css('color','white');
+		$(this).find('ul').css('visibility','hidden');
 	});
 
 });
