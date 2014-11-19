@@ -33,7 +33,7 @@ $(document).ready(function(){
 		$(this).find('ul').css('visibility','visible');
 	},function(){
 		$(this).find('a').css('color','white');
-		$(this).find('ul').css('visibility','hidden');
+		// $(this).find('ul').css('visibility','hidden');
 	});
 
 });
