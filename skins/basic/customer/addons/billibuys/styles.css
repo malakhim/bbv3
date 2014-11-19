@@ -1164,12 +1164,6 @@ html.ie9 .how_does_it_work_block div {
 
 /*TOP MENU ITEMS*/
 
-.top_menu_item{
-	list-style: none;
-	float: left;
-	padding-bottom: 25px;
-}
-
 .top_menu_item a{
 	color: white;
 }
@@ -1234,7 +1228,9 @@ html.ie9 .how_does_it_work_block div {
 	cursor: pointer;
 	padding-left: 15px;
 	padding-top: 5px;
-	padding-bottom: 8px;
+	list-style: none;
+	float: left;
+	padding-bottom: 25px;
 }
 
 .top-logo .logo-container{
