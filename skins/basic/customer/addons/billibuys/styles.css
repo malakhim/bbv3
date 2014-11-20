@@ -734,11 +734,7 @@ html.ie9 .how_does_it_work_block div {
 	font-weight: bolder;
 }
 
-#info-box{
-	display: inline-block;
-	width: 100%;
-	/*margin-top: 70px;*/
-}
+
 
 .infobox-label{
 	font-weight: bolder;
@@ -1193,7 +1189,6 @@ html.ie9 .how_does_it_work_block div {
 #request-page-title{
 	font-size: 2.2em;
 	color: rgb(40,40,40);
-	font-weight: bold;
 	padding-bottom: 10px;
 }
 
@@ -1204,13 +1199,14 @@ html.ie9 .how_does_it_work_block div {
 
 #info-box-text{
 	margin-top: -90px;
-	margin-left: 150px;
+	margin-left: 170px;
 	font-size: 1.2em;
 	line-height: 2em;
 }
 
 #info-box hr{
 	border-bottom: 1px solid #000;
+	width: 70%;
 }
 
 #info-box .is-countdown{
@@ -1282,4 +1278,10 @@ html.ie9 .how_does_it_work_block div {
 
 #bids-list .sort-container{
 	margin-top: -20px;
+}
+
+#info-box{
+	display: inline-block;
+	width: 100%;
+	padding-top: 20px;
 }
