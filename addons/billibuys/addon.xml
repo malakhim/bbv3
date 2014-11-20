@@ -304,14 +304,7 @@
 		<item lang="EN" id="terms_and_conditions">Terms and Conditions</item>
 		<item lang="EN" id="disclaimer">Disclaimer</item>
 	  
-	  <!-- BB Request Page -->
-	  <!-- Field names -->
-	  <item lang="EN" id="bb_request_title">Item Name</item>
-	  
-	  <!-- Field descriptions -->
-	  <item lang="EN" id="title_description">e.g. Sony Bravia Television</item>
-	  <item lang="EN" id="desc_description">e.g. 55 Inch LED TV. (The more descriptive you are, the better the offers become)</item>
-	  <item lang="EN" id="maxprice_description">e.g. 15.95</item>
+
 
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
@@ -358,6 +351,16 @@
 
 		<!-- Frontend billibuys.request variables-->
 		<item lang="EN" id="view_request">View Request</item>
+			<!-- Field names -->
+			<item lang="EN" id="bb_request_title">Item Name</item>
+			  
+			<!-- Field descriptions -->
+			<item lang="EN" id="title_description">e.g. Sony Bravia Television</item>
+			<item lang="EN" id="desc_description">e.g. 55 Inch LED TV. (The more descriptive you are, the better the offers become)</item>
+			<item lang="EN" id="maxprice_description">e.g. 15.95</item>
+
+		<!-- Frontend billibuys.view-request variables -->
+		<item lang="EN" id="ends">Ends</item>
 	</language_variables>
 
 	<functions>

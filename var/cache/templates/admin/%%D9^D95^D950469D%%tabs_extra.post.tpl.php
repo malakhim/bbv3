@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-17 22:47:28
+<?php /* Smarty version 2.6.18, created on 2014-11-20 13:49:03
          compiled from addons/bundled_products/hooks/products/tabs_extra.post.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('editing_combination','no_data','new_combination','add_combination'));

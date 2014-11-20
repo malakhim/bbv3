@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-17 22:47:28
+<?php /* Smarty version 2.6.18, created on 2014-11-20 13:49:03
          compiled from addons/bundled_products/views/bundled_products/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/bundled_products/views/bundled_products/update.tpl', 31, false),array('modifier', 'format_price', 'addons/bundled_products/views/bundled_products/update.tpl', 61, false),array('modifier', 'unescape', 'addons/bundled_products/views/bundled_products/update.tpl', 61, false),)), $this); ?>

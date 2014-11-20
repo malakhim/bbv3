@@ -1,5 +1,3 @@
-{capture name="title"}<span>{$request.title}</span>{/capture}
-
 {literal}
 <link rel="stylesheet" type="text/css" href="addons/billibuys/js/jquery.countdown/jquery.countdown.css">
 <script src="addons/billibuys/js/jquery.countdown/jquery.plugin.min.js" type="text/javascript"></script>
@@ -9,23 +7,32 @@
 
 <div id="info-box">
 	{include file="common_templates/image.tpl" image_width="80" image_height="80" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
-		<div id="request-infobox-right">
-			<div class="bb-time-remaining" expiry="{$request.expiry_date}"></div>
-			{if $expired == 0}
-				{if $request.user_id != $smarty.session.auth.user_id}
-					{include file="buttons/button.tpl" but_text="`$lang.place_bid`" but_role="action" but_meta="place_offer" but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url  but_id="place_offer"}
-				{/if}
-			{else if $expired > 0}
-				{$lang.auction_finished}. <a href="{"billibuys.view"|fn_url}">{$lang.click_here_to_return_to_main_page}</a>
+	{*<div id="request-infobox-right">*}
+
+	{*</div>*}
+	<div id="info-box-text">
+		<div id="request-page-title">{$request.title}</div>
+		<hr/>
+		<div id="max-price">
+			{$lang.max_price}:
+			{if $request.max_price != 0}
+				{include file="common_templates/price.tpl" value=$request.max_price is_integer=false}
+			{else}
+				{$lang.no_max_price}
 			{/if}
 		</div>
-	<div id="description-text">{$request.description}</div>
-	<div id="max-price">
-		<div class="infobox-label">{$lang.max_price}:</div></br>
-		{if $request.max_price != 0}
-			{include file="common_templates/price.tpl" value=$request.max_price is_integer=false}
-		{else}
-			{$lang.no_max_price}
+
+		{$lang.time_remaining}:&nbsp;<span class="bb-time-remaining" expiry="{$request.expiry_date}"></span> ({$lang.ends} {$request.expiry_date|date_format:"%e %B %Y %l:%M:%S%p"})
+		<br/><br/>
+		<div id="description-text">{$request.description}</div>
+		<br/><br/>
+		{if $expired == 0}
+		<a href="{"vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url}" id="place-offer">{$lang.place_bid}</a>
+			{*{if $request.user_id != $smarty.session.auth.user_id}
+				{include file="buttons/button.tpl" but_text="`$lang.place_bid`" but_role="action" but_meta="place_offer" but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url  but_id="place_offer"}
+			{/if}*}
+		{else if $expired > 0}
+			{$lang.auction_finished}. <a href="{"billibuys.view"|fn_url}">{$lang.click_here_to_return_to_main_page}</a>
 		{/if}
 	</div>
 </div>
@@ -42,12 +49,12 @@
 						</div>
 						<div class="bb-list-txt">
 							<div class="bb-list-field bb-list-title">{$bid.product}</div>
-							{*<div class="bb-list-rating bb-list-field ratings-star-container">{*Placeholder for rating stars*}	
-						{section name=num start=1 loop=6 step=1}
-							<i class="fa ratings-star fa-star-o {if $smarty.section.num.index == $bid.rating_score}star-selected{/if} no-hover" data-num="{$smarty.section.num.index}"></i>
-						{/section}
-						</div>*}
-							{*<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>*}
+							{*<div class="bb-list-rating bb-list-field ratings-star-container">{*Placeholder for rating stars*}{*
+								{section name=num start=1 loop=6 step=1}
+									<i class="fa ratings-star fa-star-o {if $smarty.section.num.index == $bid.rating_score}star-selected{/if} no-hover" data-num="{$smarty.section.num.index}"></i>
+								{/section}
+							</div>*}
+							<div class="bb-list-desc bb-list-field">{$bid.full_description}</div>
 							<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}{include file="common_templates/price.tpl" value=$bid.price"}</div>
 							{*<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>*}
 							<!-- <div class="bb-list-view">{$lang.view}</div> -->

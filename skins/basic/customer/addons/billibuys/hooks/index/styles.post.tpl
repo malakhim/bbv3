@@ -1,17 +1,10 @@
-<!-- Latest compiled and minified CSS -->
-<!-- <link rel="stylesheet" href="{$config.skin_path}/css/bootstrap.min.css" /> -->
-
 <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
 <script type="text/javascript" src="{$config.http_location}/lib/js/jquery/jquery.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Titillium+Web:600' rel='stylesheet' type='text/css' />
-<!-- Latest compiled and minified JavaScript -->
-<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> -->
 
-<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'> -->
-<!-- <link href='' rel='stylesheet' type='text/css'> -->
 
 <link href="{$config.skin_path}/addons/billibuys/styles.css" rel="stylesheet" type="text/css" />
 {literal}

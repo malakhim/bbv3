@@ -2,8 +2,19 @@ $(document).ready(function(){
 	$('.bb-time-remaining').each(function(){
 		var date = new Date($(this).attr('expiry') * 1000);
 		var expiry_date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-		// $(this).countdown({until: expiry_date, compact: false, layout: '{dn}{dl} {hnn} {sep} {mnn} {sep} {snn}', description: ''});
-		$(this).countdown({until:expiry_date});
+		$(this).countdown({
+			until:expiry_date,
+			compact: true,
+			compactLabels: ['y','m','w','d','h','m','s'],
+			layout: '{d<}{dn}{dl}{d>} {h<}{hn}{hl}{h>} {m<}{mn}{ml}{m>} {sn}{sl}',
+			onTick: highlightLastHour,
+			expiryText: '<div class="countdown-expired">Auction finished</div>',
+		});
 	});
 });
 
+function highlightLastHour(periods){
+	if ($.countdown.periodsToSeconds(periods) <= 3600) { 
+        $(this).addClass('countdown-highlight'); 
+    } 
+}
