@@ -18,6 +18,9 @@ if ( !defined('AREA') ) { die('Access denied'); }
  * Static options
  */
 
+// Sets max price to be a certain % above what the buyer has set
+define('MAX_PRICE_VARIATION',0.1);
+
 // These constants define when select box with categories list should be replaced with picker
 define('CATEGORY_THRESHOLD', 100); // if number of categories less than this value, all categories will be retrieved, otherwise subcategories will be retrieved by ajax
 define('CATEGORY_SHOW_ALL', 100);  // if number of categories less than this value, categories tree will be expanded

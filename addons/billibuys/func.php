@@ -452,26 +452,6 @@ function fn_get_bids($params){
 	}else
 		$fields = '*';
 
-	print_r(db_quote("SELECT DISTINCT $fields
-		FROM 
-			?:bb_bids
-		INNER JOIN
-			?:product_descriptions ON
-				?:product_descriptions.product_id = ?:bb_bids.product_id
-		INNER JOIN
-			?:products ON
-				?:bb_bids.product_id = ?:products.product_id
-		INNER JOIN
-			?:user_profiles ON
-				?:bb_bids.user_id = ?:user_profiles.user_id
-		LEFT JOIN
-			?:bb_ratings ON
-				?:bb_ratings.rating_type_id = ?:products.product_id	
-		WHERE 
-		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A' AND ?:bb_bids.active = '1' AND (?:bb_ratings.rating_type = 'P' OR ?:bb_ratings.rating_type IS NULL)
-		GROUP BY bb_bid_id",
-			$params['request_id']));
-
 	$bids = db_get_array("SELECT $fields
 		FROM 
 			?:bb_bids
@@ -556,9 +536,9 @@ function fn_submit_bids($bb_data,$auth){
 			if($price !== NULL && $request_item['max_price'] != 0){
 				if($price > 0 && is_numeric($price) && $price != NULL){
 					if($bb_data['products_data'][$pid]['amount'] > 0 && is_numeric($bb_data['products_data'][$pid]['amount']) && $bb_data['products_data'][$pid]['amount'] != NULL){
-						$mp_plus_extra = $mp + 0.1*$mp;
+						$mp_plus_extra = $mp + MAX_PRICE_VARIATION*$mp;
 						if($request_item['allow_over_max_price'] && ($price > ($mp_plus_extra))){
-							// Check if bid price is over requested max by 10%, indicated by "allow_over_max_price" flag
+							// Check if bid price is over requested max by MAX_PRICE_VARIATION, indicated by "allow_over_max_price" flag
 							$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra).'. '.fn_get_lang_var('your_bid_amount').$currency_symbol.fn_format_price($price).'.';
 						}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
 							// Check bid price is under or equal to request max
@@ -1297,18 +1277,37 @@ function fn_get_unrated_items($user_id){
 }
 
 /**
- * Updates/deletes bids
+ * Updates bids
  * @param  Int $bid_id bb_bid_id corresponding to ?:bb_bids table
  * @param  Array $data   Type: D for delete, U for update;
  * @return Boolean false if error
  */
-function fn_update_bid($bid_id,$data){
-	if($data['type'] == 'D'){
-		fn_archive_bid($bid_id);
-	}elseif($data['type'] == 'U'){
-		// Placeholder for updating bid functionality later
+function fn_update_bid($params){
+	if(is_array($params)){
+		$bid_id = $params['bid_id'];
+		$bid_user_id = db_get_field("SELECT user_id FROM ?:bb_bids WHERE bb_bid_id = ?i",$bid_id);
+		if($bid_user_id != $_SESSION['auth']['user_id']){
+			return array('success'=>false,'message'=>fn_get_lang_var('bb_error_invalid_input_params'));
+		}
+		unset($params['bid_id']);
+		if(isset($params['price']) && is_string($params['price'])){
+			$params['price'] = trim($params['price']);
+			if(preg_match('/(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\.[0-9]{1,2})?$/',$params['price'])){
+				$price_setting = db_get_row("SELECT max_price,allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id WHERE bb_bid_id = ?i",$bid_id);
+				$max_price = $price_setting['allow_over_max_price'] ? $price_setting['max_price'] * (1 + MAX_PRICE_VARIATION) : $price_setting['max_price'];
+				if($params['price'] > $max_price){
+					return array('success'=>false,'message'=>fn_get_lang_var('bid_is_over_request_max').$max_price);
+				}elseif($params['price'] == 0){
+					return array('success'=>false,'message'=>fn_get_lang_var('bid_price_cannot_be_zero'));
+				}
+			}else{
+				return array('success'=>false,'message'=>fn_get_lang_var('bb_error_validator_price_format'));
+			}
+		}
+		db_query("UPDATE ?:bb_bids SET ?u WHERE bb_bid_id = ?i",$params,$bid_id);
+		return array('success'=>true);
 	}else{
-		return false;
+		return array('success'=>false,'message'=>fn_get_lang_var('bb_error_invalid_input_params'));
 	}
 }
 

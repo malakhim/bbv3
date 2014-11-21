@@ -4,7 +4,6 @@
 <script src="addons/billibuys/js/jquery.countdown/jquery.countdown.min.js" type="text/javascript"></script>
 <script src="addons/billibuys/js/view_request.js" type="text/javascript"></script>
 {/literal}
-{$request|var_dump}
 {$smarty.session.auth.user_id}
 <div id="info-box">
 	{include file="common_templates/image.tpl" image_width="80" image_height="80" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
@@ -22,7 +21,6 @@
 				{$lang.no_max_price}
 			{/if}
 		</div>
-
 		{$lang.time_remaining}:&nbsp;<span class="bb-time-remaining" expiry="{$request.expiry_date}"></span> ({$lang.ends} {$request.expiry_date|date_format:"%e %B %Y %l:%M:%S%p"})
 		<br/><br/>
 		<div id="description-text">{$request.description}</div>
@@ -50,6 +48,7 @@
 					</div>
 					<div class="bb-list-txt">
 						<div class="bb-list-field bb-list-title">{$bid.product}</div>
+						<hr/>
 						{*<div class="bb-list-rating bb-list-field ratings-star-container">{*Placeholder for rating stars*}{*
 							{section name=num start=1 loop=6 step=1}
 								<i class="fa ratings-star fa-star-o {if $smarty.section.num.index == $bid.rating_score}star-selected{/if} no-hover" data-num="{$smarty.section.num.index}"></i>
@@ -63,7 +62,16 @@
 							{$lang.bb_no_description}
 						{/if}
 						</div>
-						<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}<span class="bid-price">{include file="common_templates/price.tpl" value=$bid.price"}{if $bid.user_id == $smarty.session.auth.user_id}</span>&nbsp;<a href="#" class="edit-bid-price" data-id="{$bid.bb_bid_id}">({$lang.edit})</a>{/if}</div>
+						<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}
+						<span class="bid-price">
+							{include file="common_templates/price.tpl" value=$bid.price"}
+						</span>
+						{if $bid.user_id == $smarty.session.auth.user_id}
+							<input type="text" class="bid-price-inputbox"/>&nbsp;
+							<a href="#!" class="edit-bid-price" data-href="{"billibuys.change_price"|fn_url}" data-id="{$bid.bb_bid_id}" data-edit-text="{$lang.edit}" data-save-text="{$lang.save}" data-currency="{$currencies.$primary_currency.symbol}">{$lang.edit}</a>
+						{/if}
+						</div>
+						<div class="error-message float-right"><div class="message"><p></p></div></div>
 						{assign var="return_current_url" value=$config.current_url|escape:"url"}
 						<a class="request-page-btn {if $bid.user_id == $smarty.session.auth.user_id}delete-offer-btn{else}view-offer-btn{/if}" href="{if $bid.user_id == $smarty.session.auth.user_id}{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}{else}{"products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}{/if}">
 							{if $bid.user_id == $smarty.session.auth.user_id}
@@ -74,15 +82,6 @@
 						</a>
 					</div>
 				</div>
-
-				{$bid|var_dump}
-				div>
-
-
-
-
-
-
 
 
 					{*

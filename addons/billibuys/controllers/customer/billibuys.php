@@ -180,8 +180,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			$bid['image'] = fn_get_image_pairs($bid['product_id'], 'product', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
 		}
 
-		var_dump($bids);
-		
 		$view->assign('uid',md5($auth['user_id']));
 		$view->assign('bids',$bids);
 		$view->assign('request_user_id',$request['user id']);
@@ -261,7 +259,10 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			$view->assign('unrated',$sorted_unrated);
 		}	
 	}elseif($mode == 'withdraw_bid'){
-		fn_update_bid($_REQUEST['bid_id'],Array('type'=>'D'));
+		fn_archive_bid(Array('bid_id' => $_REQUEST['bid_id']));
 		fn_redirect($_REQUEST['return_url']);
+	}elseif($mode == 'change_price'){
+		$success = fn_update_bid(Array('price'=>$_REQUEST['price'],'bid_id'=>$_REQUEST['bid_id']));
+		die(json_encode($success));
 	}
 ?>
