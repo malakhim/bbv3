@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-21 20:45:02
+<?php /* Smarty version 2.6.18, created on 2014-11-21 20:53:05
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_top_nav_login.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_top_nav_login.tpl', 4, false),)), $this); ?>
@@ -11,7 +11,7 @@ fn_preload_lang_vars(array('block_my_account','sign_out','sign_in','register','s
 			<a href="<?php echo fn_url("profiles.update"); ?>
 " rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('block_my_account', $this->getLanguage()); ?>
 </a></span>
-			<a href="<?php echo fn_url("auth.logout?redirect_url=".($this->_tpl_vars['config']['current_url'])); ?>
+			<a href="<?php echo fn_url("auth.logout"); ?>
 " rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('sign_out', $this->getLanguage()); ?>
 </a></span>
 		<?php else: ?>
