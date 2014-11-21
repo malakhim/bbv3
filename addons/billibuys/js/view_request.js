@@ -11,6 +11,11 @@ $(document).ready(function(){
 			expiryText: '<div class="countdown-expired">Auction finished</div>',
 		});
 	});
+
+	$('.edit-bid-price').click(function(){
+		$(this).prev('.bid-price').hide();
+	});
+
 });
 
 function highlightLastHour(periods){

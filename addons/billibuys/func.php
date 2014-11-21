@@ -8,7 +8,7 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 /**
- * Find position of Nth occurance of search string
+ * Find position of Nth occurrence of search string
  * @param string $search The search string
  * @param string $string The string to seach
  * @param int $occurence The Nth occurance of string
@@ -420,6 +420,15 @@ function fn_get_bid_by_product($product_id,$request_id){
 	return $bid;
 }
 
+function fn_get_bid_by_id($bid_id){
+	$bid = db_get_row("SELECT * FROM ?:bb_bids WHERE bb_bid_id = ?i",$bid_id);
+	return $bid;
+}
+
+/**
+ * This delets bid from the bids table and pushes to bids_archive table
+ * @param  Int $bid_id The bid_id corresponding to bb_bid_id
+ */
 function fn_archive_bid($bid_id){
 	$bid = db_get_row("SELECT * FROM ?:bb_bids WHERE bb_bid_id = ?i",$bid_id);
 	db_query("DELETE FROM ?:bb_bids WHERE bb_bid_id = ?i",$bid_id);
@@ -443,6 +452,25 @@ function fn_get_bids($params){
 	}else
 		$fields = '*';
 
+	print_r(db_quote("SELECT DISTINCT $fields
+		FROM 
+			?:bb_bids
+		INNER JOIN
+			?:product_descriptions ON
+				?:product_descriptions.product_id = ?:bb_bids.product_id
+		INNER JOIN
+			?:products ON
+				?:bb_bids.product_id = ?:products.product_id
+		INNER JOIN
+			?:user_profiles ON
+				?:bb_bids.user_id = ?:user_profiles.user_id
+		LEFT JOIN
+			?:bb_ratings ON
+				?:bb_ratings.rating_type_id = ?:products.product_id	
+		WHERE 
+		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A' AND ?:bb_bids.active = '1' AND (?:bb_ratings.rating_type = 'P' OR ?:bb_ratings.rating_type IS NULL)
+		GROUP BY bb_bid_id",
+			$params['request_id']));
 
 	$bids = db_get_array("SELECT $fields
 		FROM 
@@ -1267,4 +1295,21 @@ function fn_get_unrated_items($user_id){
 
 	return $unrated_items;
 }
+
+/**
+ * Updates/deletes bids
+ * @param  Int $bid_id bb_bid_id corresponding to ?:bb_bids table
+ * @param  Array $data   Type: D for delete, U for update;
+ * @return Boolean false if error
+ */
+function fn_update_bid($bid_id,$data){
+	if($data['type'] == 'D'){
+		fn_archive_bid($bid_id);
+	}elseif($data['type'] == 'U'){
+		// Placeholder for updating bid functionality later
+	}else{
+		return false;
+	}
+}
+
 ?>

@@ -788,7 +788,7 @@ html.ie9 .how_does_it_work_block div {
 .bb-list-desc{
 	margin-top: 20px;
 	margin-bottom: 10px;
-	font-style: italic;
+	/*font-style: italic;*/
 	width: 200px;
 }
 
@@ -1229,13 +1229,42 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: -77px;
 }
 
-#place-offer{
-	margin-top: 20px;
+#info-box .request-page-btn,#bids-list .request-page-btn{
 	text-decoration: none;
-	background-color: rgb(241,138,0);
 	padding: 10px 20px 10px 20px;
 	border-radius: 10px;
 	color: white;
+}
+
+.view-offer-btn{
+	float: right;
+	background-color: rgb(75,172,198);
+}
+
+.view-offer-btn:hover{
+	background-color: rgb(104, 193, 216);
+}
+
+.view-offer-btn:active{
+	background-color: rgb(47, 114, 132);
+}
+
+.delete-offer-btn{
+	float: right;
+	background-color: rgb(255,0,0);
+}
+
+.delete-offer-btn:hover{
+	background-color: rgb(255,90,90);
+}
+
+.delete-offer-btn:active{
+	background-color: rgb(190,0,0);
+}
+
+#place-offer{
+	margin-top: 20px;
+	background-color: rgb(241,138,0);
 }
 
 #place-offer:hover{
@@ -1261,14 +1290,17 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #bids-list .bb-list-title{
-	font-size: 4em;
-	height: 110px;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-transform: none;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #000;
 }
 
 #bids-list .bb-list-price{
 	float: right;
-	margin-top: -70px;
-	font-size: 4em;
+	margin-top: -50px;
+	font-size: 2.7em;
 }
 
 #bids-list{
@@ -1284,4 +1316,8 @@ html.ie9 .how_does_it_work_block div {
 	display: inline-block;
 	width: 100%;
 	padding-top: 20px;
+}
+
+.bb-bid-item{
+	margin-top: 30px;
 }

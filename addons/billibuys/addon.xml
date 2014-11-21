@@ -324,6 +324,7 @@
 		<item lang="EN" id="bb_no_results_match_search">No results match the search terms</item>
 		<item lang="EN" id="bb_error_validator_price_format">Price must be in decimal format, without any currency signs.</item>
 		<item lang="EN" id="bb_error_invalid_input_params">Invalid input parameters</item>
+		<item lang="EN" id="bb_no_description">No description</item>
 
 		<!-- Frontend billibuys.view variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>

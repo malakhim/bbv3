@@ -79,7 +79,7 @@
 						{include file="buttons/register_profile.tpl" but_name="dispatch[profiles.update]" but_id="save_profile_but"}
 					{else}
 						{include file="buttons/save.tpl" but_name="dispatch[profiles.update]" but_id="save_profile_but"}
-						<input class="account-cancel" type="reset" name="reset" value="{$lang.revert}" id="reset"/>
+						{*<input class="account-cancel" type="reset" name="reset" value="{$lang.revert}" id="reset"/>*}
 					{/if}
 				</div>
 			</form>

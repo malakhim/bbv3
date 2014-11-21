@@ -168,8 +168,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		// 	}
 		// }
 
-		// Reset params in case need to modify what is searched by later
-		$params = Array('request_id' => $params['request_id']);
+		// Param user_id needs to be set because apparently mysql doesn't know buggerall about how to handle multiple user_id fields
+		$params = Array('request_id' => $params['request_id'],'fields'=> Array('*','?:bb_bids.user_id'));
 	
 		$bids = fn_get_bids($params);	
 
@@ -177,13 +177,11 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			$bid['tot_price'] = $bid['price'] * $bid['quantity'];
 			$bid['rating_score'] = round($bid['rating_score']);
 			$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'product'",$bid['product_id']);
-
 			$bid['image'] = fn_get_image_pairs($bid['product_id'], 'product', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
 		}
+
+		var_dump($bids);
 		
-		// These bids are links to the product pages
-		// Pricing is replaced by the bid price
-		// Once bid is purchased, mark request as purchased and no further bids can be purchased
 		$view->assign('uid',md5($auth['user_id']));
 		$view->assign('bids',$bids);
 		$view->assign('request_user_id',$request['user id']);
@@ -261,6 +259,9 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 			// Send array to view
 			$view->assign('unrated',$sorted_unrated);
-		}
+		}	
+	}elseif($mode == 'withdraw_bid'){
+		fn_update_bid($_REQUEST['bid_id'],Array('type'=>'D'));
+		fn_redirect($_REQUEST['return_url']);
 	}
 ?>
