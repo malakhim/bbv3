@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-21 20:52:47
+<?php /* Smarty version 2.6.18, created on 2014-11-22 13:55:55
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 80, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 113, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 113, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 113, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 116, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 241, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/request.tpl', 250, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 324, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 31, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 309, false),)), $this); ?>
@@ -26,7 +26,6 @@ fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','time_
 <script src="addons/billibuys/js/view_request.js" type="text/javascript"></script>
 '; ?>
 
-<?php echo $_SESSION['auth']['user_id']; ?>
 
 <div id="info-box">
 	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('image_width' => '80', 'image_height' => '80', 'images' => $this->_tpl_vars['request']['image'], 'show_thumbnail' => 'N', 'no_ids' => true, 'class' => "request-item-image", )); ?>

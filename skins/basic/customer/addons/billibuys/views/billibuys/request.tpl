@@ -4,7 +4,7 @@
 <script src="addons/billibuys/js/jquery.countdown/jquery.countdown.min.js" type="text/javascript"></script>
 <script src="addons/billibuys/js/view_request.js" type="text/javascript"></script>
 {/literal}
-{$smarty.session.auth.user_id}
+
 <div id="info-box">
 	{include file="common_templates/image.tpl" image_width="80" image_height="80" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
 	{*<div id="request-infobox-right">*}

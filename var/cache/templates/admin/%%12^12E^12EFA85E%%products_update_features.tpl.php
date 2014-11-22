@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-20 15:10:37
+<?php /* Smarty version 2.6.18, created on 2014-11-22 13:59:34
          compiled from views/products/components/products_update_features.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('no_items'));
