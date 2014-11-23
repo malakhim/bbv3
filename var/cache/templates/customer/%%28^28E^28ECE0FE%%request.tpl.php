@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-23 17:47:58
+<?php /* Smarty version 2.6.18, created on 2014-11-23 17:58:39
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 81, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 117, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 242, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/request.tpl', 251, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 325, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 32, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 310, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','time_remaining','ends','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','qty','edit','save','edit','delete','accept','prev_page','next'));
+fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','time_remaining','ends','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','desired_amount','edit','save','edit','delete','accept','no_description','prev_page','next'));
 ?>
 <?php 
 
@@ -192,7 +192,7 @@ unset($_smarty_tpl_vars);
 						<div class="bb-list-field bb-list-title"><?php echo $this->_tpl_vars['bid']['product']; ?>
 </div>
 						<hr/>
-												<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title"><?php echo fn_get_lang_var('qty', $this->getLanguage()); ?>
+												<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title"><?php echo fn_get_lang_var('desired_amount', $this->getLanguage()); ?>
 :</span> &nbsp;<?php echo $this->_tpl_vars['bid']['quantity']; ?>
 </div>
 							<div class="bb-list-field bb-list-price">						<span class="bid-price">
@@ -225,11 +225,12 @@ unset($_smarty_tpl_vars);
 						</a>
 						<div class="hyphenate bb-list-desc bb-list-field">
 						<?php if (! empty ( $this->_tpl_vars['bid']['full_description'] )): ?>
-							<?php echo $this->_tpl_vars['bid']['full_description']; ?>
+							<?php echo $this->_tpl_vars['bid']['desc_trunc']; ?>
 
+														}
 						<?php else: ?>
-							
-													asdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_description
+							<?php echo fn_get_lang_var('no_description', $this->getLanguage()); ?>
+
 												
 						<?php endif; ?>
 						</div>

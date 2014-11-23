@@ -178,6 +178,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			$bid['rating_score'] = round($bid['rating_score']);
 			$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'product'",$bid['product_id']);
 			$bid['image'] = fn_get_image_pairs($bid['product_id'], 'product', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
+			$bid['desc_trunc'] = strlen($bid['full_description']) > MAX_DESC_LENGTH ? substr($bid['full_description'],1,MAX_DESC_LENGTH)."..." : $bid['full_description'];
 		}
 
 		$view->assign('uid',md5($auth['user_id']));
