@@ -3,6 +3,7 @@
 <script src="addons/billibuys/js/jquery.countdown/jquery.plugin.min.js" type="text/javascript"></script>
 <script src="addons/billibuys/js/jquery.countdown/jquery.countdown.min.js" type="text/javascript"></script>
 <script src="addons/billibuys/js/view_request.js" type="text/javascript"></script>
+<script src="addons/billibuys/js/hyphenator/Hyphenator.js" type="text/javascript"></script>
 {/literal}
 
 <div id="info-box">
@@ -55,14 +56,7 @@
 							{/section}
 						</div>*}
 						<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title">{$lang.qty}:</span> &nbsp;{$bid.quantity}</div>
-						<div class="bb-list-desc bb-list-field">
-						{if !empty($bid.full_description)}
-							{$bid.full_description}
-						{else}
-							{$lang.bb_no_description}
-						{/if}
-						</div>
-						<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}
+							<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}
 						<span class="bid-price">
 							{include file="common_templates/price.tpl" value=$bid.price"}
 						</span>
@@ -75,11 +69,20 @@
 						{assign var="return_current_url" value=$config.current_url|escape:"url"}
 						<a class="request-page-btn {if $bid.user_id == $smarty.session.auth.user_id}delete-offer-btn{else}view-offer-btn{/if}" href="{if $bid.user_id == $smarty.session.auth.user_id}{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}{else}{"products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}{/if}">
 							{if $bid.user_id == $smarty.session.auth.user_id}
-								{$lang.delete_offer}
+								{$lang.delete}
 							{else}
-								{$lang.view_offer}
+								{$lang.accept}
 							{/if}
 						</a>
+						<div class="hyphenate bb-list-desc bb-list-field">
+						{if !empty($bid.full_description)}
+							{$bid.full_description}
+						{else}
+							
+													asdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_description
+												
+						{/if}
+						</div>
 					</div>
 				</div>
 

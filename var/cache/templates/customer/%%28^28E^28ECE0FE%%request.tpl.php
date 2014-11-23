@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-22 13:55:55
+<?php /* Smarty version 2.6.18, created on 2014-11-23 17:29:44
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 80, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 113, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 113, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 113, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 116, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 241, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/request.tpl', 250, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 324, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 31, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 309, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 81, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 117, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 242, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/request.tpl', 251, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 325, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 32, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 310, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','time_remaining','ends','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','qty','bb_no_description','edit','save','edit','delete_offer','view_offer','prev_page','next'));
+fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','time_remaining','ends','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','qty','edit','save','edit','delete','accept','prev_page','next'));
 ?>
 <?php 
 
@@ -24,6 +24,7 @@ fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','time_
 <script src="addons/billibuys/js/jquery.countdown/jquery.plugin.min.js" type="text/javascript"></script>
 <script src="addons/billibuys/js/jquery.countdown/jquery.countdown.min.js" type="text/javascript"></script>
 <script src="addons/billibuys/js/view_request.js" type="text/javascript"></script>
+<script src="addons/billibuys/js/hyphenator/Hyphenator.js" type="text/javascript"></script>
 '; ?>
 
 
@@ -194,16 +195,7 @@ unset($_smarty_tpl_vars);
 												<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title"><?php echo fn_get_lang_var('qty', $this->getLanguage()); ?>
 :</span> &nbsp;<?php echo $this->_tpl_vars['bid']['quantity']; ?>
 </div>
-						<div class="bb-list-desc bb-list-field">
-						<?php if (! empty ( $this->_tpl_vars['bid']['full_description'] )): ?>
-							<?php echo $this->_tpl_vars['bid']['full_description']; ?>
-
-						<?php else: ?>
-							<?php echo fn_get_lang_var('bb_no_description', $this->getLanguage()); ?>
-
-						<?php endif; ?>
-						</div>
-						<div class="bb-list-field bb-list-price">						<span class="bid-price">
+							<div class="bb-list-field bb-list-price">						<span class="bid-price">
 							<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['bid']['price'], )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 						</span>
@@ -224,13 +216,23 @@ unset($_smarty_tpl_vars);
 <?php else: ?><?php echo fn_url("products.view&product_id=".($this->_tpl_vars['bid']['product_id'])."&request_id=".($this->_tpl_vars['_REQUEST']['request_id'])."&bid_id=".($this->_tpl_vars['bid']['bb_bid_id'])); ?>
 <?php endif; ?>">
 							<?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>
-								<?php echo fn_get_lang_var('delete_offer', $this->getLanguage()); ?>
+								<?php echo fn_get_lang_var('delete', $this->getLanguage()); ?>
 
 							<?php else: ?>
-								<?php echo fn_get_lang_var('view_offer', $this->getLanguage()); ?>
+								<?php echo fn_get_lang_var('accept', $this->getLanguage()); ?>
 
 							<?php endif; ?>
 						</a>
+						<div class="hyphenate bb-list-desc bb-list-field">
+						<?php if (! empty ( $this->_tpl_vars['bid']['full_description'] )): ?>
+							<?php echo $this->_tpl_vars['bid']['full_description']; ?>
+
+						<?php else: ?>
+							
+													asdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_descriptionasdfafdasfa_bb_no_description
+												
+						<?php endif; ?>
+						</div>
 					</div>
 				</div>
 

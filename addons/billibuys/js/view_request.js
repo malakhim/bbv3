@@ -12,6 +12,8 @@ $(document).ready(function(){
 		});
 	});
 
+	Hyphenator.run();
+
 	$('.edit-bid-price').click(function(e){
 		var price_text = $(this).siblings('.bid-price');
 		var price_input_box = $(this).siblings('.bid-price-inputbox');
