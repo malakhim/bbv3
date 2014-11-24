@@ -67,21 +67,56 @@
 						</div>
 						<div class="error-message float-right"><div class="message"><p></p></div></div>
 						{assign var="return_current_url" value=$config.current_url|escape:"url"}
-						<a class="request-page-btn {if $bid.user_id == $smarty.session.auth.user_id}delete-offer-btn{else}view-offer-btn{/if}" href="{if $bid.user_id == $smarty.session.auth.user_id}{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}{else}{"products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}{/if}">
-							{if $bid.user_id == $smarty.session.auth.user_id}
-								{$lang.delete}
-							{else}
-								{$lang.accept}
-							{/if}
-						</a>
+						{if $request.user_id == $smarty.session.auth.user_id}
+							<form action="{"checkout.add..`$bid.product_id`"|fn_url}" method="POST" name="product_form_275" enctype="multipart/form-data" class="bb-bid-form">
+								<input type="hidden" name="product_data[{$bid.product_id}][product_id]" value="{$bid.product_id}"/>
+								<input type="hidden" name="product_data[{$bid.product_id}][amount]" value="{$bid.quantity}"/>
+								<input type="hidden" name="product_data[{$bid.product_id}][bid_id]" value="{$bid.bb_bid_id}"/>
+								<input type="hidden" name="product_data[{$bid.product_id}][request_id]" value="{$bid.request_id}"/>
+									<a class="request-page-btn 
+									{if $bid.user_id == $smarty.session.auth.user_id}
+									delete-offer-btn
+									{else}view-offer-btn{/if}" href="
+									{if $bid.user_id == $smarty.session.auth.user_id}
+										{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}
+									{elseif $request.user_id == $smarty.session.auth.user_id}
+										'#'
+										{* No href, only submit function *}
+									{else}
+										{* No href *}
+										{*{"{products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}*}
+
+									{/if}">
+										{if $bid.user_id == $smarty.session.auth.user_id}
+											{$lang.delete}
+										{else}
+											{if $request.user_id == $smarty.session.auth.user_id}
+												{$lang.accept}
+											{/if}
+										{/if}
+									</a>
+							</form>
+						{else}
+							<a class="request-page-btn {if $bid.user_id == $smarty.session.auth.user_id}delete-offer-btn{else}view-offer-btn{/if}" href="{if $bid.user_id == $smarty.session.auth.user_id}{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}{else}{"checkout.add&product_id=`$bid.product_id`&request_id=`$request.bb_request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}
+
+							{*{"{products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}*}
+
+							{/if}">
+								{if $bid.user_id == $smarty.session.auth.user_id}
+									{$lang.delete}
+								{else}
+									{if $request.user_id == $smarty.session.auth.user_id}
+										{$lang.accept}
+									{/if}
+								{/if}
+							</a>
+						{/if}
 						<div class="hyphenate bb-list-desc bb-list-field">
 						{if !empty($bid.full_description)}
 							{$bid.desc_trunc}
 							{*$bid.full_description*}
-							}
 						{else}
 							{$lang.no_description}
-												
 						{/if}
 						</div>
 					</div>

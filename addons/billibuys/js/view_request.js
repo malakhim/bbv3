@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+	// Set up countdown
 	$('.bb-time-remaining').each(function(){
 		var date = new Date($(this).attr('expiry') * 1000);
 		var expiry_date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -12,8 +14,16 @@ $(document).ready(function(){
 		});
 	});
 
+	// Hyphenate description, keeps it responsive even though limited chars being passed from backend
 	Hyphenator.run();
+	
+	// Submit functionality for accept button
+	$('.view-offer-btn').click(function(e){
+		$(this).parent().submit();
+		e.preventDefault();
+	});
 
+	// Edit link ajax functionality
 	$('.edit-bid-price').click(function(e){
 		var price_text = $(this).siblings('.bid-price');
 		var price_input_box = $(this).siblings('.bid-price-inputbox');
@@ -59,6 +69,7 @@ $(document).ready(function(){
 
 });
 
+// Set last hour to color:orange for countdown
 function highlightLastHour(periods){
 	if ($.countdown.periodsToSeconds(periods) <= 3600) { 
         $(this).addClass('countdown-highlight'); 
