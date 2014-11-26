@@ -7,7 +7,7 @@
 {/literal}
 
 <div id="info-box">
-	{include file="common_templates/image.tpl" image_width="80" image_height="80" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
+	{include file="common_templates/image.tpl" image_width="150" image_height="300" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
 	{*<div id="request-infobox-right">*}
 
 	{*</div>*}
@@ -48,7 +48,7 @@
 						{include file="common_templates/image.tpl" image_width="100" image_height="100" images=$bid.image show_thumbnail="Y" no_ids=true class="request-list-image"}
 					</div>
 					<div class="bb-list-txt">
-						<div class="bb-list-field bb-list-title">{$bid.product}</div>
+						<div class="bb-list-field bb-list-title"><a href="{"products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}">{$bid.product}</a></div>
 						<hr/>
 						{*<div class="bb-list-rating bb-list-field ratings-star-container">{*Placeholder for rating stars*}{*
 							{section name=num start=1 loop=6 step=1}
@@ -84,8 +84,6 @@
 										{* No href, only submit function *}
 									{else}
 										{* No href *}
-										{*{"{products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}*}
-
 									{/if}">
 										{if $bid.user_id == $smarty.session.auth.user_id}
 											{$lang.delete}
@@ -96,7 +94,7 @@
 										{/if}
 									</a>
 							</form>
-						{else}
+						{elseif $bid.user_id == $smarty.session.auth.user_id}
 							<a class="request-page-btn {if $bid.user_id == $smarty.session.auth.user_id}delete-offer-btn{else}view-offer-btn{/if}" href="{if $bid.user_id == $smarty.session.auth.user_id}{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}{else}{"checkout.add&product_id=`$bid.product_id`&request_id=`$request.bb_request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}
 
 							{*{"{products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}*}

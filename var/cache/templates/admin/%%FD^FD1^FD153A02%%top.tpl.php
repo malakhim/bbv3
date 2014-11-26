@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-22 13:59:29
+<?php /* Smarty version 2.6.18, created on 2014-11-25 14:32:51
          compiled from top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go'
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  '../customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl' => 1416224835,
+  '../customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl' => 1416884842,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -266,20 +266,20 @@ if ($this->_foreach['sec_level']['total'] > 0):
 			<div class="container_16">
 				<div class="grid_16 header-top-bar">
 					<?php $__parent_tpl_vars = $this->_tpl_vars; ?><ul id="second-top-nav-elements" class="row">
-	<li class="top_menu_item"><a href="<?php echo fn_url('billibuys.view'); ?>
-"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
-</a></li>
+	<a href="<?php echo fn_url('billibuys.view'); ?>
+"><li class="top_menu_item"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
+</li></a>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('buy', $this->getLanguage()); ?>
 
 		<ul class="top-nav-submenu header-solid">
 			
 			
-			<li class="submenu_item"><a href="<?php echo fn_url('billibuys.place_request'); ?>
-"><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
-</a></li>
-			<li class="submenu_item"><a href="<?php echo fn_url("orders.search"); ?>
-"><?php echo fn_get_lang_var('view_orders', $this->getLanguage()); ?>
-</a></li>
+			<a href="<?php echo fn_url('billibuys.place_request'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
+</li></a>
+			<a href="<?php echo fn_url("orders.search"); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('view_orders', $this->getLanguage()); ?>
+</li></a>
 		</ul>
 	</li>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('sell', $this->getLanguage()); ?>
@@ -287,15 +287,15 @@ if ($this->_foreach['sec_level']['total'] > 0):
 		<ul class="top-nav-submenu header-solid">
 			
 			
-			<li class="submenu_item"><a href="<?php echo fn_url('/vendor.php?dispatch=products.manage'); ?>
-"><?php echo fn_get_lang_var('block_products', $this->getLanguage()); ?>
-</a></li>
-			<li class="submenu_item"><a href="<?php echo fn_url('/vendor.php?dispatch=products.add'); ?>
-"><?php echo fn_get_lang_var('add_new_product', $this->getLanguage()); ?>
-</a></li>
-			<li class="submenu_item"><a href="<?php echo fn_url('/vendor.php?dispatch=orders.manage'); ?>
-"><?php echo fn_get_lang_var('sales', $this->getLanguage()); ?>
-</a></li>
+			<a href="<?php echo fn_url('/vendor.php?dispatch=products.manage'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('block_products', $this->getLanguage()); ?>
+</li></a>
+			<a href="<?php echo fn_url('/vendor.php?dispatch=products.add'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('add_new_product', $this->getLanguage()); ?>
+</li></a>
+			<a href="<?php echo fn_url('/vendor.php?dispatch=orders.manage'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('sales', $this->getLanguage()); ?>
+</li></a>
 		</ul>
 	</li>
 	<form method='get' action="<?php echo fn_url("billibuys.view"); ?>

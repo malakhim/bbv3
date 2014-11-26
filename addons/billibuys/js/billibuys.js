@@ -6,6 +6,8 @@ $(document).ready(function(){
 		 $('#second-top-nav').css('margin-left','-' + $('#second-top-nav').offset().left + 'px');
 	}
 
+	// Search box functions
+
 	if($('#input-search').length > 0){
 		var search_default_text = $('#input-search').val();
 
@@ -24,16 +26,24 @@ $(document).ready(function(){
 		// TODO: Add a function to put text back into place if focus is lost and text in field == ''
 	}
 
-	$('.submenu_item').click(function(){
-		$(this).find('a').click();
+	// $('.submenu_item').click(function(){
+	// 	$(this).find('a').click();
+	// });
+	// 
+	
+	$('.submenu-wrapper').each(function(){
+		$(this).css({
+			"width": $(this).next('.top-nav-submenu').width(),
+			"height": $(this).next('.top-nav-submenu').height(),
+		});
 	});
 
-	$('.top_menu_item').hover(function(){
-		$(this).find('a').css('color','#175A6C');
-		$(this).find('ul').css('visibility','visible');
+	$('.top_menu_item, .submenu-wrapper').hover(function(){
+		$(this).find('.submenu-wrapper').css('visibility','visible');
+		$(this).find('.top-nav-submenu').css('visibility','visible');
 	},function(){
-		$(this).find('a').css('color','white');
-		$(this).find('ul').css('visibility','hidden');
+		$(this).find('.submenu-wrapper').css('visibility','hidden');
+		$(this).find('.top-nav-submenu').css('visibility','hidden');
 	});
 
 });

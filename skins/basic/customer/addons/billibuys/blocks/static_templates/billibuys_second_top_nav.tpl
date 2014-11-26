@@ -1,20 +1,24 @@
 <ul id="second-top-nav-elements" class="row">
-	<li class="top_menu_item"><a href="{'billibuys.view'|fn_url}">{$lang.bb_browse}</a></li>
+	<a href="{'billibuys.view'|fn_url}"><li class="top_menu_item">{$lang.bb_browse}</li></a>
 	<li class="top_menu_item">{$lang.buy}
+		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
+			<div class="top-nav-triangle"></div>
 			{*Placeholder for my_requests for now*}
-			{*<li class="submenu_item"><a href="{"billibuys.view_requests&user_id=`$smarty.session.auth.user_id`"|fn_url}">{$lang.my_requests}</a></li>*}
-			<li class="submenu_item"><a href="{'billibuys.place_request'|fn_url}">{$lang.place_request}</a></li>
-			<li class="submenu_item"><a href="{"orders.search"|fn_url}">{$lang.view_orders}</a></li>
+			{*<a href="{"billibuys.view_requests&user_id=`$smarty.session.auth.user_id`"|fn_url}"><li class="submenu_item">{$lang.my_requests}</li></a>*}
+			<a href="{'billibuys.place_request'|fn_url}"><li class="submenu_item">{$lang.place_request}</li></a>
+			<a href="{"orders.search"|fn_url}"><li class="submenu_item">{$lang.view_orders}</li></a>
 		</ul>
 	</li>
 	<li class="top_menu_item">{$lang.sell}
+		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
+			<div class="top-nav-triangle"></div>
 			{*Placeholder for my_offers for now*}
-			{*<li class="submenu_item"><a href="{"billibuys.view_offers&user_id=`$smarty.session.auth.user_id`"|fn_url}">{$lang.my_offers}</a></li>*}
-			<li class="submenu_item"><a href="{'/vendor.php?dispatch=products.manage'|fn_url}">{$lang.block_products}</a></li>
-			<li class="submenu_item"><a href="{'/vendor.php?dispatch=products.add'|fn_url}">{$lang.add_new_product}</a></li>
-			<li class="submenu_item"><a href="{'/vendor.php?dispatch=orders.manage'|fn_url}">{$lang.sales}</a></li>
+			{*<a href="{"billibuys.view_offers&user_id=`$smarty.session.auth.user_id`"|fn_url}"><li class="submenu_item">{$lang.my_offers}</li></a>*}
+			<a href="{'/vendor.php?dispatch=products.manage'|fn_url}"><li class="submenu_item">{$lang.block_products}</li></a>
+			<a href="{'/vendor.php?dispatch=products.add'|fn_url}"><li class="submenu_item">{$lang.add_new_product}</li></a>
+			<a href="{'/vendor.php?dispatch=orders.manage'|fn_url}"><li class="submenu_item">{$lang.sales}</li></a>
 		</ul>
 	</li>
 	<form method='get' action="{"billibuys.view"|fn_url}" id="top-search-form" name="top_search_bar">

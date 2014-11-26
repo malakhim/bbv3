@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-24 12:46:45
+<?php /* Smarty version 2.6.18, created on 2014-11-26 14:10:57
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl', 2, false),)), $this); ?>
@@ -6,32 +6,36 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C
 fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell','block_products','add_new_product','sales'));
 ?>
 <?php  ob_start();  ?><ul id="second-top-nav-elements" class="row">
-	<li class="top_menu_item"><a href="<?php echo fn_url('billibuys.view'); ?>
-"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
-</a></li>
+	<a href="<?php echo fn_url('billibuys.view'); ?>
+"><li class="top_menu_item"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
+</li></a>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('buy', $this->getLanguage()); ?>
 
+		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
-									<li class="submenu_item"><a href="<?php echo fn_url('billibuys.place_request'); ?>
-"><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
-</a></li>
-			<li class="submenu_item"><a href="<?php echo fn_url("orders.search"); ?>
-"><?php echo fn_get_lang_var('view_orders', $this->getLanguage()); ?>
-</a></li>
+			<div class="top-nav-triangle"></div>
+									<a href="<?php echo fn_url('billibuys.place_request'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
+</li></a>
+			<a href="<?php echo fn_url("orders.search"); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('view_orders', $this->getLanguage()); ?>
+</li></a>
 		</ul>
 	</li>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('sell', $this->getLanguage()); ?>
 
+		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
-									<li class="submenu_item"><a href="<?php echo fn_url('/vendor.php?dispatch=products.manage'); ?>
-"><?php echo fn_get_lang_var('block_products', $this->getLanguage()); ?>
-</a></li>
-			<li class="submenu_item"><a href="<?php echo fn_url('/vendor.php?dispatch=products.add'); ?>
-"><?php echo fn_get_lang_var('add_new_product', $this->getLanguage()); ?>
-</a></li>
-			<li class="submenu_item"><a href="<?php echo fn_url('/vendor.php?dispatch=orders.manage'); ?>
-"><?php echo fn_get_lang_var('sales', $this->getLanguage()); ?>
-</a></li>
+			<div class="top-nav-triangle"></div>
+									<a href="<?php echo fn_url('/vendor.php?dispatch=products.manage'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('block_products', $this->getLanguage()); ?>
+</li></a>
+			<a href="<?php echo fn_url('/vendor.php?dispatch=products.add'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('add_new_product', $this->getLanguage()); ?>
+</li></a>
+			<a href="<?php echo fn_url('/vendor.php?dispatch=orders.manage'); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('sales', $this->getLanguage()); ?>
+</li></a>
 		</ul>
 	</li>
 	<form method='get' action="<?php echo fn_url("billibuys.view"); ?>
