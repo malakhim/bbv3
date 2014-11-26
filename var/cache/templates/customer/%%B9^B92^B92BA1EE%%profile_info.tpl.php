@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-21 11:41:53
+<?php /* Smarty version 2.6.18, created on 2014-11-26 14:47:15
          compiled from C:/wamp3/www/public_html/skins/basic/customer/blocks/static_templates/profile_info.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('text_profile_benefits','text_profile_details'));

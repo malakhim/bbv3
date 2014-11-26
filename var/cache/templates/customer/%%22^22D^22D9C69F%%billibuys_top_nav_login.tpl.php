@@ -1,13 +1,19 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 14:27:00
+<?php /* Smarty version 2.6.18, created on 2014-11-26 14:51:27
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_top_nav_login.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_top_nav_login.tpl', 4, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_top_nav_login.tpl', 5, false),array('modifier', 'count', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_top_nav_login.tpl', 5, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('block_my_account','sign_out','sign_in','register','sign_in'));
+fn_preload_lang_vars(array('view_cart','block_my_account','sign_out','sign_in','register','sign_in'));
 ?>
 	<div class="buttons-container float-right">
 
-		<?php if ($_SESSION['auth']['user_id']): ?>
+		<?php if ($_SESSION['auth']['user_id'] > 0): ?>
+			<?php if ($_SESSION['cart']['products']): ?>
+				<a href="<?php echo fn_url("checkout.cart"); ?>
+" rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('view_cart', $this->getLanguage()); ?>
+&nbsp;(<?php echo count($_SESSION['cart']['products']); ?>
+)</a></span>
+			<?php endif; ?>
 			<a href="<?php echo fn_url("profiles.update"); ?>
 " rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('block_my_account', $this->getLanguage()); ?>
 </a></span>

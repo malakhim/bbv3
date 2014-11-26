@@ -1,6 +1,9 @@
 	<div class="buttons-container float-right">
 
-		{if $smarty.session.auth.user_id}
+		{if $smarty.session.auth.user_id > 0}
+			{if $smarty.session.cart.products}
+				<a href="{"checkout.cart"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.view_cart}&nbsp;({$smarty.session.cart.products|@count})</a></span>
+			{/if}
 			<a href="{"profiles.update"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.block_my_account}</a></span>
 			{*<a href="{"auth.logout?redirect_url=`$config.current_url`"|fn_url}" rel="nofollow" class="account">*}<a href="{"auth.logout"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.sign_out}</a></span>
 		{else}
