@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 14:10:57
+<?php /* Smarty version 2.6.18, created on 2014-11-26 14:27:00
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl', 2, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell
 "><li class="top_menu_item"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
 </li></a>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('buy', $this->getLanguage()); ?>
-
+&nbsp;&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>
@@ -23,7 +23,7 @@ fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell
 		</ul>
 	</li>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('sell', $this->getLanguage()); ?>
-
+&nbsp;&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>

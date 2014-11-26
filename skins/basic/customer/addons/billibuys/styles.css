@@ -1149,6 +1149,11 @@ html.ie9 .how_does_it_work_block div {
 	color: white;
 }
 
+.top_menu_item .fa{
+	font-size: 1em;
+	font-weight: bolder;
+}
+
 .top-nav-submenu li a:hover{
 	background-color: rgba(63,178,209,0.7);
 }
