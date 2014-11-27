@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-27 15:05:02
+<?php /* Smarty version 2.6.18, created on 2014-11-27 15:47:59
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/about_top.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('about_line_5'));
