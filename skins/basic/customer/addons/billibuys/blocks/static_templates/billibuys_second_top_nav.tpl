@@ -1,6 +1,6 @@
 <ul id="second-top-nav-elements" class="row">
 	<a href="{'billibuys.view'|fn_url}"><li class="top_menu_item">{$lang.bb_browse}</li></a>
-	<li class="top_menu_item">{$lang.buy}&nbsp;&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+	<li class="top_menu_item">{$lang.buy}&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>
@@ -10,7 +10,7 @@
 			<a href="{"orders.search"|fn_url}"><li class="submenu_item">{$lang.view_orders}</li></a>
 		</ul>
 	</li>
-	<li class="top_menu_item">{$lang.sell}&nbsp;&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+	<li class="top_menu_item">{$lang.sell}&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>

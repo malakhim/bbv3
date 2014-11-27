@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-17 22:33:17
+<?php /* Smarty version 2.6.18, created on 2014-11-26 14:55:28
          compiled from views/orders/components/orders_search_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/orders/components/orders_search_form.tpl', 15, false),array('modifier', 'fn_get_statuses', 'views/orders/components/orders_search_form.tpl', 26, false),array('modifier', 'replace', 'views/orders/components/orders_search_form.tpl', 77, false),array('function', 'html_options', 'views/orders/components/orders_search_form.tpl', 33, false),array('function', 'html_checkboxes', 'views/orders/components/orders_search_form.tpl', 36, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('total','order_status','order_id','search','delete'))
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'buttons/button.tpl' => 1406444269,
+  'buttons/button.tpl' => 1416450827,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -143,7 +143,6 @@ unset($_smarty_tpl_vars);
 "<?php endif; ?>><?php echo $this->_tpl_vars['but_text']; ?>
 </a></span></span>
 
-<?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 </div>
 </form>

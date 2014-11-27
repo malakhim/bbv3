@@ -42,8 +42,8 @@ $(document).ready(function(){
 		$(this).find('.submenu-wrapper').css('visibility','visible');
 		$(this).find('.top-nav-submenu').css('visibility','visible');
 	},function(){
-		$(this).find('.submenu-wrapper').css('visibility','hidden');
-		$(this).find('.top-nav-submenu').css('visibility','hidden');
+		// $(this).find('.submenu-wrapper').css('visibility','hidden');
+		// $(this).find('.top-nav-submenu').css('visibility','hidden');
 	});
 
 });

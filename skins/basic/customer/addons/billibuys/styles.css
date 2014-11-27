@@ -873,7 +873,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .top-links-right{
-	font-size: 2em;
+	font-size: 1em;
 }
 
 .top-links-right a{
@@ -992,7 +992,7 @@ html.ie9 .how_does_it_work_block div {
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	border-radius: 30px;
-	margin-top: -5px;
+	margin-top: -10px;
 	height: 37px;
 	margin-left: 21px;
 	width: 220px;
@@ -1080,7 +1080,6 @@ html.ie9 .how_does_it_work_block div {
 }
 
 /*TOP MENU ITEMS*/
-
 
 .header-solid{
 	background: #1e90bd; /* Old browsers */
@@ -1189,7 +1188,7 @@ html.ie9 .how_does_it_work_block div {
 
 .top_menu_item{
 	font-family: "Roboto";
-	font-size: 15pt;
+	font-size: 1.4em;
 	padding-right: 15px;
 	color: white;
 	cursor: pointer;
