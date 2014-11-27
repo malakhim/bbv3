@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 14:48:00
+<?php /* Smarty version 2.6.18, created on 2014-11-27 15:08:50
          compiled from top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go'
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  '../customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl' => 1416972417,
+  '../customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl' => 1417059546,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -270,7 +270,7 @@ if ($this->_foreach['sec_level']['total'] > 0):
 "><li class="top_menu_item"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
 </li></a>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('buy', $this->getLanguage()); ?>
-&nbsp;&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>
@@ -285,7 +285,7 @@ if ($this->_foreach['sec_level']['total'] > 0):
 		</ul>
 	</li>
 	<li class="top_menu_item"><?php echo fn_get_lang_var('sell', $this->getLanguage()); ?>
-&nbsp;&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>
