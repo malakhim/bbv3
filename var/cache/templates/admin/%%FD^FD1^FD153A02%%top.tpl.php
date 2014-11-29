@@ -1,16 +1,16 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-27 15:37:19
+<?php /* Smarty version 2.6.18, created on 2014-11-29 23:51:42
          compiled from top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip','bb_browse','buy','place_request','view_orders','sell','block_products','add_new_product','sales'));
+fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip'));
 ?>
 <?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  '../customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl' => 1417059546,
+  'common_templates/quick_search.tpl' => 1406444267,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -263,54 +263,71 @@ if ($this->_foreach['sec_level']['total'] > 0):
 <?php else: ?>
 	<div class="helper-container">
 		<div id="ci_top_wrapper" class="header clearfix header-solid">
-			<div class="container_16">
-				<div class="grid_16 header-top-bar">
-					<?php $__parent_tpl_vars = $this->_tpl_vars; ?><ul id="second-top-nav-elements" class="row">
-	<a href="<?php echo fn_url('billibuys.view'); ?>
-"><li class="top_menu_item"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
-</li></a>
-	<li class="top_menu_item"><?php echo fn_get_lang_var('buy', $this->getLanguage()); ?>
-&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
-		<div class="submenu-wrapper"></div>
-		<ul class="top-nav-submenu header-solid">
-			<div class="top-nav-triangle"></div>
-			
-			
-			<a href="<?php echo fn_url('billibuys.place_request'); ?>
-"><li class="submenu_item"><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
-</li></a>
-			<a href="<?php echo fn_url("orders.search"); ?>
-"><li class="submenu_item"><?php echo fn_get_lang_var('view_orders', $this->getLanguage()); ?>
-</li></a>
-		</ul>
-	</li>
-	<li class="top_menu_item"><?php echo fn_get_lang_var('sell', $this->getLanguage()); ?>
-&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
-		<div class="submenu-wrapper"></div>
-		<ul class="top-nav-submenu header-solid">
-			<div class="top-nav-triangle"></div>
-			
-			
-			<a href="<?php echo fn_url('/vendor.php?dispatch=products.manage'); ?>
-"><li class="submenu_item"><?php echo fn_get_lang_var('block_products', $this->getLanguage()); ?>
-</li></a>
-			<a href="<?php echo fn_url('/vendor.php?dispatch=products.add'); ?>
-"><li class="submenu_item"><?php echo fn_get_lang_var('add_new_product', $this->getLanguage()); ?>
-</li></a>
-			<a href="<?php echo fn_url('/vendor.php?dispatch=orders.manage'); ?>
-"><li class="submenu_item"><?php echo fn_get_lang_var('sales', $this->getLanguage()); ?>
-</li></a>
-		</ul>
-	</li>
-	<form method='get' action="<?php echo fn_url("billibuys.view"); ?>
-" id="top-search-form" name="top_search_bar">
-    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="<?php if ($this->_tpl_vars['_REQUEST']['search']): ?><?php echo $this->_tpl_vars['_REQUEST']['search']; ?>
-<?php else: ?>Enter an item you want to sell<?php endif; ?>">
-    	  <i class="fa fa-search" id="search-submit"></i>
-	</form>
-</ul><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-				</div>
+			<div class="container_16 ">	
+			<div class="grid_16 header-top-bar">
+			 
+				<div class="grid_8 alpha ">
+					&nbsp;
 			</div>
+		<div class="grid_8 omega ">
+					&nbsp;
+			</div>
+		<div class="grid_10 alpha ">
+			 
+				<div class="	float-left">
+								<div class="logo-container">
+							<a href="/" style="background: url('/skins/basic/customer/images/Logo_sml_8.png') no-repeat; width:150px; height:53px;" title="BilliBuys - A Billion Buys!" class="logo"></a>
+						</div>
+			</div><div class="	float-left">
+				<ul id="second-top-nav-elements" class="row">
+			<a href="/view-requests"><li class="top_menu_item">Browse</li></a>
+			<li class="top_menu_item">Buy&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+				<div class="submenu-wrapper" style="width: 137px; height: 71px; visibility: hidden;"></div>
+				<ul class="top-nav-submenu header-solid" style="visibility: hidden;">
+					<div class="top-nav-triangle"></div>
+											<a href="/place-request"><li class="submenu_item">Place Request</li></a>
+					<a href="/index.php?dispatch=orders.search"><li class="submenu_item">View orders</li></a>
+				</ul>
+			</li>
+			<li class="top_menu_item">Sell&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+				<div class="submenu-wrapper" style="width: 159px; height: 107px;"></div>
+				<ul class="top-nav-submenu header-solid">
+					<div class="top-nav-triangle"></div>
+											<a href="/vendor.php?dispatch=products.manage"><li class="submenu_item">Products</li></a>
+					<a href="/vendor.php?dispatch=products.add"><li class="submenu_item">Add new product</li></a>
+					<a href="/vendor.php?dispatch=orders.manage"><li class="submenu_item">Sales</li></a>
+				</ul>
+			</li>
+			<form method="get" action="/view-requests" id="top-search-form" name="top_search_bar">
+		    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="Enter an item you want to sell">
+		    	  <i class="fa fa-search" id="search-submit"></i>
+			</form>
+		</ul>
+			</div>
+			</div>
+		<div class="grid_6 omega top-links-right">
+			 
+				<div class=" top-nav-login float-right">
+					<div class="buttons-container float-right">
+
+											<a href="/cart" rel="nofollow" class="account"><span class="top_menu_item">View cart&nbsp;(1)</span></a>
+								<a href="/profiles-update" rel="nofollow" class="account"><span class="top_menu_item">My Account</span></a>
+					<a href="/logout" rel="nofollow" class="account"><span class="top_menu_item">Sign Out</span></a>
+					</div>
+
+			</div>
+			</div>
+			<div class="clear"></div>
+
+			</div>
+			<div class="clear"></div>
+		<div class="grid_16 ">
+					&nbsp;
+			</div>
+			<div class="clear"></div>
+
+			<div class="clear"></div>
 		</div>
+		<!--ci_top_wrapper--></div>
 	</div>
 <?php endif; ?>

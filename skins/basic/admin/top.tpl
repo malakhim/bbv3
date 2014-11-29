@@ -128,11 +128,72 @@
 {else}
 	<div class="helper-container">
 		<div id="ci_top_wrapper" class="header clearfix header-solid">
-			<div class="container_16">
-				<div class="grid_16 header-top-bar">
-					{include file="../customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl"}
-				</div>
+			<div class="container_16 ">	
+			<div class="grid_16 header-top-bar">
+			 
+				<div class="grid_8 alpha ">
+					&nbsp;
 			</div>
+		<div class="grid_8 omega ">
+					&nbsp;
+			</div>
+		<div class="grid_10 alpha ">
+			 
+				<div class="	float-left">
+				{*TODO: Include the customer-side version of this as a smarty include*}
+				<div class="logo-container">
+							<a href="/" style="background: url('/skins/basic/customer/images/Logo_sml_8.png') no-repeat; width:150px; height:53px;" title="BilliBuys - A Billion Buys!" class="logo"></a>
+						</div>
+			</div><div class="	float-left">
+				<ul id="second-top-nav-elements" class="row">
+			<a href="/view-requests"><li class="top_menu_item">Browse</li></a>
+			<li class="top_menu_item">Buy&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+				<div class="submenu-wrapper" style="width: 137px; height: 71px; visibility: hidden;"></div>
+				<ul class="top-nav-submenu header-solid" style="visibility: hidden;">
+					<div class="top-nav-triangle"></div>
+											<a href="/place-request"><li class="submenu_item">Place Request</li></a>
+					<a href="/index.php?dispatch=orders.search"><li class="submenu_item">View orders</li></a>
+				</ul>
+			</li>
+			<li class="top_menu_item">Sell&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
+				<div class="submenu-wrapper" style="width: 159px; height: 107px;"></div>
+				<ul class="top-nav-submenu header-solid">
+					<div class="top-nav-triangle"></div>
+											<a href="/vendor.php?dispatch=products.manage"><li class="submenu_item">Products</li></a>
+					<a href="/vendor.php?dispatch=products.add"><li class="submenu_item">Add new product</li></a>
+					<a href="/vendor.php?dispatch=orders.manage"><li class="submenu_item">Sales</li></a>
+				</ul>
+			</li>
+			<form method="get" action="/view-requests" id="top-search-form" name="top_search_bar">
+		    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="Enter an item you want to sell">
+		    	  <i class="fa fa-search" id="search-submit"></i>
+			</form>
+		</ul>
+			</div>
+			</div>
+		<div class="grid_6 omega top-links-right">
+			 
+				<div class=" top-nav-login float-right">
+					<div class="buttons-container float-right">
+
+											<a href="/cart" rel="nofollow" class="account"><span class="top_menu_item">View cart&nbsp;(1)</span></a>
+								<a href="/profiles-update" rel="nofollow" class="account"><span class="top_menu_item">My Account</span></a>
+					<a href="/logout" rel="nofollow" class="account"><span class="top_menu_item">Sign Out</span></a>
+					</div>
+
+			</div>
+			</div>
+			<div class="clear"></div>
+
+			</div>
+			<div class="clear"></div>
+		<div class="grid_16 ">
+					&nbsp;
+			</div>
+			<div class="clear"></div>
+
+			<div class="clear"></div>
 		</div>
+		<!--ci_top_wrapper--></div>
 	</div>
 {/if}

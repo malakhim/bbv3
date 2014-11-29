@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-27 15:08:53
+<?php /* Smarty version 2.6.18, created on 2014-11-28 20:58:06
          compiled from addons/bundled_products/hooks/product_picker/table_column_options.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/bundled_products/hooks/product_picker/table_column_options.post.tpl', 17, false),array('modifier', 'format_price', 'addons/bundled_products/hooks/product_picker/table_column_options.post.tpl', 20, false),array('modifier', 'unescape', 'addons/bundled_products/hooks/product_picker/table_column_options.post.tpl', 20, false),)), $this); ?>

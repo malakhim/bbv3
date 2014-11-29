@@ -537,14 +537,6 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: 0px;
 }
 
-.logo-container{
-	min-height: 53px;
-}
-
-.logo-container .logo{
-	margin-top:-10px;
-}
-
 .flat_link{
 	cursor: pointer;
 }
@@ -872,29 +864,6 @@ html.ie9 .how_does_it_work_block div {
 	width: 50%;
 }
 
-.top-links-right{
-	font-size: 1em;
-}
-
-.top-links-right a{
-	color: white;
-}
-
-.top-links-right a:hover{
-	text-decoration: none;
-}
-
-.top-links-right span.flat-btn{
-	cursor: pointer;
-}
-
-.top-links-right span.flat-btn:hover{
-	background-color: #1B7B9E;
-}
-
-.top-my-account{
-	margin-top:3px;
-}
 
 #index #ci_central_wrapper .container_16{
 	width: 100%;
@@ -982,25 +951,6 @@ html.ie9 .how_does_it_work_block div {
 	padding-left: 50%;
 }
 
-#top-search-form .input-search{
-	background-color: rgba(0, 104, 133, 0.38);
-	color: white;
-	display: inline;
-	padding-left: 10px;
-	border: 1px solid #e0e0e0;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-radius: 30px;
-	margin-top: -14px;
-	height: 37px;
-	margin-left: 21px;
-	width: 220px;
-	font-size: 1.1em;
-}
-
-#top-search-form{
-	display:inline;
-}
 
 #index .grid_16.header-top-bar{
 	margin-left: 1%;
@@ -1022,32 +972,12 @@ html.ie9 .how_does_it_work_block div {
 	border: 1px solid #e0e0e0;
 }
 
-#search-submit{
-	color: white;
-	cursor: pointer;
-	font-size: 1.9em;
-	padding: 7px;
-	margin-left: -7px;
-}
-
-#search-submit:hover{
-	color:#175A6C;
-}
-
 @media screen and (max-width: 1050px){
 	.top_menu_item{
 		padding-left: 0;
 	}
 }
 
-.top-nav-login{
-	margin-top: -3px;
-}
-
-.top-nav-login .top_menu_item{
-	padding-left: 25px;
-	padding-right: 10px;	
-}
 
 .form-field label.label-inline{
 	display: inline;
@@ -1079,6 +1009,71 @@ html.ie9 .how_does_it_work_block div {
 }
 
 /*TOP MENU ITEMS*/
+
+.top-nav-login{
+	margin-top: -3px;
+}
+
+.top-nav-login .top_menu_item{
+	padding-left: 25px;
+	padding-right: 10px;	
+}
+
+.top-links-right{
+	font-size: 1em;
+}
+
+.top-links-right a{
+	color: white;
+}
+
+.top-links-right a:hover{
+	text-decoration: none;
+}
+
+.top-links-right span.flat-btn{
+	cursor: pointer;
+}
+
+.top-links-right span.flat-btn:hover{
+	background-color: #1B7B9E;
+}
+
+.top-my-account{
+	margin-top:3px;
+}
+
+#search-submit{
+	color: white;
+	cursor: pointer;
+	font-size: 1.9em;
+	padding: 7px;
+	margin-left: -7px;
+}
+
+#search-submit:hover{
+	color:#175A6C;
+}
+
+#top-search-form .input-search{
+	background-color: rgba(0, 104, 133, 0.38);
+	color: white;
+	display: inline;
+	padding-left: 10px;
+	border: 1px solid #e0e0e0;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	margin-top: -14px;
+	height: 37px;
+	margin-left: 21px;
+	width: 220px;
+	font-size: 1.1em;
+}
+
+#top-search-form{
+	display:inline;
+}
 
 .header-solid{
 	background: #1e90bd; /* Old browsers */
@@ -1229,6 +1224,14 @@ html.ie9 .how_does_it_work_block div {
 
 #index .top-nav-triangle{
 	border-color: transparent transparent rgba(0,104,133,0.38) transparent;
+}
+
+.logo-container{
+	min-height: 53px;
+}
+
+.logo-container .logo{
+	margin-top:-10px;
 }
 
 /* REQUEST PAGE ITEMS */
@@ -1399,4 +1402,8 @@ html.ie9 .how_does_it_work_block div {
 .bb-list-title a:hover{
 	text-decoration: none;
 	color: rgb(244,167,74);
+}
+.top-nav-login .buttons-container {
+  padding: 0;
+  margin: 0;
 }

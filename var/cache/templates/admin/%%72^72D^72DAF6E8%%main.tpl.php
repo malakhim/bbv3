@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-27 15:37:19
+<?php /* Smarty version 2.6.18, created on 2014-11-29 23:51:43
          compiled from main.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'main.tpl', 15, false),array('modifier', 'fn_get_notifications', 'main.tpl', 24, false),array('modifier', 'lower', 'main.tpl', 26, false),array('modifier', 'is_array', 'main.tpl', 58, false),array('modifier', 'reset', 'main.tpl', 59, false),array('modifier', 'fn_revisions_is_active', 'main.tpl', 63, false),array('modifier', 'fn_url', 'main.tpl', 72, false),array('modifier', 'unescape', 'main.tpl', 93, false),array('modifier', 'strip_tags', 'main.tpl', 93, false),array('block', 'notes', 'main.tpl', 52, false),array('block', 'hook', 'main.tpl', 71, false),)), $this); ?>
@@ -145,7 +145,7 @@ if ($this->_foreach['f_b']['total'] > 0):
 		<?php endif; ?>
 		<?php $this->_tag_stack[] = array('hook', array('name' => "index:main_content")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 
-		<div id="main_column<?php if (! $this->_tpl_vars['auth']['user_id'] || $this->_tpl_vars['view_mode'] == 'simple'): ?>_login<?php endif; ?>" class="clear">
+		<div id="main_column<?php if (! $this->_tpl_vars['auth']['user_id'] || $this->_tpl_vars['view_mode'] == 'simple'): ?>_login<?php endif; ?>">
 			<?php echo $this->_smarty_vars['capture']['content']; ?>
 
 		<!--main_column<?php if (! $this->_tpl_vars['auth']['user_id'] || $this->_tpl_vars['view_mode'] == 'simple'): ?>_login<?php endif; ?>--></div>

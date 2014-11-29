@@ -2161,7 +2161,7 @@ a.users-online:hover {
 	background: url(images/logo_community.gif) no-repeat;
 	width: 72px;
 	height: 18px;
-	margin: 8px 10px 0 !important;
+	margin: 8px 10px 0;
 }
 .logo-pro {
 	background: url(images/logo_pro.gif) no-repeat;

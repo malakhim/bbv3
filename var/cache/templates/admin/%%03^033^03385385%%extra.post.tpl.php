@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-25 14:32:53
+<?php /* Smarty version 2.6.18, created on 2014-11-29 18:09:50
          compiled from addons/discussion/hooks/index/extra.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_check_permissions', 'addons/discussion/hooks/index/extra.post.tpl', 15, false),array('modifier', 'defined', 'addons/discussion/hooks/index/extra.post.tpl', 16, false),array('modifier', 'fn_url', 'addons/discussion/hooks/index/extra.post.tpl', 46, false),array('modifier', 'default', 'addons/discussion/hooks/index/extra.post.tpl', 70, false),array('modifier', 'fn_check_view_permissions', 'addons/discussion/hooks/index/extra.post.tpl', 71, false),array('modifier', 'truncate', 'addons/discussion/hooks/index/extra.post.tpl', 95, false),array('function', 'cycle', 'addons/discussion/hooks/index/extra.post.tpl', 36, false),)), $this); ?>

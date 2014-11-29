@@ -55,7 +55,7 @@
 		{/if}
 		{hook name="index:main_content"}{/hook}
 
-		<div id="main_column{if !$auth.user_id || $view_mode == 'simple'}_login{/if}" class="clear">
+		<div id="main_column{if !$auth.user_id || $view_mode == 'simple'}_login{/if}">
 			{$smarty.capture.content}
 		<!--main_column{if !$auth.user_id || $view_mode == 'simple'}_login{/if}--></div>
 	</td>
