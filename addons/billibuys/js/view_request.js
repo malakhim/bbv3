@@ -3,7 +3,7 @@ $(document).ready(function(){
 	// Set up countdown
 	$('.bb-time-remaining').each(function(){
 		var date = new Date($(this).attr('expiry') * 1000);
-		var expiry_date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+		var expiry_date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds());
 		$(this).countdown({
 			until:expiry_date,
 			compact: true,

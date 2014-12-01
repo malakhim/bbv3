@@ -100,6 +100,7 @@
 				`description` VARCHAR(500),
 				`max_price` DECIMAL(10,2),
 				`over_max_price` tinyint(1) ZEROFILL unsigned NOT NULL,
+				`quantity` int(11) unsigned NOT NULL,
 				PRIMARY KEY (`bb_request_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -111,6 +112,7 @@
 				`description` VARCHAR(500),
 				`max_price` DECIMAL(10,2),
 				`over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
+				`quantity` int(11) unsigned NOT NULL,
 				PRIMARY KEY (`bb_request_item_archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -361,7 +363,8 @@
 			<item lang="EN" id="title_description">e.g. Sony Bravia Television</item>
 			<item lang="EN" id="desc_description">e.g. 55 Inch LED TV. (The more descriptive you are, the better the offers become)</item>
 			<item lang="EN" id="maxprice_description">e.g. 15.95</item>
-			<item lang="EN" id="maxprice_description">Select a request expiry date</item>
+			<item lang="EN" id="expiry_description">e.g. 13/05/2055</item>
+			<item lang="EN" id="desired_quantity_description">Select a request expiry date</item>
 
 		<!-- Frontend billibuys.view-request variables -->
 		<item lang="EN" id="ends">Ends</item>

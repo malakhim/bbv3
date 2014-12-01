@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-01 20:50:17
+<?php /* Smarty version 2.6.18, created on 2014-12-02 03:43:43
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 37, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 70, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 148, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 37, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 68, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 151, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_request_title','title_description','description','desc_description','desc_description','max_price','maxprice_description','bb_allow_over_max_price','bb_allow_over_max_price','max_price_within','bb_select_expiry_date','expiry_description','category','image','submit','delete','bb_error_validator_price_format','twg_msg_date_invalid','place_request'));
+fn_preload_lang_vars(array('bb_request_title','title_description','description','desc_description','desc_description','max_price','maxprice_description','bb_allow_over_max_price','bb_allow_over_max_price','max_price_within','desired_amount','desired_quantity_description','bb_select_expiry_date','expiry_description','category','image','submit','delete','bb_error_validator_price_format','twg_msg_date_invalid','place_request'));
 ?>
 <?php 
 
@@ -52,16 +52,22 @@ fn_preload_lang_vars(array('bb_request_title','title_description','description',
 		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['max_price']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['max_price']; ?>
 <?php endif; ?>" title="<?php echo fn_get_lang_var('maxprice_description', $this->getLanguage()); ?>
 " class="input-text cm-hint" />
-	</div>
-
-	<div class="form-field">
+		
 		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
 " class="checkbox cm-check-items" <?php if (( $this->_tpl_vars['_REQUEST']['request']['allow_over_max_price'] == 1 )): ?> checked="checked"<?php endif; ?>/>
 		
 		<label for="bb_over_max_price" class="label-inline"><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
 &nbsp;<a class="cm-tooltip" title="<?php echo smarty_modifier_replace(fn_get_lang_var('max_price_within', $this->getLanguage()), '[max_price_variation]', $this->_tpl_vars['max_price_variation']); ?>
 ">(?)</a></label>
-	</div>	
+	</div>
+
+	<div class="form-field">
+		<label for="bb_desired_qty" class="cm-trim cm-required"><?php echo fn_get_lang_var('desired_amount', $this->getLanguage()); ?>
+</label>
+		<input id="bb_desired_qty" type="number" name="request[quantity]" size="32" maxlength="32" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['max_price']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['max_price']; ?>
+<?php endif; ?>" title="<?php echo fn_get_lang_var('desired_quantity_description', $this->getLanguage()); ?>
+" class="input-text" min="0" maxlength="11" cm-value-integer/>
+	</div>
 
 	<div class="form-field">
 			<label for="bb_expiry_date" class="cm-trim cm-required cm-regexp"><?php echo fn_get_lang_var('bb_select_expiry_date', $this->getLanguage()); ?>

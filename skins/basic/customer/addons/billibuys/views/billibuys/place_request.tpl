@@ -48,12 +48,15 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 	<div class="form-field">
 		<label for="bb_max_price" class="cm-trim cm-regexp">{$lang.max_price}</label>
 		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="{if $smarty.request.request.max_price}{$smarty.request.request.max_price}{/if}" title="{$lang.maxprice_description}" class="input-text cm-hint" />
-	</div>
-
-	<div class="form-field">
+		
 		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items" {if ($smarty.request.request.allow_over_max_price == 1)} checked="checked"{/if}/>
 		
 		<label for="bb_over_max_price" class="label-inline">{$lang.bb_allow_over_max_price}&nbsp;<a class="cm-tooltip" title="{$lang.max_price_within|replace:'[max_price_variation]':$max_price_variation}">(?)</a></label>
+	</div>
+
+	<div class="form-field">
+		<label for="bb_desired_qty" class="cm-trim cm-required">{$lang.desired_amount}</label>
+		<input id="bb_desired_qty" type="number" name="request[quantity]" size="32" maxlength="32" value="{if $smarty.request.request.max_price}{$smarty.request.request.max_price}{/if}" title="{$lang.desired_quantity_description}" class="input-text" min="0" maxlength="11" cm-value-integer/>
 	</div>
 
 	<div class="form-field">
