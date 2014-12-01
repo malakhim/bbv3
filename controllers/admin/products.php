@@ -487,6 +487,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // 'Management' page
 //
 if ($mode == 'manage' || $mode == 'p_subscr') {
+	$view->assign('use_customer_skin',true);
 	unset($_SESSION['product_ids']);
 	unset($_SESSION['selected_fields']);
 

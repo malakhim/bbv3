@@ -162,6 +162,9 @@ class SmartyEngine_Core extends Smarty
 
 			$area = $this->_tpl_vars['skin_area'];
 			$path = ($area == 'admin') ? $area_skin_path : $customer_skin_path;
+
+			$customer_area = 'customer';
+
 			$template_dir = $path . '/' . $area;
 
 			$dir_templates = DIR_CACHE_TEMPLATES;
