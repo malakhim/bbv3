@@ -55,8 +55,8 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 	</div>
 
 	<div class="form-field">
-		<label for="bb_desired_qty" class="cm-trim cm-required">{$lang.desired_amount}</label>
-		<input id="bb_desired_qty" type="number" name="request[quantity]" size="32" maxlength="32" value="{if $smarty.request.request.max_price}{$smarty.request.request.max_price}{/if}" title="{$lang.desired_quantity_description}" class="input-text" min="0" maxlength="11" cm-value-integer/>
+		<label for="bb_desired_qty" class="cm-trim cm-required cm-custom (check_positive)">{$lang.desired_amount}</label>
+		<input id="bb_desired_qty" type="number" id="bb_desired_qty" name="request[quantity]" size="32" maxlength="32" value="{if $smarty.request.request.max_price}{$smarty.request.request.max_price}{/if}" title="{$lang.desired_quantity_description}" class="input-text" min="0" maxlength="11" cm-value-integer/>
 	</div>
 
 	<div class="form-field">
@@ -104,6 +104,17 @@ regexp['bb_expiry_date'] = {
 	regexp: /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/{/literal}, message: "{$lang.twg_msg_date_invalid|escape:'javascript'}"
 {literal}
 };
+{/literal}
+{literal}
+function fn_check_positive(id){
+	var elm = $('#' + id);
+
+	if(elm.val() < 0){
+		return lang.error_validator_integer;
+	}else{
+		return true;
+	}
+}
 {/literal}
 //]]>
 </script>
