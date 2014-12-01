@@ -236,6 +236,8 @@
 		<item lang="EN" id="no_current_requests_found">There are no current requests</item>
 		<item lang="EN" id="lowest_offer">Best Offer</item>
 		<item lang="EN" id="bid">Bid</item>
+		<item lang="EN" id="enter_item_to_sell">Enter item you want to sell here</item>
+		<item lang="EN" id="max_price_within">Offers priced within [max_price_variation]% of your price will be allowed</item>
 
 		<!-- Home page variables -->
 		<item lang="EN" id="about">About</item>
@@ -359,6 +361,7 @@
 			<item lang="EN" id="title_description">e.g. Sony Bravia Television</item>
 			<item lang="EN" id="desc_description">e.g. 55 Inch LED TV. (The more descriptive you are, the better the offers become)</item>
 			<item lang="EN" id="maxprice_description">e.g. 15.95</item>
+			<item lang="EN" id="maxprice_description">Select a request expiry date</item>
 
 		<!-- Frontend billibuys.view-request variables -->
 		<item lang="EN" id="ends">Ends</item>

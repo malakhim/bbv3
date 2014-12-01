@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-01 13:36:56
+<?php /* Smarty version 2.6.18, created on 2014-12-01 20:50:17
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl', 2, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell','block_products','add_new_product','sales'));
+fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell','block_products','add_new_product','sales','enter_item_to_sell'));
 ?>
 <?php  ob_start();  ?><ul id="second-top-nav-elements" class="row">
 	<a href="<?php echo fn_url('billibuys.view'); ?>
@@ -40,8 +40,9 @@ fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell
 	</li>
 	<form method='get' action="<?php echo fn_url("billibuys.view"); ?>
 " id="top-search-form" name="top_search_bar">
-    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="<?php if ($this->_tpl_vars['_REQUEST']['search']): ?><?php echo $this->_tpl_vars['_REQUEST']['search']; ?>
-<?php else: ?>Enter an item you want to sell<?php endif; ?>">
+    	  <input type="text" class="form-control input-text input-search cm-hint" name="search" title="<?php echo fn_get_lang_var('enter_item_to_sell', $this->getLanguage()); ?>
+" id="input-search" value="<?php if ($this->_tpl_vars['_REQUEST']['search']): ?><?php echo $this->_tpl_vars['_REQUEST']['search']; ?>
+<?php endif; ?>">
     	  <i class="fa fa-search" id="search-submit"></i>
 	</form>
 </ul><?php  ob_end_flush();  ?>

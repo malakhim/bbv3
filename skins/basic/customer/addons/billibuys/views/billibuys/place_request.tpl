@@ -6,6 +6,7 @@ Any url in CS-Cart uses the format dispatch=[controller].[mode], with the [mode]
 
 {*Datepicker external js, for the "Expiry Date" field - Loaded at beginning as common practice.*}
 <script type="text/javascript" src="js/datepicker.js"></script>
+<script type="text/javascript" src="addons/billibuys/js/moment-locales.min.js"></script>
 <script type="text/javascript" src="addons/billibuys/js/place_request.js"></script>
 {*
 Form wrapper for the entire thing, so that all data is sent back to server in one group. Parameters:
@@ -36,28 +37,31 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 
 			value: All forms should re-input data if user submits and something goes wrong and they have to click back. This smarty value basically says to input the "title" value of the "request" array from the REQUEST array (http://php.net/manual/en/reserved.variables.request.php) into here so user won't have to type it again. It'll be blank if there is no REQUEST value matching it.
 		*}
-		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="{if $smarty.request.request.title}{$smarty.request.request.title}{else}{$lang.title_description}{/if}" class="input-text" />
+		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="{if $smarty.request.request.title}{$smarty.request.request.title}{/if}" title="{$lang.title_description}" class="cm-hint input-text" />
 	</div>
 
 	<div class="form-field">
 		<label for="bb_request_desc" class="cm-required cm-trim">{$lang.description}</label>
-		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}" class="input-textarea">{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}</textarea>
+		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="{if $smarty.request.request.desc}{$smarty.request.request.desc}{/if}" title="{$lang.desc_description}" class="input-textarea cm-hint">{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}</textarea>
 	</div>
 
 	<div class="form-field">
 		<label for="bb_max_price" class="cm-trim cm-regexp">{$lang.max_price}</label>
-		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="{if $smarty.request.request.max_price}{$smarty.request.request.max_price}{else}{$lang.maxprice_description}{/if}" class="input-text" />
+		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="{if $smarty.request.request.max_price}{$smarty.request.request.max_price}{/if}" title="{$lang.maxprice_description}" class="input-text cm-hint" />
 	</div>
 
 	<div class="form-field">
-		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items" {if ($smarty.request.request.allow_over_max_price == 1)} checked="checked"{/if}>
-		<label for="bb_over_max_price" class="label-inline">{$lang.bb_allow_over_max_price}</label>
-	</div>	
+		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items" {if ($smarty.request.request.allow_over_max_price == 1)} checked="checked"{/if}/>
+		
+		<label for="bb_over_max_price" class="label-inline">{$lang.bb_allow_over_max_price}&nbsp;<a class="cm-tooltip" title="{$lang.max_price_within|replace:'[max_price_variation]':$max_price_variation}">(?)</a></label>
+	</div>
 
 	<div class="form-field">
 	{*Haven't gotten around to auto-selecting this in case user comes back to this page. Feel free. *}
-		<label for="bb_expiry_date" class="cm-trim cm-required">{$lang.bb_select_expiry_date}</label>
-		<input type="text" name="expiry_date" id="bb_expiry_date"/>
+		<label for="bb_expiry_date" class="cm-trim cm-required cm-regexp">{$lang.bb_select_expiry_date}</label>
+		<input type="text" id="bb_expiry_date" class="cm-hint" value="{if $smarty.request.request.expiry_date}{$smarty.request.request.expiry_date}{/if}" title="{$lang.expiry_description}"/>
+		<div class="hidden date-text" id="date-expiry-msg"></div>
+		<input type="hidden" name="request[expiry_date]" id="expiry_date_val" value=""/>
 	</div>
 
 	<div class="form-field">
@@ -67,7 +71,6 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 
 		<select name="category" id="bb_category">
 			{foreach from=$categories item='cat'}
-
 				<option value="{$cat.bb_request_category_id}">{$cat.category_name}</option>
 			{/foreach}
 		</select>
@@ -90,7 +93,12 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 //<![CDATA[
 {literal}
 regexp['bb_max_price'] = {
-	regexp: "(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\.[0-9]{1,2})?$"{/literal}, message: "{$lang.bb_error_validator_price_format|escape:'javascript'}"
+	regexp: /(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\.[0-9]{1,2})?$/{/literal}, message: "{$lang.bb_error_validator_price_format|escape:'javascript'}"
+{literal}
+};
+
+regexp['bb_expiry_date'] = {
+	regexp: /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/{/literal}, message: "{$lang.twg_msg_date_invalid|escape:'javascript'}"
 {literal}
 };
 {/literal}

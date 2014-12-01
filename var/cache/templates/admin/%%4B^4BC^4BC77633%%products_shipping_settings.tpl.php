@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-28 20:58:04
+<?php /* Smarty version 2.6.18, created on 2014-12-01 20:32:50
          compiled from views/products/components/products_shipping_settings.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'views/products/components/products_shipping_settings.tpl', 18, false),array('modifier', 'default', 'views/products/components/products_shipping_settings.tpl', 19, false),)), $this); ?>

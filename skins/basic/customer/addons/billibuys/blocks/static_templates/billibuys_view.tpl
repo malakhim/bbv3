@@ -119,7 +119,7 @@
 					<div class="bb-list-field bb-list-title">{$request.title}</div>
 					<div class="bb-list-rating bb-list-field">{*Placeholder for rating stars*}</div>
 					<div class="bb-list-desc bb-list-field">{$request.description}</div>
-					<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.bb_max_price}:</span> &nbsp;{include file="common_templates/price.tpl" value=$request.max_price"}</div>
+					<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title">{$lang.bb_max_price}:</span> &nbsp;{if $request.max_price}{include file="common_templates/price.tpl" value=$request.max_price"}{else}{$lang.no_max_price}{/if}</div>
 					<div class="bb-list-field bb-list-time-remaining" expiry="{$request.expiry_date}"></div>
 					<div class="bb-list-field bb-list-current-bid">
 						<div class="bb-list-txt-title">
@@ -127,7 +127,6 @@
 							{if $request.lowest_bid ne ''}${$request.lowest_bid}{else} --- {/if}
 						</div>
 					</div>
-					<!-- <div class="bb-list-view">{$lang.view}</div> -->
 				</div>
 			</span></a>
 		{/if}

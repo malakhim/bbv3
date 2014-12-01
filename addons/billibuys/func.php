@@ -655,7 +655,8 @@ function fn_submit_request($user, $post = ''){
 	//Check that this function call is done after a post request
 	if(!empty($post)){
 
-		$expiry_date = strtotime($post['expiry_date']);
+		// DEPRECATED: Not needed as javascript sends back unix timestamp in seconds now
+		// $expiry_date = strtotime($post['expiry_date']);
 
 		//Do actual insertion of request item name
 		//TODO: Return error messages for minimum and max string size
@@ -670,7 +671,8 @@ function fn_submit_request($user, $post = ''){
 			'request_item_id' => $id,
 			'ip_address' => $_SERVER['REMOTE_ADDR'],
 			'timestamp' => microtime(true),
-			'expiry_date' => $expiry_date + SECONDS_PER_DAY, // We want end of day
+			'expiry_date' => $post['request']['expiry_date'],
+			// 'expiry_date' => $expiry_date + SECONDS_PER_DAY, // We want end of day
 			'request_category_id' => $post['category'],
 		);
 		db_query('INSERT INTO ?:bb_requests ?e',$data);

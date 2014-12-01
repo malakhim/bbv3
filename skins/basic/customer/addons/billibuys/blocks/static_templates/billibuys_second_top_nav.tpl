@@ -22,7 +22,7 @@
 		</ul>
 	</li>
 	<form method='get' action="{"billibuys.view"|fn_url}" id="top-search-form" name="top_search_bar">
-    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="{if $smarty.request.search}{$smarty.request.search}{else}Enter an item you want to sell{/if}">
+    	  <input type="text" class="form-control input-text input-search cm-hint" name="search" title="{$lang.enter_item_to_sell}" id="input-search" value="{if $smarty.request.search}{$smarty.request.search}{/if}">
     	  <i class="fa fa-search" id="search-submit"></i>
 	</form>
 </ul>
