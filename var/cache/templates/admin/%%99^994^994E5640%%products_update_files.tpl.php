@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-01 20:32:55
+<?php /* Smarty version 2.6.18, created on 2014-12-02 10:58:16
          compiled from views/products/components/products_update_files.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('editing_file','no_data','new_file','add_file'));

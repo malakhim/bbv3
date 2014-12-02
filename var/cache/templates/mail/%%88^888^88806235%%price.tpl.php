@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-21 01:59:58
+<?php /* Smarty version 2.6.18, created on 2014-12-02 10:59:16
          compiled from common_templates/price.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_price', 'common_templates/price.tpl', 3, false),)), $this); ?>

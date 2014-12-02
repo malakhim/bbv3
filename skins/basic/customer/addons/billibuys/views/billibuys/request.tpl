@@ -55,7 +55,7 @@
 								<i class="fa ratings-star fa-star-o {if $smarty.section.num.index == $bid.rating_score}star-selected{/if} no-hover" data-num="{$smarty.section.num.index}"></i>
 							{/section}
 						</div>*}
-						<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title">{$lang.desired_amount}:</span> &nbsp;{$bid.quantity}</div>
+						<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title">{$lang.quantity}:</span> &nbsp;{$bid.quantity}</div>
 							<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}
 						<span class="bid-price">
 							{include file="common_templates/price.tpl" value=$bid.price"}
