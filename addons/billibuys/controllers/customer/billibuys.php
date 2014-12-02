@@ -111,7 +111,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			'title-desc'   => 'Y',
 			'max_price-asc'   => 'Y',
 			'max_price-desc'  => 'Y',
-			'popularity-desc' => 'Y'
+			// 'popularity-desc' => 'Y'
 			)
 		);
 
@@ -175,6 +175,18 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$view->assign('request',$request);
 		$view->assign('expired',$request['expiry_date'] <= microtime(true));
 		$view->assign('expiry',date('d-m-Y',$request['expiry_date']));
+		$view->assign('sorting', fn_get_offers_sorting());
+		$search = !$_REQUEST['sort_by'] ? Array('sort_by' => 'timestamp','sort_order' => 'desc') : $_REQUEST;
+		$view->assign('search',$search);
+		$view->assign('avail_sorting',Array(
+			'timestamp-desc' => 'Y',
+			'title-asc'    => 'Y',
+			'title-desc'   => 'Y',
+			'price-asc'   => 'Y',
+			'price-desc'  => 'Y',
+			// 'popularity-desc' => 'Y'
+			)
+		);
 
 	}elseif($mode == 'place_request'){
 		if(!$auth['user_id']){

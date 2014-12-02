@@ -4,7 +4,11 @@
 {/if}
 
 {assign var="curl" value=$config.current_url|fn_query_remove:"sort_by":"sort_order":"result_ids":"layout"}
-{assign var="sorting" value=""|fn_get_requests_sorting}
+{if $location == 'request'}
+	{assign var="sorting" value=""|fn_get_offers_sorting}
+{else}
+	{assign var="sorting" value=""|fn_get_requests_sorting}
+{/if}
 {assign var="sorting_orders" value=""|fn_get_products_sorting_orders}
 {assign var="layouts" value=""|fn_get_products_views:false:false}
 {assign var="pagination_id" value=$id|default:"pagination_contents"}
@@ -29,6 +33,7 @@
 <div class="views-icons">
 {foreach from=$layouts key="layout" item="item"}
 {if ($category_data.selected_layouts.$layout) || (!$category_data.selected_layouts && $item.active)}
+
 <a class="{$layout|replace:"_":"-"} {$ajax_class} {if $layout == $selected_layout}active{/if}" rev="{$pagination_id}" href="{"`$curl`&amp;sort_by=`$search.sort_by`&amp;sort_order=`$layout_sort_order`&amp;layout=`$layout`"|fn_url}" rel="nofollow" name="layout_callback"></a>
 {/if}
 {/foreach}

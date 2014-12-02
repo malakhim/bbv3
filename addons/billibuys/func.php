@@ -452,7 +452,30 @@ function fn_get_bids($params){
 	}else
 		$fields = '*';
 
-	$bids = db_get_array("SELECT $fields
+	// Set default sort
+	$sorting = 'timestamp DESC';
+
+	$sortings = array(
+		'date' => '?:bb_bids.timestamp',
+		'title' => 'product',
+		'price' => 'price',
+	);
+	if(isset($params['sort_by'])){
+		$sorting = $params['sort_by'];
+		if(isset($params['sort_order']))
+			$sort_order = $params['sort_order'];
+		else
+			$sort_order = 'DESC';
+	}else{
+		$sorting = '?:bb_bids.timestamp';
+		$sort_order = 'DESC';
+	}
+
+	$sorting .= ' '.$sort_order;
+
+
+
+	$query = "SELECT $fields
 		FROM 
 			?:bb_bids
 		INNER JOIN
@@ -469,9 +492,14 @@ function fn_get_bids($params){
 				?:bb_ratings.rating_type_id = ?:products.product_id	
 		WHERE 
 		 ?:bb_bids.request_id = ?i AND ?:products.status = 'A' AND ?:bb_bids.active = '1' AND (?:bb_ratings.rating_type = 'P' OR ?:bb_ratings.rating_type IS NULL)
-		GROUP BY bb_bid_id",
-			$params['request_id']
-		);
+		GROUP BY bb_bid_id";
+
+	// Sorting
+	if(isset($sorting) && !empty($sorting)){
+		$query .= ' ORDER BY ?p';
+	}
+
+	$bids = db_get_array($query, $params['request_id'], $sorting);
 
 	return $bids;
 }
@@ -594,12 +622,15 @@ function fn_submit_bids($bb_data,$auth){
 			foreach($bb_data['products_data'] as $pid=>$pdata){
 				if($pid == $product){
 					$product_data = $bb_data['products_data'][$pid];
+					// We duplicate timestamp and ip here and in logs for faster reference at the cost of spending more resources when submitting an offer
 					$new_bid = Array(
 						'request_id' => $request_id,
 						'price' => $pdata['price'],
 						'user_id' => $auth['user_id'],
 						'quantity' => $pdata['amount'],
 						'product_id' => $product,
+						'timestamp' => microtime(true),
+						'ip' => $_SERVER['REMOTE_ADDR']
 					);
 					break;
 				}
@@ -832,12 +863,6 @@ function fn_get_requests($params = Array()){
 
 	$sorting .= ' '.$sort_order;
 
-	// if(isset($sorting)){
-	// 	$sorting = (is_array($sortings[$params['sort_by']]) ? implode(' ' . $directions[$params['sort_order']]. ', ', $sortings[$params['sort_by']]) : $sortings[$params['sort_by']]) . " " . $directions[$params['sort_order']];
-	// }else{
-
-	// }
-
 	$requests['success'] = false;
 	if($params['own_auctions'] == false){
 
@@ -1057,6 +1082,10 @@ function fn_bb_delete_category($category_id){
 	// Should this be an outright deletion for speed purposes or should it be archiving?
 }
 
+/**
+ * Sorting functions allowable on the frontend
+ * @return Array sorting array of sorting methods allowed
+ */
 function fn_get_requests_sorting()
 {
 	$sorting = array(
@@ -1079,6 +1108,18 @@ function fn_get_requests_sorting()
 
 	return $sorting;
 }
+
+function fn_get_offers_sorting(){
+	$sorting = array(
+		'timestamp' => array('description' => fn_get_lang_var('date'), 'default_order' => 'desc'),
+		'title' => array('description' => fn_get_lang_var('name'), 'default_order' => 'asc'),
+		'price' => array('description' => fn_get_lang_var('price'), 'default_order' => 'asc'),
+		// 'popularity' => array('description' => fn_get_lang_var('popularity'), 'default_order' => 'desc')
+	);
+
+	return $sorting;
+}
+
 /**
  * Install objects required to log billibuys functions
  */

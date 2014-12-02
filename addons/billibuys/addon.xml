@@ -125,6 +125,8 @@
 				`quantity` INT(11),
 				`user_id` INT(11),
 				`active` TINYINT(1) NOT NULL DEFAULT '1',
+				`timestamp` INT(15) UNSIGNED,
+				`ip` VARCHAR(50),
 				PRIMARY KEY (`bb_bid_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -138,6 +140,8 @@
 				`quantity` INT(11),
 				`user_id` INT(11),
 				`active` TINYINT(1) NOT NULL DEFAULT '1',
+				`timestamp` INT(15) UNSIGNED,
+				`ip` VARCHAR(50),				
 				PRIMARY KEY (`bb_bid_archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>

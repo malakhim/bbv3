@@ -51,7 +51,7 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 		
 		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items" {if ($smarty.request.request.allow_over_max_price == 1)} checked="checked"{/if}/>
 		
-		<label for="bb_over_max_price" class="label-inline">{$lang.bb_allow_over_max_price}&nbsp;<a class="cm-tooltip" title="{$lang.max_price_within|replace:'[max_price_variation]':$max_price_variation}">(?)</a></label>
+		<label for="bb_over_max_price" class="label-inline">{$lang.bb_allow_over_max_price}&nbsp;(<a class="cm-tooltip" title="{$lang.max_price_within|replace:'[max_price_variation]':$max_price_variation}">?</a>)</label>
 	</div>
 
 	<div class="form-field">

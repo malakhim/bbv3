@@ -42,6 +42,7 @@ $(function(){
 	<span class="cm-dropdown-title sort-dropdown dropdown-wrap-left"><a class="dropdown-wrap-right">{$lang.$sort_label}</a></span>
 	<ul class="cm-dropdown-content">
 		{foreach from=$sorting key="option" item="value"}
+
 			{if $search.sort_by == $option}
 				{assign var="sort_order" value=$search.sort_order}
 			{else}

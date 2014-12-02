@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-02 11:18:37
+<?php /* Smarty version 2.6.18, created on 2014-12-02 18:22:00
          compiled from addons/billibuys/components/sorting.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_query_remove', 'addons/billibuys/components/sorting.tpl', 20, false),array('modifier', 'fn_get_requests_sorting', 'addons/billibuys/components/sorting.tpl', 21, false),array('modifier', 'fn_get_products_sorting_orders', 'addons/billibuys/components/sorting.tpl', 22, false),array('modifier', 'fn_get_products_views', 'addons/billibuys/components/sorting.tpl', 23, false),array('modifier', 'default', 'addons/billibuys/components/sorting.tpl', 24, false),array('modifier', 'count', 'addons/billibuys/components/sorting.tpl', 42, false),array('modifier', 'replace', 'addons/billibuys/components/sorting.tpl', 46, false),array('modifier', 'fn_url', 'addons/billibuys/components/sorting.tpl', 46, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_query_remove', 'addons/billibuys/components/sorting.tpl', 20, false),array('modifier', 'fn_get_offers_sorting', 'addons/billibuys/components/sorting.tpl', 22, false),array('modifier', 'fn_get_requests_sorting', 'addons/billibuys/components/sorting.tpl', 24, false),array('modifier', 'fn_get_products_sorting_orders', 'addons/billibuys/components/sorting.tpl', 26, false),array('modifier', 'fn_get_products_views', 'addons/billibuys/components/sorting.tpl', 27, false),array('modifier', 'default', 'addons/billibuys/components/sorting.tpl', 28, false),array('modifier', 'count', 'addons/billibuys/components/sorting.tpl', 46, false),array('modifier', 'replace', 'addons/billibuys/components/sorting.tpl', 51, false),array('modifier', 'fn_url', 'addons/billibuys/components/sorting.tpl', 51, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('per_page','per_page'));
 ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('per_page','per_page'));
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/sorting.tpl' => 1406444269,
+  'common_templates/sorting.tpl' => 1417504902,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -25,7 +25,11 @@ fn_preload_lang_vars(array('per_page','per_page'));
 <?php endif; ?>
 
 <?php $this->assign('curl', fn_query_remove($this->_tpl_vars['config']['current_url'], 'sort_by', 'sort_order', 'result_ids', 'layout'), false); ?>
-<?php $this->assign('sorting', fn_get_requests_sorting(""), false); ?>
+<?php if ($this->_tpl_vars['location'] == 'request'): ?>
+	<?php $this->assign('sorting', fn_get_offers_sorting(""), false); ?>
+<?php else: ?>
+	<?php $this->assign('sorting', fn_get_requests_sorting(""), false); ?>
+<?php endif; ?>
 <?php $this->assign('sorting_orders', fn_get_products_sorting_orders(""), false); ?>
 <?php $this->assign('layouts', fn_get_products_views("", false, false), false); ?>
 <?php $this->assign('pagination_id', smarty_modifier_default(@$this->_tpl_vars['id'], 'pagination_contents'), false); ?>
@@ -54,6 +58,7 @@ fn_preload_lang_vars(array('per_page','per_page'));
     foreach ($_from as $this->_tpl_vars['layout'] => $this->_tpl_vars['item']):
 ?>
 <?php if (( $this->_tpl_vars['category_data']['selected_layouts'][$this->_tpl_vars['layout']] ) || ( ! $this->_tpl_vars['category_data']['selected_layouts'] && $this->_tpl_vars['item']['active'] )): ?>
+
 <a class="<?php echo smarty_modifier_replace($this->_tpl_vars['layout'], '_', "-"); ?>
  <?php echo $this->_tpl_vars['ajax_class']; ?>
  <?php if ($this->_tpl_vars['layout'] == $this->_tpl_vars['selected_layout']): ?>active<?php endif; ?>" rev="<?php echo $this->_tpl_vars['pagination_id']; ?>
@@ -113,6 +118,7 @@ $(function(){
 		<?php $_from = $this->_tpl_vars['sorting']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['option'] => $this->_tpl_vars['value']):
 ?>
+
 			<?php if ($this->_tpl_vars['search']['sort_by'] == $this->_tpl_vars['option']): ?>
 				<?php $this->assign('sort_order', $this->_tpl_vars['search']['sort_order'], false); ?>
 			<?php else: ?>

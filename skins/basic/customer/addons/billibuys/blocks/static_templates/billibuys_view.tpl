@@ -104,7 +104,7 @@
 </div> -->
 
 {if $requests.success eq 1}
-	{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true}
+	{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true location="requests"}
 
 	{include file="common_templates/pagination.tpl"}
 

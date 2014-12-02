@@ -42,7 +42,7 @@
 
 {if $bids != null && isset($bids)}
 	<div id="bids-list">
-		{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true}
+		{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true location="request"}
 		{include file="common_templates/pagination.tpl"}
 			{foreach from=$bids item=bid}
 				{if is_array($bid)}
