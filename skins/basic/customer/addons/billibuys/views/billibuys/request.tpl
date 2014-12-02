@@ -29,6 +29,8 @@
 		<br/><br/>
 		<div id="description-text">{$request.description}</div>
 		<br/><br/>
+		<div id="bid_range">{$lang.current_offers}:&nbsp;{include file="common_templates/price.tpl" value=$min_bid_amount is_integer=false} - {include file="common_templates/price.tpl" value=$max_bid_amount is_integer=false}</div>
+		<br/><br/>
 		{if $expired == 0}
 		<a href="{"vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url}" class="request-page-btn" id="place-offer">{$lang.place_bid}</a>
 			{*{if $request.user_id != $smarty.session.auth.user_id}
@@ -41,9 +43,11 @@
 </div>
 
 {if $bids != null && isset($bids)}
+	{include file="common_templates/pagination.tpl"}
 	<div id="bids-list">
+	{* To enable sorting, location must be set correctly in sorting.tpl to match the $avail_sorting array*}
 		{include file="addons/billibuys/components/sorting.tpl" hide_layouts=true location="request"}
-		{include file="common_templates/pagination.tpl"}
+
 			{foreach from=$bids item=bid}
 				{if is_array($bid)}
 				<div class="bb-bid-item">
@@ -145,8 +149,9 @@
 					*}
 				{/if}
 			{/foreach}
-		{include file="common_templates/pagination.tpl"}
+		
 	</div>
+	{include file="common_templates/pagination.tpl"}
 {/if}
 
 {*if $expired == 0}

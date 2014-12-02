@@ -160,7 +160,12 @@ if ( !defined('AREA') ) { die('Access denied'); }
 	
 		$bids = fn_get_bids($params);	
 
+		$min_bid_amount = $bids[0];
+		$max_bid_amount = 0;
+
 		foreach($bids as &$bid){
+			$max_bid_amount = $bid['price'] > $max_bid_amount ? $bid['price'] : $max_bid_amount;
+			$min_bid_amount = $bid['price'] < $min_bid_amount ? $bid['price'] : $min_bid_amount;
 			$bid['tot_price'] = $bid['price'] * $bid['quantity'];
 			$bid['rating_score'] = round($bid['rating_score']);
 			$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'product'",$bid['product_id']);
@@ -169,6 +174,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			// $bid['product'] = fn_get_product_data($bid['product_id'], $auth, CART_LANGUAGE, '', true, true, true, true, fn_is_preview_action($auth, $_REQUEST));
 		}
 
+		$view->assign('max_bid_amount',$max_bid_amount);
+		$view->assign('min_bid_amount',$min_bid_amount);
 		$view->assign('uid',md5($auth['user_id']));
 		$view->assign('bids',$bids);
 		$view->assign('request_user_id',$request['user id']);

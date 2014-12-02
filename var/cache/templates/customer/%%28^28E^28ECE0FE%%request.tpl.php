@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-02 18:22:00
+<?php /* Smarty version 2.6.18, created on 2014-12-03 10:49:07
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 81, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 117, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 242, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/request.tpl', 254, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 328, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 32, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 313, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 81, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 117, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 242, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/request.tpl', 254, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 340, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 32, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 325, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','desired_amount','time_remaining','ends','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','quantity','edit','save','edit','delete','accept','delete','accept','no_description','prev_page','next'));
+fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','desired_amount','time_remaining','ends','current_offers','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','quantity','edit','save','edit','delete','accept','delete','accept','no_description','prev_page','next'));
 ?>
 <?php 
 
@@ -63,6 +63,11 @@ fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','desir
 		<div id="description-text"><?php echo $this->_tpl_vars['request']['description']; ?>
 </div>
 		<br/><br/>
+		<div id="bid_range"><?php echo fn_get_lang_var('current_offers', $this->getLanguage()); ?>
+:&nbsp;<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['min_bid_amount'], 'is_integer' => false, )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?> - <?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['max_bid_amount'], 'is_integer' => false, )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?></div>
+		<br/><br/>
 		<?php if ($this->_tpl_vars['expired'] == 0): ?>
 		<a href="<?php echo fn_url("vendor.php?dispatch=billibuys.place_bid&request_id=".($this->_tpl_vars['request']['bb_request_id'])); ?>
 " class="request-page-btn" id="place-offer"><?php echo fn_get_lang_var('place_bid', $this->getLanguage()); ?>
@@ -77,12 +82,7 @@ fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','desir
 </div>
 
 <?php if ($this->_tpl_vars['bids'] != null && isset ( $this->_tpl_vars['bids'] )): ?>
-	<div id="bids-list">
-		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/components/sorting.tpl", 'smarty_include_vars' => array('hide_layouts' => true,'location' => 'request')));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
-		<?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php $this->assign('id', smarty_modifier_default(@$this->_tpl_vars['id'], 'pagination_contents'), false); ?>
+	<?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php $this->assign('id', smarty_modifier_default(@$this->_tpl_vars['id'], 'pagination_contents'), false); ?>
 <?php if ($this->_smarty_vars['capture']['pagination_open'] != 'Y'): ?>
 	<?php if (( $this->_tpl_vars['settings']['DHTML']['customer_ajax_based_pagination'] == 'Y' || $this->_tpl_vars['force_ajax'] ) && $this->_tpl_vars['pagination']['total_pages'] > 1): ?>
 		<?php echo smarty_function_script(array('src' => "lib/js/history/jquery.history.js"), $this);?>
@@ -182,6 +182,12 @@ unset($_smarty_tpl_vars);
 <?php elseif ($this->_smarty_vars['capture']['pagination_open'] != 'Y'): ?>
 	<?php ob_start(); ?>Y<?php $this->_smarty_vars['capture']['pagination_open'] = ob_get_contents(); ob_end_clean(); ?>
 <?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+	<div id="bids-list">
+			<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/components/sorting.tpl", 'smarty_include_vars' => array('hide_layouts' => true,'location' => 'request')));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+
 			<?php $_from = $this->_tpl_vars['bids']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['bid']):
 ?>
@@ -288,7 +294,9 @@ unset($_smarty_tpl_vars);
 
 																<?php endif; ?>
 			<?php endforeach; endif; unset($_from); ?>
-		<?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php $this->assign('id', smarty_modifier_default(@$this->_tpl_vars['id'], 'pagination_contents'), false); ?>
+		
+	</div>
+	<?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php $this->assign('id', smarty_modifier_default(@$this->_tpl_vars['id'], 'pagination_contents'), false); ?>
 <?php if ($this->_smarty_vars['capture']['pagination_open'] != 'Y'): ?>
 	<?php if (( $this->_tpl_vars['settings']['DHTML']['customer_ajax_based_pagination'] == 'Y' || $this->_tpl_vars['force_ajax'] ) && $this->_tpl_vars['pagination']['total_pages'] > 1): ?>
 		<?php echo smarty_function_script(array('src' => "lib/js/history/jquery.history.js"), $this);?>
@@ -388,6 +396,5 @@ unset($_smarty_tpl_vars);
 <?php elseif ($this->_smarty_vars['capture']['pagination_open'] != 'Y'): ?>
 	<?php ob_start(); ?>Y<?php $this->_smarty_vars['capture']['pagination_open'] = ob_get_contents(); ob_end_clean(); ?>
 <?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-	</div>
 <?php endif; ?>
 

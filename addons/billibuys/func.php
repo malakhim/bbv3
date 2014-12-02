@@ -473,7 +473,14 @@ function fn_get_bids($params){
 
 	$sorting .= ' '.$sort_order;
 
+	// For pagination			
+	$query = 'SELECT COUNT(*) 
+		FROM ?:bb_bids
+		WHERE request_id = ?i';
 
+	$where = $params['request_id'];
+
+	$bids_count = db_get_field($query,$where);
 
 	$query = "SELECT $fields
 		FROM 
@@ -498,6 +505,10 @@ function fn_get_bids($params){
 	if(isset($sorting) && !empty($sorting)){
 		$query .= ' ORDER BY ?p';
 	}
+
+	$limit = fn_paginate($_REQUEST['page'], $bids_count, Registry::get('settings.Appearance.products_per_page')); 
+
+	$query .= " $limit";
 
 	$bids = db_get_array($query, $params['request_id'], $sorting);
 
@@ -831,7 +842,8 @@ function fn_get_requests($params = Array()){
 		'own_auctions' => false,
 		),$params);
 
-	if(isset($params['category_id'])){
+	// FIXME: This is pretty damn insecure
+	if(isset($params['category_id']) && is_int($params['category_id'])){
 		$where .= 'request_category_id = '.$params['category_id'];
 	}
 
