@@ -133,6 +133,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 				'max_price',
 				'expiry_date',
 				'user_id',
+				'quantity',
 			)
 		);
 
@@ -153,20 +154,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}
 
 		fn_add_breadcrumb(fn_get_lang_var('view_request'),false);
-		// Remove underscores from any column names in database results and format timestamp
-		// foreach($request as $k=>&$r){
-		// 	if($k == 'timestamp'){
-		// 		$r = date('F j Y, g:i a',$r);
-		// 	}
-		// 	if($k == 'bb_request_id'){
-		// 		$request['id'] = $r;
-		// 	}
-		// 	if(strpos($k,'_') !== FALSE){
-		// 		$new_key = str_replace('_', ' ', $k);
-		// 		$request[$new_key] = $r;
-		// 		unset($request[$k]);
-		// 	}
-		// }
 
 		// Param user_id needs to be set because apparently mysql doesn't know buggerall about how to handle multiple user_id fields
 		$params = Array('request_id' => $params['request_id'],'fields'=> Array('*','?:bb_bids.user_id'));

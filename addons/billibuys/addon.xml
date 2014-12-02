@@ -329,6 +329,7 @@
 		<item lang="EN" id="bb_error_validator_price_format">Price must be in decimal format, without any currency signs.</item>
 		<item lang="EN" id="bb_error_invalid_input_params">Invalid input parameters</item>
 		<item lang="EN" id="bb_no_description">No description</item>
+		<item lang="EN" id="bid_quantity_more_than_requested">You cannot bid with more items than are requested. Please reduce your quantity.</item>
 
 		<!-- Frontend billibuys.view variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>

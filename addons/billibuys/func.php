@@ -514,7 +514,7 @@ function fn_submit_bids($bb_data,$auth){
 		//Used to get the request_id
 		parse_str($bb_data['redirect_url']);
 
-		$request_item = db_get_row("SELECT title, max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
+		$request_item = db_get_row("SELECT title, max_price, allow_over_max_price, quantity FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 
 		$currencies = Registry::get('currencies');
 		$currency_symbol = $currencies[CART_PRIMARY_CURRENCY]['symbol'];
@@ -523,6 +523,7 @@ function fn_submit_bids($bb_data,$auth){
 			// $price = $bb_data['products_data'][$pid]['price'] * $bb_data['products_data'][$pid]['amount'];
 			$price = $bb_data['products_data'][$pid]['price'];
 			$product_name = $bb_data['products_data'][$pid]['product'] ;
+			$amount = $bb_data['products_data'][$pid]['amount'];
 		}
 
 		$mp = $request_item['max_price'];
@@ -546,6 +547,8 @@ function fn_submit_bids($bb_data,$auth){
 						}elseif(stripos($request_item['title'],$product_name) === FALSE && stripos($product_name, $request_item['title']) === FALSE){
 							// Throw name-not-matching error
 							$error_msg = fn_get_lang_var('bid_name_matching_error');
+						}elseif($amount > $request_item['quantity']){
+							$error_msg = fn_get_lang_var('bid_quantity_more_than_requested');
 						}
 					}else{
 						// Throw zero/negative price flag

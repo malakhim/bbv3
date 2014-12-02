@@ -22,6 +22,9 @@
 				{$lang.no_max_price}
 			{/if}
 		</div>
+		<div id="requested_qty">
+			{$lang.desired_amount}:&nbsp;{$request.quantity}
+		</div>
 		{$lang.time_remaining}:&nbsp;<span class="bb-time-remaining" expiry="{$request.expiry_date}"></span> ({$lang.ends} {$request.expiry_date|date_format:"%e %B %Y %l:%M:%S%p"})
 		<br/><br/>
 		<div id="description-text">{$request.description}</div>
