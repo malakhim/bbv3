@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 13:16:14
+<?php /* Smarty version 2.6.18, created on 2014-12-05 14:09:32
          compiled from views/tabs/components/product_tabs.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'block', 'views/tabs/components/product_tabs.tpl', 22, false),array('function', 'script', 'views/tabs/components/product_tabs.tpl', 54, false),array('modifier', 'trim', 'views/tabs/components/product_tabs.tpl', 28, false),array('modifier', 'empty_tabs', 'views/tabs/components/product_tabs.tpl', 49, false),array('modifier', 'in_array', 'views/tabs/components/product_tabs.tpl', 58, false),array('modifier', 'fn_url', 'views/tabs/components/product_tabs.tpl', 63, false),)), $this); ?>

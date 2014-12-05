@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 13:16:14
+<?php /* Smarty version 2.6.18, created on 2014-12-05 14:09:32
          compiled from addons/discussion/blocks/product_tabs/discussion.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('discussion_title_product'));

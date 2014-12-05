@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-19 22:56:13
+<?php /* Smarty version 2.6.18, created on 2014-12-05 13:03:26
          compiled from views/logs/manage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'cycle', 'views/logs/manage.tpl', 18, false),array('modifier', 'lower', 'views/logs/manage.tpl', 20, false),array('modifier', 'date_format', 'views/logs/manage.tpl', 22, false),array('modifier', 'fn_url', 'views/logs/manage.tpl', 24, false),)), $this); ?>

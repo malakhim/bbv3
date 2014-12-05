@@ -29,7 +29,7 @@
 		<br/><br/>
 		<div id="description-text">{$request.description}</div>
 		<br/><br/>
-		<div id="bid_range">{$lang.current_offers}:&nbsp;{include file="common_templates/price.tpl" value=$min_bid_amount is_integer=false} - {include file="common_templates/price.tpl" value=$max_bid_amount is_integer=false}</div>
+		<div id="bid_range">{$lang.current_offers}:&nbsp;{include file="common_templates/price.tpl" value=$min_bid_amount is_integer=false} - {include file="common_templates/price.tpl" value=$max_bid_amount is_integer=false} [{$num_offers} {$lang.offers}]</div>
 		<br/><br/>
 		{if $expired == 0}
 		<a href="{"vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url}" class="request-page-btn" id="place-offer">{$lang.place_bid}</a>

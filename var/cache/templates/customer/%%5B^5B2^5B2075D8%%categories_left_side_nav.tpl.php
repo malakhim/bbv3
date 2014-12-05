@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-03 10:49:06
+<?php /* Smarty version 2.6.18, created on 2014-12-05 15:51:08
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_bb_get_categories', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl', 5, false),array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/categories_left_side_nav.tpl', 10, false),)), $this); ?>

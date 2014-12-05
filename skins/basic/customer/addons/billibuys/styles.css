@@ -1289,6 +1289,7 @@ html.ie9 .how_does_it_work_block div {
 	padding: 10px 20px 10px 20px;
 	border-radius: 10px;
 	color: white;
+	margin-top: 30px;
 }
 
 .view-offer-btn{
@@ -1363,7 +1364,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #bids-list .sort-container{
-	margin-top: -20px;
+	margin-top: -40px;
 }
 
 #info-box{
@@ -1397,7 +1398,8 @@ html.ie9 .how_does_it_work_block div {
 
 .bb-list-txt .error-message{
 	display: none;
-	margin-top: -30px;
+	margin-top: -10px;
+	margin-bottom: -20px;
 }
 
 #bids-list .bb-list-desc{

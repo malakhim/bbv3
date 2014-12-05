@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 13:16:10
+<?php /* Smarty version 2.6.18, created on 2014-12-05 14:09:30
          compiled from C:/wamp3/www/public_html/skins/basic/customer/blocks/product_templates/default_template.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'script', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/product_templates/default_template.tpl', 15, false),array('modifier', 'trim', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/product_templates/default_template.tpl', 20, false),array('modifier', 'unescape', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/product_templates/default_template.tpl', 35, false),array('modifier', 'replace', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/product_templates/default_template.tpl', 119, false),array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/product_templates/default_template.tpl', 119, false),array('block', 'hook', 'C:/wamp3/www/public_html/skins/basic/customer/blocks/product_templates/default_template.tpl', 20, false),)), $this); ?>

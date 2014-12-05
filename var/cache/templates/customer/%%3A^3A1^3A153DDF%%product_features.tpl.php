@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 13:16:14
+<?php /* Smarty version 2.6.18, created on 2014-12-05 14:09:32
          compiled from views/products/components/product_features.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'views/products/components/product_features.tpl', 1, false),array('modifier', 'trim', 'views/products/components/product_features.tpl', 4, false),array('modifier', 'date_format', 'views/products/components/product_features.tpl', 19, false),array('modifier', 'floatval', 'views/products/components/product_features.tpl', 32, false),array('modifier', 'default', 'views/products/components/product_features.tpl', 32, false),)), $this); ?>
