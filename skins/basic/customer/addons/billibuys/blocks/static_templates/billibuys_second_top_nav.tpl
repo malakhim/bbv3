@@ -4,8 +4,7 @@
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>
-			{*Placeholder for my_requests for now*}
-			{*<a href="{"billibuys.view_requests&user_id=`$smarty.session.auth.user_id`"|fn_url}"><li class="submenu_item">{$lang.my_requests}</li></a>*}
+			<a href="{"index.php?dispatch=billibuys.view&my_requests=1"|fn_url}"><li class="submenu_item">{$lang.my_requests}</li></a>
 			<a href="{'billibuys.place_request'|fn_url}"><li class="submenu_item">{$lang.place_request}</li></a>
 			<a href="{"orders.search"|fn_url}"><li class="submenu_item">{$lang.view_orders}</li></a>
 		</ul>

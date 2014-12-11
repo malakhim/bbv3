@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-11 18:16:15
+<?php /* Smarty version 2.6.18, created on 2014-12-11 18:48:20
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_second_top_nav.tpl', 2, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell','block_products','add_new_product','sales','enter_item_to_sell'));
+fn_preload_lang_vars(array('bb_browse','buy','my_requests','place_request','view_orders','sell','block_products','add_new_product','sales','enter_item_to_sell'));
 ?>
 <?php  ob_start();  ?><ul id="second-top-nav-elements" class="row">
 	<a href="<?php echo fn_url('billibuys.view'); ?>
@@ -14,7 +14,10 @@ fn_preload_lang_vars(array('bb_browse','buy','place_request','view_orders','sell
 		<div class="submenu-wrapper"></div>
 		<ul class="top-nav-submenu header-solid">
 			<div class="top-nav-triangle"></div>
-									<a href="<?php echo fn_url('billibuys.place_request'); ?>
+			<a href="<?php echo fn_url("index.php?dispatch=billibuys.view&my_requests=1"); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('my_requests', $this->getLanguage()); ?>
+</li></a>
+			<a href="<?php echo fn_url('billibuys.place_request'); ?>
 "><li class="submenu_item"><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
 </li></a>
 			<a href="<?php echo fn_url("orders.search"); ?>

@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-11 18:15:37
+<?php /* Smarty version 2.6.18, created on 2014-12-11 18:45:51
          compiled from top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('modifier', 'count', 'top.tpl', 251, false),array('modifier', 'capitalize', 'top.tpl', 253, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip','bb_browse','buy','place_request','view_orders','sell','block_products','add_new_product','sales','view_cart','block_my_account','sign_out','sign_in','register','sign_in'));
+fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip','bb_browse','buy','my_requests','place_request','view_orders','sell','block_products','add_new_product','sales','view_cart','block_my_account','sign_out','sign_in','register','sign_in'));
 ?>
 <?php 
 
@@ -298,10 +298,13 @@ px;" title="<?php echo $this->_tpl_vars['manifest']['Customer_logo']['alt']; ?>
 						<div class="submenu-wrapper"></div>
 						<ul class="top-nav-submenu header-solid">
 							<div class="top-nav-triangle"></div>
-																					<a href="<?php echo fn_url('billibuys.place_request'); ?>
+														<a href="<?php echo fn_url("index.php?dispatch=billibuys.view&my_requests=1"); ?>
+"><li class="submenu_item"><?php echo fn_get_lang_var('my_requests', $this->getLanguage()); ?>
+</li></a>
+							<a href="<?php echo fn_url('index.php?dispatch=billibuys.place_request'); ?>
 "><li class="submenu_item"><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
 </li></a>
-							<a href="<?php echo fn_url("orders.search"); ?>
+							<a href="<?php echo fn_url("index.php?dispatch=orders.search"); ?>
 "><li class="submenu_item"><?php echo fn_get_lang_var('view_orders', $this->getLanguage()); ?>
 </li></a>
 						</ul>

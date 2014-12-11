@@ -195,6 +195,7 @@
 
 		<!-- Menu items -->
 		<item lang="EN" id="my_activity">My Activity</item>
+		<item lang="EN" id="my_requests">My Requests</item>
 		<item lang="EN" id="buy">Buy</item>
 		<item lang="EN" id="sell">Sell</item>
 		<item lang="EN" id="bidsoffers">Bids/Offers</item>

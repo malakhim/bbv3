@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-02 04:18:20
+<?php /* Smarty version 2.6.18, created on 2014-12-11 18:24:08
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 37, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 68, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 151, false),)), $this); ?>
@@ -57,8 +57,8 @@ fn_preload_lang_vars(array('bb_request_title','title_description','description',
 " class="checkbox cm-check-items" <?php if (( $this->_tpl_vars['_REQUEST']['request']['allow_over_max_price'] == 1 )): ?> checked="checked"<?php endif; ?>/>
 		
 		<label for="bb_over_max_price" class="label-inline"><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
-&nbsp;<a class="cm-tooltip" title="<?php echo smarty_modifier_replace(fn_get_lang_var('max_price_within', $this->getLanguage()), '[max_price_variation]', $this->_tpl_vars['max_price_variation']); ?>
-">(?)</a></label>
+&nbsp;(<a class="cm-tooltip" title="<?php echo smarty_modifier_replace(fn_get_lang_var('max_price_within', $this->getLanguage()), '[max_price_variation]', $this->_tpl_vars['max_price_variation']); ?>
+">?</a>)</label>
 	</div>
 
 	<div class="form-field">
@@ -218,7 +218,7 @@ function fn_check_positive(id){
 	var elm = $(\'#\' + id);
 
 	if(elm.val() < 0){
-		return "Fuck";
+		return lang.error_validator_integer;
 	}else{
 		return true;
 	}

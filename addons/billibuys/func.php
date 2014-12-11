@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Bryan Wu
- * @copyright BilliBuys 2013
+ * @copyright BilliBuys 2014
  * @desc Functions for BilliBuys
  */
 
@@ -837,10 +837,11 @@ function fn_get_requests($params = Array()){
 
 
 	// Initialization
-	$params = array_merge(Array(
-		'user' => 0,
-		'own_auctions' => false,
-		),$params);
+	// DEPRECATED: Not used any more
+	// $params = array_merge(Array(
+	// 	'user' => 0,
+	// 	'own_auctions' => false,
+	// 	),$params);
 
 	// FIXME: This is pretty damn insecure
 	if(isset($params['category_id']) && is_int($params['category_id'])){
@@ -853,6 +854,11 @@ function fn_get_requests($params = Array()){
 		$where .= 'expiry_date > '.microtime(true);
 	}
 
+	if(isset($params['my_requests']) && $params['my_requests'] && $_SESSION['auth']['user_id']){
+		if(isset($where))
+			$where .= ' AND ';
+		$where .= '?:bb_requests.user_id = '.$_SESSION['auth']['user_id'];
+	}
 
 	// Set default sort
 	$sorting = 'timestamp DESC';

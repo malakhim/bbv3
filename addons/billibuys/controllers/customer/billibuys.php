@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Bryan Wu
- * @copyright BilliBuys 2013
+ * @copyright BilliBuys 2014
  * @desc Controller for BilliBuys
  */
 
@@ -26,6 +26,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			// When values have been POSTed from billibuys.place_request
 			fn_submit_request($user, $_POST);
 		}
+
 		if($_SERVER['REQUEST_METHOD'] == 'GET' && array_key_exists('search', $_GET)){
 			$requests = fn_get_requests_by_product_name($_GET['search']);
 		}else{
