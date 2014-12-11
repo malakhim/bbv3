@@ -3,7 +3,7 @@
 	<input type="button" onclick="window.open('bug_report.php','popupwindow','width=700,height=450,toolbar=yes,status=no,scrollbars=yes,resizable=no,menubar=yes,location=no,direction=no');" value="Report a bug" />
 </div>
 {/if}
-
+{if $config.current_url|strpos:$config.admin_index !== false}
 <div id="bottom_menu">
 	<div class="logo-bottom float-left" title="{$smarty.const.PRODUCT_NAME} {if $smarty.const.PRODUCT_TYPE == "COMMUNITY"}Community Edition{/if}{if $smarty.const.PRODUCT_TYPE == "PROFESSIONAL"}Professional Edition{/if}{if $smarty.const.PRODUCT_TYPE == "MULTIVENDOR"}Multi-Vendor Edition{/if}{if $smarty.const.PRODUCT_TYPE == "ULTIMATE"}Ultimate Edition{/if}">&nbsp;</div>
 	{if "tools.store_mode"|fn_check_view_permissions && ($smarty.const.PRODUCT_TYPE != 'ULTIMATE' || $smarty.const.PRODUCT_TYPE == 'ULTIMATE' && "COMPANY_ID"|defined)}
@@ -61,3 +61,40 @@ $(function() {
 //]]>
 </script>
 {/literal}
+{else}
+<div id="ci_bottom_wrapper" class="footer clearfix">
+	<div class="container_16 custom">	
+	<div class="grid_16 billibuys_footer" >
+	 
+		<div class="grid_3 alpha " >
+	 
+		<div class="	float-left">
+			
+		{if isset($smarty.session.auth.user_id) && $smarty.session.auth.user_id != 0}
+			{assign var="home_href" value="billibuys.view"}
+		{else}
+			{assign var="home_href" value=""}
+		{/if}
+
+		<a href="{$home_href|fn_url}"><img src="images/billibuys_logo_white.png" id="billibuys_footer_logo" width="180px"></a>
+			</div>
+			</div>
+		<div class="grid_13 omega " >
+			 
+		<div class=" billibuys_footer">
+			{'Y'|date} &copy; {$lang.footer_copyright}&nbsp; 
+			<a href="{'termsandconditions'|fn_url}">{$lang.terms_and_conditions}</a>
+			<a href="{'disclaimer'|fn_url}">{$lang.disclaimer}</a> &nbsp;
+			</div>
+			</div>
+			<div class="clear"></div>
+
+			</div>
+			<div class="clear"></div>
+
+			<div class="clear"></div>
+		</div>
+		<!--ci_bottom_wrapper--></div>
+
+
+{/if}

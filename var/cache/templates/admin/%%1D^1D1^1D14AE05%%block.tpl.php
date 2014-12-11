@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-01 20:33:02
+<?php /* Smarty version 2.6.18, created on 2014-12-11 17:39:14
          compiled from C:/wamp3/www/public_html/skins/basic/admin/views/block_manager/render/block.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'C:/wamp3/www/public_html/skins/basic/admin/views/block_manager/render/block.tpl', 12, false),array('modifier', 'str_replace', 'C:/wamp3/www/public_html/skins/basic/admin/views/block_manager/render/block.tpl', 16, false),array('modifier', 'default', 'C:/wamp3/www/public_html/skins/basic/admin/views/block_manager/render/block.tpl', 21, false),array('modifier', 'replace', 'C:/wamp3/www/public_html/skins/basic/admin/views/block_manager/render/block.tpl', 23, false),)), $this); ?>

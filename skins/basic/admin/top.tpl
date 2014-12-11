@@ -145,7 +145,12 @@
 				{*assign var=path value=$config.http_location}
 				{include file="$customer_skin_path/customer/addons/billibuys/blocks/static_templates/logo.tpl"*}
 				<div class="logo-container">
-					<a href="{""|fn_url}" style="background: url('/skins/basic/customer/images/Logo_sml_8.png') no-repeat; width:{$manifest.Customer_logo.width}px; height:{$manifest.Customer_logo.height}px;" title="{$manifest.Customer_logo.alt}" class="logo"></a>
+				{if isset($smarty.session.auth.user_id) && $smarty.session.auth.user_id != 0}
+					{assign var="home_href" value="index.php?dispatch=billibuys.view"}
+				{else}
+					{assign var="home_href" value="index.php"}
+				{/if}
+					<a href="{$home_href|fn_url}" style="background: url('/skins/basic/customer/images/Logo_sml_8.png') no-repeat; width:{$manifest.Customer_logo.width}px; height:{$manifest.Customer_logo.height}px;" title="{$manifest.Customer_logo.alt}" class="logo"></a>
 				</div>
 			</div><div class="	float-left">
 				<ul id="second-top-nav-elements" class="row">
@@ -157,7 +162,7 @@
 							{*Placeholder for my_requests for now*}
 							{*<a href="{"billibuys.view_requests&user_id=`$smarty.session.auth.user_id`"|fn_url}"><li class="submenu_item">{$lang.my_requests}</li></a>*}
 							<a href="{'billibuys.place_request'|fn_url}"><li class="submenu_item">{$lang.place_request}</li></a>
-							<a href="{"orders.search"|fn_url}"><li class="submenu_item">{$lang.view_orders}</li></a>
+							<a href="{"index.php?dispatch=orders.search"|fn_url}"><li class="submenu_item">{$lang.view_orders}</li></a>
 						</ul>
 					</li>
 					<li class="top_menu_item">{$lang.sell}&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
@@ -187,7 +192,7 @@
 							{if $smarty.session.cart.products}
 								<a href="{"checkout.cart"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.view_cart}&nbsp;({$smarty.session.cart.products|@count})</a></span>
 							{/if}
-							<a href="{"profiles.update"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.block_my_account|capitalize}</a></span>
+							<a href="{"index.php?dispatch=profiles.update"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.block_my_account|capitalize}</a></span>
 							{*<a href="{"auth.logout?redirect_url=`$config.current_url`"|fn_url}" rel="nofollow" class="account">*}<a href="{"auth.logout"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.sign_out|capitalize}</a></span>
 						{else}
 							<a href="{if $controller == "auth" && $mode == "login_form"}{$config.current_url|fn_url}{else}{"auth.login_form?return_url=`$return_current_url`"|fn_url}{/if}" {if $settings.General.secure_auth != "Y"} rev="login_block{$block.snapping_id}" class="cm-dialog-opener cm-dialog-auto-size account"{else}rel="nofollow" class="account"{/if}><span class="top_menu_item">{$lang.sign_in|capitalize}</span></a> <a href="{"profiles.add"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.register}</span></a>

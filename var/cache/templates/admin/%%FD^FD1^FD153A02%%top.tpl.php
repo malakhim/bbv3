@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-05 15:32:52
+<?php /* Smarty version 2.6.18, created on 2014-12-11 18:15:37
          compiled from top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('modifier', 'count', 'top.tpl', 246, false),array('modifier', 'capitalize', 'top.tpl', 248, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('modifier', 'count', 'top.tpl', 251, false),array('modifier', 'capitalize', 'top.tpl', 253, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip','bb_browse','buy','place_request','view_orders','sell','block_products','add_new_product','sales','view_cart','block_my_account','sign_out','sign_in','register','sign_in'));
 ?>
@@ -277,7 +277,12 @@ if ($this->_foreach['sec_level']['total'] > 0):
 				<div class="	float-left">
 				
 								<div class="logo-container">
-					<a href="<?php echo fn_url(""); ?>
+				<?php if (isset ( $_SESSION['auth']['user_id'] ) && $_SESSION['auth']['user_id'] != 0): ?>
+					<?php $this->assign('home_href', "index.php?dispatch=billibuys.view", false); ?>
+				<?php else: ?>
+					<?php $this->assign('home_href', "index.php", false); ?>
+				<?php endif; ?>
+					<a href="<?php echo fn_url($this->_tpl_vars['home_href']); ?>
 " style="background: url('/skins/basic/customer/images/Logo_sml_8.png') no-repeat; width:<?php echo $this->_tpl_vars['manifest']['Customer_logo']['width']; ?>
 px; height:<?php echo $this->_tpl_vars['manifest']['Customer_logo']['height']; ?>
 px;" title="<?php echo $this->_tpl_vars['manifest']['Customer_logo']['alt']; ?>
@@ -338,7 +343,7 @@ px;" title="<?php echo $this->_tpl_vars['manifest']['Customer_logo']['alt']; ?>
 &nbsp;(<?php echo count($_SESSION['cart']['products']); ?>
 )</a></span>
 							<?php endif; ?>
-							<a href="<?php echo fn_url("profiles.update"); ?>
+							<a href="<?php echo fn_url("index.php?dispatch=profiles.update"); ?>
 " rel="nofollow" class="account"><span class="top_menu_item"><?php echo smarty_modifier_capitalize(fn_get_lang_var('block_my_account', $this->getLanguage())); ?>
 </a></span>
 							<a href="<?php echo fn_url("auth.logout"); ?>

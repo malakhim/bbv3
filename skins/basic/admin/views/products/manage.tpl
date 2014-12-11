@@ -152,7 +152,7 @@
 					<div class="bb-bid-item">
 						{include file="common_templates/image.tpl" class="bb-list-img" image=$product.main_pair.icon|default:$product.main_pair.detailed image_id=$product.main_pair.image_id image_width=100 object_type=$object_type href="products.update?product_id=`$product.product_id`"|fn_url}
 						<div class="bb-list-txt">
-							<div class="bb-list-field bb-list-title">		<a href="{"produncts.update&product_id=`$product.product_id`"|fn_url}">{$product.product}</a>
+							<div class="bb-list-field bb-list-title">		<a href="{"products.update&product_id=`$product.product_id`"|fn_url}">{$product.product}</a>
 							</div>
 							<hr/>
 							{$lang.default_price}:&nbsp;{$product.price}<br/><br/>

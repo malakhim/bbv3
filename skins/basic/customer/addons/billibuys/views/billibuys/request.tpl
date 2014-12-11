@@ -63,16 +63,12 @@
 							{/section}
 						</div>*}
 						<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title">{$lang.quantity}:</span> &nbsp;{$bid.quantity}</div>
-							<div class="bb-list-field bb-list-price">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}
+							<div class="bb-list-field bb-list-price float-right">{*<span class="bb-list-txt-title">{$lang.price}:</span> &nbsp;*}
 						<span class="bid-price">
 							{include file="common_templates/price.tpl" value=$bid.price"}
 						</span>
-						{if $bid.user_id == $smarty.session.auth.user_id}
-							<input type="text" class="bid-price-inputbox"/>&nbsp;
-							<a href="#!" class="edit-bid-price" data-href="{"billibuys.change_price"|fn_url}" data-id="{$bid.bb_bid_id}" data-edit-text="{$lang.edit}" data-save-text="{$lang.save}" data-currency="{$currencies.$primary_currency.symbol}">{$lang.edit}</a>
-						{/if}
 						</div>
-						<div class="error-message float-right"><div class="message"><p></p></div></div>
+						<div class="error-message float-right"><div class="message"><p></p></div><div class="clearfix"></div></div>
 						{assign var="return_current_url" value=$config.current_url|escape:"url"}
 						{if $request.user_id == $smarty.session.auth.user_id}
 							<form action="{"checkout.add..`$bid.product_id`"|fn_url}" method="POST" name="product_form_275" enctype="multipart/form-data" class="bb-bid-form">
@@ -81,45 +77,17 @@
 								<input type="hidden" name="product_data[{$bid.product_id}][bid_id]" value="{$bid.bb_bid_id}"/>
 								<input type="hidden" name="product_data[{$bid.product_id}][request_id]" value="{$bid.request_id}"/>
 									<a class="request-page-btn 
-									{if $bid.user_id == $smarty.session.auth.user_id}
-									delete-offer-btn
-									{else}view-offer-btn{/if}" href="
-									{if $bid.user_id == $smarty.session.auth.user_id}
-										{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}
-									{elseif $request.user_id == $smarty.session.auth.user_id}
-										'#'
-										{* No href, only submit function *}
-									{else}
-										{* No href *}
-									{/if}">
-										{if $bid.user_id == $smarty.session.auth.user_id}
-											{$lang.delete}
-										{else}
-											{if $request.user_id == $smarty.session.auth.user_id}
-												{$lang.accept}
-											{/if}
-										{/if}
-									</a>
+									view-offer-btn" href="#">{$lang.accept}</a>
 							</form>
 						{elseif $bid.user_id == $smarty.session.auth.user_id}
-							<a class="request-page-btn {if $bid.user_id == $smarty.session.auth.user_id}delete-offer-btn{else}view-offer-btn{/if}" href="{if $bid.user_id == $smarty.session.auth.user_id}{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}{else}{"checkout.add&product_id=`$bid.product_id`&request_id=`$request.bb_request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}
-
-							{*{"{products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url}*}
-
-							{/if}">
-								{if $bid.user_id == $smarty.session.auth.user_id}
-									{$lang.delete}
-								{else}
-									{if $request.user_id == $smarty.session.auth.user_id}
-										{$lang.accept}
-									{/if}
-								{/if}
-							</a>
+							<input type="text" class="bid-price-inputbox float-right"/>
+							<a class="request-page-btn delete-offer-btn float-right" href="{"index.php?dispatch=billibuys.withdraw_bid&bid_id=`$bid.bb_bid_id`&return_url=`$return_current_url`"|fn_url}
+							">{$lang.delete}</a>
+							<a href="#!" class="request-page-btn request-page-edit float-right" data-href="{"billibuys.change_price"|fn_url}" data-id="{$bid.bb_bid_id}" data-edit-text="{$lang.edit} {$lang.price}" data-save-text="{$lang.save} {$lang.price}" data-currency="{$currencies.$primary_currency.symbol}">{$lang.edit} {$lang.price}</a>
 						{/if}
 						<div class="hyphenate bb-list-desc bb-list-field">
 						{if !empty($bid.full_description)}
 							{$bid.desc_trunc}
-							{*$bid.full_description*}
 						{else}
 							{$lang.no_description}
 						{/if}

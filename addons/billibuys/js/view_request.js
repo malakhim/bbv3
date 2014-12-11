@@ -14,7 +14,7 @@ $(document).ready(function(){
 		});
 	});
 
-	// Hyphenate description, keeps it responsive even though limited chars being passed from backend
+	// Hyphenate plugin, keeps it responsive even though limited chars being passed from backend
 	Hyphenator.run();
 	
 	// Submit functionality for accept button
@@ -24,10 +24,11 @@ $(document).ready(function(){
 	});
 
 	// Edit link ajax functionality
-	$('.edit-bid-price').click(function(e){
-		var price_text = $(this).siblings('.bid-price');
+	$('.request-page-edit').click(function(e){
+		var price_text = $(this).siblings('.bb-list-price').children('.bid-price');
 		var price_input_box = $(this).siblings('.bid-price-inputbox');
 		var edit_link = $(this);
+		var error_msg = $(this).siblings('.error-message');
 		edit_link.parent().siblings('.error-message').hide();
 		if(price_text.data('hidden') !== 1){
 			price_input_box.val(price_text.html().replace(edit_link.data('currency'),'').trim());
@@ -50,9 +51,10 @@ $(document).ready(function(){
 						price_text.show();
 						price_text.data('hidden',0);
 						edit_link.html(edit_link.data('edit-text'));
+						error_msg.hide();
 					}else{
-						edit_link.parent().siblings('.error-message').find('p').text(response['message']);
-						edit_link.parent().siblings('.error-message').show();
+						error_msg.find('p').text(response['message']);
+						error_msg.show();
 					}
 				}
 			});

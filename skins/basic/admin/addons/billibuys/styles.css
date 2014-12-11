@@ -323,3 +323,44 @@ a.list-btn{
 	border-bottom: 1px solid black;
 	margin-bottom: 10px;
 }
+
+/* Product update page */
+
+.product-manage .form-field label{
+	margin-left: 0;
+}
+
+#box_attach_images_product_main_0{
+	margin-left: 10%;
+}
+
+.mainbox-breadcrumbs{
+	max-width: 100%;
+}
+
+.mainbox-title-container .next-prev a{
+	display: none;
+}
+
+/*Footer*/
+.footer{
+	background-color: #f36e21;
+	font-family: "Roboto";
+	font-size: 10pt;
+	min-height: 0px;
+}
+
+.billibuys_footer {
+	margin-top: 11px;
+	color: white;
+	font-size: 8pt;
+}
+
+#billibuys_footer_logo {
+	float: left;
+	margin-top: -20px;
+}
+
+.footer a:link, .footer a:visited {
+	color: white;
+}

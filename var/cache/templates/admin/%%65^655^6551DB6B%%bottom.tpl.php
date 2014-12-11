@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-05 15:32:53
+<?php /* Smarty version 2.6.18, created on 2014-12-11 18:15:37
          compiled from bottom.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_link_attach', 'bottom.tpl', 1, false),array('modifier', 'defined', 'bottom.tpl', 15, false),array('modifier', 'fn_check_view_permissions', 'bottom.tpl', 23, false),array('modifier', 'fn_url', 'bottom.tpl', 26, false),array('modifier', 'sizeof', 'bottom.tpl', 42, false),array('modifier', 'default', 'bottom.tpl', 45, false),array('modifier', 'lower', 'bottom.tpl', 49, false),array('modifier', 'unescape', 'bottom.tpl', 58, false),array('modifier', 'truncate', 'bottom.tpl', 117, false),array('modifier', 'fn_check_meta_redirect', 'bottom.tpl', 130, false),array('block', 'hook', 'bottom.tpl', 109, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_link_attach', 'bottom.tpl', 1, false),array('modifier', 'defined', 'bottom.tpl', 15, false),array('modifier', 'strpos', 'bottom.tpl', 20, false),array('modifier', 'fn_check_view_permissions', 'bottom.tpl', 23, false),array('modifier', 'fn_url', 'bottom.tpl', 26, false),array('modifier', 'sizeof', 'bottom.tpl', 42, false),array('modifier', 'default', 'bottom.tpl', 45, false),array('modifier', 'lower', 'bottom.tpl', 49, false),array('modifier', 'unescape', 'bottom.tpl', 58, false),array('modifier', 'truncate', 'bottom.tpl', 117, false),array('modifier', 'fn_check_meta_redirect', 'bottom.tpl', 130, false),array('modifier', 'date', 'bottom.tpl', 166, false),array('block', 'hook', 'bottom.tpl', 109, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('open_store','close_store','live_store_description','live_store','dev_store_description','dev_store','select_descr_lang','select_descr_lang','cleanup_history','no_items','last_viewed_items'));
+fn_preload_lang_vars(array('open_store','close_store','live_store_description','live_store','dev_store_description','dev_store','select_descr_lang','select_descr_lang','cleanup_history','no_items','last_viewed_items','footer_copyright','terms_and_conditions','disclaimer'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -24,7 +24,7 @@ fn_preload_lang_vars(array('open_store','close_store','live_store_description','
 	<input type="button" onclick="window.open('bug_report.php','popupwindow','width=700,height=450,toolbar=yes,status=no,scrollbars=yes,resizable=no,menubar=yes,location=no,direction=no');" value="Report a bug" />
 </div>
 <?php endif; ?>
-
+<?php if (strpos($this->_tpl_vars['config']['current_url'], $this->_tpl_vars['config']['admin_index']) !== false): ?>
 <div id="bottom_menu">
 	<div class="logo-bottom float-left" title="<?php echo @PRODUCT_NAME; ?>
  <?php if (@PRODUCT_TYPE == 'COMMUNITY'): ?>Community Edition<?php endif; ?><?php if (@PRODUCT_TYPE == 'PROFESSIONAL'): ?>Professional Edition<?php endif; ?><?php if (@PRODUCT_TYPE == 'MULTIVENDOR'): ?>Multi-Vendor Edition<?php endif; ?><?php if (@PRODUCT_TYPE == 'ULTIMATE'): ?>Ultimate Edition<?php endif; ?>">&nbsp;</div>
@@ -226,4 +226,47 @@ $(function() {
 </script>
 '; ?>
 
-<?php  ob_end_flush();  ?>
+<?php else: ?>
+<div id="ci_bottom_wrapper" class="footer clearfix">
+	<div class="container_16 custom">	
+	<div class="grid_16 billibuys_footer" >
+	 
+		<div class="grid_3 alpha " >
+	 
+		<div class="	float-left">
+			
+		<?php if (isset ( $_SESSION['auth']['user_id'] ) && $_SESSION['auth']['user_id'] != 0): ?>
+			<?php $this->assign('home_href', "billibuys.view", false); ?>
+		<?php else: ?>
+			<?php $this->assign('home_href', "", false); ?>
+		<?php endif; ?>
+
+		<a href="<?php echo fn_url($this->_tpl_vars['home_href']); ?>
+"><img src="images/billibuys_logo_white.png" id="billibuys_footer_logo" width="180px"></a>
+			</div>
+			</div>
+		<div class="grid_13 omega " >
+			 
+		<div class=" billibuys_footer">
+			<?php echo date('Y'); ?>
+ &copy; <?php echo fn_get_lang_var('footer_copyright', $this->getLanguage()); ?>
+&nbsp; 
+			<a href="<?php echo fn_url('termsandconditions'); ?>
+"><?php echo fn_get_lang_var('terms_and_conditions', $this->getLanguage()); ?>
+</a>
+			<a href="<?php echo fn_url('disclaimer'); ?>
+"><?php echo fn_get_lang_var('disclaimer', $this->getLanguage()); ?>
+</a> &nbsp;
+			</div>
+			</div>
+			<div class="clear"></div>
+
+			</div>
+			<div class="clear"></div>
+
+			<div class="clear"></div>
+		</div>
+		<!--ci_bottom_wrapper--></div>
+
+
+<?php endif; ?><?php  ob_end_flush();  ?>

@@ -1289,11 +1289,21 @@ html.ie9 .how_does_it_work_block div {
 	padding: 10px 20px 10px 20px;
 	border-radius: 10px;
 	color: white;
-	margin-top: 30px;
+}
+
+.request-page-edit{
+	background-color: rgb(75,172,198);
+}
+
+.request-page-edit:hover{
+	background-color: rgb(104, 193, 216);
+}
+
+.request-page-edit:active{
+	background-color: rgb(47, 114, 132);
 }
 
 .view-offer-btn{
-	float: right;
 	background-color: rgb(75,172,198);
 }
 
@@ -1306,8 +1316,8 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .delete-offer-btn{
-	float: right;
 	background-color: rgb(255,0,0);
+	margin-left: 10px;
 }
 
 .delete-offer-btn:hover{
@@ -1353,9 +1363,9 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #bids-list .bb-list-price{
-	float: right;
 	font-size: 2.7em;
 	margin-top: -66px;
+	margin-right: 7%;
 }
 
 #bids-list{
@@ -1377,10 +1387,14 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: 30px;
 }
 
-.bid-price-inputbox{
+.bb-bid-item .bid-price-inputbox{
+	text-align: center;
 	display: none;
 	width: 150px;
 	min-height: 50px;
+	margin-right: 4%;
+	margin-top: -65px;
+	font-size: 2.7em;
 }
 
 .bb-list-txt hr{
@@ -1397,9 +1411,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .bb-list-txt .error-message{
-	display: none;
-	margin-top: -10px;
-	margin-bottom: -20px;
+	margin-top: -105px;
 }
 
 #bids-list .bb-list-desc{

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-26 14:55:28
+<?php /* Smarty version 2.6.18, created on 2014-12-11 18:16:16
          compiled from views/orders/components/orders_search_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/orders/components/orders_search_form.tpl', 15, false),array('modifier', 'fn_get_statuses', 'views/orders/components/orders_search_form.tpl', 26, false),array('modifier', 'replace', 'views/orders/components/orders_search_form.tpl', 77, false),array('function', 'html_options', 'views/orders/components/orders_search_form.tpl', 33, false),array('function', 'html_checkboxes', 'views/orders/components/orders_search_form.tpl', 36, false),)), $this); ?>

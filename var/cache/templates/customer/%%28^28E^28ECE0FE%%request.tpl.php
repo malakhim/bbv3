@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-05 15:20:21
+<?php /* Smarty version 2.6.18, created on 2014-12-08 21:43:59
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 81, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/request.tpl', 114, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/views/billibuys/request.tpl', 117, false),array('modifier', 'format_price', 'addons/billibuys/views/billibuys/request.tpl', 242, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/request.tpl', 254, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/request.tpl', 340, false),array('function', 'math', 'addons/billibuys/views/billibuys/request.tpl', 32, false),array('function', 'script', 'addons/billibuys/views/billibuys/request.tpl', 325, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','desired_amount','time_remaining','ends','current_offers','offers','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','quantity','edit','save','edit','delete','accept','delete','accept','no_description','prev_page','next'));
+fn_preload_lang_vars(array('view_larger_image','max_price','no_max_price','desired_amount','time_remaining','ends','current_offers','offers','place_bid','auction_finished','click_here_to_return_to_main_page','prev_page','next','view_larger_image','quantity','accept','delete','edit','price','save','price','edit','price','no_description','prev_page','next'));
 ?>
 <?php 
 
@@ -209,22 +209,12 @@ unset($_smarty_tpl_vars);
 												<div class="bb-list-field bb-list-qty"><span class="bb-list-txt-title"><?php echo fn_get_lang_var('quantity', $this->getLanguage()); ?>
 :</span> &nbsp;<?php echo $this->_tpl_vars['bid']['quantity']; ?>
 </div>
-							<div class="bb-list-field bb-list-price">						<span class="bid-price">
+							<div class="bb-list-field bb-list-price float-right">						<span class="bid-price">
 							<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['bid']['price'], )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 						</span>
-						<?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>
-							<input type="text" class="bid-price-inputbox"/>&nbsp;
-							<a href="#!" class="edit-bid-price" data-href="<?php echo fn_url("billibuys.change_price"); ?>
-" data-id="<?php echo $this->_tpl_vars['bid']['bb_bid_id']; ?>
-" data-edit-text="<?php echo fn_get_lang_var('edit', $this->getLanguage()); ?>
-" data-save-text="<?php echo fn_get_lang_var('save', $this->getLanguage()); ?>
-" data-currency="<?php echo $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']]['symbol']; ?>
-"><?php echo fn_get_lang_var('edit', $this->getLanguage()); ?>
-</a>
-						<?php endif; ?>
 						</div>
-						<div class="error-message float-right"><div class="message"><p></p></div></div>
+						<div class="error-message float-right"><div class="message"><p></p></div><div class="clearfix"></div></div>
 						<?php $this->assign('return_current_url', smarty_modifier_escape($this->_tpl_vars['config']['current_url'], 'url'), false); ?>
 						<?php if ($this->_tpl_vars['request']['user_id'] == $_SESSION['auth']['user_id']): ?>
 							<form action="<?php echo fn_url("checkout.add..".($this->_tpl_vars['bid']['product_id'])); ?>
@@ -242,50 +232,31 @@ unset($_smarty_tpl_vars);
 ][request_id]" value="<?php echo $this->_tpl_vars['bid']['request_id']; ?>
 "/>
 									<a class="request-page-btn 
-									<?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>
-									delete-offer-btn
-									<?php else: ?>view-offer-btn<?php endif; ?>" href="
-									<?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>
-										<?php echo fn_url("index.php?dispatch=billibuys.withdraw_bid&bid_id=".($this->_tpl_vars['bid']['bb_bid_id'])."&return_url=".($this->_tpl_vars['return_current_url'])); ?>
-
-									<?php elseif ($this->_tpl_vars['request']['user_id'] == $_SESSION['auth']['user_id']): ?>
-										'#'
-																			<?php else: ?>
-																			<?php endif; ?>">
-										<?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>
-											<?php echo fn_get_lang_var('delete', $this->getLanguage()); ?>
-
-										<?php else: ?>
-											<?php if ($this->_tpl_vars['request']['user_id'] == $_SESSION['auth']['user_id']): ?>
-												<?php echo fn_get_lang_var('accept', $this->getLanguage()); ?>
-
-											<?php endif; ?>
-										<?php endif; ?>
-									</a>
+									view-offer-btn" href="#"><?php echo fn_get_lang_var('accept', $this->getLanguage()); ?>
+</a>
 							</form>
 						<?php elseif ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>
-							<a class="request-page-btn <?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>delete-offer-btn<?php else: ?>view-offer-btn<?php endif; ?>" href="<?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?><?php echo fn_url("index.php?dispatch=billibuys.withdraw_bid&bid_id=".($this->_tpl_vars['bid']['bb_bid_id'])."&return_url=".($this->_tpl_vars['return_current_url'])); ?>
-<?php else: ?><?php echo fn_url("checkout.add&product_id=".($this->_tpl_vars['bid']['product_id'])."&request_id=".($this->_tpl_vars['request']['bb_request_id'])."&bid_id=".($this->_tpl_vars['bid']['bb_bid_id'])); ?>
+							<input type="text" class="bid-price-inputbox float-right"/>
+							<a class="request-page-btn delete-offer-btn float-right" href="<?php echo fn_url("index.php?dispatch=billibuys.withdraw_bid&bid_id=".($this->_tpl_vars['bid']['bb_bid_id'])."&return_url=".($this->_tpl_vars['return_current_url'])); ?>
 
-
-							
-							<?php endif; ?>">
-								<?php if ($this->_tpl_vars['bid']['user_id'] == $_SESSION['auth']['user_id']): ?>
-									<?php echo fn_get_lang_var('delete', $this->getLanguage()); ?>
-
-								<?php else: ?>
-									<?php if ($this->_tpl_vars['request']['user_id'] == $_SESSION['auth']['user_id']): ?>
-										<?php echo fn_get_lang_var('accept', $this->getLanguage()); ?>
-
-									<?php endif; ?>
-								<?php endif; ?>
-							</a>
+							"><?php echo fn_get_lang_var('delete', $this->getLanguage()); ?>
+</a>
+							<a href="#!" class="request-page-btn request-page-edit float-right" data-href="<?php echo fn_url("billibuys.change_price"); ?>
+" data-id="<?php echo $this->_tpl_vars['bid']['bb_bid_id']; ?>
+" data-edit-text="<?php echo fn_get_lang_var('edit', $this->getLanguage()); ?>
+ <?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
+" data-save-text="<?php echo fn_get_lang_var('save', $this->getLanguage()); ?>
+ <?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
+" data-currency="<?php echo $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']]['symbol']; ?>
+"><?php echo fn_get_lang_var('edit', $this->getLanguage()); ?>
+ <?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
+</a>
 						<?php endif; ?>
 						<div class="hyphenate bb-list-desc bb-list-field">
 						<?php if (! empty ( $this->_tpl_vars['bid']['full_description'] )): ?>
 							<?php echo $this->_tpl_vars['bid']['desc_trunc']; ?>
 
-													<?php else: ?>
+						<?php else: ?>
 							<?php echo fn_get_lang_var('no_description', $this->getLanguage()); ?>
 
 						<?php endif; ?>

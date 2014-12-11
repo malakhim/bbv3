@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-05 15:20:10
+<?php /* Smarty version 2.6.18, created on 2014-12-11 16:01:03
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/for_the_buyers_frontpage.tpl */ ?>
 <?php  ob_start();  ?><link rel="stylesheet" type="text/css" href="css/style.css" />
 

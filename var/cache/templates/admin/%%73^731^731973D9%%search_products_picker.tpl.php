@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-01 18:09:35
+<?php /* Smarty version 2.6.18, created on 2014-12-11 18:14:18
          compiled from pickers/search_products_picker.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'explode', 'pickers/search_products_picker.tpl', 2, false),array('modifier', 'fn_get_views', 'pickers/search_products_picker.tpl', 6, false),array('modifier', 'escape', 'pickers/search_products_picker.tpl', 12, false),)), $this); ?>

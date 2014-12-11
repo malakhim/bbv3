@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-05 15:51:08
+<?php /* Smarty version 2.6.18, created on 2014-12-11 17:40:10
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 451, false),array('modifier', 'fn_query_remove', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 469, false),array('modifier', 'escape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 469, false),array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 482, false),array('modifier', 'unescape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 609, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 609, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 612, false),array('modifier', 'format_price', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 733, false),array('function', 'script', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 454, false),array('function', 'math', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 527, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 31, false),array('modifier', 'fn_query_remove', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 49, false),array('modifier', 'escape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 49, false),array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 62, false),array('modifier', 'unescape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 188, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 188, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 191, false),array('modifier', 'format_price', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 312, false),array('function', 'script', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 34, false),array('function', 'math', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 106, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('sort','title','title','prev_page','next','view_larger_image','bb_max_price','no_max_price','quantity','lowest_bid','prev_page','next'));
+fn_preload_lang_vars(array('prev_page','next','view_larger_image','bb_max_price','no_max_price','quantity','lowest_bid','prev_page','next'));
 ?>
 <?php 
 
@@ -27,17 +27,6 @@ fn_preload_lang_vars(array('sort','title','title','prev_page','next','view_large
 '; ?>
 
 
-<!-- 
-<?php echo fn_get_lang_var('sort', $this->getLanguage()); ?>
-:
-<div id="sort">
-	<select id="sort_select">
-		<option value="title" data-order="ASC"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
- (A-Z)</option>
-		<option value="title" data-order="DESC"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
- (Z-A)</option>
-	</select>
-</div> -->
 
 <?php if ($this->_tpl_vars['requests']['success'] == 1): ?>
 	<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/components/sorting.tpl", 'smarty_include_vars' => array('hide_layouts' => true,'location' => 'requests')));
@@ -145,7 +134,6 @@ unset($_smarty_tpl_vars);
 <?php elseif ($this->_smarty_vars['capture']['pagination_open'] != 'Y'): ?>
 	<?php ob_start(); ?>Y<?php $this->_smarty_vars['capture']['pagination_open'] = ob_get_contents(); ob_end_clean(); ?>
 <?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-
 
 	<?php $_from = $this->_tpl_vars['requests']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['request']):

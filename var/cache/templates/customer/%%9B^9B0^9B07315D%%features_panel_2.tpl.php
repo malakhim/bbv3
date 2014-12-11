@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-05 15:20:10
+<?php /* Smarty version 2.6.18, created on 2014-12-11 16:01:03
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/features_panel_2.tpl */ ?>
 <?php  ob_start();  ?><div class="fpanel-title">Get more value</div>
 <br/>

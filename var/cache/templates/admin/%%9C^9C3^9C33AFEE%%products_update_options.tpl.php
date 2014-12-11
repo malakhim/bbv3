@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-02 10:58:14
+<?php /* Smarty version 2.6.18, created on 2014-12-11 16:23:44
          compiled from views/products/components/products_update_options.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/products/components/products_update_options.tpl', 18, false),array('modifier', 'fn_get_company_name', 'views/products/components/products_update_options.tpl', 26, false),array('modifier', 'default', 'views/products/components/products_update_options.tpl', 76, false),array('modifier', 'fn_check_view_permissions', 'views/products/components/products_update_options.tpl', 77, false),)), $this); ?>
