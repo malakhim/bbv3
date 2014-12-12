@@ -1,3 +1,4 @@
+<div class="container_16">
 {capture name="mainbox"}
 
 <script src="addons/billibuys/js/place_bid.js" type="text/javascript"></script>
@@ -6,6 +7,7 @@
 {**
 {include file="views/products/components/products_search_form.tpl" dispatch="products.manage"}
 **}
+
 <div id="content_manage_products">
 <form action="{""|fn_url}" method="post" name="manage_products_form">
 <input type="hidden" name="request_id" value="{$smarty.request.request_id}" id="request_id"/>
@@ -117,3 +119,4 @@
 
 {/capture}
 {include file="common_templates/mainbox.tpl" title=$lang.products content=$smarty.capture.mainbox title_extra=$smarty.capture.title_extra tools=$smarty.capture.tools select_languages=true}
+</div>

@@ -164,12 +164,15 @@
 						</div>
 					</div>
 				{/foreach}
-			{include file="common_templates/pagination.tpl"}
+		
 
 			{/capture}
 
 			{include file="common_templates/mainbox.tpl" title=$lang.products content=$smarty.capture.mainbox tools=$smarty.capture.tools title_extra=$smarty.capture.title_extra select_languages=true}
+			<br/>
+			{include file="common_templates/pagination.tpl"}
 		</div>
+
 	</div>
 
 {/if}
