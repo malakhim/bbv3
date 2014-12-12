@@ -416,6 +416,7 @@
 		{include file="common_templates/mainbox.tpl" title="`$lang.editing_product`:&nbsp;`$product_data.product`"|unescape|strip_tags content=$smarty.capture.mainbox select_languages=true tools=$smarty.capture.view_tools}
 	{/if}
 {else}
+	<div class="container_16">
 	{capture name="mainbox"}
 
 	{** /Item menu section **}
@@ -535,7 +536,7 @@
 	{** Form submit section **}
 
 	<div class="buttons-container cm-toggle-button buttons-bg">
-		{include file="buttons/save_cancel.tpl" but_name="dispatch[products.update]"}
+		{include file="buttons/save_cancel.tpl" but_name="dispatch[products.update]" hide_first_button=true}
 	</div>
 	{** /Form submit section **}
 
@@ -549,4 +550,5 @@
 
 		{include file="common_templates/mainbox.tpl" title="`$lang.editing_product`:&nbsp;`$product_data.product`"|unescape|strip_tags content=$smarty.capture.mainbox select_languages=true tools=$smarty.capture.view_tools}
 	{/if}
+	</div>
 {/if}

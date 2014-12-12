@@ -364,3 +364,8 @@ a.list-btn{
 .footer a:link, .footer a:visited {
 	color: white;
 }
+
+/* Product update/add page */
+#product_full_descr, #product_short_descr{
+	width: 75%;
+}

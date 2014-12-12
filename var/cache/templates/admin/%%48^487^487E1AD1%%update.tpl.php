@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-12 17:39:19
+<?php /* Smarty version 2.6.18, created on 2014-12-12 19:27:07
          compiled from views/products/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'strpos', 'views/products/update.tpl', 15, false),array('modifier', 'fn_url', 'views/products/update.tpl', 29, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 29, false),array('modifier', 'defined', 'views/products/update.tpl', 29, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 98, false),array('modifier', 'fn_check_view_permissions', 'views/products/update.tpl', 218, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 767, false),array('modifier', 'in_array', 'views/products/update.tpl', 773, false),array('modifier', 'escape', 'views/products/update.tpl', 814, false),array('modifier', 'fn_explode_localizations', 'views/products/update.tpl', 931, false),array('modifier', 'replace', 'views/products/update.tpl', 952, false),array('block', 'hook', 'views/products/update.tpl', 709, false),array('function', 'script', 'views/products/update.tpl', 761, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'strpos', 'views/products/update.tpl', 15, false),array('modifier', 'fn_url', 'views/products/update.tpl', 29, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 29, false),array('modifier', 'defined', 'views/products/update.tpl', 29, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 98, false),array('modifier', 'fn_check_view_permissions', 'views/products/update.tpl', 218, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 767, false),array('modifier', 'in_array', 'views/products/update.tpl', 773, false),array('modifier', 'escape', 'views/products/update.tpl', 814, false),array('modifier', 'fn_explode_localizations', 'views/products/update.tpl', 932, false),array('modifier', 'replace', 'views/products/update.tpl', 953, false),array('block', 'hook', 'views/products/update.tpl', 709, false),array('function', 'script', 'views/products/update.tpl', 761, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','in_stock','edit','remove_this_item','remove_this_item','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','preview','preview_as_admin','editing_product','information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','localization','multiple_selectbox_notice','short_description','short_desc_explanation_txt','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','in_stock','edit','remove_this_item','remove_this_item','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','editing_product'));
 ?>
@@ -558,6 +558,7 @@ unset($_smarty_tpl_vars);
  ?>
 	<?php endif; ?>
 <?php else: ?>
+	<div class="container_16">
 	<?php ob_start(); ?>
 
 	
@@ -965,7 +966,7 @@ unset($_smarty_tpl_vars);
 
 	
 	<div class="buttons-container cm-toggle-button buttons-bg">
-		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/save_cancel.tpl", 'smarty_include_vars' => array('but_name' => "dispatch[products.update]")));
+		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/save_cancel.tpl", 'smarty_include_vars' => array('but_name' => "dispatch[products.update]",'hide_first_button' => true)));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
@@ -1015,4 +1016,5 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 	<?php endif; ?>
+	</div>
 <?php endif; ?>
