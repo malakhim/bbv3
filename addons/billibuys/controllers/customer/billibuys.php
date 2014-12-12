@@ -175,6 +175,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			// $bid['product'] = fn_get_product_data($bid['product_id'], $auth, CART_LANGUAGE, '', true, true, true, true, fn_is_preview_action($auth, $_REQUEST));
 		}
 
+		$view->assign('max_desc_length',MAX_DESC_LENGTH);
 		$view->assign('num_offers',count($bids));
 		$view->assign('max_bid_amount',$max_bid_amount);
 		$view->assign('min_bid_amount',$min_bid_amount);

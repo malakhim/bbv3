@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-05 14:09:31
+<?php /* Smarty version 2.6.18, created on 2014-12-12 13:52:40
          compiled from addons/bundled_products/hooks/products/buttons_block.override.tpl */ ?>
 <?php  ob_start();  ?><?php 
 

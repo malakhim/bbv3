@@ -464,6 +464,15 @@
 		<textarea id="product_full_descr" name="product_data[full_description]" cols="55" rows="8" class="cm-wysiwyg input-textarea-long">{$product_data.full_description}</textarea>
 		{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='full_description' name="update_all_vendors[full_description]"}
 	</div>
+
+	{include file="views/localizations/components/select.tpl" data_from=$product_data.localization data_name="product_data[localization]"}
+
+	<div class="form-field {$no_hide_input_if_shared_product}">
+		<label for="product_short_descr">{$lang.short_description}: &nbsp;(<a class="cm-tooltip" title="{$lang.short_desc_explanation_txt|replace:'[max_desc_length]':$max_desc_length}">?</a>)</label>
+		<textarea id="product_short_descr" name="product_data[short_description]" cols="55" rows="2" class="cm-wysiwyg input-textarea-long">{$product_data.short_description}</textarea>
+		{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='short_description' name="update_all_vendors[short_description]"}
+	</div>
+
 	{** /General info section **}
 
 	<div class="form-field">

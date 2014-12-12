@@ -29,10 +29,12 @@
 		<br/><br/>
 		<div id="description-text">{$request.description}</div>
 		<br/><br/>
-		<div id="bid_range">{$lang.current_offers}:&nbsp;{include file="common_templates/price.tpl" value=$min_bid_amount is_integer=false} - {include file="common_templates/price.tpl" value=$max_bid_amount is_integer=false} [{$num_offers} {$lang.offers}]</div>
+		<div id="bid_range">{$lang.current_offers}:&nbsp;{include file="common_templates/price.tpl" value=$min_bid_amount is_integer=false} - {include file="common_templates/price.tpl" value=$max_bid_amount is_integer=false} [{$num_offers} {if $num_offers == 1}{$lang.offer}{else}{$lang.offers}{/if}]</div>
 		<br/><br/>
 		{if $expired == 0}
-		<a href="{"vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url}" class="request-page-btn" id="place-offer">{$lang.place_bid}</a>
+			{if $request.user_id != $smarty.session.auth.user_id}
+				<a href="{"vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url}" class="request-page-btn" id="place-offer">{$lang.place_bid}</a>
+			{/if}
 			{*{if $request.user_id != $smarty.session.auth.user_id}
 				{include file="buttons/button.tpl" but_text="`$lang.place_bid`" but_role="action" but_meta="place_offer" but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.bb_request_id`"|@fn_url  but_id="place_offer"}
 			{/if}*}
@@ -76,8 +78,7 @@
 								<input type="hidden" name="product_data[{$bid.product_id}][amount]" value="{$bid.quantity}"/>
 								<input type="hidden" name="product_data[{$bid.product_id}][bid_id]" value="{$bid.bb_bid_id}"/>
 								<input type="hidden" name="product_data[{$bid.product_id}][request_id]" value="{$bid.request_id}"/>
-									<a class="request-page-btn 
-									view-offer-btn" href="#">{$lang.accept}</a>
+									<a class="request-page-btn float-right view-offer-btn" href="#">{$lang.accept}</a>
 							</form>
 						{elseif $bid.user_id == $smarty.session.auth.user_id}
 							<input type="text" class="bid-price-inputbox float-right"/>
@@ -86,11 +87,22 @@
 							<a href="#!" class="request-page-btn request-page-edit float-right" data-href="{"billibuys.change_price"|fn_url}" data-id="{$bid.bb_bid_id}" data-edit-text="{$lang.edit} {$lang.price}" data-save-text="{$lang.save} {$lang.price}" data-currency="{$currencies.$primary_currency.symbol}">{$lang.edit} {$lang.price}</a>
 						{/if}
 						<div class="hyphenate bb-list-desc bb-list-field">
-						{if !empty($bid.full_description)}
-							{$bid.desc_trunc}
-						{else}
-							{$lang.no_description}
-						{/if}
+							{capture name="prod_descr"}
+								{if $bid.short_description}
+									{$bid.short_description|unescape}
+								{else}
+									{$bid.full_description|unescape|strip_tags|truncate:$max_desc_length}{if !$hide_links && $bid.full_description|strlen > 180} <a href="{"products.view?product_id=`$bid.product_id`"|fn_url}" class="lowercase">{$lang.more}&nbsp;<i class="text-arrow">&rarr;</i></a>{/if}
+								{/if}
+							{/capture}
+
+							{if !empty($bid.full_description)}
+								<p class="product-description">{$smarty.capture.prod_descr}</p>
+							{*/if}
+							{if !empty($bid.full_description)}
+								{$bid.desc_trunc*}
+							{else}
+								{$lang.no_description}
+							{/if}
 						</div>
 					</div>
 				</div>

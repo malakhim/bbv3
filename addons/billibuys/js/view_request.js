@@ -14,9 +14,6 @@ $(document).ready(function(){
 		});
 	});
 
-	// Hyphenate plugin, keeps it responsive even though limited chars being passed from backend
-	Hyphenator.run();
-	
 	// Submit functionality for accept button
 	$('.view-offer-btn').click(function(e){
 		$(this).parent().submit();

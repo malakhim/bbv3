@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-11 18:13:58
+<?php /* Smarty version 2.6.18, created on 2014-12-12 13:47:41
          compiled from views/products/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'strpos', 'views/products/update.tpl', 15, false),array('modifier', 'fn_url', 'views/products/update.tpl', 29, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 29, false),array('modifier', 'defined', 'views/products/update.tpl', 29, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 98, false),array('modifier', 'fn_check_view_permissions', 'views/products/update.tpl', 218, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 767, false),array('modifier', 'in_array', 'views/products/update.tpl', 773, false),array('modifier', 'escape', 'views/products/update.tpl', 814, false),array('block', 'hook', 'views/products/update.tpl', 709, false),array('function', 'script', 'views/products/update.tpl', 761, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'strpos', 'views/products/update.tpl', 15, false),array('modifier', 'fn_url', 'views/products/update.tpl', 29, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 29, false),array('modifier', 'defined', 'views/products/update.tpl', 29, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 98, false),array('modifier', 'fn_check_view_permissions', 'views/products/update.tpl', 218, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 767, false),array('modifier', 'in_array', 'views/products/update.tpl', 773, false),array('modifier', 'escape', 'views/products/update.tpl', 814, false),array('modifier', 'fn_explode_localizations', 'views/products/update.tpl', 931, false),array('modifier', 'replace', 'views/products/update.tpl', 952, false),array('block', 'hook', 'views/products/update.tpl', 709, false),array('function', 'script', 'views/products/update.tpl', 761, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','in_stock','edit','remove_this_item','remove_this_item','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','preview','preview_as_admin','editing_product','information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','in_stock','edit','remove_this_item','remove_this_item','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','editing_product'));
+fn_preload_lang_vars(array('information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','in_stock','edit','remove_this_item','remove_this_item','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','preview','preview_as_admin','editing_product','information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','localization','multiple_selectbox_notice','short_description','short_desc_explanation_txt','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','in_stock','edit','remove_this_item','remove_this_item','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','editing_product'));
 ?>
 <?php 
 
@@ -699,6 +699,77 @@ unset($_smarty_tpl_vars);
 <?php endif; ?> 
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 	</div>
+
+	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('data_from' => $this->_tpl_vars['product_data']['localization'], 'data_name' => "product_data[localization]", )); ?>
+<?php $this->assign('data', fn_explode_localizations($this->_tpl_vars['data_from']), false); ?>
+
+<?php if ($this->_tpl_vars['localizations']): ?>
+<?php if (! $this->_tpl_vars['no_div']): ?>
+<div class="form-field">
+	<label for="<?php echo $this->_tpl_vars['id']; ?>
+"><?php echo fn_get_lang_var('localization', $this->getLanguage()); ?>
+:</label>
+<?php endif; ?>
+		<?php if (! $this->_tpl_vars['disabled']): ?><input type="hidden" name="<?php echo $this->_tpl_vars['data_name']; ?>
+" value="" /><?php endif; ?>
+		<select	name="<?php echo $this->_tpl_vars['data_name']; ?>
+[]" multiple="multiple" size="3" id="<?php echo smarty_modifier_default(@$this->_tpl_vars['id'], @$this->_tpl_vars['data_name']); ?>
+" class="<?php if ($this->_tpl_vars['disabled']): ?>elm-disabled<?php else: ?>input-text<?php endif; ?>" <?php if ($this->_tpl_vars['disabled']): ?>disabled="disabled"<?php endif; ?>>
+			<?php $_from = $this->_tpl_vars['localizations']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['loc']):
+?>
+			<option	value="<?php echo $this->_tpl_vars['loc']['localization_id']; ?>
+" <?php $_from = $this->_tpl_vars['data']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['p_loc']):
+?><?php if ($this->_tpl_vars['p_loc'] == $this->_tpl_vars['loc']['localization_id']): ?>selected="selected"<?php endif; ?><?php endforeach; endif; unset($_from); ?>><?php echo smarty_modifier_escape($this->_tpl_vars['loc']['localization']); ?>
+</option>
+			<?php endforeach; endif; unset($_from); ?>
+		</select>
+<?php if (! $this->_tpl_vars['no_div']): ?>
+<?php echo fn_get_lang_var('multiple_selectbox_notice', $this->getLanguage()); ?>
+
+</div>
+<?php endif; ?>
+<?php endif; ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+
+	<div class="form-field <?php echo $this->_tpl_vars['no_hide_input_if_shared_product']; ?>
+">
+		<label for="product_short_descr"><?php echo fn_get_lang_var('short_description', $this->getLanguage()); ?>
+: &nbsp;(<a class="cm-tooltip" title="<?php echo smarty_modifier_replace(fn_get_lang_var('short_desc_explanation_txt', $this->getLanguage()), '[max_desc_length]', $this->_tpl_vars['max_desc_length']); ?>
+">?</a>)</label>
+		<textarea id="product_short_descr" name="product_data[short_description]" cols="55" rows="2" class="cm-wysiwyg input-textarea-long"><?php echo $this->_tpl_vars['product_data']['short_description']; ?>
+</textarea>
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('display' => $this->_tpl_vars['show_update_for_all'], 'object_id' => 'short_description', 'name' => "update_all_vendors[short_description]", )); ?><?php if ($this->_tpl_vars['display']): ?>
+	<?php if ($this->_tpl_vars['hide_element']): ?>
+		<?php $this->assign('title_act', fn_get_lang_var('update_for_all_hid_act', $this->getLanguage()), false); ?>
+		<?php $this->assign('title_dis', fn_get_lang_var('update_for_all_hid_dis', $this->getLanguage()), false); ?>
+	<?php else: ?>
+		<?php $this->assign('title_act', fn_get_lang_var('update_for_all_act', $this->getLanguage()), false); ?>
+		<?php $this->assign('title_dis', fn_get_lang_var('update_for_all_dis', $this->getLanguage()), false); ?>
+	<?php endif; ?>
+	<?php if ($this->_tpl_vars['settings']['Stores']['default_state_update_for_all'] == 'active'): ?>
+		<?php $this->assign('title', $this->_tpl_vars['title_act'], false); ?>
+		<?php $this->assign('visible', 'visible', false); ?>
+	<?php else: ?>
+		<?php $this->assign('title', $this->_tpl_vars['title_dis'], false); ?>
+	<?php endif; ?>
+	<a class="cm-update-for-all-icon <?php echo $this->_tpl_vars['visible']; ?>
+" title="<?php echo $this->_tpl_vars['title']; ?>
+" title_act="<?php echo $this->_tpl_vars['title_act']; ?>
+" title_dis="<?php echo $this->_tpl_vars['title_dis']; ?>
+" rev="<?php echo $this->_tpl_vars['object_id']; ?>
+" <?php if ($this->_tpl_vars['hide_element']): ?>hide_element="<?php echo $this->_tpl_vars['hide_element']; ?>
+"<?php endif; ?>></a>
+	<input type="hidden" class="cm-no-hide-input" id="hidden_update_all_vendors_<?php echo $this->_tpl_vars['object_id']; ?>
+" name="<?php echo $this->_tpl_vars['name']; ?>
+" value="Y" <?php if ($this->_tpl_vars['settings']['Stores']['default_state_update_for_all'] == 'not_active'): ?>disabled="disabled"<?php endif; ?> />
+<?php else: ?>
+&nbsp;
+<?php endif; ?> 
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+	</div>
+
 	
 	<div class="form-field">
 		<label><?php echo fn_get_lang_var('images', $this->getLanguage()); ?>

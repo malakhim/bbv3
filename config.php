@@ -22,7 +22,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 define('MAX_PRICE_VARIATION',0.1);
 
 // Truncated description length for lists
-define('MAX_DESC_LENGTH',50);
+define('MAX_DESC_LENGTH',300);
 
 // These constants define when select box with categories list should be replaced with picker
 define('CATEGORY_THRESHOLD', 100); // if number of categories less than this value, all categories will be retrieved, otherwise subcategories will be retrieved by ajax

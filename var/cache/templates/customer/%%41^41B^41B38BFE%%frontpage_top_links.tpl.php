@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-12 12:41:10
+<?php /* Smarty version 2.6.18, created on 2014-12-12 13:51:02
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl */ ?>
 <?php  ob_start();  ?>
 <!--<link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>

@@ -210,7 +210,7 @@
 
 		<!-- Front end view variables -->
 		<item lang="EN" id="bb_item_enter_through_bids">This item can only be purchased through bids</item>
-		<item lang="EN" id="bb_enter_item">Please enter the item you want here</item>
+		<item lang="EN" id="enter_item_to_sell">Enter item you wish to sell</item>
 		<item lang="EN" id="bb_ms_since_submitted">Microseconds since submitted</item>
 		<item lang="EN" id="bb_current_bid">Current bid</item>
 		<item lang="EN" id="bb_not_logged_in">Please log in to view your bids</item>
@@ -303,6 +303,7 @@
 		<item lang="EN" id="update_bids_no_update_option_text">Leave all disabled offers as disabled (You can enable and adjust these later in your "Offers" page)</item>
 		<item lang="EN" id="update_bids">Update Offers</item>
 		<item lang="EN" id="updated_successful_msg">Bids have been updated successfully</item>
+		<item lang="EN" id="short_desc_explanation_txt">This is the description that will show up on the list of offers ([max_desc_length] characters). If left blank, the first [max_desc_length] characters from main description will be used.</item>
 
 		<!-- General -->
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	
@@ -313,9 +314,8 @@
 		<item lang="EN" id="terms_and_conditions">Terms and Conditions</item>
 		<item lang="EN" id="disclaimer">Disclaimer</item>
 		<item lang="EN" id="offers">offers</item>
+		<item lang="EN" id="offer">offer</item>
 	  
-
-
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
 		<item lang="EN" id="bid_is_over_request_max">Your bid is over the customer's limit. Please keep your total bid under </item>
@@ -375,6 +375,8 @@
 
 		<!-- Frontend billibuys.view-request variables -->
 		<item lang="EN" id="ends">Ends</item>
+		<item lang="EN" id="current_offers">Current Offers</item>
+		<item lang="EN" id="offers">offers</item>
 	</language_variables>
 
 	<functions>
