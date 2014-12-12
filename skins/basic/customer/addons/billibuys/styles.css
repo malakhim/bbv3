@@ -1255,15 +1255,14 @@ html.ie9 .how_does_it_work_block div {
 
 
 #info-box-text{
-	margin-top: -300px;
+	margin-top: -155px;
 	margin-left: 170px;
 	font-size: 1.2em;
 	line-height: 2em;
 }
 
 #info-box hr{
-	border-bottom: 1px solid #000;
-	width: 70%;
+	border-bottom: 1px solid #9D9D9D;
 }
 
 #info-box .is-countdown{
@@ -1291,6 +1290,9 @@ html.ie9 .how_does_it_work_block div {
 	padding: 10px 20px 10px 20px;
 	border-radius: 10px;
 	color: white;
+}
+
+.request-page-btn.view-offer-btn{
 	margin-right: 8%;
 }
 
@@ -1401,7 +1403,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .bb-list-txt hr{
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #9D9D9D;
 }
 
 .bb-list-qty{

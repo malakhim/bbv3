@@ -7,7 +7,7 @@
 {/literal}
 
 <div id="info-box">
-	{include file="common_templates/image.tpl" image_width="150" image_height="300" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
+	{include file="common_templates/image.tpl" image_width="150" image_height="150" images=$request.image show_thumbnail="N" no_ids=true class="request-item-image"}
 	{*<div id="request-infobox-right">*}
 
 	{*</div>*}

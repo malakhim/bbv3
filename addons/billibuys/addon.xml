@@ -371,7 +371,8 @@
 			<item lang="EN" id="desc_description">e.g. 55 Inch LED TV. (The more descriptive you are, the better the offers become)</item>
 			<item lang="EN" id="maxprice_description">e.g. 15.95</item>
 			<item lang="EN" id="expiry_description">e.g. 13/05/2055</item>
-			<item lang="EN" id="desired_quantity_description">Select a request expiry date</item>
+			<item lang="EN" id="desired_quantity">Desired Quantity</item>
+
 
 		<!-- Frontend billibuys.view-request variables -->
 		<item lang="EN" id="ends">Ends</item>

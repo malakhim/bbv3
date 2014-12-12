@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-12 13:51:02
+<?php /* Smarty version 2.6.18, created on 2014-12-12 17:32:53
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/features_panel_4.tpl */ ?>
 <?php  ob_start();  ?><div class="fpanel-title">BilliBuys is your personal shopper</div>
 
