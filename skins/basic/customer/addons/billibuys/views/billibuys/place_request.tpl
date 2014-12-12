@@ -42,7 +42,7 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 
 	<div class="form-field">
 		<label for="bb_request_desc" class="cm-required cm-trim">{$lang.description}</label>
-		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="{if $smarty.request.request.desc}{$smarty.request.request.desc}{/if}" title="{$lang.desc_description}" class="input-textarea cm-hint">{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}</textarea>
+		<textarea id="bb_request_desc" name="request[description]" size="500" maxlength="500" value="{if $smarty.request.request.desc}{$smarty.request.request.desc}{/if}" title="{$lang.desc_description}" class="input-textarea cm-hint">{if $smarty.request.request.desc}{$smarty.request.request.desc}{else}{$lang.desc_description}{/if}</textarea>
 	</div>
 
 	<div class="form-field">
@@ -96,7 +96,7 @@ Form wrapper for the entire thing, so that all data is sent back to server in on
 //<![CDATA[
 {literal}
 regexp['bb_max_price'] = {
-	regexp: /(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\.[0-9]{1,2})?$/{/literal}, message: "{$lang.bb_error_validator_price_format|escape:'javascript'}"
+	regexp: /^(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\.[0-9]{1,2})?$/{/literal}, message: "{$lang.bb_error_validator_price_format|escape:'javascript'}"
 {literal}
 };
 

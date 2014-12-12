@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-11 18:48:21
+<?php /* Smarty version 2.6.18, created on 2014-12-12 12:41:14
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 31, false),array('modifier', 'fn_query_remove', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 49, false),array('modifier', 'escape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 49, false),array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 62, false),array('modifier', 'unescape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 188, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 188, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 191, false),array('modifier', 'format_price', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 312, false),array('function', 'script', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 34, false),array('function', 'math', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 106, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 31, false),array('modifier', 'fn_query_remove', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 49, false),array('modifier', 'escape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 49, false),array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 62, false),array('modifier', 'unescape', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 188, false),array('modifier', 'fn_generate_thumbnail', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 188, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 191, false),array('modifier', 'format_price', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 319, false),array('function', 'script', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 34, false),array('function', 'math', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_view.tpl', 106, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('prev_page','next','view_larger_image','bb_max_price','no_max_price','quantity','lowest_bid','prev_page','next'));
+fn_preload_lang_vars(array('prev_page','next','view_larger_image','lowest_bid','bb_max_price','no_max_price','desired_quantity','prev_page','next'));
 ?>
 <?php 
 
@@ -150,17 +150,7 @@ unset($_smarty_tpl_vars);
 				<div class="bb-list-txt">
 					<div class="bb-list-field bb-list-title"><?php echo $this->_tpl_vars['request']['title']; ?>
 </div>
-					<div class="bb-list-rating bb-list-field"></div>
-					<div class="bb-list-desc bb-list-field"><?php echo $this->_tpl_vars['request']['description']; ?>
-</div>
-					<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title"><?php echo fn_get_lang_var('bb_max_price', $this->getLanguage()); ?>
-:</span> &nbsp;<?php if ($this->_tpl_vars['request']['max_price']): ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['request']['max_price'], )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php else: ?><?php echo fn_get_lang_var('no_max_price', $this->getLanguage()); ?>
-<?php endif; ?></div>
-					<?php if ($this->_tpl_vars['request']['quantity']): ?><div class="bb-list-field bb-list-qty"><?php echo fn_get_lang_var('quantity', $this->getLanguage()); ?>
-:&nbsp;<?php echo $this->_tpl_vars['request']['quantity']; ?>
-</div><?php endif; ?>
-					<div class="bb-list-field bb-list-time-remaining" expiry="<?php echo $this->_tpl_vars['request']['expiry_date']; ?>
+										<div class="bb-list-field bb-list-time-remaining" expiry="<?php echo $this->_tpl_vars['request']['expiry_date']; ?>
 "></div>
 					<div class="bb-list-field bb-list-current-bid">
 						<div class="bb-list-txt-title">
@@ -170,6 +160,16 @@ unset($_smarty_tpl_vars);
 <?php else: ?> --- <?php endif; ?>
 						</div>
 					</div>
+					<div class="bb-list-desc bb-list-field"><?php echo $this->_tpl_vars['request']['description']; ?>
+</div>
+					<div class="bb-list-field bb-list-price"><span class="bb-list-txt-title"><?php echo fn_get_lang_var('bb_max_price', $this->getLanguage()); ?>
+:</span> &nbsp;<?php if ($this->_tpl_vars['request']['max_price']): ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['request']['max_price'], )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php else: ?><?php echo fn_get_lang_var('no_max_price', $this->getLanguage()); ?>
+<?php endif; ?></div>
+					<?php if ($this->_tpl_vars['request']['quantity']): ?><div class="bb-list-field bb-list-qty"><?php echo fn_get_lang_var('desired_quantity', $this->getLanguage()); ?>
+:&nbsp;<?php echo $this->_tpl_vars['request']['quantity']; ?>
+</div><?php endif; ?>
+
 				</div>
 			</span></a>
 		<?php endif; ?>

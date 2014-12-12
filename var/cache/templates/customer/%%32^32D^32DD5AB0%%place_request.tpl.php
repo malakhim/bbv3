@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-11 18:24:08
+<?php /* Smarty version 2.6.18, created on 2014-12-11 19:25:19
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 37, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 68, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_request.tpl', 151, false),)), $this); ?>
@@ -39,7 +39,7 @@ fn_preload_lang_vars(array('bb_request_title','title_description','description',
 	<div class="form-field">
 		<label for="bb_request_desc" class="cm-required cm-trim"><?php echo fn_get_lang_var('description', $this->getLanguage()); ?>
 </label>
-		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
+		<textarea id="bb_request_desc" name="request[description]" size="500" maxlength="500" value="<?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
 <?php endif; ?>" title="<?php echo fn_get_lang_var('desc_description', $this->getLanguage()); ?>
 " class="input-textarea cm-hint"><?php if ($this->_tpl_vars['_REQUEST']['request']['desc']): ?><?php echo $this->_tpl_vars['_REQUEST']['request']['desc']; ?>
 <?php else: ?><?php echo fn_get_lang_var('desc_description', $this->getLanguage()); ?>
@@ -199,7 +199,7 @@ unset($_smarty_tpl_vars);
 //<![CDATA[
 <?php echo '
 regexp[\'bb_max_price\'] = {
-	regexp: /(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\\.[0-9]{1,2})?$/'; ?>
+	regexp: /^(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)(\\.[0-9]{1,2})?$/'; ?>
 , message: "<?php echo smarty_modifier_escape(fn_get_lang_var('bb_error_validator_price_format', $this->getLanguage()), 'javascript'); ?>
 "
 <?php echo '
