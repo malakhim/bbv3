@@ -974,14 +974,19 @@ html.ie9 .how_does_it_work_block div {
 	border-radius: 6px;
 	border: 1px solid #e0e0e0;
 }
-
+/*
 @media screen and (max-width: 1050px){
 	.top_menu_item{
 		padding-left: 0;
 	}
 }
 
-
+@media screen and (max-width: 1500px){
+	li.top_menu_item{
+		font-size: 1.2em;
+	}
+}
+*/
 .form-field label.label-inline{
 	display: inline;
 }
@@ -1070,7 +1075,7 @@ html.ie9 .how_does_it_work_block div {
 	margin-top: -14px;
 	height: 37px;
 	margin-left: 21px;
-	width: 220px;
+	width: 20%;
 	font-size: 1.1em;
 }
 
@@ -1089,12 +1094,12 @@ html.ie9 .how_does_it_work_block div {
 	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e90bd', endColorstr='#3fb2d1',GradientType=1 ); /* IE6-9 */*/
 }
 
-.top_menu_item{
-	color: white;
-}
-
 .top_menu_item:hover{
 	color: #175A6C;
+}
+
+li.top_menu_item{
+	margin-top: -4px;
 }
 
 .top-nav-submenu{
