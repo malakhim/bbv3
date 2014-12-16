@@ -137,14 +137,13 @@
 		<div class="grid_8 omega ">
 					&nbsp;
 			</div>
-		<div class="grid_10 alpha ">
+		<div class="grid_16 alpha ">
 			 
-				<div class="	float-left">
 				{*TODO: Include the customer-side version of this as a smarty include*}
 
 				{*assign var=path value=$config.http_location}
 				{include file="$customer_skin_path/customer/addons/billibuys/blocks/static_templates/logo.tpl"*}
-				<div class="logo-container">
+				<div class="logo-container float-left">
 				{if isset($smarty.session.auth.user_id) && $smarty.session.auth.user_id != 0}
 					{assign var="home_href" value="index.php?dispatch=billibuys.view"}
 				{else}
@@ -152,7 +151,27 @@
 				{/if}
 					<a href="{$home_href|fn_url}" style="background: url('/skins/basic/customer/images/Logo_sml_8.png') no-repeat; width:{$manifest.Customer_logo.width}px; height:{$manifest.Customer_logo.height}px;" title="{$manifest.Customer_logo.alt}" class="logo"></a>
 				</div>
-			</div><div class="	float-left">
+				<div class=" top-nav-login float-right top-links-right">
+					<div class="buttons-container float-right">
+
+						{if $smarty.session.auth.user_id > 0}
+							{if $smarty.session.cart.products}
+								<a href="{"checkout.cart"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.view_cart}&nbsp;({$smarty.session.cart.products|@count})</a></span>
+							{/if}
+							<a href="{"index.php?dispatch=profiles.update"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.block_my_account|capitalize}</a></span>
+							{*<a href="{"auth.logout?redirect_url=`$config.current_url`"|fn_url}" rel="nofollow" class="account">*}<a href="{"auth.logout"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.sign_out|capitalize}</a></span>
+						{else}
+							<a href="{if $controller == "auth" && $mode == "login_form"}{$config.current_url|fn_url}{else}{"auth.login_form?return_url=`$return_current_url`"|fn_url}{/if}" {if $settings.General.secure_auth != "Y"} rev="login_block{$block.snapping_id}" class="cm-dialog-opener cm-dialog-auto-size account"{else}rel="nofollow" class="account"{/if}><span class="top_menu_item">{$lang.sign_in|capitalize}</span></a> <a href="{"profiles.add"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.register}</span></a>
+							{if $settings.General.secure_auth != "Y"}
+								<div  id="login_block{$block.snapping_id}" class="hidden" title="{$lang.sign_in}"> 
+									<div class="login-popup">
+										{include file="views/auth/login_form.tpl" style="popup" form_name="login_popup_form`$block.snapping_id`" id="popup`$block.snapping_id`"}
+									</div>
+								</div>
+							{/if}
+						{/if}
+					</div>
+				</div>
 				<ul id="second-top-nav-elements" class="row">
 					<a href="{'billibuys.view'|fn_url}"><li class="top_menu_item">{$lang.bb_browse}</li></a>
 					<li class="top_menu_item">{$lang.buy}&nbsp;&nbsp;<i class="fa-angle-down fa"></i>
@@ -176,49 +195,15 @@
 						</ul>
 					</li>
 					<form method='get' action="{"billibuys.view"|fn_url}" id="top-search-form" name="top_search_bar">
-				    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="{if $smarty.request.search}{$smarty.request.search}{else}Enter an item you want to sell{/if}">
+				    	  <input type="text" class="form-control input-text input-search cm-hint" name="search" id="input-search" title="{if $smarty.request.search}{$smarty.request.search}{else}Enter an item you want to sell{/if}">
 				    	  <i class="fa fa-search" id="search-submit"></i>
 					</form>
 				</ul>
 			</div>
-			</div>
-		<div class="grid_6 omega top-links-right">
-			 
-				<div class=" top-nav-login float-right">
-					<div class="buttons-container float-right">
-
-						{if $smarty.session.auth.user_id > 0}
-							{if $smarty.session.cart.products}
-								<a href="{"checkout.cart"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.view_cart}&nbsp;({$smarty.session.cart.products|@count})</a></span>
-							{/if}
-							<a href="{"index.php?dispatch=profiles.update"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.block_my_account|capitalize}</a></span>
-							{*<a href="{"auth.logout?redirect_url=`$config.current_url`"|fn_url}" rel="nofollow" class="account">*}<a href="{"auth.logout"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.sign_out|capitalize}</a></span>
-						{else}
-							<a href="{if $controller == "auth" && $mode == "login_form"}{$config.current_url|fn_url}{else}{"auth.login_form?return_url=`$return_current_url`"|fn_url}{/if}" {if $settings.General.secure_auth != "Y"} rev="login_block{$block.snapping_id}" class="cm-dialog-opener cm-dialog-auto-size account"{else}rel="nofollow" class="account"{/if}><span class="top_menu_item">{$lang.sign_in|capitalize}</span></a> <a href="{"profiles.add"|fn_url}" rel="nofollow" class="account"><span class="top_menu_item">{$lang.register}</span></a>
-							{if $settings.General.secure_auth != "Y"}
-								<div  id="login_block{$block.snapping_id}" class="hidden" title="{$lang.sign_in}"> 
-									<div class="login-popup">
-										{include file="views/auth/login_form.tpl" style="popup" form_name="login_popup_form`$block.snapping_id`" id="popup`$block.snapping_id`"}
-									</div>
-								</div>
-							{/if}
-						{/if}
-					</div>
-
-
-			</div>
-			</div>
 			<div class="clear"></div>
 
 			</div>
 			<div class="clear"></div>
-		<div class="grid_16 ">
-					&nbsp;
-			</div>
-			<div class="clear"></div>
-
-			<div class="clear"></div>
-		</div>
 		<!--ci_top_wrapper--></div>
 	</div>
 {/if}

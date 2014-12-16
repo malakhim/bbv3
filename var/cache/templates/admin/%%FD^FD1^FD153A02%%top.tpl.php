@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-17 00:07:57
+<?php /* Smarty version 2.6.18, created on 2014-12-17 00:21:28
          compiled from top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('modifier', 'count', 'top.tpl', 250, false),array('modifier', 'capitalize', 'top.tpl', 252, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'strpos', 'top.tpl', 15, false),array('modifier', 'truncate', 'top.tpl', 19, false),array('modifier', 'fn_url', 'top.tpl', 23, false),array('modifier', 'escape', 'top.tpl', 23, false),array('modifier', 'defined', 'top.tpl', 49, false),array('modifier', 'sizeof', 'top.tpl', 72, false),array('modifier', 'substr', 'top.tpl', 76, false),array('modifier', 'fn_strlen', 'top.tpl', 77, false),array('modifier', 'count', 'top.tpl', 217, false),array('modifier', 'capitalize', 'top.tpl', 219, false),array('block', 'hook', 'top.tpl', 157, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip','bb_browse','buy','my_requests','place_request','view_orders','sell','block_products','add_new_product','sales','view_cart','block_my_account','sign_out','sign_in','register','sign_in'));
+fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip','view_cart','block_my_account','sign_out','sign_in','register','sign_in','bb_browse','buy','my_requests','place_request','view_orders','sell','block_products','add_new_product','sales'));
 ?>
 <?php 
 
@@ -272,11 +272,10 @@ if ($this->_foreach['sec_level']['total'] > 0):
 		<div class="grid_8 omega ">
 					&nbsp;
 			</div>
-		<div class="grid_10 alpha ">
+		<div class="grid_16 alpha ">
 			 
-				<div class="	float-left">
 				
-								<div class="logo-container">
+								<div class="logo-container float-left">
 				<?php if (isset ( $_SESSION['auth']['user_id'] ) && $_SESSION['auth']['user_id'] != 0): ?>
 					<?php $this->assign('home_href', "index.php?dispatch=billibuys.view", false); ?>
 				<?php else: ?>
@@ -288,7 +287,45 @@ px; height:<?php echo $this->_tpl_vars['manifest']['Customer_logo']['height']; ?
 px;" title="<?php echo $this->_tpl_vars['manifest']['Customer_logo']['alt']; ?>
 " class="logo"></a>
 				</div>
-			</div><div class="	float-left">
+				<div class=" top-nav-login float-right top-links-right">
+					<div class="buttons-container float-right">
+
+						<?php if ($_SESSION['auth']['user_id'] > 0): ?>
+							<?php if ($_SESSION['cart']['products']): ?>
+								<a href="<?php echo fn_url("checkout.cart"); ?>
+" rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('view_cart', $this->getLanguage()); ?>
+&nbsp;(<?php echo count($_SESSION['cart']['products']); ?>
+)</a></span>
+							<?php endif; ?>
+							<a href="<?php echo fn_url("index.php?dispatch=profiles.update"); ?>
+" rel="nofollow" class="account"><span class="top_menu_item"><?php echo smarty_modifier_capitalize(fn_get_lang_var('block_my_account', $this->getLanguage())); ?>
+</a></span>
+							<a href="<?php echo fn_url("auth.logout"); ?>
+" rel="nofollow" class="account"><span class="top_menu_item"><?php echo smarty_modifier_capitalize(fn_get_lang_var('sign_out', $this->getLanguage())); ?>
+</a></span>
+						<?php else: ?>
+							<a href="<?php if ($this->_tpl_vars['controller'] == 'auth' && $this->_tpl_vars['mode'] == 'login_form'): ?><?php echo fn_url($this->_tpl_vars['config']['current_url']); ?>
+<?php else: ?><?php echo fn_url("auth.login_form?return_url=".($this->_tpl_vars['return_current_url'])); ?>
+<?php endif; ?>" <?php if ($this->_tpl_vars['settings']['General']['secure_auth'] != 'Y'): ?> rev="login_block<?php echo $this->_tpl_vars['block']['snapping_id']; ?>
+" class="cm-dialog-opener cm-dialog-auto-size account"<?php else: ?>rel="nofollow" class="account"<?php endif; ?>><span class="top_menu_item"><?php echo smarty_modifier_capitalize(fn_get_lang_var('sign_in', $this->getLanguage())); ?>
+</span></a> <a href="<?php echo fn_url("profiles.add"); ?>
+" rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('register', $this->getLanguage()); ?>
+</span></a>
+							<?php if ($this->_tpl_vars['settings']['General']['secure_auth'] != 'Y'): ?>
+								<div  id="login_block<?php echo $this->_tpl_vars['block']['snapping_id']; ?>
+" class="hidden" title="<?php echo fn_get_lang_var('sign_in', $this->getLanguage()); ?>
+"> 
+									<div class="login-popup">
+										<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "views/auth/login_form.tpl", 'smarty_include_vars' => array('style' => 'popup','form_name' => "login_popup_form".($this->_tpl_vars['block']['snapping_id']),'id' => "popup".($this->_tpl_vars['block']['snapping_id']))));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+									</div>
+								</div>
+							<?php endif; ?>
+						<?php endif; ?>
+					</div>
+				</div>
 				<ul id="second-top-nav-elements" class="row">
 					<a href="<?php echo fn_url('billibuys.view'); ?>
 "><li class="top_menu_item"><?php echo fn_get_lang_var('bb_browse', $this->getLanguage()); ?>
@@ -327,68 +364,16 @@ px;" title="<?php echo $this->_tpl_vars['manifest']['Customer_logo']['alt']; ?>
 					</li>
 					<form method='get' action="<?php echo fn_url("billibuys.view"); ?>
 " id="top-search-form" name="top_search_bar">
-				    	  <input type="text" class="form-control input-text input-search" name="search" id="input-search" value="<?php if ($this->_tpl_vars['_REQUEST']['search']): ?><?php echo $this->_tpl_vars['_REQUEST']['search']; ?>
+				    	  <input type="text" class="form-control input-text input-search cm-hint" name="search" id="input-search" title="<?php if ($this->_tpl_vars['_REQUEST']['search']): ?><?php echo $this->_tpl_vars['_REQUEST']['search']; ?>
 <?php else: ?>Enter an item you want to sell<?php endif; ?>">
 				    	  <i class="fa fa-search" id="search-submit"></i>
 					</form>
 				</ul>
 			</div>
-			</div>
-		<div class="grid_6 omega top-links-right">
-			 
-				<div class=" top-nav-login float-right">
-					<div class="buttons-container float-right">
-
-						<?php if ($_SESSION['auth']['user_id'] > 0): ?>
-							<?php if ($_SESSION['cart']['products']): ?>
-								<a href="<?php echo fn_url("checkout.cart"); ?>
-" rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('view_cart', $this->getLanguage()); ?>
-&nbsp;(<?php echo count($_SESSION['cart']['products']); ?>
-)</a></span>
-							<?php endif; ?>
-							<a href="<?php echo fn_url("index.php?dispatch=profiles.update"); ?>
-" rel="nofollow" class="account"><span class="top_menu_item"><?php echo smarty_modifier_capitalize(fn_get_lang_var('block_my_account', $this->getLanguage())); ?>
-</a></span>
-							<a href="<?php echo fn_url("auth.logout"); ?>
-" rel="nofollow" class="account"><span class="top_menu_item"><?php echo smarty_modifier_capitalize(fn_get_lang_var('sign_out', $this->getLanguage())); ?>
-</a></span>
-						<?php else: ?>
-							<a href="<?php if ($this->_tpl_vars['controller'] == 'auth' && $this->_tpl_vars['mode'] == 'login_form'): ?><?php echo fn_url($this->_tpl_vars['config']['current_url']); ?>
-<?php else: ?><?php echo fn_url("auth.login_form?return_url=".($this->_tpl_vars['return_current_url'])); ?>
-<?php endif; ?>" <?php if ($this->_tpl_vars['settings']['General']['secure_auth'] != 'Y'): ?> rev="login_block<?php echo $this->_tpl_vars['block']['snapping_id']; ?>
-" class="cm-dialog-opener cm-dialog-auto-size account"<?php else: ?>rel="nofollow" class="account"<?php endif; ?>><span class="top_menu_item"><?php echo smarty_modifier_capitalize(fn_get_lang_var('sign_in', $this->getLanguage())); ?>
-</span></a> <a href="<?php echo fn_url("profiles.add"); ?>
-" rel="nofollow" class="account"><span class="top_menu_item"><?php echo fn_get_lang_var('register', $this->getLanguage()); ?>
-</span></a>
-							<?php if ($this->_tpl_vars['settings']['General']['secure_auth'] != 'Y'): ?>
-								<div  id="login_block<?php echo $this->_tpl_vars['block']['snapping_id']; ?>
-" class="hidden" title="<?php echo fn_get_lang_var('sign_in', $this->getLanguage()); ?>
-"> 
-									<div class="login-popup">
-										<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "views/auth/login_form.tpl", 'smarty_include_vars' => array('style' => 'popup','form_name' => "login_popup_form".($this->_tpl_vars['block']['snapping_id']),'id' => "popup".($this->_tpl_vars['block']['snapping_id']))));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
-									</div>
-								</div>
-							<?php endif; ?>
-						<?php endif; ?>
-					</div>
-
-
-			</div>
-			</div>
 			<div class="clear"></div>
 
 			</div>
 			<div class="clear"></div>
-		<div class="grid_16 ">
-					&nbsp;
-			</div>
-			<div class="clear"></div>
-
-			<div class="clear"></div>
-		</div>
 		<!--ci_top_wrapper--></div>
 	</div>
 <?php endif; ?>

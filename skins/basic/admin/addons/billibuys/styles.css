@@ -116,6 +116,10 @@
 	padding-bottom: 25px;
 }
 
+li.top_menu_item{
+	margin-top: -4px;
+}
+
 .top-logo .logo-container{
 	margin-top: -20px;
 	min-height: 70px;
@@ -182,7 +186,7 @@
 	border-radius: 30px;
 	background-image: none;
 	padding-left: 10px!important;
-	width: 220px;
+	width: 20%;
 	margin-left: 21px;
 	display: inline;
 	margin-top: -14px;
