@@ -46,14 +46,14 @@
 	</div>
 
 	<div class="fp-4 fpanel-panel">
-		<div class="fpanel-fa"><i class="fa fa-wrench"></i></div>
+		<div class="fpanel-fa"><i class="fa fa-child"></i></div>
 		<div class="fpanel-points">
-			<div class="fpanel-title">See the market</div>
+			<div class="fpanel-title">Billibuys is your personal shopper</div>
 			<br/>
 			<div class="fpanel-text">
 				<ul>
-					<li>Identify demand for the items you want to buy or sell</li><br/>
-					<li>Never sell a product for less than you want</li>
+					<li>Get real time price updates on your item</li><br/>
+					<li>See different offers all based on what you want</li>
 				</ul>
 			</div>
 		</div>

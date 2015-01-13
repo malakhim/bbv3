@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-01-13 22:35:01
+<?php /* Smarty version 2.6.18, created on 2015-01-13 22:51:47
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_footer_logo.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_footer_logo.tpl', 7, false),)), $this); ?>
