@@ -172,6 +172,7 @@
 						{/if}
 					</div>
 				</div>
+				{*DO NOT CHANGE TO FLOAT-LEFT OR AFTER LOGIN, IT BREAKS STUFF*}
 				<ul id="second-top-nav-elements" class="row">
 					<a href="{'billibuys.view'|fn_url}"><li class="top_menu_item">{$lang.bb_browse}</li></a>
 					<li class="top_menu_item">{$lang.buy}&nbsp;&nbsp;<i class="fa-angle-down fa"></i>

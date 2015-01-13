@@ -726,8 +726,6 @@ html.ie9 .how_does_it_work_block div {
 	font-weight: bolder;
 }
 
-
-
 .infobox-label{
 	font-weight: bolder;
 	font-size: 1.3em;
@@ -741,6 +739,10 @@ html.ie9 .how_does_it_work_block div {
 	padding: 14px;
 	font-weight: bolder;
 	/*margin-left: 100px;*/
+}
+
+.learn-more:hover{
+	background-color: rgb(223, 98, 62);
 }
 
 .try-us{
@@ -760,6 +762,44 @@ html.ie9 .how_does_it_work_block div {
 	text-decoration:none;
 }
 
+.subscription-block{
+	margin: 30px auto;
+	width: 40%;
+}
+
+#subscription-heading{
+	font-family: "Roboto";
+	font-size: 1.7em;
+	font-weight: bold;
+}
+
+#subscription-body{
+	display: inline-block;
+	font-size: 1.7em;
+	line-height: 1.9em;
+	margin-top: 20px;
+}
+
+#subscription-fields{
+	display: inline-block;
+	margin-top: -20px;
+	float: right;
+}
+
+#subscription-submit{
+	background-color: rgb(228, 56, 7);
+	color: white;
+	text-align: center;
+	padding: 4px;
+	font-size: 1.3em;
+	font-family: "Titillium Web";
+	cursor: pointer;
+}
+
+#subscription-submit:hover{
+	background-color: rgb(223, 98, 62);
+}
+
 #bb_requests .pagination-bottom{
 	text-align: right;
 	margin-right: 40px;
@@ -771,6 +811,11 @@ html.ie9 .how_does_it_work_block div {
 	font-family: "Roboto";
 	text-transform: uppercase;
 	width: 700px;
+}
+
+.fp_panel .sub-panel{
+	width: 100%;
+	background-color: rgb(138, 178, 179);
 }
 
 .bb-list-txt{
@@ -905,6 +950,26 @@ html.ie9 .how_does_it_work_block div {
 	background: url('/images/B_step1.png') no-repeat;
 }
 
+.for_the_buyers_block .step_2 .slider-img{
+	background: url('/skins/basic/customer/addons/billibuys/images/b_step2a.png') no-repeat;
+}
+
+.for_the_buyers_block .step_3 .slider-img{
+	background: url('/skins/basic/customer/addons/billibuys/images/b_step3.png') no-repeat;
+}
+
+.for_the_sellers_block .step_1 .slider-img{
+	background: url('/skins/basic/customer/addons/billibuys/images/s_step1.png') no-repeat;
+}
+
+.for_the_sellers_block .step_2 .slider-img{
+	background: url('/skins/basic/customer/addons/billibuys/images/s_step2.png') no-repeat;
+}
+
+.for_the_sellers_block .step_3 .slider-img{
+	background: url('/skins/basic/customer/addons/billibuys/images/s_step3.png') no-repeat;
+}
+
 .bxslider{
 	height: 100%;
 }
@@ -914,16 +979,49 @@ html.ie9 .how_does_it_work_block div {
 	margin-right: 0;
 }
 
-.for_the_buyers_block span{
+.for_the_buyers_block span, .for_the_sellers_block span{
 	float: left;
-	padding-left: 7%;
-	padding-right: 2%;
+	width: 33%;
 }
 
-.for_the_sellers_block span{
-	float: left;
-	padding-left: 11%;
-	padding-right: 2%;	
+@media screen and (max-width: 960px){
+	.for_the_buyers_block span, .for_the_sellers_block span{
+		padding-left: 40%;
+		padding-right: 95%;
+		padding-top: 5%;
+		padding-bottom: 5%;
+	}
+}
+
+.fpanel-body{
+	padding-left: 7%;
+}
+
+.fpanel-panel{
+	width: 49%;
+	display: inline-block;
+}
+
+#fpanel-heading{
+	padding-left: 37%;
+	font-size: 4em;
+	padding-bottom: 80px;
+	padding-top: 30px;
+	font-family: "Roboto";
+	color: rgb(30, 144, 189);
+}
+
+.fpanel-points{
+	display:inline-block;
+	padding-left: 1.3%;
+	padding-bottom: 70px;
+	width: 80%;
+}
+
+.fpanel-fa{
+	font-size: 7em;
+	display:inline;
+	color: rgb(144, 186, 186);
 }
 
 .fpanel-title{
@@ -946,13 +1044,14 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .fpanel-text{
-	padding-left: 4%;
+	padding-left: 8%;
+	font-size: 1.4em;
 }
-
+/*
 .fp-2{
 	background-color: white;
 	padding-left: 50%;
-}
+}*/
 
 
 #index .grid_16.header-top-bar{
@@ -1080,7 +1179,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 #top-search-form{
-	display:inline;
+	/*display:inline;*/
 }
 
 .header-solid{

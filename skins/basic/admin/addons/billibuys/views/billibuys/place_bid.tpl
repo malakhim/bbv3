@@ -57,7 +57,7 @@
 	</td>
 	<td{if $no_hide_input_if_shared_product} class="{$no_hide_input_if_shared_product}"{/if}>
 		<div class="product-price">
-			<input type="number" min="0" name="products_data[{$product.product_id}][price]" size="6" value="{if $saved_selected_product_id == $product.product_id}{$saved_selected_product.price}{else}{$product.price|fn_format_price:$primary_currency:null:false}{/if}" class="input-text" />
+			<input type="number" min="0" step="any" name="products_data[{$product.product_id}][price]" size="6" value="{if $saved_selected_product_id == $product.product_id}{$saved_selected_product.price}{else}{$product.price|fn_format_price:$primary_currency:null:false}{/if}" class="input-text" />
 			{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='price' name="update_all_vendors[price]"}
 		</div>
 	</td>

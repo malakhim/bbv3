@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-17 00:21:27
+<?php /* Smarty version 2.6.18, created on 2015-01-13 21:36:47
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 52, false),array('modifier', 'strpos', 'index.tpl', 59, false),array('modifier', 'escape', 'index.tpl', 109, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 188, false),array('modifier', 'lower', 'index.tpl', 200, false),array('modifier', 'fn_query_remove', 'index.tpl', 237, false),array('modifier', 'fn_url', 'index.tpl', 237, false),array('modifier', 'fn_link_attach', 'index.tpl', 246, false),array('modifier', 'fn_get_notifications', 'index.tpl', 270, false),array('modifier', 'default', 'index.tpl', 304, false),array('modifier', 'unescape', 'index.tpl', 304, false),array('block', 'hook', 'index.tpl', 59, false),array('function', 'join_css', 'index.tpl', 81, false),array('function', 'script', 'index.tpl', 96, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 52, false),array('modifier', 'strpos', 'index.tpl', 59, false),array('modifier', 'escape', 'index.tpl', 111, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 190, false),array('modifier', 'lower', 'index.tpl', 202, false),array('modifier', 'fn_query_remove', 'index.tpl', 239, false),array('modifier', 'fn_url', 'index.tpl', 239, false),array('modifier', 'fn_link_attach', 'index.tpl', 248, false),array('modifier', 'fn_get_notifications', 'index.tpl', 272, false),array('modifier', 'default', 'index.tpl', 306, false),array('modifier', 'unescape', 'index.tpl', 306, false),array('block', 'hook', 'index.tpl', 59, false),array('function', 'join_css', 'index.tpl', 83, false),array('function', 'script', 'index.tpl', 98, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','items','text_required_group_product','save','close','loading','notice','warning','error','text_are_you_sure_to_proceed','text_invalid_url','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','error_ajax','text_changes_not_saved','text_data_changed','text_block_trial_notice','text_expired_license','file_browser','editing_block','editing_grid','editing_container','adding_grid','adding_block_to_grid','manage_blocks','editing_block','add_block','loading','close','close','processing'));
 ?>
@@ -37,7 +37,7 @@ fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','er
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/styles.post.tpl' => 1417262721,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1421124056,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -83,7 +83,9 @@ fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','er
 	'; ?>
 
 
-	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
+	<!-- <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/> -->
+
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 

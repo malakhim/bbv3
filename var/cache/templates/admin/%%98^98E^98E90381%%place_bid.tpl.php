@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-12 19:24:49
+<?php /* Smarty version 2.6.18, created on 2015-01-12 15:26:40
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 31, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 79, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 79, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 79, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 113, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 216, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 278, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 279, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 291, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 53, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 73, false),)), $this); ?>
@@ -109,7 +109,7 @@ unset($_smarty_tpl_vars);
 	<td<?php if ($this->_tpl_vars['no_hide_input_if_shared_product']): ?> class="<?php echo $this->_tpl_vars['no_hide_input_if_shared_product']; ?>
 "<?php endif; ?>>
 		<div class="product-price">
-			<input type="number" min="0" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
+			<input type="number" min="0" step="any" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
 ][price]" size="6" value="<?php if ($this->_tpl_vars['saved_selected_product_id'] == $this->_tpl_vars['product']['product_id']): ?><?php echo $this->_tpl_vars['saved_selected_product']['price']; ?>
 <?php else: ?><?php echo fn_format_price($this->_tpl_vars['product']['price'], $this->_tpl_vars['primary_currency'], null, false); ?>
 <?php endif; ?>" class="input-text" />

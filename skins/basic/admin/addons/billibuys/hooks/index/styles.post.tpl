@@ -15,6 +15,8 @@
 	<script src="addons/billibuys/js/billibuys.js" type="text/javascript"></script>
 	{/literal}
 
-	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
+	<!-- <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/> -->
+
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 {/if}
