@@ -1,1 +1,0 @@
-a:2:{s:4:"data";a:1:{s:2:"EN";a:6:{s:11:"all_vendors";s:11:"All vendors";s:8:"products";s:8:"Products";s:5:"pages";s:5:"Pages";s:4:"home";s:4:"Home";s:13:"cart_is_empty";s:13:"Cart is empty";s:24:"cannot_proccess_checkout";s:54:"Your cart is empty, so you cannot proceed to checkout.";}}s:6:"expiry";i:0;}
