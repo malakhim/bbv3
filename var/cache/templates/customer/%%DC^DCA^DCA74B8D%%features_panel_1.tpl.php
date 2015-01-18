@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-01-13 22:51:47
+<?php /* Smarty version 2.6.18, created on 2015-01-19 10:09:49
          compiled from C:/wamp3/www/public_html/skins/basic/customer/addons/billibuys/blocks/static_templates/features_panel_1.tpl */ ?>
 <?php  ob_start();  ?><div id="fpanel-heading">Why choose Billibuys?</div>
 

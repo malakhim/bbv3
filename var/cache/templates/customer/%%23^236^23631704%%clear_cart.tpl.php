@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-01-12 16:47:28
+<?php /* Smarty version 2.6.18, created on 2015-01-17 11:09:35
          compiled from buttons/clear_cart.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/clear_cart.tpl', 40, false),array('modifier', 'fn_url', 'buttons/clear_cart.tpl', 40, false),)), $this); ?>

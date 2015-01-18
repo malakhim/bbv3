@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-11-20 13:22:33
+<?php /* Smarty version 2.6.18, created on 2015-01-17 11:33:24
          compiled from buttons/register_profile.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/register_profile.tpl', 40, false),array('modifier', 'fn_url', 'buttons/register_profile.tpl', 40, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('register','delete'));
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'buttons/button.tpl' => 1406444269,
+  'buttons/button.tpl' => 1416450827,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -104,5 +104,4 @@ fn_preload_lang_vars(array('register','delete'));
 "<?php endif; ?>><?php echo $this->_tpl_vars['but_text']; ?>
 </a></span></span>
 
-<?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>

@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-12-11 18:45:29
+<?php /* Smarty version 2.6.18, created on 2015-01-16 17:54:14
          compiled from exception.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'exception.tpl', 16, false),array('modifier', 'html_entity_decode', 'exception.tpl', 40, false),array('modifier', 'default', 'exception.tpl', 40, false),array('modifier', 'fn_seo_is_indexed_page', 'exception.tpl', 42, false),array('modifier', 'sizeof', 'exception.tpl', 46, false),array('modifier', 'fn_link_attach', 'exception.tpl', 48, false),array('modifier', 'fn_url', 'exception.tpl', 48, false),array('modifier', 'defined', 'exception.tpl', 75, false),array('modifier', 'count', 'exception.tpl', 101, false),array('modifier', 'escape', 'exception.tpl', 137, false),array('modifier', 'fn_generate_security_hash', 'exception.tpl', 209, false),array('modifier', 'strpos', 'exception.tpl', 222, false),array('modifier', 'fn_query_remove', 'exception.tpl', 223, false),array('block', 'hook', 'exception.tpl', 34, false),array('function', 'join_css', 'exception.tpl', 107, false),array('function', 'script', 'exception.tpl', 126, false),array('function', 'render_location', 'exception.tpl', 348, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'exception.tpl', 16, false),array('modifier', 'html_entity_decode', 'exception.tpl', 40, false),array('modifier', 'default', 'exception.tpl', 40, false),array('modifier', 'fn_seo_is_indexed_page', 'exception.tpl', 42, false),array('modifier', 'sizeof', 'exception.tpl', 46, false),array('modifier', 'fn_link_attach', 'exception.tpl', 48, false),array('modifier', 'fn_url', 'exception.tpl', 48, false),array('modifier', 'defined', 'exception.tpl', 75, false),array('modifier', 'count', 'exception.tpl', 101, false),array('modifier', 'escape', 'exception.tpl', 138, false),array('modifier', 'fn_generate_security_hash', 'exception.tpl', 210, false),array('modifier', 'strpos', 'exception.tpl', 223, false),array('modifier', 'fn_query_remove', 'exception.tpl', 224, false),array('block', 'hook', 'exception.tpl', 34, false),array('function', 'join_css', 'exception.tpl', 108, false),array('function', 'script', 'exception.tpl', 127, false),array('function', 'render_location', 'exception.tpl', 349, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','in_stock','items','text_required_group_product','notice','warning','loading','none','text_are_you_sure_to_proceed','text_invalid_url','text_cart_changed','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','view_cart','checkout','product_added_to_cart','products_added_to_cart','product_added_to_wl','product_added_to_cl','close','error','error_ajax','text_changes_not_saved','text_data_changed','twg_visit_our_mobile_store','twg_app_for_android','twg_app_for_iphone','twg_app_for_ipad','bundled_products_fill_the_mandatory_fields','customization_mode','translate_mode','switch_to_translation_mode','switch_to_customization_mode'));
 ?>
@@ -75,7 +75,7 @@ fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_s
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/styles.post.tpl' => 1416531443,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1421124078,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -151,7 +151,8 @@ fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_s
 /css/960/960_old.css" rel="stylesheet" type="text/css" /> -->
 <?php endif; ?>
 
-<link rel="stylesheet" href="css/font-awesome.min.css"><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+<!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 <?php $this->_smarty_vars['capture']['styles'] = ob_get_contents(); ob_end_clean(); ?>
 <?php echo smarty_function_join_css(array('content' => $this->_smarty_vars['capture']['styles']), $this);?>
 

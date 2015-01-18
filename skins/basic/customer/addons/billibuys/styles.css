@@ -401,10 +401,10 @@ html.ie9 .how_does_it_work_block div {
 	font-family: "Roboto";
 	font-size: 10pt;
 	min-height: 0px;
-}
-
-.request .footer{
-	margin-top: 40px;
+	/*position: relative;
+	margin-top: -71px;
+	height: 71px;
+	clear: both;*/
 }
 
 .footer:after{
@@ -545,6 +545,7 @@ html.ie9 .how_does_it_work_block div {
 	border: thin rgb(228, 228, 228) solid;
 	border-radius: 0.5em;
 	min-width: 140px;
+	margin-bottom: 60px;
 }
 
 .cat-left-side-nav span{
@@ -889,8 +890,7 @@ html.ie9 .how_does_it_work_block div {
 	border-bottom: none;
 }
 
-
-
+/*body,html{height: 100%;}*/
 
 #index{
 	background-image: url('/images/morning_new.jpg');
@@ -899,6 +899,16 @@ html.ie9 .how_does_it_work_block div {
 	background-attachment:fixed;
 }
 
+/*.main{
+	overflow: auto;
+	padding-bottom: 71px;
+	height: 100%;
+}*/
+
+/*.helper-container{
+	height: 100%;
+}
+*/
 #index .header{
 	/*background-color: rgba(0, 104, 133, 0.38);*/
 	/*background: -webkit-gradient(linear, 100% 1%, 0% 0%, from(#3FB2D1), to(#087594));*/

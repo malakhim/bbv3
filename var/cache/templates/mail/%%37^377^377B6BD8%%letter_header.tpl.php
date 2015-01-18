@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-01-12 15:27:47
+<?php /* Smarty version 2.6.18, created on 2015-01-17 11:04:51
          compiled from letter_header.tpl */ ?>
 <html>
 <head>

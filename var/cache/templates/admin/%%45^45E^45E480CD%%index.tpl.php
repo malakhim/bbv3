@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-01-13 21:36:47
+<?php /* Smarty version 2.6.18, created on 2015-01-17 11:04:34
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 52, false),array('modifier', 'strpos', 'index.tpl', 59, false),array('modifier', 'escape', 'index.tpl', 111, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 190, false),array('modifier', 'lower', 'index.tpl', 202, false),array('modifier', 'fn_query_remove', 'index.tpl', 239, false),array('modifier', 'fn_url', 'index.tpl', 239, false),array('modifier', 'fn_link_attach', 'index.tpl', 248, false),array('modifier', 'fn_get_notifications', 'index.tpl', 272, false),array('modifier', 'default', 'index.tpl', 306, false),array('modifier', 'unescape', 'index.tpl', 306, false),array('block', 'hook', 'index.tpl', 59, false),array('function', 'join_css', 'index.tpl', 83, false),array('function', 'script', 'index.tpl', 98, false),)), $this); ?>
