@@ -10,10 +10,10 @@
 	$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
 	$g_smtp_host = 'smtp.gmail.com';
 	$g_smtp_connection_mode = 'tls';
-	$g_smtp_port = 587;
-	$g_smtp_username = 'malakhim@gmail.com'; //replace it with your gmail address
-	$g_smtp_password = 'wx478QqC'; //replace it with your gmail password
-	$g_administrator_email = 'bryan@bryonics.com'; //this will be your administrator email address
+	$g_smtp_port = 465;
+	$g_smtp_username = 'bryan@brystore.com'; //replace it with your gmail address
+	$g_smtp_password = '72waLkpE'; //replace it with your gmail password
+	$g_administrator_email = 'bryan@brystore.com'; //this will be your administrator email address
 	$g_log_level = LOG_EMAIL | LOG_EMAIL_RECIPIENT;
 	$g_log_destination = 'file:/tmp/mantisbt.log';
 ?>
