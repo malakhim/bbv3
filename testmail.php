@@ -1,15 +1,15 @@
 <?php
 require_once "Mail.php";
 
-$from = "username@gmail.com"; 
-$to = "username@gmail.com"; //CHANGE THIS TO YOUR GMAIL ADDRESS WELL
+$from = "bryan@brystore.com"; 
+$to = "malakhim@gmail.com"; //CHANGE THIS TO YOUR GMAIL ADDRESS WELL
 $subject = "Hi!";
 $body = "Hi,\n\nHow are you?";
 
-$host = "ssl://smtp.gmail.com";
+$host = "ssl://gator4107.hostgator.com";
 $port = "465";
-$username = "username@gmail.com"; //CHANGE THIS TO YOUR GMAIL ADDRESS WELL
-$password = "password"; //CHANGE THIS TO YOUR GMAIL PASSWORD
+$username = "bryan@brystore.com"; //CHANGE THIS TO YOUR GMAIL ADDRESS WELL
+$password = "72waLkpE"; //CHANGE THIS TO YOUR GMAIL PASSWORD
 
 $headers = array ('From' => $from,
 'To' => $to,
