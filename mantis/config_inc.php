@@ -7,8 +7,8 @@
 
 	$g_allow_signup    = ON;  //allows the users to sign up for a new account
 	$g_enable_email_notification = ON; //enables the email messages
-	$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
-	$g_smtp_host = 'gator4107.hostgator.com';
+	$g_phpMailer_method = PHPMAILER_METHOD_MAIL;
+	$g_smtp_host = 'localhost';
 	$g_smtp_connection_mode = 'tls';
 	$g_smtp_port = 465;
 	$g_smtp_username = 'bryan@brystore.com'; //replace it with your gmail address
