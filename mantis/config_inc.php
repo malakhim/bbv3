@@ -16,7 +16,6 @@
 	$g_administrator_email = 'bryan@bryonics.com'; //this will be your administrator email address
 	$g_webmaster_email = 'bryan@bryonics.com';
 	$g_from_email = 'bryan@bryonics.com';
-	$g_return_path_email = 'bryan@bryonics.com';
 	$g_from_name = 'Billibuys Bug Tracker';
 	$g_log_level = LOG_EMAIL | LOG_EMAIL_RECIPIENT;
 	$g_log_destination = 'file:/tmp/mantisbt.log';

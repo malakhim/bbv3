@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-01-19 10:10:30
+<?php /* Smarty version 2.6.18, created on 2015-02-27 12:08:35
          compiled from addons/billibuys/components/sorting.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_query_remove', 'addons/billibuys/components/sorting.tpl', 20, false),array('modifier', 'fn_get_offers_sorting', 'addons/billibuys/components/sorting.tpl', 22, false),array('modifier', 'fn_get_requests_sorting', 'addons/billibuys/components/sorting.tpl', 24, false),array('modifier', 'fn_get_products_sorting_orders', 'addons/billibuys/components/sorting.tpl', 26, false),array('modifier', 'fn_get_products_views', 'addons/billibuys/components/sorting.tpl', 27, false),array('modifier', 'default', 'addons/billibuys/components/sorting.tpl', 28, false),array('modifier', 'count', 'addons/billibuys/components/sorting.tpl', 46, false),array('modifier', 'replace', 'addons/billibuys/components/sorting.tpl', 51, false),array('modifier', 'fn_url', 'addons/billibuys/components/sorting.tpl', 51, false),)), $this); ?>

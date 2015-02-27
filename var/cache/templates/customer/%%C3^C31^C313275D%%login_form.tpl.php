@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2015-01-19 10:10:30
+<?php /* Smarty version 2.6.18, created on 2015-02-27 12:09:04
          compiled from views/auth/login_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 16, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 23, false),array('modifier', 'fn_needs_image_verification', 'views/auth/login_form.tpl', 40, false),array('modifier', 'uniqid', 'views/auth/login_form.tpl', 43, false),array('block', 'hook', 'views/auth/login_form.tpl', 63, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('returning_customer','email','username','password','f
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/login_buttons.post.tpl' => 1406444269,
+  'addons/billibuys/hooks/index/login_buttons.post.tpl' => 1422059385,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -119,7 +119,72 @@ unset($_smarty_tpl_vars);
 			</div>
 		<?php endif; ?>
 	<?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><input type="hidden" name="request_title" value="<?php echo $this->_tpl_vars['_REQUEST']['request_title']; ?>
-" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+" />
+
+<?php echo '
+  <div id="fb-root"></div>
+  <script>
+
+    // Call FB SDK
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_PI/sdk.js#xfbml=1&appId=809195452485029&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, \'script\', \'facebook-jssdk\'));
+
+    // Initialise FB
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : \'809195452485029\',
+        cookie     : true,
+        xfbml      : true,
+        version    : \'v2.2\'
+      });
+
+      FB.getLoginStatus(function(response){
+        statusChangeCallback(response);
+        // console.log(response);
+      });
+
+      // This is called with the results from from FB.getLoginStatus().
+      function statusChangeCallback(response) {
+        console.log(\'statusChangeCallback\');
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === \'connected\') {
+          // Logged into your app and Facebook.
+          console.log(\'User connected to both\');
+        } else if (response.status === \'not_authorized\') {
+          // The person is logged into Facebook, but not your app.
+          document.getElementById(\'status\').innerHTML = \'Please log \' +
+            \'into this app.\';
+        } else {
+          // The person is not logged into Facebook, so we\'re not sure if
+          // they are logged into this app or not.
+          document.getElementById(\'status\').innerHTML = \'Please log \' +
+            \'into Facebook.\';
+        }
+      }
+
+
+    };
+
+  </script>
+
+'; ?>
+
+
+
+
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false" data-scope="public_profile,email"></div>
+
+
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 <?php if ($this->_tpl_vars['id'] == 'checkout'): ?>
 	</div>
 <?php endif; ?>
